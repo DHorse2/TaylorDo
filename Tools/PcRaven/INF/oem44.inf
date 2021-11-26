@@ -1,0 +1,84 @@
+;
+; ArcSoftKsUFilter.inf
+;
+; Adapted from a DDK sample.
+;
+; upper filter driver to the Media class
+;
+; Author: Happin Yang
+;
+
+[Version]
+Signature = "$Windows NT$"
+Provider = %ArcKsUFilter.Provider%
+Class = image
+ClassGuid = {6BDD1FC6-810F-11D0-BEC7-08002BE2092F} 
+DriverVer = 04/02/2008, 1.0.0.5
+CatalogFile=ArcSoftKsUFilter.cat
+
+[SourceDisksNames]
+1 = %ArcKsUFilter.MediaDesc%,,,
+
+[SourceDisksFiles.amd64]
+ArcSoftKsUFilter.sys = 1,,
+ArcSoftKsUFilter.dll =1,,
+
+[DestinationDirs]
+upperfilter_copyfiles = 12
+filterSDK_copyfiles = 10,\system
+
+[DefaultInstall]
+CopyFiles = upperfilter_copyfiles,filterSDK_copyfiles
+AddReg = upperfilter_addreg
+
+[upperfilter_copyfiles]
+ArcSoftKsUFilter.sys
+
+[filterSDK_copyfiles]
+ArcSoftKsUFilter.dll
+
+
+[upperfilter_addreg]
+; append this service to existing REG_MULTI_SZ list, if any
+HKLM,SYSTEM\CurrentControlSet\Control\Class\{6BDD1FC6-810F-11D0-BEC7-08002BE2092F}, UpperFilters, 0x00010008,ArcSoftKsUFilter
+
+
+[DefaultInstall.Services]
+AddService = ArcSoftKsUFilter,,upperfilter_service, clasfilt_EventLog_Inst
+
+
+[upperfilter_service]
+DisplayName   = %ArcKsUFilter.SvcDesc%
+ServiceType   = 1   ; SERVICE_KERNEL_DRIVER
+StartType     = 3   ; SERVICE_DEMAND_START
+ErrorControl  = 1   ; SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\ArcSoftKsUFilter.sys
+LoadOrderGroup = "filter"
+
+[clasfilt_EventLog_Inst]
+AddReg = clasfilt_EventLog_AddReg
+
+
+[clasfilt_EventLog_AddReg]
+;Change clasfilt.sys to the name of your driver file.
+HKR,,EventMessageFile, %REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\ArcSoftKsUFilter.sys"
+HKR,,TypesSupported, %REG_DWORD%, 7
+
+
+[Uninstall]
+DelReg = arcKsUFilter_DelReg
+DelFiles = upperfilter_copyfiles,filterSDK_copyfiles
+
+[Uninstall.Services]
+DelService = ArcSoftKsUFilter,,
+
+[arcKsUFilter_DelReg]
+HKLM, SYSTEM\CurrentControlSet\Control\Class\{6BDD1FC6-810F-11D0-BEC7-08002BE2092F}, UpperFilters, 0x00018002, ArcSoftKsUFilter
+
+
+[Strings]
+ArcKsUFilter.Provider = "ArcSoft, Inc."
+ArcKsUFilter.MediaDesc = "ArcSoft Magic-I Driver Disc"
+ArcKsUFilter.SvcDesc = "ArcSoft Magic-I Visual Effect"
+REG_EXPAND_SZ         = 0x00020000
+REG_DWORD             = 0x00010001

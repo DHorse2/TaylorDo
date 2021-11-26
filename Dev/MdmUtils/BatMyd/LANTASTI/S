@@ -1,0 +1,217 @@
+ 
+ 
+You are machine PC1 on port 001. 
+Your server is SV1. 
+You are linked to SV1 
+ 
+ 
+
+MS-DOS Version 5.00
+
+ 
+PATH=C:\LANTASTI;C:\DOS;C:\;C:\BAT;C:\UT\OPSYS;C:\UT;C:\UT\MACRO
+ 
+COMSPEC=C:\COMMAND.COM
+DIRCMD=/o:gen
+TEMP=c:\tempfile
+DIRSMD=\dos\SMARTDRV.SYS
+CMDSMD=LH
+SMDMAX=2048
+SMDMIN=1024
+SMDLOC=/a
+PORTID=001
+NATIVE=DOS
+OPSYS=DOS
+DIRTAPE=\tape\TAPE.COM
+DIRLAN=\bat\LAN.BAT
+CMDLAN=CALL
+LAN=LANTASTI
+LANDIR=\LANTASTI
+SYSID=PC1
+SERVERID=SV1
+DIRSHR=\dos\SHARE.EXE
+CMDSHR=LH
+SHRMAX=524
+SHRMIN=256
+SHRLOC=/a
+LINK=SV1
+DIRFAX=G:\fax\in\RECFAX
+CMDFAX=CALL
+DOSKEY=ON
+PATH=C:\LANTASTI;C:\DOS;C:\;C:\BAT;C:\UT\OPSYS;C:\UT;C:\UT\MACRO
+PROMPT=$l$l DOS PC1+$p _ $d $t $g$g$_$g
+ 
+
+  Address     Name          Size       Type 
+  -------     --------     ------     ------
+  000000                   000400     Interrupt Vector
+  000400                   000100     ROM Communication Area
+  000500                   000200     DOS Communication Area
+
+  000700      IO           000A60     System Data
+                  CON                   System Device Driver 
+                  AUX                   System Device Driver 
+                  PRN                   System Device Driver 
+                  CLOCK$                System Device Driver 
+                  A: - C:               System Device Driver 
+                  COM1                  System Device Driver 
+                  LPT1                  System Device Driver 
+                  LPT2                  System Device Driver 
+                  LPT3                  System Device Driver 
+                  COM2                  System Device Driver 
+                  COM3                  System Device Driver 
+                  COM4                  System Device Driver 
+
+  001160      MSDOS        0013D0     System Data
+
+  002530      IO           004E50     System Data
+                HIMEM      0004A0      DEVICE=    
+                  XMSXXXX0              Installed Device Driver 
+                EMM386     0020D0      DEVICE=    
+                  EMMXXXX0              Installed Device Driver 
+                           0015F0      FILES=     
+                           0003C0      FCBS=      
+                           000200      BUFFERS=   
+                           000580      LASTDRIVE= 
+                           000740      STACKS=    
+  007390      MSDOS        000040     System Program
+
+  0073E0      COMMAND      000940     Program   
+  007D30      MSDOS        000040     -- Free --
+  007D80      COMMAND      000600     Environment
+  008390      COMMAND      000040     Data      
+  0083E0      COMMAND      000040     Data      
+  008430      COMMAND      000040     Data      
+  008480      MSDOS        000190     -- Free --
+  008620      AEX          000E40     Program   
+  009470      MEM          000200     Environment
+  009680      MEM          0176F0     Program   
+  020D80      MSDOS        07F260     -- Free --
+  09FFF0      SYSTEM       010010     System Program
+
+  0B0010      MSDOS        000200     -- Free --
+  0B0220      DOSKEY       001020     Program   
+  0B1250      MSDOS        006D80     -- Free --
+  0B7FE0      SYSTEM       010020     System Program
+
+  0C8010      IO           004310     System Data
+                SMARTDRV   004300      DEVICE=    
+                  SMARTAAR              Installed Device Driver 
+  0CC330      SHARE        001470     Program   
+  0CD7B0      AILANBIO     003B40     Program   
+  0D1300      REDIR        0036A0     Program   
+  0D49B0      SERVER       007900     Program   
+  0DC2C0      MSDOS        003D30     -- Free --
+
+
+    655360 bytes total conventional memory
+    655360 bytes available to MS-DOS
+    616800 largest executable program size
+
+  Handle      EMS Name      Size   
+  -------     --------     ------  
+       0                   060000
+       1                   100000
+
+   3014656 bytes total EMS memory
+   1572864 bytes free EMS memory
+
+   3145728 bytes total contiguous extended memory
+         0 bytes available contiguous extended memory
+    229376 bytes available XMS memory
+           MS-DOS resident in High Memory Area
+ 
+ 
+ 
+The network boots automatically. 
+The network is running. 
+There is a mouse. 
+There is doskey in use. 
+There is a fax in use. 
+The auxillary port is on. 
+The operating system is DOS. 
+The native operating system is DOS. 
+ 
+
+ Volume in drive C has no label
+ Volume Serial Number is 3C15-12D4
+ Directory of C:\LAN\USERS\SV1
+
+.            <DIR>     04-05-95   6:35a
+..           <DIR>     04-05-95   6:35a
+00000486 CFG         5 01-25-95   2:54a
+BACKUP   CFG        56 05-30-85   1:22p
+COM00001 CFG         6 01-25-95   1:42a
+COM00002 CFG         6 01-25-95   1:42a
+CON00001 CFG         5 01-25-95   1:41a
+CPU00001 CFG         5 01-25-95   2:54a
+DRIVE00A CFG         4 01-25-95   1:41a
+DRIVE00B CFG         4 01-25-95   1:41a
+DRIVE00C CFG         4 01-25-95   1:41a
+LPT00001 CFG         6 01-25-95   1:42a
+MATH0001 CFG         4 10-31-94   5:32a
+NET00001 CFG       261 07-16-95  11:35a
+NULL0001 CFG         2 01-25-95   1:41a
+SV1      CFG       203 07-16-95  11:35a
+TAPE0001 CFG        13 01-25-95   1:42a
+ON       FLG         9 01-25-95   1:37a
+TRUE     FLG         6 11-06-94   5:26p
+       19 file(s)        599 bytes
+                    23162880 bytes free
+ 
+
+ Volume in drive C has no label
+ Volume Serial Number is 3C15-12D4
+ Directory of C:\LAN\USERS\PC1
+
+.            <DIR>     11-13-94   3:48p
+..           <DIR>     11-13-94   3:48p
+G-DRIVE      <DIR>     11-13-94   3:53p
+I-DRIVE      <DIR>     11-13-94   3:55p
+J-DRIVE      <DIR>     11-13-94   3:55p
+K-DRIVE      <DIR>     11-13-94   3:55p
+PRINTER      <DIR>     11-14-94  12:19a
+PRINTER1     <DIR>     11-14-94  12:19a
+00000386 CFG         5 01-25-95   3:04a
+BACKUP   CFG        56 05-30-85   1:22p
+COM00001 CFG         6 01-25-95   1:42a
+COM00002 CFG         6 01-25-95   1:42a
+CON00001 CFG         5 01-25-95   1:41a
+DRIVE00A CFG         4 01-25-95   1:41a
+DRIVE00B CFG         4 01-25-95   1:41a
+DRIVE00C CFG         4 01-25-95   1:41a
+GAMES001 CFG         4 10-31-94   5:32a
+LPT00001 CFG         6 01-25-95   1:42a
+MATH0001 CFG         4 10-31-94   5:32a
+MOUSE001 CFG         4 10-31-94   5:32a
+NET00001 CFG       327 07-16-95   1:42p
+NULL0001 CFG         2 01-25-95   1:41a
+PC1      CFG       217 07-16-95   1:42p
+TAPE0001 CFG        13 01-25-95   1:42a
+TRUE     FLG         4 10-31-94   5:32a
+       25 file(s)        671 bytes
+                    23162880 bytes free
+ 
+ 
+LANtastic (R) Connection Manager V4.10 - (C) Copyright 1991 ARTISOFT Inc.
+Machine PC1 is being used as a Redirector and a Server
+File and record locking is currently ENABLED
+Unsolicited messages will BEEP and POP-UP 
+LPT notification is DISABLED
+LPT timeout in seconds: 2
+Autologin is ENABLED with username PC1
+Logged into \\PC1 as PC1 on adapter 0
+Logged into \\SV1 as PC1 on adapter 0
+Disk G: is redirected to \\SV1\C-DRIVE
+Disk I: is redirected to \\SV1\A-DRIVE
+Disk J: is redirected to \\SV1\B-DRIVE
+Disk K: is redirected to \\SV1\C-DRIVE
+Printer LPT2 is redirected to \\SV1\@PRINTER1
+Printer LPT3 is redirected to \\SV1\@PRINTER1
+
+ You are machine PC1 on port 001. 
+ Your server is SV1. 
+ You are linked to SV1 
+ 
+ 
+

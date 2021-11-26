@@ -1,0 +1,29 @@
+# Script: ZoneWhenFinished
+
+!include "..\..\Display\BannerSet.MyDc"!
+!include "..\..\Display\BannerLog.MyDc"!
+
+# SetVariable(ZoneKeyCurr, "!LogFileName! !ZoneCurrentDescription!")
+# Zone Statistics	
+/* Xinclude "..\..\Zone\ZoneDoStatistics.MyDc"X */
+# Footer
+!include "..\..\Display\ZoneFooterGet.MyDc"!
+SetVariable(ZoneFooter,     "!ZoneFooter1!!ZoneFooter2!")
+WriteLogfile("!ZoneKeyCurr! part1", "!ZoneFooter1!")
+WriteLogfile("!ZoneKeyCurr! part2", "!ZoneFooter2!")
+
+# !Date! !Time!
+RunProgram("..\..\Commands\WriteDateTime.bat LastZone")
+# Append Datetime to logs
+
+RunProgram("copy","'!ZoneKeyCurr! part1'+'DateTimeLastZone.txt'+'!ZoneKeyCurr! part2'","!ZoneKeyCurr!","/Y")
+
+RunProgram("copy","'!LogFileName!'+'DateTimeLastZone.txt'", "!LogFileName!","/Y")
+
+AppendLogfile("!LogFileName!", ".")
+AppendLogfile("!LogFileName!", "!ZoneFooter!")
+AppendLogfile("!LogFileName!", ".")
+
+!include "..\..\Display\ZoneFooterSetStatisticsWindowText.MyDc"!
+
+!include "..\..\Pause\PauseZone.MyDc"!

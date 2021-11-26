@@ -1,0 +1,27 @@
+# Script: ZoneDoHeader
+
+!include "..\ZoneWhenStarted.MyDc"!
+
+/* Fixed Zone Position Handling */
+/* Literal number: */
+/* SetVariable(Temp, RoundUp( (ZoneBegin * ZoneFixedToggle * (0-1)), (ZoneLocationCurrent * ZoneFixedToggle) ) */
+/* Percentage of disk: */
+# XXX SetVariable(Temp, RoundUp(ZoneBegin * ZoneFixedToggle * (0-1), ZoneLocationCurrent * ZoneFixedToggle * VolumeSize))
+/* Gap */
+/* XXXXXXXXXXXXXXXXXXXXXXX MakeGap(Temp, DoNotVacate) // will move if toggle is on (1). xxx method Mft */
+
+/* ---------------------------------------------------------- */
+SetVariable(FileStepDescription, "!FileStepDescriptionFileSelect!")
+!include "..\Display\DisplaySetFileStep.MyDc"!
+
+# your stuff HERE (X)... pre file select code.
+	# SetVariable(FileStepDescription, "!FileStepDescriptionYourZonePre!")
+	# Xinclude "..\Display\DisplaySetFileStep.MyDc"X
+	# (X)
+
+FileSelect
+
+	# your stuff can't really go here (errors.)
+	# maybe for some reason I don't know of...
+	
+	# Actions next...

@@ -1,0 +1,8 @@
+# Script: DisplaySetServer
+# (Volume)
+SetVariable(SeverStepDescription, 	"!ServerNameFull!")
+SetVariable(VolumeStepDescription, 	"")
+SetVariable(ZoneStepDescription, 	"")
+SetVariable(FileStepDescription, 	"")
+!include "..\Display\BannerSet.MyDc"!
+/* pause(2) */

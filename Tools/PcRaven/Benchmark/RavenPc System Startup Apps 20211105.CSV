@@ -1,0 +1,23 @@
+ArcSoft Connection Service
+C:\Program Files (x86)\Common Files\ArcSoft\Connection Service\Bin\ACDaemon.exe,C:\Program Files (x86)\Common Files\ArcSoft\Connection Service\Bin\ACDaemon.exe,Execution complete: C:\Program Files (x86)\Common Files\ArcSoft\Connection Service\Bin\ACDaemon.exe,1.605 s,2021-11-05 8:40:12 AM
+HPMessageService
+C:\Program Files (x86)\HP\HP System Event\HPMSGSVC.exe,C:\Program Files (x86)\HP\HP System Event\HPMSGSVC.exe,Execution complete: C:\Program Files (x86)\HP\HP System Event\HPMSGSVC.exe,7.325 s,2021-11-05 8:40:21 AM
+RTHDVCPL
+"C:\Program Files\Realtek\Audio\HDA\RtkNGUI64.exe" -s,"C:\Program Files\Realtek\Audio\HDA\RtkNGUI64.exe" -s,Execution complete: C:\Program Files\Realtek\Audio\HDA\RtkNGUI64.exe*-s,3.125 s,2021-11-05 8:40:27 AM
+BtServer
+"C:\Program Files (x86)\REALTEK\Realtek Bluetooth\BTServer.exe","C:\Program Files (x86)\REALTEK\Realtek Bluetooth\BTServer.exe",
+ C:\Program Files (x86)\REALTEK\Realtek Bluetooth\BTServer.exe,Error,2021-11-05 8:40:44 AM
+SecurityHealth
+%windir%\system32\SecurityHealthSystray.exe,%windir%\system32\SecurityHealthSystray.exe,Execution complete: C:\WINDOWS\SYSTEM32\SECURITYHEALTHSYSTRAY.EXE,3.953 s,2021-11-05 8:40:50 AM
+Magnifier
+"C:\DevSupportCd2\System\ZoomIt v3.03\ZoomIt.exe","C:\DevSupportCd2\System\ZoomIt v3.03\ZoomIt.exe",Execution complete: C:\DevSupportCd2\System\ZoomIt v3.03\ZoomIt.exe,1.287 s,2021-11-05 8:40:52 AM
+Ui Clipper
+"C:\Program Files (x86)\YCIII\YankClip.exe","C:\Program Files (x86)\YCIII\YankClip.exe",Execution complete: C:\Program Files (x86)\YCIII\YankClip.exe,17.180 s,2021-11-05 8:41:11 AM
+Ui Snapshot
+"C:\Program Files (x86)\MWSnap\MWSnap.exe","C:\Program Files (x86)\MWSnap\MWSnap.exe",Execution complete: C:\Program Files (x86)\MWSnap\MWSnap.exe,4.253 s,2021-11-05 8:41:17 AM
+OneDrive
+"C:\Users\david\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background,"C:\Users\david\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background,Execution complete: C:\Users\david\AppData\Local\Microsoft\OneDrive\OneDrive.exe*/background,12.079 s,2021-11-05 8:41:37 AM
+AMDDVR
+"C:\Program Files\AMD\CNext\CNext\AMDRSServ.exe","C:\Program Files\AMD\CNext\CNext\AMDRSServ.exe",Execution complete: C:\Program Files\AMD\CNext\CNext\AMDRSServ.exe,0.750 s,2021-11-05 8:41:39 AM
+SunJavaUpdateSched
+"C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe","C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe",Execution complete: C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe,16.261 s,2021-11-05 8:41:56 AM

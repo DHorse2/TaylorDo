@@ -1,0 +1,17 @@
+# Zone / Volume Statistics and Display
+		
+	# Accumulate Totals
+  	!include "..\ZoneDoVolumeTotals.MyDc"!
+
+	# Current Values
+	!include "..\ZoneDoCurrentSet.MyDc"!
+  	/* Xinclude "..\Gap\GapZoneActualFreeSetCurrent.MyDc"X */
+
+	# Add Zone to list of zones for display.
+	SetVariable(ZoneListByLine, "!ZoneListByLine! - ( size !ZoneSizeCurrent! / actual gap !ZoneGapActualCurrent! / actual size !ZoneSizeActualCurrent!) - [begin !ZoneBeginCurrent! / end !ZoneEndCurrent! / gap used !ZoneGapUsedCurrent! / gap unused !ZoneGapAvailableCurrent! / round up !ZoneVolRoundUp!]")
+	# ??? Free Stats?
+	!include "..\ZoneFooterGet.MyDc"!
+
+	# Add Zone Details to Report.	
+	SetVariable(ZoneStatisticsDetail, 	"!ZoneStatisticsDetail!
+!ZoneFooter!")

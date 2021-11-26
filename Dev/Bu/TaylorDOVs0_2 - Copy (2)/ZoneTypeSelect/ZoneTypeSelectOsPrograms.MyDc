@@ -1,0 +1,9 @@
+# Script: ZoneDo ZoneTypeSelectOsPrograms
+# Programs start.
+!include "..\SelectCategory\SelNotBlobArchivesBu.MyDs"!
+# Programs
+and (
+!include "..\SelectCategory\SelSystemDir.MyDs"!
+# Programs
+)
+# Programs end.

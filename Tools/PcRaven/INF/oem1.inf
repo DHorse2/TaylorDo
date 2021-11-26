@@ -1,0 +1,69 @@
+;
+; Copyright (c) 2015  HPDC LP
+;
+; All rights reserved.
+;
+; THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+; ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+; THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+; PARTICULAR PURPOSE.
+;
+; File Name:
+;
+;    hpxpswrkflw4.inf
+;
+; Abstract:
+;
+;    HP Delivery Driver V4 driver install file.
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%HP%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+CatalogFile=hpxpswrkflwv4.cat
+ClassVer=4.0
+DriverVer    = 10/23/2015,1.0.91.18601
+
+[Manufacturer]
+%HP% = HP,NTAMD64
+
+[HP]
+"HP Delivery Driver V4" = XXX_XPSWorkflow_COPY,,{7E88E10F-2461-4481-990A-A2A7565DBF6C}
+
+[HP.NTAMD64]
+"HP Delivery Driver V4" = XXX_XPSWorkflow_COPY,,{7E88E10F-2461-4481-990A-A2A7565DBF6C}
+
+; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+; This is install section (currently common for all models)
+; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+[XXX_XPSWorkflow_COPY]
+CopyFiles=hpxpswrkflw_files
+
+[hpxpswrkflw_files]
+hpxpswrkflw-manifest.ini
+hpxpswrkflw-pipelineconfig.xml
+hpxpswrkflw.gpd
+hpxpswrkflw.dll
+hpxpswrkflwmacros.gpd
+hpxpswrkflwres.dll
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksFiles]
+hpxpswrkflw.gpd = 1
+hpxpswrkflw-pipelineconfig.xml = 1
+hpxpswrkflw-manifest.ini = 1
+hpxpswrkflw.dll = 1
+hpxpswrkflwmacros.gpd = 1
+hpxpswrkflwres.dll = 1
+
+[Strings]
+Location="HP Delivery Driver V4"
+HP="HP"
+
+[SourceDisksNames]
+1 = %Location%,,,""

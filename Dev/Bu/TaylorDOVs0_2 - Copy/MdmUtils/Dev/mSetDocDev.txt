@@ -1,0 +1,93 @@
+@Rem . TEST2 place value %2 into file name with suffix %1
+@Rem . Concept: SET <feature> (<state> OR <state> <value>)
+@Rem . 
+@Rem . <feature>:
+@Rem . 
+@Rem . Terms: <attribute> in all cases means: (<attribute> OR <identifier> OR <property>)
+@Rem . It really depends on your use case and domain jargon. 
+@Rem . IE. It refers to broadly feature identifiers where attributes is the more common use case. 
+@Rem . Valid if: 
+@Rem . Exists <feature>.CFG (The feature name, alone or as a suffix to Actions, States and attribute values. 
+@Rem . Exists <feature><state>.CFG (get set to <value>, if omitted display contents)
+@Rem . Exists <feature>_<state>.CFG (set feature to this state, ie ON, OFF, <FeatureAttributeState>)
+@Rem . 
+@Rem . (<state> OR <state> <value>*):
+@Rem .
+@Rem . <state>: Text.
+@Rem . Usage is by case and may be attributes, options, debug or plugin points, etc. 
+@Rem . So these are attributes that you can set for the feature.
+@Rem . From another view, features should have a boolean On / Off often.
+@Rem . However a feature or module has dozens settings where
+@Rem . you will see the most essential implemented here. 
+@Rem . More often, you will see code that is external to the companion
+@Rem . (calling) application executed at the command prompt.
+@Rem . 
+@Rem . Feature/attribute settings (SET) are constrained by defined states
+@Rem . while allowing the user to (VERY UNSAFELY) enter text/numeric values 
+@Rem . where appropiate. Both variations can be valid concurrently.
+@Rem . For example PAUSE as a debug setting. 
+@Rem . Valid values include ON OFF 0-999* <empty>.
+@Rem . 
+@Rem . They are controlled the same way as the main feature.
+@Rem . By intention, many features
+@Rem . 
+@Rem . 
+@Rem . <value>: Text, not validated currently (which is limited in either case.) 
+@Rem . 
+@Rem . Example: SET SearchBrowser FireFox
+@Rem . Feature = Search, Attribute = Browser, value = "FireFox"
+@Rem . Example: SET Pause On
+@Rem . Example: SET PauseZone On
+@Rem . Example: SET PauseZonePublic Off
+@Rem . 
+@Rem . Filenames have this structure:
+@Rem . <Feature><FeatureAttribute>(<FeatureAttributeValue> OR <FeatureAttributeState>).CFG
+@Rem . Syntax: XXXXX <state> allowing: 
+@Rem . Feature, Feature Attribute, Feature Attribute Value or State changing content, 
+@Rem . Attribute are settings for a feature, debug settings, custom script segments and
+@Rem . can vary within a feature (or module perhaps.)
+@Rem . 
+@Rem . (Original Copyright: Axion SW & Systems / MacroscopeDM / Dgh / MacroDM)
+@Rem . Blame: Bob Connaroe, David Stern, David G. Horsman, Bill Gates.
+@Rem . 
+@Rem . Features are boolean controlled via various files using these file extensions: 
+@Rem . 
+@Rem . feature = <feature> exists (old: CFG) (feature or feature + setting)
+@Rem .           this is a boolean (exists) value constraining the syntax of SET.
+@Rem . 
+@Rem . data = <feature> <value> (old: DAT) (can contain values or script)
+@Rem .        this is copied onto the live (target) script file.
+@Rem . 
+@Rem . value = <feature> <setting> allows a <value> to be entered for it.
+@Rem .         A preset setting (ie. ON, OFF, Exit etc) may be concurrently 
+@Rem .         allowed
+@Rem . 
+@Rem . live = YOUR extension set in the top of mSet.bat. Therefore: 
+@Rem . XXX  = <taregetFile> (this is replaced by either the ".data" file 
+@Rem .        or the wrapped (scriptified) <value> from the SET command.)
+@Rem .        This is what actually gets executed by the module / application. 
+@Rem . 
+@Rem . default = <feature> <value> <default> (old: STD) (lets you reset an option)
+@Rem .           so this matches ".live" initially and replaces it conditionally. 
+@Rem . 
+@Rem . last = <feature> <value> (<prev>) (for swapping back after a temporary process) 
+@Rem .        Each SET command should copy ".live" to ".last" before proceeding.
+@Rem . 
+@Rem . original = <feature> <value> (<original>) (old: OLD) (a backup) 
+@Rem . 
+@Rem . 
+@Rem . File name suffixes: 
+@Rem . _<Attribute, Setting, Option, etc.> = Belonging to a feature. (_AnyText)
+@Rem . 
+@Rem . _<featureAttribute> = Text, short legth. 
+@Rem . _<featureAttributeValue> = Text, short legth. 
+@Rem . 
+@Rem . _ON =
+@Rem . _OFF =
+@Rem . _START = 
+@Rem . _END = 
+@Rem . _STATE = 
+@Rem . _ZERO =
+@Rem . _VS_4_1_64 = 
+@Rem . etc.
+@Rem .

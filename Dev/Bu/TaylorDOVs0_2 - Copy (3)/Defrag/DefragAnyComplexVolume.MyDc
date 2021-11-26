@@ -1,0 +1,110 @@
+/* XXXXXXXXXXXX ToDo Zone numbering errors still XXXXXXXXXXXXX */
+# Script: DefragAnyComplexVolume
+/* Complex Volume */
+# MyDefrag v4.0 script: Defrag Complex (Mixed or Any) Volume.
+
+!include "..\..\Display\VolumeStatisticsDetailGet.MyDc"!
+SetStatisticsWindowText("!VolumeStatisticsSummary!")
+RunProgram("..\..\Commands\WriteDateTime.bat LastVolume")
+SetVariable(FileStepDescription,"!VolumeLabel! !VolumeDescription! started: !Date! !Time!.")
+!include "..\..\Display\DisplaySetFileStep.MyDc"!
+SetVariable(FileStepDescription,"Analyzing Volume")
+!include "..\..\Display\DisplaySetFileStep.MyDc"!
+/* ---------------------------------------------------------- */
+VolumeSelect
+	Label("!VolumeLabel!") or Name("!VolumeLabel!")
+/* ---------------------------------------------------------- */
+VolumeActions
+/* ---------------------------------------------------------- */
+/* Volume Init */
+!include "..\..\Display\VolumeStatisticsDetailGet.MyDc"!
+SetStatisticsWindowText("!VolumeStatisticsSummary!")
+SetVariable(ZoneStepDescription,"Volume started.")
+SetVariable(FileStepDescription,"Analze.")
+!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+!include "..\..\Volume\VolumeWhenStarted.MyDc"!
+
+/* ---------------------------------------------------------- */
+/* System Zones 1 - 7 */
+/* ---------------------------------------------------------- */
+	!include "..\..\Defrag\DefragZoneGroupOs.MyDc"!
+/* ---------------------------------------------------------- */
+/* Any Volume Regular Zones */
+/* ---------------------------------------------------------- */
+# ????? Zone numbering?
+/* ---------------------------------------------------------- */
+/* Zone 8 IdeScripts Ide, Scripts, Support */
+!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeIdeScripts.MyDc"!
+/* ---------------------------------------------------------- */
+/* Zone 9 DevToDo */
+!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeDevToDo.MyDc"!
+/* ---------------------------------------------------------- */
+// "4" & "5", also 12 & 13, 
+// back to lower location (now) 10 & 11 due to Unzoned Multimedia
+// IE. Music, Photo album and video.
+/* XXXXXXXXXXXXXXXXXXXXXXXXX */
+/* Process MFT & Dir's HERE. */
+	!include "..\..\Defrag\DefragZoneGroupMftDir.MyDc"!
+/* XXXXXXXXXXXXXXXXXXXXXXXXX */
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+/* Zone 12 LinksCorp Links and Corp */
+!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeLinksCorp.MyDc"!
+/* ---------------------------------------------------------- */
+/* Zone 13 People */
+!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypePeople.MyDc"!
+/* ---------------------------------------------------------- */
+// Way too high due to Unzoned Multimedia scerios.
+// "4" & "5" now 12 & 13
+/* XXXXXXXXXXXXXXXXXXXXXXXXX */
+/* Process MFT & Dir's HERE. */
+/*	Xinclude "..\..\Defrag\DefragZoneGroupMftDir.MyDc"X */
+/* XXXXXXXXXXXXXXXXXXXXXXXXX */
+/* ---------------------------------------------------------- */
+/* Zone 15 Games */
+!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeGames.MyDc"!
+/* ---------------------------------------------------------- */
+/* Zone 16 Shares */
+!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeShares.MyDc"!
+/* ---------------------------------------------------------- */
+/* Zone 17 SystemOtherData System Other and Data */
+!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeSystemOtherData.MyDc"!
+/* ---------------------------------------------------------- */
+/* Zone 18 Reference & World */
+!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeReference.MyDc"!
+/* ---------------------------------------------------------- */
+/* Zone **** Music */
+/* ---------------------------------------------------------- */
+/* Zone **** Video */
+/* ---------------------------------------------------------- */
+/* Zone 19 SpaceHogs (BLOBS) */
+!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeSpaceHogs.MyDc"!
+/* ---------------------------------------------------------- */
+/* Zone 20 ArchivesBu (All) Archives and Backups*/
+!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
+/* ---------------------------------------------------------- */
+/* Volume End */
+!include "..\..\Volume\VolumeWhenFinished.MyDc"!
+
+VolumeEnd
+
+/* ---------------------------------------------------------- */
+
+AppendLogfile("!LogFileName!",".")
+SetVariable(FileStepDescription,"!Description! Complex Volume end: !Date! !Time!.")
+!include "..\..\Display\BannerDescriptionSet.MyDc"!
+AppendLogfile("!LogFileName!",".")
+
+/* ---------------------------------------------------------- */
+# End. ;-) (Return to caller lovely nubes, only MyD's get executed.)

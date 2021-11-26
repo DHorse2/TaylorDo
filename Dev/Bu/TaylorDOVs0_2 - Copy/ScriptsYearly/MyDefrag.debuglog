@@ -1,0 +1,14 @@
+﻿# See the 'MyDefrag.log' file for information intended for endusers. This is the debug
+# logfile. The contents is highly technical and not documented. See the 'Debug' setting
+# or the '-d' commandline option to control the level of information in this file.
+#
+Version: MyDefrag v4.3.1
+Date: 2019/07/07 19:16:04
+Windows version: v6.0 build 6002 S
+Commandline: "C:\Program Files\MyDefrag v4.3.1\MyDefrag.exe" -r "E:\Ide\MyDefrag\MyDefrag\MdmScriptMyDefragVs4_3_1\$ ScriptsYearly\DefragDevDiskYearly.MyD" 
+Working Directory: E:\Ide\MyDefrag\MyDefrag\MdmScriptMyDefragVs4_3_1\$ ScriptsYearly
+Userid: MdmSysUser
+InstallPath = C:\Program Files\MyDefrag v4.3.1\
+19:16:04 Lexical error in script 'E:\Ide\MyDefrag\MyDefrag\MdmScriptMyDefragVs4_3_1\$ ScriptsYearly\DefragDevDiskYearly.MyD' at line 46 column 1.
+
+Unkown symbol.

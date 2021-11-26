@@ -1,0 +1,86 @@
+;
+; Copyright (c) 2019  AMD 
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%AMD%
+
+DriverVer=04/29/2020, 20.10.0.0022
+
+CatalogFile=amdlog.cat
+
+[DestinationDirs]
+Drivers_Dir = 12
+Utility_Dir = 11
+
+[SourceDisksNames.x86]
+1 = %DISK_NAME%,,,""
+
+[SourceDisksNames.amd64]
+1 = %DISK_NAME%,,,""
+
+
+[SourceDisksFiles]
+amdlog.sys  = 1,,
+amdlogsr.exe  = 1,,
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD%=AMDLOG_KM,NTAMD64
+
+[DeviceInstall32]
+ADDDevice = ROOT\AMDLOG\0000,,AMDLOG_RootDevices_Inst
+
+[AMDLOG_RootDevices_Inst]
+HardwareIds = ROOT\AMDLOG
+
+[AMDLOG_KM.NTAMD64]
+%AMDLOG_Desc%=AMDLOG_INSTALL, ROOT\AMDLOG
+
+[AMDLOG_INSTALL]
+CopyFiles=Drivers_Dir, Utility_Dir
+
+[Drivers_Dir]
+amdlog.sys,,,2
+
+[Utility_Dir]
+amdlogsr.exe,,,0x00004000
+
+[AMDLOG_INSTALL.Services]
+AddService = amdlog,0x00000802,amdlog_ServiceInstallSection
+AddService = AMD Log Utility, 0x00000000, amdlogsr_Generic_Service_Inst, amdlogsr_EventLog_Inst
+
+[amdlog_ServiceInstallSection]
+DisplayName    = %AMDLOG_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\amdlog.sys
+
+[amdlogsr_EventLog_Inst]
+;AddReg=amdlogsr_EventLog_AddReg
+
+[amdlogsr_Generic_Service_Inst]
+ServiceType    = 0x10
+StartType      = 2
+ErrorControl   = 1
+ServiceBinary  = %11%\amdlogsr.exe
+LoadOrderGroup = Event log
+
+[Strings]
+AMD = "AMD"
+AMDLOG_Desc = "AMD LOG"
+SystemClassName = "System devices"
+AMDLOG_svcdesc = "AMD LOG Utility Driver"
+DISK_NAME = "AMD LOG Install Disk"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_AUTO_START     = 2
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1

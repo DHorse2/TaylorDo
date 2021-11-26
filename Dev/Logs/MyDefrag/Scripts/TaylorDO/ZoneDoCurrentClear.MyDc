@@ -1,0 +1,73 @@
+# Zone Do Current Clear
+
+SetVariable(ZoneTypeSelectCurrent, 		"")
+
+SetVariable(ZoneBeginCurrent, 			0)
+SetVariable(ZoneBeginPerCurrent, 		0)
+SetVariable(ZoneEndCurrent, 			0)
+SetVariable(ZoneEndPerCurrent, 			0)
+
+SetVariable(ZoneSizeCurrent,			0)
+SetVariable(ZoneSizePerCurrent,			0)
+
+SetVariable(ZoneGapRequestedCurrent,	0)
+SetVariable(ZoneGapRoundedCurrent, 		0)
+SetVariable(ZoneGapAdjustedCurrent, 	0)
+SetVariable(ZoneGapAvailableCurrent, 	0)
+SetVariable(ZoneGapCurrent,				0)
+SetVariable(ZoneGapUsedCurrent, 		0)
+
+SetVariable(ZoneGapActualCurrent, 		0)
+SetVariable(ZoneGapActualPerCurrent, 	0)
+
+SetVariable(ZoneSizeActual, 			0)
+SetVariable(ZoneSizeActualCurrent,		0)
+
+SetVariable(ZoneEndActual, 				0)
+SetVariable(ZoneEndActualCurrent,		0)			
+SetVariable(ZoneSizeActualPerCurrent, 	0)
+      
+SetVariable(ZoneFilesFolders,			0)
+SetVariable(ZoneFilesFoldersPer,		0) 
+
+SetVariable(ZoneFragments,				0)
+SetVariable(ZoneFragmentsPer,			0) 
+		
+SetVariable(ZoneEndActualCurrent, 		0)
+SetVariable(ZoneEndActualPerCurrent, 	0)
+
+# Gap Calculation Methodology:
+	# Requested
+	SetVariable(GapRequested, 			0) 
+	SetVariable(GapRequestedStd, 		0) 
+	SetVariable(GapRequestedMft, 		0) 
+	SetVariable(GapRequestedOs, 		0) 
+	SetVariable(GapRequestedOriginal, 	0) 
+	
+	# Gap Adjustments
+	SetVariable(GapRounded, 			0)
+	# SetVariable(GapAdjusted, 			0)
+	SetVariable(GapAvailable, 			0)
+	SetVariable(GapCurrent, 			0)
+	SetVariable(GapActual, 				0)
+	SetVariable(GapUsed, 				0)
+	
+	# Gap Adjustments
+	SetVariable(GapRoundedLoc, 			0)
+	# SetVariable(GapAdjustedLoc, 		0)
+	SetVariable(GapAvailableLoc, 		0)
+	SetVariable(GapCurrentLoc, 			0)
+	SetVariable(GapActualLoc,			0)
+	SetVariable(GapUsedLoc,				0)
+	
+	# Space usage
+	SetVariable(ZoneFreePerRequested, 	0)
+	SetVariable(ZoneFreePerUsed, 		0)
+
+# Gap Size & Rounding
+	SetVariable(ZoneGapSizePer, 		0)
+	SetVariable(ZoneVolRoundUpPer, 		0)
+	
+	# Free Space
+	SetVariable(ZoneFreeUsedPer, 		0)
+	SetVariable(ZoneFreeRequestedPer, 	0)

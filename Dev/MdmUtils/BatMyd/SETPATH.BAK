@@ -1,0 +1,13 @@
+@Rem
+@Echo Off
+@Rem
+@Path c:\;c:\Bat
+@If exist c:\Vet.Flg   Path=%Path%;c:\Virus\Vet\Curr
+@If exist c:\Qmm.Flg   Path=%Path%;c:\Mem\Qemm\Curr
+@If exist c:\Qemm.Flg   Path=%Path%;c:\Qemm
+@If exist c:\PCT.Flg   Path=%Path%;c:\Mem\PCTools\Curr
+@If exist c:\MOU.Flg   Path=%Path%;c:\Mouse\Curr
+@Path = %Path%;c:\Dos
+@Rem Path=%Path%;c:\Ut\OpSys;c:\Ut;c:\Ut\Macro
+@If exist c:\Lan_On.Flg Path=c:%LanDir%;%Path%
+

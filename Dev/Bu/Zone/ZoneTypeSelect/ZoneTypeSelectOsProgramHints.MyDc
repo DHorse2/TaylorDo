@@ -1,0 +1,4 @@
+# Script: ZoneDo ZoneTypeSelectOsProgramHints
+# ProgramHints start.
+ImportListFromProgramHints("*.pf")
+# ProgramHints end.

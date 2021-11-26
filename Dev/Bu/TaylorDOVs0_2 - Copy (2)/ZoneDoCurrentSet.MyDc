@@ -1,0 +1,66 @@
+# Script: ZoneDoCurrentSet
+
+# Cluster, Sector, Block adjust for display.
+	# Bytes per cluster is volume specific.
+
+	SetVariable(DisplayUnitDivisorCurrent,   DisplayUnitDivisor * BytesPerCluster)	
+
+# Current Zone values.
+	# Begin, end and size.
+	SetVariable(ZoneBeginCurrent, 			ZoneBegin / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneBeginPerCurrent, 		ZoneBeginCurrent / VolumeSize * 100)
+
+	SetVariable(ZoneEndCurrent, 			ZoneEnd / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneEndPerCurrent, 			ZoneEndCurrentPer / VolumeSize * 100)
+
+	SetVariable(ZoneSizeCurrent, 			ZoneSize / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneSizePerCurrent,			ZoneSize / VolumeSize * 100)
+
+	SetVariable(ZoneFilesFolders,			"!ZONE220N!")
+	SetVariable(ZoneFilesFoldersPer,		ZoneFilesFolders / FILES220N * 100) 
+
+	SetVariable(ZoneFragments,				"!ZONE210N!")
+	SetVariable(ZoneFragmentsPer,			ZoneFragments / FILES210N * 100) 
+		
+/* Xinclude "..\Gap\GapZoneActualFreeSetCurrent.MyDc"X */
+/* identical code to here: (separation not needed. TEST.) */	
+
+# Current Gap, Actual and Free Values
+	# Gap
+	SetVariable(ZoneGapRequestedCurrent,	GapRequested / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapAdjustedCurrent, 	GapAdjusted / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapRoundedCurrent, 		GapRounded / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapAvailableCurrent, 	GapAvailable / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapCurrent, 			GapCurrent / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapUsedCurrent, 		GapUsed / DisplayUnitDivisorCurrent)
+	
+	SetVariable(ZoneGapRequestedLocCurrent,	GapRequestedLoc / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapAdjustedLocCurrent,GapAdjustedLoc / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapRoundedLocCurrent, 	GapRoundedLoc / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapAvailableLocCurrent, GapAvailableLoc / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapLocCurrent, 			GapCurrentLoc / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapUsedLocCurrent, 		GapUsedLoc / DisplayUnitDivisorCurrent)
+	
+	SetVariable(ZoneGapActualCurrent, 		GapActual / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneGapActualPerCurrent, 	GapActual / VolumeSize * 100)
+	
+	# Actual Size and End
+	SetVariable(ZoneSizeActual, 			ZoneSize + GapActual)
+	SetVariable(ZoneSizeActualCurrent, 		ZoneSizeActual / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneSizeActualPerCurrent, 	ZoneSizeActual / VolumeSize * 100)
+	
+	SetVariable(ZoneEndActual, 				ZoneEnd + GapActual)
+	SetVariable(ZoneEndActualCurrent, 		ZoneEndActual / DisplayUnitDivisorCurrent)
+	SetVariable(ZoneEndActualPerCurrent, 	ZoneEndActual / VolumeSize * 100)
+
+# Gap Size & Rounding
+	SetVariable(ZoneGapSizePer, 			ZoneGapSize * 100)
+	SetVariable(ZoneVolRoundUpPer, 			ZoneVolRoundUp * 100)
+	
+	# Free Space
+	SetVariable(ZoneFreeUsedPer, 			GapActual / VolumeFreeUsed * 100)
+	SetVariable(ZoneFreeRequestedPer, 		ZoneGapRequested / VolumeFreeRequested * 100)
+
+	!include "..\ZoneFooterGet.MyDc"!
+	!include "..\ZoneFooterSetStatisticsWindowText.MyDc"!
+	

@@ -1,0 +1,52 @@
+# Script: VolumeWhenStarted
+
+SetVariable(VolumeFreeAdj, (VolumeFree * (VolumeUsed / VolumeSize)))
+
+SetVariable(MftLocation, RoundUp(VolumeUsed * MftPerDev, VolumeSize * VolumeRoundUpLarge)) 
+
+SetVariable(ZoneFooter, "")
+SetVariable(ZoneListByLine, 		"Volume started.
+")
+SetVariable(ZoneStepByLine, 		"Initialize.
+")
+SetVariable(ZoneStatisticsDetail, 	"")
+
+SetVariable(ZoneNoCurrent, 		0)
+SetVariable(ZoneNoAdjCurrent, 	0) 
+SetVariable(ZoneCurrentAjust,	0)
+
+!include "..\..\Display\BannerSet.MyDc"!
+!include "..\..\Display\BannerLog.MyDc"!
+!include "..\..\Display\VolumeStatisticsDetailGet.MyDc"!
+!include "..\..\Display\BannerLog.MyDc"!
+
+/* Write/display stats: */
+# Log:
+SetVariable(VolumeDescription,"")
+SetVariable(VolumeDescription, "!VolumeDescription!!Title! started.")
+SetVariable(VolumeDescription, "!VolumeDescription!
+!Date! !Time!.")
+SetVariable(VolumeDescription, "!VolumeDescription
+!.")
+SetVariable(VolumeDescription, "!VolumeDescription!
+.")
+SetVariable(VolumeDescription, "!VolumeDescription!
+Volume: !VolumeLabel!")
+SetVariable(VolumeDescription, "!VolumeDescription!
+.")
+SetVariable(VolumeDescription, "!VolumeDescription!
+!VolumeStatisticsDetail!")
+SetVariable(VolumeDescription, "!VolumeDescription!
+.")
+SetVariable(VolumeDescription, "!VolumeDescription!
+!Title! started.")
+SetVariable(VolumeDescription, "!VolumeDescription!
+!Date! !Time!.")
+SetVariable(VolumeDescription, "!VolumeDescription!
+.")
+
+WriteLogfile("!LogFileName! Volume !VolumenName! !RunDescription! !Date! !Time!","!VolumeDescription!")
+AppendLogfile("!LogFileName!","!VolumeDescription!")
+
+# In program statistics window (view):
+SetStatisticsWindowText("!VolumeStatisticsDetail!")

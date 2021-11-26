@@ -1,0 +1,15 @@
+# Script: DefragZoneTypeLinksCorp
+/* ---------------------------------------------------------- */
+/* Zone LinksCorp Links and Corp */
+SetVariable(ZoneLabel, "!ZoneLabelLinksCorp!")
+SetVariable(ZoneDescription, "!ZoneDescriptionLinksCorp!")
+SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpLinksCorp!")
+SetVariable(ZoneGapSize, "!ZoneGapSizeLinksCorp!")
+SetVariable(ZoneTypeSelect,'!include "..\ZoneTypeSelect\ZoneTypeSelectLinksCorp.MyDc"!')
+
+	!include "..\ZoneDoHeader.MyDc"!
+	!include "..\ZoneTypeSelect\ZoneTypeSelectLinksCorp.MyDc"!
+	!include "..\ActionVerbs\ZoneDoAction.MyDc"!
+	!include "..\ZoneDoFooter.MyDc"!
+
+/* ---------------------------------------------------------- */

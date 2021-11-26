@@ -1,0 +1,2 @@
+ExitIfTimeout(300) // 5 minutes (for old systems), default 120.
+!include "..\..\Settings\SettingsYours\SettingsYoursSysExitIfTimeout.MyDc"!

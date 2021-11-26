@@ -1,0 +1,13 @@
+# System Volume
+
+SetVariable(VolumeLabel,"!VolumeSys!")
+SetVariable(VolumeDescription,"System")
+!include "..\Display\DisplaySetVolume.MyDc"!
+
+!include "..\Settings\SettingsRunVolume.MyDc"!
+
+SetVariable(MftZone, "Regular")
+
+!include "..\SettingsYours\SettingsYoursSys.MyDc"!
+
+!include "..\DefragAnyBasicVolume.MyDc"!

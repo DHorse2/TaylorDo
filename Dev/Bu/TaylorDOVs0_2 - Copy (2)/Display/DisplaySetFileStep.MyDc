@@ -1,0 +1,15 @@
+# Script: DisplaySetFileStep
+
+SetVariable(ZoneStepNoCurrent, ZoneStepNoCurrent + 1)
+
+/* add message and move to a new line. */
+SetVariable(ZoneStepByLine, 	"!ZoneStepByLine!!ZoneStepNoCurrent! !FileStepDescription!
+")
+
+/* display the line. (hopefully.) */
+!include "..\ZoneFooterSetStatisticsWindowText.MyDc"!
+
+/* SetVariable(FileStepDescription, "!FileStepDescription!") */
+
+!include "..\Display\BannerSet.MyDc"!
+pause(1)

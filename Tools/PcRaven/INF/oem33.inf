@@ -1,0 +1,120 @@
+;***********************************************************************************************
+;
+; Name		: ssudcdf.inf
+;
+; Function	: Install SAMSUNG Escape USB CD Free driver 
+;
+; Copyright (c) DEVGURU Co., Ltd. (www.devguru.co.kr)
+;
+;***********************************************************************************************
+
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%Provider%
+DriverVer=01/02/2014,2.11.7.0
+CatalogFile=ssudcdf.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+
+[SourceDisksNames.x86]
+1 = %DiskString%,,,\i386
+
+[SourceDisksNames.amd64]
+1 = %DiskString%,,,\amd64
+
+
+[SourceDisksFiles]
+; filename = diskid[,[ subdir][, size]]
+ssudcdf.sys = 1
+
+
+;-----------------------------------------------------------------------------
+; Specify target paths...
+;-----------------------------------------------------------------------------
+
+[DestinationDirs]
+DefaultDestDir = 12                    ; system32\drivers
+
+
+;-----------------------------------------------------------------------------
+; Table of Contents
+;-----------------------------------------------------------------------------
+[Manufacturer]
+%SSUD%=SSUD, NTx86, NTamd64
+
+;-----------------------------------------------------------------------------
+; Device-by-device entries
+;-----------------------------------------------------------------------------
+[SSUD]
+%USB\VID_04E8&PID_6818.DeviceDesc%	=	SSUD.Install,	USB\VID_04E8&PID_6818
+
+[SSUD.NTx86]
+%USB\VID_04E8&PID_6818.DeviceDesc%	=	SSUD.Install,	USB\VID_04E8&PID_6818
+
+[SSUD.NTamd64]
+%USB\VID_04E8&PID_6818.DeviceDesc%	=	SSUD.Install,	USB\VID_04E8&PID_6818
+
+
+;-----------------------------------------------------------------------------
+; Installation instructions
+;-----------------------------------------------------------------------------
+
+[SSUD.Install.nt]
+AddReg		= SSUD.AddReg
+CopyFiles	= CopyFiles, CopyFiles.Win2K
+
+
+;-----------------------------------------------------------------------------
+;  Registry
+;-----------------------------------------------------------------------------
+
+; common registry entries 
+[SSUD.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,ssudcdf.sys
+
+;-----------------------------------------------------------------------------
+;  Copy lists
+;-----------------------------------------------------------------------------
+[CopyFiles]
+
+[CopyFiles.Win2K]
+ssudcdf.sys
+
+
+;-----------------------------------------------------------------------------
+;  NT Services installation
+;-----------------------------------------------------------------------------
+
+[SSUD.Install.NT.Services]
+AddService = ssudcdf, 0x00000002, SSUD.Install.AddService
+
+
+[SSUD.Install.AddService]
+DisplayName	= %SSUD.Service.Name%
+Description	= %SSUD.Service.Desc%
+ServiceType	= 1			;%SERVICE_KERNEL_DRIVER%
+StartType	= 3			;%SERVICE_DEMAND_START%
+ErrorControl	= 1			;%SERVICE_ERROR_NORMAL%	
+ServiceBinary	= %12%\ssudcdf.sys
+
+
+
+;-----------------------------------------------------------------------------
+; STRINGS
+;-----------------------------------------------------------------------------
+[Strings]
+;US English Strings
+Provider	= "SAMSUNG Electronics Co., Ltd."
+SSUD	= "SAMSUNG Electronics Co., Ltd."
+
+DiskString = "SAMSUNG Mobile Mode Changer Device Driver installation disk"
+
+SSUD.Service.Name	= "SAMSUNG Mobile Mode Changer Device"
+SSUD.Service.Desc = "SAMSUNG Mobile Mode Changer USB Device Driver"
+
+USB\VID_04E8&PID_6818.DeviceDesc			= "SAMSUNG Mobile Mode Changer "

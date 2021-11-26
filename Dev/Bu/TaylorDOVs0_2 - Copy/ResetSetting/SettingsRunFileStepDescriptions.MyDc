@@ -1,0 +1,117 @@
+
+/* The variable FileStepDescription get set to */
+/* the messages below according to the Zone File */
+/* step the defrag is on. */
+
+/* The titlebar is organized in these areas: */
+
+/* SwProductVs. */
+/* Volume description. */
+/* Zone description. */
+/* File Processing Step (here.) */
+/* Server and Script names. */
+/* Run Date, Time and Elapsed (Bug) */
+
+/* Shown in the Title / Banner / App Heading */
+
+SetVariable(SeverStepDescription,	"")
+SetVariable(VolumeStepDescription,	"")
+SetVariable(ZoneStepDescription,	"")
+SetVariable(FileStepDescription,	"")
+SetVariable(RunStepDescription,		"")
+
+# Display fields you can set for your personal tastes / needs:
+
+/* ---------------------------------------------------------- */
+# ZONE. Process One Zone (the steps and messages displayed. */
+
+SetVariable(FileStepDescriptionZoneStart, 			"Zone started.")
+
+/* "Your Zone Pre (before)Processing." */
+SetVariable(FileStepDescriptionYourZonePre, 		"!FileStepDescriptionZoneStart!") 		
+
+SetVariable(FileStepDescriptionFileSelect,			"Selecting Files.")
+
+/* "Your Pre Sort File Actions." */
+SetVariable(FileStepDescriptionYourFileActionsPre, 	"!FileStepDescriptionFileSelect!")
+
+SetVariable(FileStepDescriptionFileActionStart, 	"File Actions started.")
+
+/* "Your Post Sort File Actions." */
+SetVariable(FileStepDescriptionYourFileActionsPost, "!FileStepDescriptionFileActionStart!")
+
+SetVariable(FileStepDescriptionFileActionEnd, 		"File Actions completed.")
+
+/* "Your Zone Post (after) Processing." */
+SetVariable(FileStepDescriptionYourZonePost, 		"!FileStepDescriptionFileActionEnd!") 		
+
+SetVariable(FileStepDescriptionFileActionGap, 		"Calculating Gap.")
+
+SetVariable(FileStepDescriptionZoneEnd, 			"Zone finished.")
+
+/* Pattern: SetVariable(FileStepDescriptionXXX, 	"FileStepDescriptionXXX") */
+
+/* Note: If you add custom script code in the PRE and POST areas then at that */
+/* time you fill in the messages above as appropriate. */
+
+!include "..\SettingsYours\SettingsYoursFileStepDescriptions.MyDc"!
+
+/* ---------------------------------------------------------- */
+# Regarding Volume Names/Labels
+
+/* FYI. The Volume names / drive letters need to be correct for your system. */
+/* It is repeated here for infomation about fields used above. */
+/* Set your values in "SettingsYours\SettingsYoursVolumeNames.MyDc" */
+
+	/* SetVariable(VolumeSys,"!VolumeNamePrefix!Sys") */
+	/* SetVariable(VolumeDev,"!VolumeNamePrefix!Dev") */
+	/* SetVariable(VolumeData,"!VolumeNamePrefix!Data") */
+	/* SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive") */
+
+	/*		or just */
+			
+	/* SetVariable(VolumeSys,"C:") */
+	/* SetVariable(VolumeDev,"E:") */
+
+/* ---------------------------------------------------------- */
+# BANNER DEFINITION
+/* SetVariable(Heading, "Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! || !FileStepDescription! ||!VolumeNamePrefix! - !ServerNameFull! - !ScriptTitle! on !Date! !Time! !RunTime!") */
+
+# How to build them: (documentation)
+
+/* Here is how is one pattern not used: */
+/* SetVariable(Heading, "|") */
+/* SetVariable(Heading, "!Heading! Vol: !VolumeStepDescription!") */
+/* SetVariable(Heading, "!Heading! Zone: !ZoneStepDescription!") */
+/* SetVariable(Heading, "!Heading! !FileStepDescription!") */
+/* SetVariable(Heading, "!Heading!  ||!VolumeNamePrefix! - !ServerNameFull! - !ScriptTitle!") */
+/* SetVariable(Heading, " on !Date! !Time! !RunTime!") */
+/* SetVariable(Heading, "!Heading!|") // spacers. */
+
+/* A typical banner field list: */
+# Appearing in Title('Vol: !
+# VolumeCurrent
+# ! Zone: !
+# ZoneCurrentDescription
+# ! !
+# ZoneCurrent
+# ! of !
+# ZoneCount
+# ! || Free: Vol: !
+# VolumeFreePerUsed
+# !% Zone: !
+# ZoneFreePerUsed
+# !% || Script: !
+# ScriptTitle
+# ! System: !
+# VolumeNamePrefix
+# ! !
+# ServerNameFull
+# ! !
+# Date
+# ! !
+# Time
+# ! !
+# RunTime
+# !')
+/* . */

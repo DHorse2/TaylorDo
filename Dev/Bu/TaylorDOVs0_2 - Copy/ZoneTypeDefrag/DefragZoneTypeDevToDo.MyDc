@@ -1,0 +1,15 @@
+/* ---------------------------------------------------------- */
+/* Zone DevToDo */
+
+SetVariable(ZoneLabel, "!ZoneLabelDevToDo!")
+SetVariable(ZoneDescription, "!ZoneDescriptionDevToDo!")
+SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpDevToDo!")
+SetVariable(ZoneGapSize, "!ZoneGapSizeDevToDo!")
+SetVariable(ZoneTypeSelect,'!include "..\ZoneTypeSelect\ZoneTypeSelectDevToDo.MyDc"!')
+
+	!include "..\ZoneDoHeader.MyDc"!
+	!include "..\ZoneTypeSelect\ZoneTypeSelectDevToDo.MyDc"!
+	!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
+	!include "..\ZoneDoFooter.MyDc"!
+
+/* ---------------------------------------------------------- */

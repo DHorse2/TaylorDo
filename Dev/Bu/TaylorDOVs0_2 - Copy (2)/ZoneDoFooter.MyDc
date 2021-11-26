@@ -1,0 +1,32 @@
+# Script: ZoneDoFooter
+
+/* ---------------------------------------------------------- */
+# File Select
+	# Select Statments
+# File Actions 
+	# Standard or OS File Actions.
+	# Resume...
+	
+	# your stuff HERE (X)... post zone (file) file actions code.
+		# SetVariable(FileStepDescription, "!FileStepDescriptionYourFileActionsPre!")
+		# Xinclude "..\Display\DisplaySetFileStep.MyDc"X
+		# (X)
+		
+		/* ??? Set window? */
+	
+	# ADD THE GAP
+		!include "..\Gap\GapZoneCommand.MyDc"!
+		
+# 
+FileEnd
+/* ---------------------------------------------------------- */
+
+# your stuff HERE (X)... post zone (file) code.
+	# SetVariable(FileStepDescription, "!FileStepDescriptionYourZonePost!")
+	# Xinclude "..\Display\DisplaySetFileStep.MyDc"X
+	# (X)
+
+SetVariable(FileStepDescription,"Zone finished, reporting.")
+!include "..\Display\DisplaySetFileStep.MyDc"!
+
+!include "..\ZoneWhenFinished.MyDc"!

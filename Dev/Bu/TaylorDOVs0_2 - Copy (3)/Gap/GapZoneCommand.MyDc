@@ -1,0 +1,7 @@
+# Vacate (good for diagnostics)
+# DoNotVacate - DO NOT Vacate (recommended)
+!include "..\..\ActionVerbs\ZoneDoGapThis.MyDc"!
+# Script: GapZoneCommand
+# *** Moved to setting yours ***
+/* Xinclude "..\..\ActionVerbs\ZoneDoGapThis.MyDc"X */
+!include "..\..\Settings\SettingsYours\SettingsYoursGapCommandDo.MyDc"!

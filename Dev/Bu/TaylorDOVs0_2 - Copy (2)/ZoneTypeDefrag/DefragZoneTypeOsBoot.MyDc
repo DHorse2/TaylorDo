@@ -1,0 +1,61 @@
+# Script: DefragZoneTypeOsBoot
+/* ---------------------------------------------------------- */
+# Zone Boot Fixed.
+	SetVariable(ZoneLabel, 			"!ZoneLabelBoot!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionBoot!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpBoot!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizeBoot!")
+	SetVariable(ZoneTypeSelect,'!include "..\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!')
+
+		!include "..\ZoneDoHeader.MyDc"!
+		!include "..\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
+		and not(
+			!include "..\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+		)
+
+		FileActions
+		  	!include "..\Gap\GapZoneCalc.MyDc"!
+	
+			SetVariable(FileStepDescription, 	"!FileStepDescriptionFileActionStart!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+	
+			!include "..\ActionVerbs\ZoneDoActionTypeOsBootFixed.MyDc"!
+
+			SetVariable(FileStepDescription, 	"!FileStepDescriptionFileActionEnd!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\ZoneDoFooter.MyDc"!
+
+/* ---------------------------------------------------------- */
+# Zone Boot Data (Variable and other).
+	SetVariable(ZoneLabel, 			"!ZoneLabelBootData!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionBootData!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpBoot!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizeBoot!")
+	SetVariable(ZoneTypeSelect,'
+                # Boot - Data files.
+                not(
+                     !include "..\SelectCategory\SelOsPageHiberDump.MyDs"!
+                )
+')
+
+		!include "..\ZoneDoHeader.MyDc"!
+		!include "..\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
+		and not(
+			!include "..\SelectCategory\SelOsPageHiberDump.MyDs"!
+		)
+
+	FileActions
+		  	!include "..\Gap\GapZoneCalc.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+			!include "..\ActionVerbs\ZoneDoActionTypeOsBootData.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\ZoneDoFooter.MyDc"!
+
+/* ---------------------------------------------------------- */

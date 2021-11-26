@@ -1,0 +1,17 @@
+# Script: ZoneWhenFinished
+
+!include "..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerLog.MyDc"!
+
+# Zone Statistics	
+/* Xinclude "..\ZoneDoStatistics.MyDc"X */
+
+!include "..\ZoneFooterGet.MyDc"!
+
+AppendLogfile("!LogFileName!", ".")
+AppendLogfile("!LogFileName!", "!ZoneFooter!")
+AppendLogfile("!LogFileName!", ".")
+
+!include "..\ZoneFooterSetStatisticsWindowText.MyDc"!
+
+!include "..\Pause\PauseZone.MyDc"!

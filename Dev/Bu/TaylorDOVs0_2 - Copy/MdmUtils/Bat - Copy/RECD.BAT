@@ -1,0 +1,1 @@
+DIR \REC\*.REC | SORT | MORE

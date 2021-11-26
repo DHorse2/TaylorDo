@@ -1,0 +1,3 @@
+# Script: 
+!include "..\VolumeStatisticsSummaryGet.MyDc"!
+SetVariable(VolumeFooter, "!VolumeStatisticsSummary!")

@@ -1,0 +1,846 @@
+;------------------------------------------------------------------------------
+; AMD HD Audio Information file : AtihdWT6.inf
+;
+; Copyright (c) 2011 Advanced Micro Devices, Inc. All rights reserved 
+;------------------------------------------------------------------------------
+
+[Version]
+Signature="$Windows NT$"
+Class=MEDIA
+ClassGuid={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%AMD%
+CatalogFile=AtihdWT6.cat
+DriverVer=07/10/2019,10.0.1.12
+
+[DestinationDirs]
+DefaultDestDir = 10
+HDAudioInstall.CopyList = 10,system32\drivers
+
+[SourceDisksNames]
+1 = %DiskId1%
+
+[SourceDisksFiles]
+AtihdWT6.sys = 1
+
+[Manufacturer]
+%AMD%=AMD,NTamd64.10.0,NTamd64.6.3,NTamd64.6.0,NTamd64.6.1,NTamd64.6.2
+
+[SignatureAttributes]
+AtihdWT6.sys=SignatureAttributes.DRM
+
+[SignatureAttributes.DRM]
+DRMLevel=1300
+
+[SignatureAttributes.PETrust]
+PETrust=true
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[AMD.NTamd64.10.0]
+%HdAudioDeviceDescription% = HDAudioInstall, HDAUDIO\FUNC_01&VEN_1002&DEV_AA01&SUBSYS_00AA0100&REV_1003
+%HdAudioDeviceDescription% = HDAudioInstall, HDAUDIO\FUNC_01&VEN_1002&DEV_AA01&SUBSYS_00AA0100&REV_1005
+%HdAudioDeviceDescription% = HDAudioInstall, HDAUDIO\FUNC_01&VEN_1002&DEV_AA01&SUBSYS_00AA0100&REV_1006
+%HdAudioDeviceDescription% = HDAudioInstall, HDAUDIO\FUNC_01&VEN_1002&DEV_AA01&SUBSYS_00AA0100&REV_1007
+
+; OEM Specific
+%HdAudioDeviceDescription% = HDAudioInstall, HDAUDIO\FUNC_01&VEN_1002&DEV_AA01&SUBSYS_104D7900&REV_1003
+
+[AMD.NTamd64.6.0]
+
+[AMD.NTamd64.6.1]
+
+[AMD.NTamd64.6.2]
+
+[AMD.NTamd64.6.3]
+
+
+[HDAudioInstall]
+NEEDS        = KS.Registration
+NEEDS        = WDMAUDIO.Registration
+INCLUDE      = ks.inf
+INCLUDE      = wdmaudio.inf   
+CopyFiles    = HDAudioInstall.CopyList
+AddReg       = HDAudioInstall.AddReg
+AddProperty  = HdAudBranding.AddProperty
+
+[HdAudBranding.AddProperty]
+;DeviceBrandingIcon,,,,"%1%\AtihdWT6.sys,-203"
+DeviceVendorWebSite,,,,"http://amd.com"
+
+[HDAudioInstall.HW]
+AddReg = HdAudSecurity.AddReg
+
+[HDAudioInstall.Services]
+AddService=AtiHDAudioService, 0x00000002, HdAud_Service_Install
+
+[HdAud_Service_Install]
+DisplayName   = %ATIHdAudioDriver.SvcDesc%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %10%\system32\drivers\AtihdWT6.sys
+
+[HDAudioInstall.CopyList]
+AtihdWT6.sys
+
+[HDAudioInstall.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,AtihdWT6.sys
+HKR,Drivers,SubClasses,,"wave,midi,mixer,aux"
+
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\aux\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv,Description,,%HdAudioDeviceDescription%
+HKR,Drivers\midi\wdmaud.drv,Description,,%HdAudioDeviceDescription%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%HdAudioDeviceDescription%
+HKR,Drivers\aux\wdmaud.drv,Description,,%HdAudioDeviceDescription%
+
+; Driver global settings
+HKR,GlobalSettings,ValidateCodecWrites,1,00,00,00,00 ; Enables readback of writes to codec registers
+HKR,GlobalSettings,SilentStream,1,01,00,00,00;
+HKR,GlobalSettings,EnableCodecPowerSaving,1,01,00,00,00    ; double the original delay time.
+
+HKR,PowerSettings,ConservationIdleTime,1,0A,00,00,00     
+HKR,PowerSettings,PerformanceIdleTime,1,0A,00,00,00     
+HKR,PowerSettings,IdlePowerState,1,03,00,00,00
+
+[HDAudioInstall.Interfaces]
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut2Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut2Topo", HDAudioInstall.e0HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0HDMIOut2Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0HDMIOut2Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0HDMIOut2Topo", HDAudioInstall.e0HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut4Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut4Topo", HDAudioInstall.e0HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0HDMIOut4Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0HDMIOut4Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0HDMIOut4Topo", HDAudioInstall.e0HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut6Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut6Topo", HDAudioInstall.e0HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0HDMIOut6Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0HDMIOut6Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0HDMIOut6Topo", HDAudioInstall.e0HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut8Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0HDMIOut8Topo", HDAudioInstall.e0HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0HDMIOut8Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0HDMIOut8Wave", HDAudioInstall.e0HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0HDMIOut8Topo", HDAudioInstall.e0HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut2Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut2Topo", HDAudioInstall.e1HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1HDMIOut2Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1HDMIOut2Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1HDMIOut2Topo", HDAudioInstall.e1HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut4Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut4Topo", HDAudioInstall.e1HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1HDMIOut4Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1HDMIOut4Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1HDMIOut4Topo", HDAudioInstall.e1HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut6Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut6Topo", HDAudioInstall.e1HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1HDMIOut6Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1HDMIOut6Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1HDMIOut6Topo", HDAudioInstall.e1HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut8Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1HDMIOut8Topo", HDAudioInstall.e1HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1HDMIOut8Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1HDMIOut8Wave", HDAudioInstall.e1HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1HDMIOut8Topo", HDAudioInstall.e1HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut2Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut2Topo", HDAudioInstall.e2HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2HDMIOut2Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2HDMIOut2Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2HDMIOut2Topo", HDAudioInstall.e2HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut4Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut4Topo", HDAudioInstall.e2HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2HDMIOut4Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2HDMIOut4Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2HDMIOut4Topo", HDAudioInstall.e2HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut6Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut6Topo", HDAudioInstall.e2HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2HDMIOut6Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2HDMIOut6Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2HDMIOut6Topo", HDAudioInstall.e2HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut8Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2HDMIOut8Topo", HDAudioInstall.e2HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2HDMIOut8Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2HDMIOut8Wave", HDAudioInstall.e2HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2HDMIOut8Topo", HDAudioInstall.e2HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut2Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut2Topo", HDAudioInstall.e3HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3HDMIOut2Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3HDMIOut2Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3HDMIOut2Topo", HDAudioInstall.e3HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut4Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut4Topo", HDAudioInstall.e3HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3HDMIOut4Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3HDMIOut4Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3HDMIOut4Topo", HDAudioInstall.e3HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut6Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut6Topo", HDAudioInstall.e3HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3HDMIOut6Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3HDMIOut6Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3HDMIOut6Topo", HDAudioInstall.e3HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut8Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3HDMIOut8Topo", HDAudioInstall.e3HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3HDMIOut8Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3HDMIOut8Wave", HDAudioInstall.e3HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3HDMIOut8Topo", HDAudioInstall.e3HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut2Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut2Topo", HDAudioInstall.e4HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4HDMIOut2Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4HDMIOut2Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4HDMIOut2Topo", HDAudioInstall.e4HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut4Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut4Topo", HDAudioInstall.e4HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4HDMIOut4Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4HDMIOut4Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4HDMIOut4Topo", HDAudioInstall.e4HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut6Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut6Topo", HDAudioInstall.e4HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4HDMIOut6Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4HDMIOut6Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4HDMIOut6Topo", HDAudioInstall.e4HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut8Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4HDMIOut8Topo", HDAudioInstall.e4HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4HDMIOut8Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4HDMIOut8Wave", HDAudioInstall.e4HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4HDMIOut8Topo", HDAudioInstall.e4HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut2Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut2Topo", HDAudioInstall.e5HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5HDMIOut2Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5HDMIOut2Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5HDMIOut2Topo", HDAudioInstall.e5HDMIOutputTopo
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut4Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut4Topo", HDAudioInstall.e5HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5HDMIOut4Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5HDMIOut4Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5HDMIOut4Topo", HDAudioInstall.e5HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut6Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut6Topo", HDAudioInstall.e5HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5HDMIOut6Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5HDMIOut6Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5HDMIOut6Topo", HDAudioInstall.e5HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut8Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5HDMIOut8Topo", HDAudioInstall.e5HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5HDMIOut8Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5HDMIOut8Wave", HDAudioInstall.e5HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5HDMIOut8Topo", HDAudioInstall.e5HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut2Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut2Topo", HDAudioInstall.e6HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6HDMIOut2Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6HDMIOut2Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e6HDMIOut2Topo", HDAudioInstall.e6HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut4Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut4Topo", HDAudioInstall.e6HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6HDMIOut4Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6HDMIOut4Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e6HDMIOut4Topo", HDAudioInstall.e6HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut6Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut6Topo", HDAudioInstall.e6HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6HDMIOut6Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6HDMIOut6Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "eHDMIOut6Topo", HDAudioInstall.e6HDMIOutputTopo
+                                                                          
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut8Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6HDMIOut8Topo", HDAudioInstall.e6HDMIOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6HDMIOut8Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6HDMIOut8Wave", HDAudioInstall.e6HDMIOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e6HDMIOut8Topo", HDAudioInstall.e6HDMIOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut2Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut2Topo", HDAudioInstall.e0DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0DPOut2Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0DPOut2Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0DPOut2Topo", HDAudioInstall.e0DPOutputTopo
+                                                                         
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut4Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut4Topo", HDAudioInstall.e0DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0DPOut4Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0DPOut4Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0DPOut4Topo", HDAudioInstall.e0DPOutputTopo
+                                                                         
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut6Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut6Topo", HDAudioInstall.e0DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0DPOut6Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0DPOut6Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0DPOut6Topo", HDAudioInstall.e0DPOutputTopo
+                                                                         
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut8Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0DPOut8Topo", HDAudioInstall.e0DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0DPOut8Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0DPOut8Wave", HDAudioInstall.e0DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0DPOut8Topo", HDAudioInstall.e0DPOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut2Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut2Topo", HDAudioInstall.e1DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1DPOut2Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1DPOut2Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1DPOut2Topo", HDAudioInstall.e1DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut4Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut4Topo", HDAudioInstall.e1DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1DPOut4Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1DPOut4Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1DPOut4Topo", HDAudioInstall.e1DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut6Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut6Topo", HDAudioInstall.e1DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1DPOut6Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1DPOut6Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1DPOut6Topo", HDAudioInstall.e1DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut8Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e1DPOut8Topo", HDAudioInstall.e1DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e1DPOut8Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e1DPOut8Wave", HDAudioInstall.e1DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e1DPOut8Topo", HDAudioInstall.e1DPOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut2Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut2Topo", HDAudioInstall.e2DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2DPOut2Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2DPOut2Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2DPOut2Topo", HDAudioInstall.e2DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut4Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut4Topo", HDAudioInstall.e2DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2DPOut4Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2DPOut4Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2DPOut4Topo", HDAudioInstall.e2DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut6Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut6Topo", HDAudioInstall.e2DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2DPOut6Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2DPOut6Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2DPOut6Topo", HDAudioInstall.e2DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut8Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e2DPOut8Topo", HDAudioInstall.e2DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e2DPOut8Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e2DPOut8Wave", HDAudioInstall.e2DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e2DPOut8Topo", HDAudioInstall.e2DPOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut2Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut2Topo", HDAudioInstall.e3DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3DPOut2Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3DPOut2Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3DPOut2Topo", HDAudioInstall.e3DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut4Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut4Topo", HDAudioInstall.e3DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3DPOut4Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3DPOut4Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3DPOut4Topo", HDAudioInstall.e3DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut6Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut6Topo", HDAudioInstall.e3DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3DPOut6Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3DPOut6Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3DPOut6Topo", HDAudioInstall.e3DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut8Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e3DPOut8Topo", HDAudioInstall.e3DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e3DPOut8Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e3DPOut8Wave", HDAudioInstall.e3DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e3DPOut8Topo", HDAudioInstall.e3DPOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut2Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut2Topo", HDAudioInstall.e4DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4DPOut2Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4DPOut2Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4DPOut2Topo", HDAudioInstall.e4DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut4Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut4Topo", HDAudioInstall.e4DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4DPOut4Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4DPOut4Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4DPOut4Topo", HDAudioInstall.e4DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut6Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut6Topo", HDAudioInstall.e4DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4DPOut6Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4DPOut6Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4DPOut6Topo", HDAudioInstall.e4DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut8Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e4DPOut8Topo", HDAudioInstall.e4DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e4DPOut8Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e4DPOut8Wave", HDAudioInstall.e4DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e4DPOut8Topo", HDAudioInstall.e4DPOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut2Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut2Topo", HDAudioInstall.e5DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5DPOut2Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5DPOut2Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5DPOut2Topo", HDAudioInstall.e5DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut4Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut4Topo", HDAudioInstall.e5DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5DPOut4Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5DPOut4Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5DPOut4Topo", HDAudioInstall.e5DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut6Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut6Topo", HDAudioInstall.e5DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5DPOut6Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5DPOut6Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5DPOut6Topo", HDAudioInstall.e5DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut8Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e5DPOut8Topo", HDAudioInstall.e5DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e5DPOut8Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e5DPOut8Wave", HDAudioInstall.e5DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e5DPOut8Topo", HDAudioInstall.e5DPOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut2Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut2Topo", HDAudioInstall.e6DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6DPOut2Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6DPOut2Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e6DPOut2Topo", HDAudioInstall.e6DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut4Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut4Topo", HDAudioInstall.e6DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6DPOut4Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6DPOut4Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e6DPOut4Topo", HDAudioInstall.e6DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut6Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut6Topo", HDAudioInstall.e6DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6DPOut6Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6DPOut6Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e6DPOut6Topo", HDAudioInstall.e6DPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut8Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e6DPOut8Topo", HDAudioInstall.e6DPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e6DPOut8Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e6DPOut8Wave", HDAudioInstall.e6DPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e6DPOut8Topo", HDAudioInstall.e6DPOutputTopo
+;Instance for Mirabilis 
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut2Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut2Topo", HDAudioInstall.e0VirtualEPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0VirtualEPOut2Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0VirtualEPOut2Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0VirtualEPOut2Topo", HDAudioInstall.e0VirtualEPOutputTopo
+
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut4Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut4Topo", HDAudioInstall.e0VirtualEPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0VirtualEPOut4Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0VirtualEPOut4Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0VirtualEPOut4Topo", HDAudioInstall.e0VirtualEPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut6Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut6Topo", HDAudioInstall.e0VirtualEPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0VirtualEPOut6Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0VirtualEPOut6Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0VirtualEPOut6Topo", HDAudioInstall.e0VirtualEPOutputTopo
+                                                                        
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut8Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_AUDIO%,    "e0VirtualEPOut8Topo", HDAudioInstall.e0VirtualEPOutputTopo
+AddInterface = %KSCATEGORY_RENDER%,    "e0VirtualEPOut8Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_REALTIME%,    "e0VirtualEPOut8Wave", HDAudioInstall.e0VirtualEPOutputWave
+AddInterface = %KSCATEGORY_TOPOLOGY%,    "e0VirtualEPOut8Topo", HDAudioInstall.e0VirtualEPOutputTopo
+
+[HDAudio.SysFx.Render]
+HKR,"FX\\0",%PKEY_ItemNameDisplay%,,%FX_FriendlyName%
+HKR,"FX\\0",%PKEY_FX_StreamEffectClsid%,,%FX_STREAM_CLSID%
+HKR,"FX\\0",%PKEY_FX_ModeEffectClsid%,,%FX_MODE_CLSID%
+HKR,"FX\\0",%PKEY_FX_UiClsid%,,%FX_UI_CLSID%
+HKR,"FX\\0",%PKEY_FX_Association%,,%KSNODETYPE_ANY%
+HKR,"FX\\0",%PKEY_SFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
+HKR,"FX\\0",%PKEY_MFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
+
+[HDAudioInstall.e0HDMIOutputWave]
+AddReg = HDAudioInstall.e0HDMIOutputWave.AddReg
+
+[HDAudioInstall.e0HDMIOutputWave.AddReg]
+HKR,,FriendlyName,,%e0HDMIOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e0HDMIOutputTopo]
+AddReg = HDAudioInstall.e0HDMIOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e0HDMIOutputTopo.AddReg]
+HKR,,FriendlyName,,%e0HDMIOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e1HDMIOutputWave]
+AddReg = HDAudioInstall.e1HDMIOutputWave.AddReg
+
+[HDAudioInstall.e1HDMIOutputWave.AddReg]
+HKR,,FriendlyName,,%e1HDMIOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e1HDMIOutputTopo]
+AddReg = HDAudioInstall.e1HDMIOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e1HDMIOutputTopo.AddReg]
+HKR,,FriendlyName,,%e1HDMIOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e2HDMIOutputWave]
+AddReg = HDAudioInstall.e2HDMIOutputWave.AddReg
+
+[HDAudioInstall.e2HDMIOutputWave.AddReg]
+HKR,,FriendlyName,,%e2HDMIOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e2HDMIOutputTopo]
+AddReg = HDAudioInstall.e2HDMIOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e2HDMIOutputTopo.AddReg]
+HKR,,FriendlyName,,%e2HDMIOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e3HDMIOutputWave]
+AddReg = HDAudioInstall.e3HDMIOutputWave.AddReg
+
+[HDAudioInstall.e3HDMIOutputWave.AddReg]
+HKR,,FriendlyName,,%e3HDMIOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e3HDMIOutputTopo]
+AddReg = HDAudioInstall.e3HDMIOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e3HDMIOutputTopo.AddReg]
+HKR,,FriendlyName,,%e3HDMIOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e4HDMIOutputWave]
+AddReg = HDAudioInstall.e4HDMIOutputWave.AddReg
+
+[HDAudioInstall.e4HDMIOutputWave.AddReg]
+HKR,,FriendlyName,,%e4HDMIOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e4HDMIOutputTopo]
+AddReg = HDAudioInstall.e4HDMIOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e4HDMIOutputTopo.AddReg]
+HKR,,FriendlyName,,%e4HDMIOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e5HDMIOutputWave]
+AddReg = HDAudioInstall.e5HDMIOutputWave.AddReg
+
+[HDAudioInstall.e5HDMIOutputWave.AddReg]
+HKR,,FriendlyName,,%e5HDMIOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e5HDMIOutputTopo]
+AddReg = HDAudioInstall.e5HDMIOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e5HDMIOutputTopo.AddReg]
+HKR,,FriendlyName,,%e5HDMIOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e6HDMIOutputWave]
+AddReg = HDAudioInstall.e6HDMIOutputWave.AddReg
+
+[HDAudioInstall.e6HDMIOutputWave.AddReg]
+HKR,,FriendlyName,,%e6HDMIOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e6HDMIOutputTopo]
+AddReg = HDAudioInstall.e6HDMIOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e6HDMIOutputTopo.AddReg]
+HKR,,FriendlyName,,%e6HDMIOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e0DPOutputWave]
+AddReg = HDAudioInstall.e0DPOutputWave.AddReg
+
+[HDAudioInstall.e0DPOutputWave.AddReg]
+HKR,,FriendlyName,,%e0DPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e0DPOutputTopo]
+AddReg = HDAudioInstall.e0DPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e0DPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e0DPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e1DPOutputWave]
+AddReg = HDAudioInstall.e1DPOutputWave.AddReg
+
+[HDAudioInstall.e1DPOutputWave.AddReg]
+HKR,,FriendlyName,,%e1DPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e1DPOutputTopo]
+AddReg = HDAudioInstall.e1DPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e1DPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e1DPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e2DPOutputWave]
+AddReg = HDAudioInstall.e2DPOutputWave.AddReg
+
+[HDAudioInstall.e2DPOutputWave.AddReg]
+HKR,,FriendlyName,,%e2DPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e2DPOutputTopo]
+AddReg = HDAudioInstall.e2DPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e2DPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e2DPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e3DPOutputWave]
+AddReg = HDAudioInstall.e3DPOutputWave.AddReg
+
+[HDAudioInstall.e3DPOutputWave.AddReg]
+HKR,,FriendlyName,,%e3DPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e3DPOutputTopo]
+AddReg = HDAudioInstall.e3DPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e3DPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e3DPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e4DPOutputWave]
+AddReg = HDAudioInstall.e4DPOutputWave.AddReg
+
+[HDAudioInstall.e4DPOutputWave.AddReg]
+HKR,,FriendlyName,,%e4DPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e4DPOutputTopo]
+AddReg = HDAudioInstall.e4DPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e4DPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e4DPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e5DPOutputWave]
+AddReg = HDAudioInstall.e5DPOutputWave.AddReg
+
+[HDAudioInstall.e5DPOutputWave.AddReg]
+HKR,,FriendlyName,,%e5DPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e5DPOutputTopo]
+AddReg = HDAudioInstall.e5DPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e5DPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e5DPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e6DPOutputWave]
+AddReg = HDAudioInstall.e6DPOutputWave.AddReg
+
+[HDAudioInstall.e6DPOutputWave.AddReg]
+HKR,,FriendlyName,,%e6DPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e6DPOutputTopo]
+AddReg = HDAudioInstall.e6DPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e6DPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e6DPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin0Out%,Name,,%Node.GuidBridgePin0Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin0Out%,Display,1,00,00,00,00
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin1Out%,Name,,%Node.GuidBridgePin1Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin1Out%,Display,1,00,00,00,00
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin2Out%,Name,,%Node.GuidBridgePin2Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin2Out%,Display,1,00,00,00,00
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin3Out%,Name,,%Node.GuidBridgePin3Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin3Out%,Display,1,00,00,00,00
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin4Out%,Name,,%Node.GuidBridgePin4Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin4Out%,Display,1,00,00,00,00
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin5Out%,Name,,%Node.GuidBridgePin5Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin5Out%,Display,1,00,00,00,00
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin6Out%,Name,,%Node.GuidBridgePin6Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePin6Out%,Display,1,00,00,00,00
+
+
+[HDAudioInstall.e0VirtualEPOutputWave]
+AddReg = HDAudioInstall.e0VirtualEPOutputWave.AddReg
+
+[HDAudioInstall.e0VirtualEPOutputWave.AddReg]
+HKR,,FriendlyName,,%e0VirtualEPOutputWaveDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+[HDAudioInstall.e0VirtualEPOutputTopo]
+AddReg = HDAudioInstall.e0VirtualEPOutputTopo.AddReg, HDAudio.SysFx.Render, EPProperties.AddReg
+
+[HDAudioInstall.e0VirtualEPOutputTopo.AddReg]
+HKR,,FriendlyName,,%e0VirtualEPOutputTopoDeviceName%
+HKR,,CLSID,,%Proxy.CLSID%
+
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePinV0Out%,Name,,%Node.GuidBridgePinV0Out%
+HKLM,SYSTEM\CurrentControlSet\Control\MediaCategories\%GUID.GuidBridgePinV0Out%,Display,1,00,00,00,00
+
+[EPProperties.AddReg]
+HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\0", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+HKR,"EP\\1", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\1", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\1", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+HKR,"EP\\2", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\2", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\2", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+HKR,"EP\\3", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\3", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\3", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+HKR,"EP\\4", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\4", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\4", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+HKR,"EP\\5", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\5", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\5", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+HKR,"EP\\6", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\6", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\6", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+HKR,"EP\\7", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,"EP\\7", %PKEY_AudioEngine_OEMFormat%, 1, 41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\7", %PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+[HdAudSecurity.AddReg]
+; FILE_DEVICE_SOUND
+HKR,,DeviceType,0x10001,0x0000001D
+; SDDL_DEVOBJ_SYS_ALL_ADM_RWX_WORLD_RWX_RES_RWX
+HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GRGWGX;;;BA)(A;;GRGWGX;;;WD)(A;;GRGWGX;;;RC)"
+
+[Strings]
+RunDisplayName                                   = "High Definition Audio Property Page Shortcut" 
+DiskId1                                          = "AMD HD Audio Installation Disk"
+ATIHdAudioDriver.SvcDesc                         = "AMD Function Driver for HD Audio Service"  
+                                                   
+e0HDMIOutputWaveDeviceName                       = "AMD HD Audio HDMI out #0"      
+e1HDMIOutputWaveDeviceName                       = "AMD HD Audio HDMI out #1"
+e2HDMIOutputWaveDeviceName                       = "AMD HD Audio HDMI out #2"
+e3HDMIOutputWaveDeviceName                       = "AMD HD Audio HDMI out #3"
+e4HDMIOutputWaveDeviceName                       = "AMD HD Audio HDMI out #4"
+e5HDMIOutputWaveDeviceName                       = "AMD HD Audio HDMI out #5"
+e6HDMIOutputWaveDeviceName                       = "AMD HD Audio HDMI out #6"
+e0HDMIOutputTopoDeviceName                       = "AMD HD Audio HDMI out  mixer #0"
+e1HDMIOutputTopoDeviceName                       = "AMD HD Audio HDMI out  mixer #1"
+e2HDMIOutputTopoDeviceName                       = "AMD HD Audio HDMI out  mixer #2"
+e3HDMIOutputTopoDeviceName                       = "AMD HD Audio HDMI out  mixer #3"
+e4HDMIOutputTopoDeviceName                       = "AMD HD Audio HDMI out  mixer #4"
+e5HDMIOutputTopoDeviceName                       = "AMD HD Audio HDMI out  mixer #5"
+e6HDMIOutputTopoDeviceName                       = "AMD HD Audio HDMI out  mixer #6"
+e0DPOutputWaveDeviceName                         = "AMD HD Audio DP out #0"      
+e1DPOutputWaveDeviceName                         = "AMD HD Audio DP out #1"
+e2DPOutputWaveDeviceName                         = "AMD HD Audio DP out #2"
+e3DPOutputWaveDeviceName                         = "AMD HD Audio DP out #3"
+e4DPOutputWaveDeviceName                         = "AMD HD Audio DP out #4"
+e5DPOutputWaveDeviceName                         = "AMD HD Audio DP out #5"
+e6DPOutputWaveDeviceName                         = "AMD HD Audio DP out #6"
+e0DPOutputTopoDeviceName                         = "AMD HD Audio DP out  mixer #0"
+e1DPOutputTopoDeviceName                         = "AMD HD Audio DP out  mixer #1"
+e2DPOutputTopoDeviceName                         = "AMD HD Audio DP out  mixer #2"
+e3DPOutputTopoDeviceName                         = "AMD HD Audio DP out  mixer #3"
+e4DPOutputTopoDeviceName                         = "AMD HD Audio DP out  mixer #4"
+e5DPOutputTopoDeviceName                         = "AMD HD Audio DP out  mixer #5"
+e6DPOutputTopoDeviceName                         = "AMD HD Audio DP out  mixer #6"
+                                                   
+e0VirtualEPOutputWaveDeviceName                  = "AMD Virtual EndPoint #0"
+e0VirtualEPOutputTopoDeviceName                  = "AMD Virtual EndPoint  mixer #0"
+                                                   
+HdAudioDeviceDescription                         = "AMD High Definition Audio Device" 
+AMD                                              = "Advanced Micro Devices"
+                                                   
+KSCATEGORY_AUDIO                                 = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}" 
+KSCATEGORY_RENDER                                = "{65E8773E-8F56-11D0-A3B9-00A0C9223196}" 
+KSCATEGORY_TOPOLOGY                              = "{DDA54A40-1E4C-11D1-A050-405705C10000}" 
+KSCATEGORY_REALTIME                              = "{EB115FFC-10C8-4964-831D-6DCB02E6F23F}" 
+Proxy.CLSID 									 = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+
+GUID.GuidBridgePin0Out           				 = "{6F456606-DC34-4F13-B931-CB7C6ED92B6D}"
+Node.GuidBridgePin0Out           				 = "1 - Digital Display Audio"
+				                                 
+GUID.GuidBridgePin1Out           				 = "{3CD780CB-2DE0-4E2F-956F-82B3B1456757}"
+Node.GuidBridgePin1Out           				 = "2 - Digital Display Audio"
+				                                 
+GUID.GuidBridgePin2Out           				 = "{33C9944E-5FAD-4402-839A-C917B06B8ABB}"
+Node.GuidBridgePin2Out           				 = "3 - Digital Display Audio"
+				                                 
+GUID.GuidBridgePin3Out           				 = "{488EC8C3-79FF-4867-810E-9D0C6E01E5C7}"
+Node.GuidBridgePin3Out           				 = "4 - Digital Display Audio"
+				                                 
+GUID.GuidBridgePin4Out           				 = "{0B484814-FC80-4941-B152-85E2D23456AB}"
+Node.GuidBridgePin4Out           				 = "5 - Digital Display Audio"
+				                                 
+GUID.GuidBridgePin5Out           				 = "{DCFA27CA-9514-4F54-99B2-753891AC88D7}"
+Node.GuidBridgePin5Out           				 = "6 - Digital Display Audio"
+				                                 
+GUID.GuidBridgePin6Out           				 = "{B8CF34BB-82E7-4C81-B27F-12CD5EFB57AF}"
+Node.GuidBridgePin6Out           				 = "7 - Digital Display Audio"
+				                                 
+GUID.GuidBridgePinV0Out          				 = "{49D74A8B-CCF6-4AB9-80CF-E54E950D576B}"
+Node.GuidBridgePinV0Out          				 = "DDMA Audio"
+;Information for FX
+; PropertyKeys
+;Non-localizable
+PKEY_FX_Association                              = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},0"
+PKEY_FX_StreamEffectClsid                        = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},5"
+PKEY_FX_ModeEffectClsid                          = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},6"
+PKEY_FX_UiClsid                                  = "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},3"
+PKEY_ItemNameDisplay                             = "{B725F130-47EF-101A-A5F1-02608C9EEBAC},10"
+
+PKEY_SFX_ProcessingModes_Supported_For_Streaming = "{D3993A3F-99C2-4402-B5EC-A92A0367664B},5"
+PKEY_MFX_ProcessingModes_Supported_For_Streaming = "{D3993A3F-99C2-4402-B5EC-A92A0367664B},6"
+
+AUDIO_SIGNALPROCESSINGMODE_DEFAULT               = "{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}"
+FX_UI_CLSID      						         = "{5860E1C5-F95C-4a7a-8EC8-8AEF24F379A1}"
+KSNODETYPE_ANY   						         = "{00000000-0000-0000-0000-000000000000}"
+FX_STREAM_CLSID  						         = "{62dc1a93-ae24-464c-a43e-452f824c4250}"
+FX_MODE_CLSID    						         = "{637c490d-eee3-4c0a-973f-371958802da2}"
+;Localizable						             
+FX_FriendlyName  						         = "Microsoft Audio Home Theater Effects"
+
+PKEY_AudioEndpoint_Association                   = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+PKEY_AudioEngine_OEMFormat                       = "{E4870E26-3CC5-4CD2-BA46-CA0A9A70ED04},3"
+PKEY_AudioEndpoint_Supports_EventDriven_Mode     = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},7"

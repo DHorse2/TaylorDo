@@ -1,0 +1,72 @@
+# Script: DisplayColors
+# MyDefrag color palette.
+
+# RGB Color pallets. (Red,Green,Blue).
+
+# Basics:
+
+# Red			255,	0,		0)			// Red
+# Green			0,		255,	0)			// Green
+# Blue			0,		0,		255)		// Blue
+# Shades:
+
+/* (White was left unused for the administrator to highlight things.) */
+# White 		255,	255,	255)		// White
+# Black			0,		0,		0)			// Black
+# Grey 			240,	240,	240)		// Grey
+
+# Bright colors and shades:
+
+# Purple 		170,	89,		221)		// Purple
+# Magenta		255, 	5, 		255)		// Magenta (pinkish)
+
+# Pure Yellow 	255,	255,	0)			// Pure yellow
+# Yellow 		229, 	229, 	0)			// Yellow
+# Light Yellow 	255,	255,	224)		// Light Yellow
+
+# Pure Red 		255, 	0, 		0)			// Red
+# Red 			204, 	92, 	92)			// Red
+# Light red		255,	115,	115)		// Light red
+# Orange		255, 	165, 	0)			// Orange
+
+# Pure Green	0, 		255, 	0)			// Pure Green (Lime)
+# Green			0,		128,	0)			// Green
+# Light Green	144,	228, 	144)		// Light Green
+# Pale Green	152, 	251, 	152)		// Pale Green
+
+# Dark blue		20,		87,		229)		// Dark blue
+# Light Blue	175,	198,	247)		// Light Blue
+# Bright Blue	0, 		223, 	255)		// Bright Blue
+# Light sky blue 135, 	206, 	250)		// Light sky blue
+# Deep sky blue	0, 		191, 	255)		// Deep sky blue
+
+# Black			0,		0,		0)
+# Grey			240,	240,	240)
+
+# Window Colors
+SetColor(Empty,										240,  	240, 	240)	// Grey
+# ???
+SetColor(Allocated,									45, 	72, 	128)	// Black
+
+# Busy Colours
+SetColor(BusyRead,									0, 		0, 		0)		// Black
+SetColor(BusyWrite,									255, 	0, 		0)		// Red
+
+#File Colors
+SetFileColor(All,									0,		0,		0)		// Black
+SetFileColor(Movable,								20,		87,		229)	// Dark blue
+
+# Processed
+SetFileColor(Processed and not(Fragmented),			0, 		191, 	255)	// Deep sky blue
+SetFileColor(Processed and Fragmented,				170,	89,		221)	// Purple
+
+# Fragmented and NotMovable
+SetFileColor(Fragmented,							229, 	229, 	0)		// Yellow
+SetFileColor(not(Movable),							255, 	165, 	0)		// Orange
+
+# Light Green and Yellow
+SetFileColor(Selected,								152,	251, 	152)	// Light Green
+SetFileColor(Selected and Fragmented,				255, 	255, 	224)	// Light Yellow (0,255,255)
+SetFileColor(Selected and not(Movable),				255,	115,	115)	// Light red
+
+!include "..\SettingsYours\SettingsYoursDisplayColors.MyDc"!

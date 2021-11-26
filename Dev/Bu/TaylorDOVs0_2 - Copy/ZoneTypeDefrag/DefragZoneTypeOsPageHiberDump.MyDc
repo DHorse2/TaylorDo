@@ -1,0 +1,30 @@
+/* ---------------------------------------------------------- */
+# PageHiberDump
+# You cannot move Pagefile or Hiberfil generally speaking.
+# This might work in safe mode with preparation.
+# Zone PageHiberDump.
+# Possibly a Gap should be vacated so there is a space available upon recreation of the files.
+
+	SetVariable(ZoneLabel, 			"!ZoneLabelPageHiberDump!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionPageHiberDump!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpPageHiberDump!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizePageHiberDump!")
+	SetVariable(ZoneTypeSelect,'!include "..\ZoneTypeSelect\ZoneTypeSelectOsPageHiberDump.MyDc"!')
+
+		!include "..\ZoneDoHeader.MyDc"!
+		!include "..\ZoneTypeSelect\ZoneTypeSelectOsPageHiberDump.MyDc"!
+		FileActions
+		  	!include "..\Gap\GapZoneCalc.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+			/* "..\ActionVerbs\ZoneDoActionThis.MyDc" */
+			!include "..\ActionVerbs\ZoneDoActionSortByImportSequenceSkip.MyDc"!
+
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\ZoneDoFooter.MyDc"!
+/* ---------------------------------------------------------- */
+  

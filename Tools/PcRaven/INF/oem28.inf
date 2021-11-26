@@ -1,0 +1,127 @@
+; WirelessButtonDriver.INF file
+; Installs the HP Wireless Button Driver
+; © Copyright 2020 HP Development Company, L.P.
+
+[Version]
+Signature="$Windows NT$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%Company%
+CatalogFile.ntx86=wirelessbuttondriver86.cat
+CatalogFile.ntamd64=wirelessbuttondriver64.cat
+DriverVer = 06/05/2020,2.1.14.1
+CatalogFile=wirelessbuttondriver64.cat
+PnpLockdown=1
+
+
+[SourceDisksNames.x86]
+1=%DiskId%
+
+[SourceDisksNames.amd64]
+1=%DiskId%
+
+[SourceDisksFiles.x86]
+WirelessButtonDriver86.sys = 1
+
+[SourceDisksFiles.amd64]
+WirelessButtonDriver64.sys = 1
+
+[DestinationDirs]
+SYS.CopyList.ntx86   =12   ;system32\drivers
+SYS.CopyList.ntamd64 =12   ;system32\drivers
+
+[Manufacturer]
+%Mfg%=HP,ntx86,ntamd64
+
+[HP.ntx86]
+%DeviceDesc% = HPWirelessButtonDriverInstall.ntx86, ACPI\HPQ6001
+
+[HP.ntamd64]
+%DeviceDesc% = HPWirelessButtonDriverInstall.ntamd64, ACPI\HPQ6001
+
+[HPWirelessButtonDriverInstall.ntx86]
+CopyFiles=SYS.CopyList.ntx86
+
+[HPWirelessButtonDriverInstall.ntamd64]
+CopyFiles=SYS.CopyList.ntamd64
+
+
+[HPWirelessButtonDriverInstall.ntx86.HW]
+AddReg = HPWirelessButtonDriver_Parameters.AddReg 
+
+[HPWirelessButtonDriverInstall.ntamd64.HW]
+AddReg = HPWirelessButtonDriver_Parameters.AddReg 
+
+[HPWirelessButtonDriverInstall.ntx86.Services]
+AddService = WirelessButtonDriver86,0x00000002, HPWirelessButtonDriverInstall_Service_Inst86
+
+[HPWirelessButtonDriverInstall.ntamd64.Services]
+AddService = WirelessButtonDriver64,%SPSVCINST_ASSOCSERVICE%,HPWirelessButtonDriverInstall_Service_Inst64
+
+[HPWirelessButtonDriver_Parameters.AddReg]
+HKR,,"UpperFilters",0x00010000,"mshidkmdf"
+
+;===============================================================
+;   Sections common to all OS versions
+;===============================================================
+
+[SYS.CopyList.ntx86]
+WirelessButtonDriver86.sys
+
+[SYS.CopyList.ntamd64]
+WirelessButtonDriver64.sys
+
+[HPWirelessButtonDriverInstall_Service_Inst86]
+DisplayName   = %ServiceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+LoadOrderGroup = "Base"
+ServiceBinary = %12%\WirelessButtonDriver86.sys
+
+[HPWirelessButtonDriverInstall_Service_Inst64]
+DisplayName   = %ServiceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+LoadOrderGroup = "Base"
+ServiceBinary = %12%\WirelessButtonDriver64.sys
+
+[Strings] 
+;  *******Localizable Strings******* 
+Mfg = "HP Inc."
+DeviceDesc = "HP Wireless Button Driver"
+ServiceDesc = "HP Wireless Button Driver Service"
+Company = "HP Inc."
+HPWirelessButtonDriver   = "Radio Switch HID Mini-driver for HP Wireless Button Device" 
+DiskId              = "HP Wireless Button Driver Install Disk"
+
+;  *******Non Localizable Strings******* 
+
+SERVICE_BOOT_START     = 0x0 
+SERVICE_SYSTEM_START   = 0x1 
+SERVICE_AUTO_START     = 0x2 
+SERVICE_DEMAND_START   = 0x3 
+SERVICE_DISABLED       = 0x4 
+
+SERVICE_KERNEL_DRIVER  = 0x1 
+SERVICE_ERROR_IGNORE   = 0x0 
+SERVICE_ERROR_NORMAL   = 0x1 
+SERVICE_ERROR_SEVERE   = 0x2 
+SERVICE_ERROR_CRITICAL = 0x3 
+
+REG_EXPAND_SZ          = 0x00020000 
+REG_DWORD              = 0x00010001 
+REG_MULTI_SZ           = 0x00010000
+REG_BINARY             = 0x00000001
+REG_SZ                 = 0x00000000
+
+SPSVCINST_TAGTOFRONT               = 0x00000001
+SPSVCINST_ASSOCSERVICE             = 0x00000002
+SPSVCINST_DELETEEVENTLOGENTRY      = 0x00000004
+SPSVCINST_NOCLOBBER_DISPLAYNAME    = 0x00000008
+SPSVCINST_NOCLOBBER_STARTTYPE      = 0x00000010
+SPSVCINST_NOCLOBBER_ERRORCONTROL   = 0x00000020
+SPSVCINST_NOCLOBBER_LOADORDERGROUP = 0x00000040
+SPSVCINST_NOCLOBBER_DEPENDENCIES   = 0x00000080
+SPSVCINST_NOCLOBBER_DESCRIPTION    = 0x00000100

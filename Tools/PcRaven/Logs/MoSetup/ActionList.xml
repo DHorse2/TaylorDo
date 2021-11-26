@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ActionList xmlns="urn:schemas-microsoft-com:os-update-actionlist" SessionId="2021-10-28T02:19:01" Revision="1" SessionData="LangPack" BuildInfo="19h1_release.18362.1.190318-1202" CorrelationVector="0bL0g1d1/kKtg/S0.2.0.0.4.1" Operation="LangPack">
+    <Downloads>
+        <Package Id="Microsoft-Windows-Client-LanguagePack-Package_pl-pl~31bf3856ad364e35~amd64~pl-pl~" Reason="LangPack" PayloadType="Canonical" FeatureId="Language.UI.Client~pl-pl">
+            <Payload Hash="uiw9pFfnRbxoBSa5+bpPds56HPCeJajKzaqn3CXQBwY=" DownloadSize="25061439" SourceName="Microsoft-Windows-Client-LanguagePack-Package_pl-pl~31bf3856ad364e35~amd64~pl-pl~.esd" SourcePath="UUP\Desktop\editionpackages\pl-pl\client"/>
+        </Package>
+    </Downloads>
+    <Plan>
+        <InstallFeature Id="Language.UI.Client~pl-pl" Group="Microsoft"/>
+    </Plan>
+    <Actions>
+        <InstallPackage Keyform="Microsoft-Windows-Client-LanguagePack-Package_pl-pl~~amd64~pl-PL~10.0.18362.1" InstalledSize="239587825" StagedSize="0" FilePath="Microsoft-Windows-Client-LanguagePack-Package_pl-pl~31bf3856ad364e35~amd64~pl-pl~.esd" Reason="LangPack" FeatureId="Language.UI.Client~pl-pl" Partition="MainOS" BinaryPartition="false"/>
+    </Actions>
+</ActionList>

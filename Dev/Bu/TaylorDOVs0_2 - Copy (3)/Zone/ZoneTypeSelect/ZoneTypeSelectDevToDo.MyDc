@@ -1,0 +1,12 @@
+# Script: ZoneDo ZoneTypeSelectDevToDo
+# DevToDo start.
+!include "..\..\SelectCategory\SelNotBlobArchivesBu.MyDs"!
+# DevToDo
+and ( 
+!include "..\..\SelectCategory\SelDev.MyDs"!
+# DevToDo
+or 
+!include "..\..\SelectCategory\SelToDo.MyDs"!
+# DevToDo
+)
+# DevToDo end.

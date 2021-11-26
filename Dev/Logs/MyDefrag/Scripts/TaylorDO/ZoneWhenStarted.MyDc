@@ -1,0 +1,22 @@
+# Zone When Started
+
+SetVariable(FileStepDescription, "!FileStepDescriptionZoneStart!")
+!include "..\Display\DisplaySetZone.MyDc"!
+
+!include "..\ZoneNoIncrement.MyDc"!
+
+!include "..\ZoneDoCurrentClear.MyDc"!
+
+SetVariable(ZoneTypeSelectCurrent, "!ZoneTypeSelect!")
+
+!include "..\ZoneFooterGet.MyDc"!
+
+!include "..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerLog.MyDc"!
+
+AppendLogfile("!LogFileName!", "Zone !ZoneNoCurrent! (!ZoneNoCurrent! + !ZoneCurrentAdjust!) of !ZoneCount!.")
+AppendLogfile("!LogFileName!", "Zone !ZoneCurrentDescription!:")
+AppendLogfile("!LogFileName!", "Time: !Date! !Time!")
+
+SetVariable(ZoneListByLine, "!ZoneListByLine!
+Zone: !ZoneNoCurrent! !Date! !Time! !RunTime! !ZoneLabel! !ZoneDescription!")

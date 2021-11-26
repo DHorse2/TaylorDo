@@ -1,0 +1,3 @@
+# File Action - Type Os MFT - PlaceNtfsSystemFiles.
+PlaceNtfsSystemFiles(Ascending SkipBlock(SkipBlockFiles,SkipBlockBytes), MftSize * 0.1)
+	

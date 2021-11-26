@@ -1,0 +1,29 @@
+# Script: DefragZoneTypeOsDir
+/* ---------------------------------------------------------- */
+SetVariable(ZoneLabel,				"DIR") // "5"
+SetVariable(ZoneDescription, 		"Directories.")
+SetVariable(ZoneCurrentAjust, 		2)
+SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpDir!")
+SetVariable(ZoneGapSize, 			"!ZoneGapSizeDir!")
+SetVariable(ZoneTypeSelect,'!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDIR.MyDc"!')
+
+	!include "..\..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDIR.MyDc"!
+
+	FileActions
+	  	!include "..\..\Gap\GapZoneCalc.MyDc"!
+	
+		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+	
+		!include "..\..\ActionVerbs\ZoneDoActionTypeOsDir.MyDc"!
+
+		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+
+/* Mft Method: MFT GAP HERE. */
+/* For fixed zone locations */
+AppendLogfile("!LogFileName!", "Mft Zone: !MftZone! Location: !MftLocation! Gap: !MftGap! !Date! !Time!")
+/* MakeGap(MftGap, DoNotVacate) */
+/* ---------------------------------------------------------- */

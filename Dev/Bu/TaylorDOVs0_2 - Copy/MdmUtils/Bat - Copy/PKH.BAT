@@ -1,0 +1,8 @@
+@Rem
+@Echo OFF
+@Rem
+@CALL SETPATH
+@PATH C:\COM\PKH\vs2_4;%PATH%
+@CD \COM\PKH\vs2_4
+@PKH
+@M

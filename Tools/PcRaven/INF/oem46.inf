@@ -1,0 +1,154 @@
+; File Name: RtkHfp.inf
+; Install information file for BthAudioHF Driver
+;
+; Copyright (c) 2010 Realtek Semiconductor Corp.
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+Provider=%REALTEK%
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+DriverVer=09/06/2015,1.0.78.3
+CatalogFile=RtkHfp.cat
+
+[SourceDisksNames]
+222=%BTHDriverDisk%,"",222
+
+[SourceDisksFiles]
+RtkHfp.sys=222
+
+[Manufacturer]
+%MfgName%=RealtekHFP,NTx86,NTAMD64,NTIA64
+
+;;======================================================
+[RealtekHFP.NTx86]
+%BthAudioHF.DeviceDesc%=BthAudioHF,BTHENUM\{0000111e-0000-1000-8000-00805F9B34FB}_LOCALMFG&005d
+;;%BthAudioHF.DeviceDesc%=BthAudioHF,BTHENUM\{00001108-0000-1000-8000-00805f9b34fb}_LOCALMFG&005d
+
+;;This section enables installing on Itanium systems
+[RealtekHFP.NTIA64]
+%BthAudioHF.DeviceDesc%=BthAudioHF,BTHENUM\{0000111e-0000-1000-8000-00805F9B34FB}_LOCALMFG&005d
+;;%BthAudioHF.DeviceDesc%=BthAudioHF,BTHENUM\{00001108-0000-1000-8000-00805f9b34fb}_LOCALMFG&005d
+
+;; This section enables installing on x64 systems
+[RealtekHFP.NTAMD64]
+%BthAudioHF.DeviceDesc%=BthAudioHF,BTHENUM\{0000111e-0000-1000-8000-00805F9B34FB}_LOCALMFG&005d
+;;%BthAudioHF.DeviceDesc%=BthAudioHF,BTHENUM\{00001108-0000-1000-8000-00805f9b34fb}_LOCALMFG&005d
+
+[DestinationDirs]
+BthAudioHF.CopyList=10,system32\drivers
+
+;======================================================
+; BthAudioHF
+;======================================================
+[BthAudioHF.NT]
+Include=ks.inf,wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=BthAudioHF.CopyList
+AddReg=BthAudioHF.NT.AddReg
+
+[BthAudioHF.NT.HW]
+AddReg=BthAudioHF.HW.AddReg
+
+[BthAudioHF.CopyList]
+RtkHfp.sys
+
+[BthAudioHF.NT.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,MSVAD.I.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,MSVAD.I.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Capture%,MSVAD.I.Wave
+;AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,MSVAD.I.Topo
+
+[BthAudioHF.HW.AddReg]
+HKR,,DeviceCharacteristics,0x10001,0x0100                     ; 
+HKR,,Security,,"D:P(A;;GA;;;BU)(A;;GA;;;SY)(A;;GRGWGX;;;LS)"  ; "D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GRGWGX;;;LS)"
+
+[BthAudioHF.NT.AddReg]
+;HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,AssociatedFilters,,"wdmaud,redbook"
+HKR,,Driver,,RtkHfp.sys
+
+;HKR,Drivers,SubClasses,,"wave,midi,mixer"
+HKR,Drivers,SubClasses,,"wave,mixer"
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+;HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv,Description,,%BthAudioHF.DeviceDesc%
+;HKR,Drivers\midi\wdmaud.drv,Description,,%MSVAD_MIDI%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%BthAudioHF.DeviceDesc%
+
+HKLM,%MediaCategories%\%HFP.NameGuid%,Name,,%HFP.Name%
+
+;--------------- add audio output pinnames----------------------
+HKLM,%MediaCategories%\%AudioRenderPinGUID%,Name,,%AudioRenderPinName%
+HKLM,%MediaCategories%\%AudioCapturePinGUID%,Name,,%AudioCapturePinName%
+
+
+[BthAudioHF.NT.Services]
+AddService=BthAudioHF,0x00000002,BthAudioHF_Service_Inst
+
+[BthAudioHF_Service_Inst]
+DisplayName=%BthAudioHF.SvcDesc%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%10%\system32\drivers\RtkHfp.sys
+
+;======================================================
+; COMMON
+;======================================================
+[MSVAD.I.Wave]
+AddReg=MSVAD.I.Wave.AddReg
+[MSVAD.I.Wave.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%MSVAD.Wave.szPname%
+
+;[MSVAD.I.Topo]
+;AddReg=MSVAD.I.Topo.AddReg
+;[MSVAD.I.Topo.AddReg]
+;HKR,,CLSID,,%Proxy.CLSID%
+;HKR,,FriendlyName,,%MSVAD.Topo.szPname%
+
+;======================================================
+; String
+;======================================================
+[Strings]
+REALTEK="Realtek Semiconductor Corp."
+BTHDriverDisk = "Bth Driver Disk"
+MfgName="Realtek Bluetooth"
+BthAudioHF.DeviceDesc="Realtek Bluetooth HandsFree Audio"
+
+
+
+MSVAD.Wave.szPname="Realtek Bluetooth Wave"
+;MSVAD.Topo.szPname="MSVAD Topology"
+;MSVAD_MIDI="MSVAD -> WDM Midi Device"
+
+Proxy.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+
+KSNAME_Wave="Realtek Wave"
+KSNAME_Capture="Realtek Bluetooth Capture"
+;KSNAME_Topology="Topology"
+
+BthAudioHF.SvcDesc="Mono Audio"
+
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+
+HFP.NameGuid="{F7E34F7A-1CCC-4450-B0E2-46675382527C}";
+;Simple.NameGuid="{946A7B1A-EBBC-422a-A81F-F07C8D40D3B4}"
+HFP.Name="Realtek Mono Audio"
+
+; Our Pin GUIDs
+AudioRenderPinGUID="{66f5f142-1a48-4a63-a69e-378c18cad378}"
+AudioRenderPinName="Bluetooth Handsfree Audio"
+AudioCapturePinGUID="{ac75859f-6736-4d55-b1cd-e321836e1c42}"
+AudioCapturePinName="Bluetooth Handsfree Microphone"
+
+
+USER_MODE_SERVICE_DESCRIPTION	= "Enables wireless Bluetooth headsets to run on this computer. If this service is stopped or disabled, then Bluetooth headsets will not function properly on this machine."
+USER_MODE_SERVICE_DISPLAY_NAME	= "Realtek Handsfree Service"

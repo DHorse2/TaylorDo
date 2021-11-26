@@ -1,0 +1,68 @@
+;***********************************************************************************************
+;
+; Name		: ssudmtp.inf
+;
+; Function	: Install SAMSUNG Escape USB Media Transfer Protodol driver
+;
+; Copyright (c) DEVGURU Co., Ltd. (www.devguru.co.kr)
+;
+;***********************************************************************************************
+
+[Version]
+Signature="$Windows NT$"
+Class=WPD
+ClassGUID={EEC5AD98-8080-425f-922A-DABF3DE3F69A}
+Provider            = %Provider%
+DriverVer=01/02/2014,2.11.7.0
+CatalogFile=ssudmtp.cat
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%ssud%          = ssud, NTx86.5.1, NTamd64.5.1, NTx86.6.0, NTamd64.6.0
+
+[SSUD.NTx86.6.0]
+
+[SSUD.NTamd64.6.0]
+
+[SSUD.NTx86.5.1]
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_685C
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_6860&MI_00
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_6862&MI_02
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_686A&MI_00
+
+[SSUD.NTamd64.5.1]
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_685C
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_6860&MI_00
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_6862&MI_02
+%USB\SAMSUNG_MOBILE&MTP.Desc%    = ssud.Install, USB\VID_04E8&PID_686A&MI_00
+
+
+[ssud.Install]
+Include = wpdmtp.inf, WINUSB.INF
+Needs   = WPD.MTP, WINUSB.NT
+
+[ssud.Install.hw]
+Include = wpdmtp.inf
+Needs   = WPD.MTP.Registration
+
+[ssud.Install.Services]
+Include = wpdmtp.inf
+Needs   = WPD.MTP.Services
+
+[ssud.Install.CoInstallers]
+Include = wpdmtp.inf
+Needs = WPD.MTP.CoInstallers
+
+[ssud.Install.Wdf]
+Include = wpdmtp.inf
+Needs = WPD.MTP.Wdf
+UmdfServiceOrder=WpdMtpDriver
+
+; no sys copyfiles - the sys files are already in place
+
+[Strings]
+ssud       = "SAMSUNG Electronics Co., Ltd. "
+Provider="SAMSUNG Electronics Co., Ltd. "
+USB\SAMSUNG_MOBILE&MTP.Desc="SAMSUNG Mobile MTP Device"

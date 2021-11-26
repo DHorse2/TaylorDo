@@ -1,0 +1,187 @@
+;---------------------------------------------------------
+; AMD Security Accelerator Information file : amdpsp.inf
+;
+; Installation INF for the AMD PSP Device driver.
+; Copyright (c) 2019 Advanced Micro Devices Inc.
+;---------------------------------------------------------
+
+;*****************************************
+; INF Version Section
+;*****************************************
+[Version]
+Signature = "$WINDOWS NT$"
+Provider = %ManufacturerName%
+Class = SecurityDevices
+ClassGuid = {d94ee5d8-d189-4994-83d2-f68d7d41b0e6}
+CatalogFile = amdpsp.cat
+DriverVer = 06/19/2019, 4.11.0.0
+
+;*****************************************
+; INF DestinationDirs Section
+;*****************************************
+[DestinationDirs]
+DefaultDestDir                      = 12                ; ..\system32\drivers
+AMDPSP.PCI                          = 12                ; ..\system32\drivers
+AMDPSP.AMDTEE64                     = 11                ; ..\system32
+AMDPSP.AMDTEE32                     = 10, SysWOW64      ; ..\SysWOW64
+AMDPSP.TBASE64                      = 11                ; ..\system32
+AMDPSP.TBASE32                      = 10, SysWOW64      ; ..\SysWOW64
+AMDPSP.TBASEREG64                   = 11                ; ..\system32
+AMDPSP.TBASEREG32                   = 10, SysWOW64      ; ..\SysWOW64
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+amdpsp.sys = 1,,
+amdtee_api64.dll = 1,,
+amdtee_api32.dll = 1,,
+t-base_client_api64.dll = 1,,
+t-base_client_api32.dll = 1,,
+tbaseregistry64.dll = 1,,
+tbaseregistry32.dll = 1,,
+
+;*****************************************
+; INF Manufacturer Section
+;*****************************************
+[Manufacturer]
+%ManufacturerName% = AMDMfg, NTamd64
+
+;*****************************************
+; INF Models Section
+;*****************************************
+[AMDMfg.NTamd64]
+%amdpsp_10.DeviceDesc% = amdpsp_Device_10, PCI\VEN_1022&DEV_1537       
+%amdpsp_20.DeviceDesc% = amdpsp_Device_20, PCI\VEN_1022&DEV_1578       
+%amdpsp_30.DeviceDesc% = amdpsp_Device_30, PCI\VEN_1022&DEV_1456       
+%amdpsp_100.DeviceDesc% = amdpsp_Device_100, PCI\VEN_1022&DEV_15DF      
+%amdpsp_110.DeviceDesc% = amdpsp_Device_110, PCI\VEN_1022&DEV_1486     
+
+;*****************************************
+; INF Install Section
+;*****************************************
+[amdpsp_Device_10]
+CopyFiles = AMDPSP.PCI, AMDPSP.TBASE64, AMDPSP.TBASE32, AMDPSP.TBASEREG64, AMDPSP.TBASEREG32
+AddReg = amdpsp_Device_AddReg
+
+[amdpsp_Device_20]
+CopyFiles = AMDPSP.PCI, AMDPSP.TBASE64, AMDPSP.TBASE32, AMDPSP.TBASEREG64, AMDPSP.TBASEREG32
+AddReg = amdpsp_Device_AddReg
+
+[amdpsp_Device_30]
+CopyFiles = AMDPSP.PCI, AMDPSP.TBASE64, AMDPSP.TBASE32, AMDPSP.TBASEREG64, AMDPSP.TBASEREG32
+AddReg = amdpsp_Device_AddReg
+
+[amdpsp_Device_100]
+CopyFiles = AMDPSP.PCI, AMDPSP.AMDTEE64, AMDPSP.AMDTEE32
+AddReg = amdpsp_Device_AddReg
+
+[amdpsp_Device_110]
+CopyFiles = AMDPSP.PCI, AMDPSP.AMDTEE64, AMDPSP.AMDTEE32
+AddReg = amdpsp_Device_AddReg
+
+[amdpsp_Device_AddReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+HKR,,DeviceCharacteristics,0x10001,0x100     ;Use same security checks on relative opens
+HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;SY)(A;;GRGWGX;;;BU)"  ;Allow generic all access to system and built-in Admin and read/write access to built-in users.
+
+[AMDPSP.PCI]
+amdpsp.sys
+
+[AMDPSP.AMDTEE64]
+amdtee_api.dll, amdtee_api64.dll,,0x00000008 ; COPYFLG_FORCE_FILE_IN_USE
+
+[AMDPSP.AMDTEE32]
+amdtee_api.dll, amdtee_api32.dll,,0x00000008 ; COPYFLG_FORCE_FILE_IN_USE
+
+[AMDPSP.TBASE64]
+t-base_client_api.dll, t-base_client_api64.dll,,0x00000008 ; COPYFLG_FORCE_FILE_IN_USE
+
+[AMDPSP.TBASE32]
+t-base_client_api.dll, t-base_client_api32.dll,,0x00000008 ; COPYFLG_FORCE_FILE_IN_USE
+
+[AMDPSP.TBASEREG64]
+tbaseregistry64.dll
+
+[AMDPSP.TBASEREG32]
+tbaseregistry32.dll
+
+;*****************************************
+; INF Install.Services Section
+;*****************************************
+[amdpsp_Device_10.Services]
+AddService = amdpsp, %SPSVCINST_ASSOCSERVICE%, amdpsp_Service_Inst
+
+[amdpsp_Device_20.Services]
+AddService = amdpsp, %SPSVCINST_ASSOCSERVICE%, amdpsp_Service_Inst
+
+[amdpsp_Device_30.Services]
+AddService = amdpsp, %SPSVCINST_ASSOCSERVICE%, amdpsp_Service_Inst
+
+[amdpsp_Device_100.Services]
+AddService = amdpsp, %SPSVCINST_ASSOCSERVICE%, amdpsp_Service_Inst
+
+[amdpsp_Device_110.Services]
+AddService = amdpsp, %SPSVCINST_ASSOCSERVICE%, amdpsp_Service_Inst
+
+[amdpsp_Service_Inst]
+DisplayName    = %amdpsp.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_BOOT_START
+ErrorControl   = 0               ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\amdpsp.sys
+LoadOrderGroup = Cryptography
+
+;*****************************************
+; INF Install.HW Section
+;*****************************************
+[amdpsp_Device_10.HW]
+AddReg = amdpsp_Device_HW_AddReg
+
+[amdpsp_Device_20.HW]
+AddReg = amdpsp_Device_HW_AddReg
+
+[amdpsp_Device_30.HW]
+AddReg = amdpsp_Device_HW_AddReg
+
+[amdpsp_Device_100.HW]
+AddReg = amdpsp_Device_HW_AddReg
+
+[amdpsp_Device_110.HW]
+AddReg = amdpsp_Device_HW_AddReg
+
+[amdpsp_Device_HW_AddReg]
+HKR, "Interrupt Management", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
+
+[amdpsp_Device_10.Wdf]
+KmdfService = amdpsp, amdpsp_wdfsect
+
+[amdpsp_Device_20.Wdf]
+KmdfService = amdpsp, amdpsp_wdfsect
+
+[amdpsp_Device_30.Wdf]
+KmdfService = amdpsp, amdpsp_wdfsect
+
+[amdpsp_Device_100.Wdf]
+KmdfService = amdpsp, amdpsp_wdfsect
+
+[amdpsp_Device_110.Wdf]
+KmdfService = amdpsp, amdpsp_wdfsect
+
+[amdpsp_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "Advanced Micro Devices Inc."
+ClassName = "Security Devices"
+DiskName = "AMD PSP Installation Disk"
+amdpsp_10.DeviceDesc = "AMD PSP 1.0 Device"
+amdpsp_20.DeviceDesc = "AMD PSP 2.0 Device"
+amdpsp_30.DeviceDesc = "AMD PSP 3.0 Device"
+amdpsp_100.DeviceDesc = "AMD PSP 10.0 Device"
+amdpsp_110.DeviceDesc = "AMD PSP 11.0 Device"
+amdpsp.SVCDESC = "AMD PSP Service"

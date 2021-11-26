@@ -1,0 +1,1 @@
+TYPE \REC\%1.REC | MORE

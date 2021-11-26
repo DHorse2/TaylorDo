@@ -1,0 +1,10 @@
+# Display Set Zone
+
+SetVariable(ZoneStepDescription,	"!ZoneLabel! - !ZoneDescription!")
+SetVariable(FileStepDescription,	"")
+
+SetVariable(ZoneStepByLine, 			"Zone started.
+")
+
+!include "..\Display\BannerDescriptionSet.MyDc"!
+pause(1)

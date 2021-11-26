@@ -1,0 +1,2 @@
+G:\Dev\MdmDefrag\TaylorDOVs0_2\obj\x86\Debug\TaylorDo.csproj.AssemblyReference.cache
+G:\Dev\MdmDefrag\TaylorDOVs0_2\obj\x86\Debug\TaylorDo.csproj.CoreCompileInputs.cache

@@ -1,0 +1,42 @@
+; TS3300N.inf
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%CANON%
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Class=USB
+DriverVer=08/01/2019, 1.0.2.0
+CatalogFile=TS3300N.cat
+
+[Manufacturer]
+"Canon" = Canon,NTamd64
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%DISKLABEL%,,
+
+[SourceDisksFiles]
+
+[Canon]
+"Canon TS3300 series Null Driver 1"=Canon_Install, USB\VID_04A9&PID_18A2&MI_02
+"Canon TS3300 series Null Driver 2"=Canon_Install, USB\VID_04A9&PID_18A2&MI_03
+
+[Canon.NTamd64]
+"Canon TS3300 series Null Driver 1"=Canon_Install, USB\VID_04A9&PID_18A2&MI_02
+"Canon TS3300 series Null Driver 2"=Canon_Install, USB\VID_04A9&PID_18A2&MI_03
+
+[Canon_Install]
+CopyFiles=Nothing
+AddReg=Nothing
+
+[Nothing]
+
+[Canon_Install.Services]
+AddService = ,2;
+
+[Strings]
+CANON="Canon"
+DISKLABEL="Canon TS3300 series Null Driver"

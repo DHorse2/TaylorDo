@@ -1,0 +1,17 @@
+# MyDefrag v4.0 script: System Volume Daily defrag
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+/* System Volume Daily*/
+SetVariable(RunStepDescription,"Sys Vol Daily")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Daily: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesDay!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesDay!")
+
+!include "..\DefragVolumeSys.MyDc"!

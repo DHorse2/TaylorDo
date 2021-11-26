@@ -1,0 +1,1 @@
+TYPE \REC\BIN.REC | MORE

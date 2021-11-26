@@ -1,0 +1,2 @@
+AppendLogfile("!LogFileName!", "!Title!")
+

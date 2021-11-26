@@ -1,0 +1,99 @@
+/* ---------------------------------------------------------- */
+# Zone Programs Fixed size but not windows..
+	SetVariable(ZoneLabel, 			"!ZoneLabelPrograms!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionPrograms!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpPrograms!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizePrograms!")
+	SetVariable(ZoneTypeSelect,'!include "..\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+                and not(
+                     !include "..\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+                     or 
+                     DirectoryName("Windows*")
+                )
+')
+
+		!include "..\ZoneDoHeader.MyDc"!
+		!include "..\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+		and not(
+			!include "..\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+			or 
+				DirectoryName("Windows*")
+		)
+		FileActions
+		  	!include "..\Gap\GapZoneCalc.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+			!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\ZoneDoFooter.MyDc"!
+	
+/* ---------------------------------------------------------- */
+# Zone Programs Fixed size just Windows.
+	SetVariable(ZoneLabel, 			"!ZoneLabelProgramsWindows!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramsWindows!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpPrograms!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizePrograms!")
+	SetVariable(ZoneTypeSelect,'
+                # Programs - Windows folder.
+                not(
+                !include "..\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+                )
+')
+
+		!include "..\ZoneDoHeader.MyDc"!
+		!include "..\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+		and not(
+			!include "..\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+		)
+		FileActions
+		  	!include "..\Gap\GapZoneCalc.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+			/* "..\ActionVerbs\ZoneDoActionThis.MyDc" */
+			!include "..\ActionVerbs\ZoneDoActionSortByImportSequenceSkip.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\ZoneDoFooter.MyDc"!
+	
+/* ---------------------------------------------------------- */
+# Zone Program Data.
+	SetVariable(ZoneLabel, 			"!ZoneLabelProgramsData!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramsData!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpPrograms!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizePrograms!")
+	SetVariable(ZoneTypeSelect,'
+                # Programs - Data files.
+                not(
+                !include "..\SelectCategory\SelOsPageHiberDump.MyDs"!
+                )
+')
+
+		!include "..\ZoneDoHeader.MyDc"!
+		!include "..\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+		and not(
+			!include "..\SelectCategory\SelOsPageHiberDump.MyDs"!
+		)
+		FileActions
+		  	!include "..\Gap\GapZoneCalc.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+			/* "..\ActionVerbs\ZoneDoActionThis.MyDc" */
+			!include "..\ActionVerbs\ZoneDoActionSortByImportSequenceSkip.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+			!include "..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\ZoneDoFooter.MyDc"!
+	
+/* ---------------------------------------------------------- */

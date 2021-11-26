@@ -1,0 +1,23 @@
+~NEXT.DAT~
+(NEXT.DAT)          Axion Computer Systems Ltd.
+
+  M        Return to the Main Menu   DSK_CHK   Check that a floppy is readable
+  TUTOR    Rev TUTOR account         QANDA     Rev Q and A account
+  EFT      Transmit EFT Trans.       HELPME    DOS & PC Analyzer
+  MSD      Microsoft Diagnostics     QMM       Quarterdect Diagnostics
+  
+  PICK     Pick Operating System     WIN       Windows
+
+  EXIT     Exit function             PCTOOLS   PCTools utility
+
+  MNU_M    List of menu commands     CONFIG    Enter configuration code
+
+  FAX       FAX_CHK     FAX_LPT    FAX_CLR    FAX_LOAD    FAX_OV
+  FAX_M     FAX_OLD     FAX_CD     FAX_SND    FAX_RCV
+
+  MSG       MSG_CHK     MSG_LPT    MSG_CLR
+  MSG_M     MSG_OLD     MSD_CD     MSG_SND    MSG_RCV
+
+  DSK_M     MEM_M       APL_M      COM_M      UTL_M
+
+Enter one of the above commands.

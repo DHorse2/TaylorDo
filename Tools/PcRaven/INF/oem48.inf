@@ -1,0 +1,584 @@
+; =================================================================
+; NvtCam.INF  -- This file contains installation information 
+; Video Capture Driver installation information for Novatek USBDCam
+; Copyright(c) Novatek Microelectronics Corp. All rights reserved.
+; Date: 2009/06/23
+; =================================================================
+
+[Version]
+signature="$CHICAGO$"
+Class=Image
+ClassGUID={6bdd1fc6-810f-11d0-bec7-08002be2092f}
+; fail in 98//LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Provider=%NovatekMfg%
+Driverver=06/23/2009,1.0.1.23
+CatalogFile.NT=NvtCam.cat
+
+[ControlFlags]
+; All PnP devices should be excluded from manual AddDevice Applet list
+ExcludeFromSelect=*
+
+[Manufacturer]
+%NovatekMfg%=NovatekDev, NTx86 ,NTamd64
+
+[NovatekDev.NTx86]
+%Novatek_USBCAM_Desc%=Novatek.USBDCam.x86,USB\Vid_03F0&Pid_8D07&MI_00
+%Novatek_USBCAM_AM_Desc%=Novatek.USBDCamAM.x86,USB\Vid_03F0&Pid_8E07&MI_00
+
+
+[NovatekDev.NTamd64]
+%Novatek_USBCAM_Desc%=Novatek.USBDCam.amd64,USB\Vid_03F0&Pid_8D07&MI_00
+%Novatek_USBCAM_AM_Desc%=Novatek.USBDCamAM.amd64,USB\Vid_03F0&Pid_8E07&MI_00
+
+
+[DestinationDirs]
+Novatek.USBDCam.Files.NT = 10,System32\Drivers
+Novatek.Monitor.CopyFiles = 10
+DSHOWEXT.Filters.Files = 11
+DSHOWEXT.Filters.amd64.Files = 10,syswow64
+Novatek.USBDCam.INI = 10,System32
+Novatek.USBDCam.amd64.INI = 10,syswow64
+
+[SourceDisksNames]
+1=%DiskName%,,,,
+
+[SourceDisksFiles.x86]
+nvtcam.sys=1
+nvtcamd2.sys=1
+NVTCA122.AX=1
+NVTBM.exe=1
+NVTBM.ini=1
+
+[SourceDisksFiles.amd64]
+nvtcam.sys=1,.\x64
+nvtcamd2.sys=1,.\x64
+NVTCA122.AX=1
+NVTBM.exe=1
+NVTBM.ini=1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          Novatek.USBDCam ;Novatek_USBCAM_Desc
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[Novatek.USBDCam.x86]
+Include=    ks.inf,kscaptur.inf,ksfilter.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     Novatek.USBDCam.AddReg.NT,Novatek.USBDCam.Layer.AddReg,DSHOWEXT.PlugIns.AddReg,DSHOWEXT.AddReg
+;CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.USBDCam.INI,Novatek.Monitor.CopyFiles
+CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.Monitor.CopyFiles,DSHOWEXT.Filters.Files,Novatek.USBDCam.INI
+
+SubClass=StillImage
+DeviceType=3
+DeviceSubType=0x1
+Capabilities=0x00000031
+DeviceData=CAMERA.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[Novatek.USBDCam.amd64]
+Include=    ks.inf,kscaptur.inf,ksfilter.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     Novatek.USBDCam.AddReg.NT,Novatek.USBDCam.Layer.AddReg,DSHOWEXT.amd64.PlugIns.AddReg,DSHOWEXT.AddReg
+;CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.USBDCam.amd64.INI,Novatek.Monitor.CopyFiles
+CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.Monitor.CopyFiles,DSHOWEXT.Filters.amd64.Files,Novatek.USBDCam.amd64.INI
+
+SubClass=StillImage
+DeviceType=3
+DeviceSubType=0x1
+Capabilities=0x00000031
+DeviceData=CAMERA.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[Novatek.USBDCam.Layer.AddReg]
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Layer",0x10001,1
+
+[Novatek.USBDCam.x86.HW]
+AddReg = Novatek.USBDCam.HW.AddReg
+
+[Novatek.USBDCam.amd64.HW]
+AddReg = Novatek.USBDCam.HW.AddReg
+
+[Novatek.USBDCam.HW.AddReg]
+HKR,,FriendlyName,,%Novatek_USBCAM_Desc%
+
+[Novatek.USBDCam.x86.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,Novatek.USBDCam.Interface
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,Novatek.USBDCam.Interface
+
+[Novatek.USBDCam.amd64.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,Novatek.USBDCam.Interface
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,Novatek.USBDCam.Interface
+
+[Novatek.USBDCam.Interface]
+AddReg=Novatek.USBDCam.Intf.AddReg
+         
+[Novatek.USBDCam.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%Novatek_USBCAM_Desc%
+HKR,,ExtensionDLL,,%ExnensionDLL%
+;HKR,PageAliases,"{71F96464-78F3-11d0-A18C-00A0C9118956}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+;HKR,PageAliases,"{71F96465-78F3-11d0-A18C-00A0C9118956}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+HKR,PageAliases,"{2AAEB140-59DA-11d2-BA41-00A0C90D2B05}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+HKR,PinFactory\1\Interfaces\{5BB95400-52BB-11d2-BA41-00A0C90D2B05},,,
+
+
+[Novatek.USBDCam.x86.Services]
+AddService = DCamUSBNovatek,0x00000002,Novatek.USBDCam.ServiceInstall
+
+[Novatek.USBDCam.amd64.Services]
+AddService = DCamUSBNovatek,0x00000002,Novatek.USBDCam.ServiceInstall
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          Novatek.USBDCamAM ;Novatek_USBCAM_AM_Desc
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[Novatek.USBDCamAM.x86]
+Include=    ks.inf,kscaptur.inf,ksfilter.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     Novatek.USBDCam.AddReg.NT,Novatek.USBDCamAM.Layer.AddReg,DSHOWEXT.PlugIns.AddReg,DSHOWEXT.AddReg
+;CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.USBDCam.INI,Novatek.Monitor.CopyFiles
+CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.Monitor.CopyFiles,DSHOWEXT.Filters.Files,Novatek.USBDCam.INI
+
+SubClass=StillImage
+DeviceType=3
+DeviceSubType=0x1
+Capabilities=0x00000031
+DeviceData=CAMERA.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[Novatek.USBDCamAM.amd64]
+Include=    ks.inf,kscaptur.inf,ksfilter.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     Novatek.USBDCam.AddReg.NT,Novatek.USBDCamAM.Layer.AddReg,DSHOWEXT.amd64.PlugIns.AddReg,DSHOWEXT.AddReg
+;CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.USBDCam.amd64.INI,Novatek.Monitor.CopyFiles
+CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.Monitor.CopyFiles,DSHOWEXT.Filters.amd64.Files,Novatek.USBDCam.amd64.INI
+
+SubClass=StillImage
+DeviceType=3
+DeviceSubType=0x1
+Capabilities=0x00000031
+DeviceData=CAMERA.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[Novatek.USBDCamAM.Layer.AddReg]
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Layer",0x10001,1
+
+[Novatek.USBDCamAM.x86.HW]
+AddReg = Novatek.USBDCamAM.HW.AddReg
+
+[Novatek.USBDCamAM.amd64.HW]
+AddReg = Novatek.USBDCamAM.HW.AddReg
+
+[Novatek.USBDCamAM.HW.AddReg]
+HKR,,FriendlyName,,%Novatek_USBCAM_AM_Desc%
+
+[Novatek.USBDCamAM.x86.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,Novatek.USBDCamAM.Interface
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,Novatek.USBDCamAM.Interface
+
+[Novatek.USBDCamAM.amd64.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,Novatek.USBDCamAM.Interface
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,Novatek.USBDCamAM.Interface
+
+[Novatek.USBDCamAM.Interface]
+AddReg=Novatek.USBDCamAM.Intf.AddReg
+         
+[Novatek.USBDCamAM.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%Novatek_USBCAM_AM_Desc%
+HKR,,ExtensionDLL,,%ExnensionDLL%
+;HKR,PageAliases,"{71F96464-78F3-11d0-A18C-00A0C9118956}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+;HKR,PageAliases,"{71F96465-78F3-11d0-A18C-00A0C9118956}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+HKR,PageAliases,"{2AAEB140-59DA-11d2-BA41-00A0C90D2B05}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+HKR,PinFactory\1\Interfaces\{5BB95400-52BB-11d2-BA41-00A0C90D2B05},,,
+
+
+[Novatek.USBDCamAM.x86.Services]
+AddService = DCamUSBNovatek,0x00000002,Novatek.USBDCam.ServiceInstall
+
+[Novatek.USBDCamAM.amd64.Services]
+AddService = DCamUSBNovatek,0x00000002,Novatek.USBDCam.ServiceInstall
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          Novatek.USBDCamAF.x86 ;Novatek_USBCAM_AF_Desc
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[Novatek.USBDCamAF.x86]
+Include=    ks.inf,kscaptur.inf,ksfilter.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     Novatek.USBDCam.AddReg.NT,Novatek.USBDCamAF.Layer.AddReg,DSHOWEXT.PlugIns.AddReg,DSHOWEXT.AddReg
+CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.Monitor.CopyFiles,DSHOWEXT.Filters.Files
+
+SubClass=StillImage
+DeviceType=3
+DeviceSubType=0x1
+Capabilities=0x00000031
+DeviceData=CAMERA.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[Novatek.USBDCamAF.amd64]
+Include=    ks.inf,kscaptur.inf,ksfilter.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     Novatek.USBDCam.AddReg.NT,Novatek.USBDCamAF.Layer.AddReg,DSHOWEXT.amd64.PlugIns.AddReg,DSHOWEXT.AddReg
+CopyFiles=  Novatek.USBDCam.Files.NT,Novatek.Monitor.CopyFiles,DSHOWEXT.Filters.amd64.Files
+
+SubClass=StillImage
+DeviceType=3
+DeviceSubType=0x1
+Capabilities=0x00000031
+DeviceData=CAMERA.DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[Novatek.USBDCamAF.Layer.AddReg]
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Layer",0x10001,0
+
+[Novatek.USBDCamAF.x86.HW]
+AddReg = Novatek.USBDCamAF.HW.AddReg
+
+[Novatek.USBDCamAF.amd64.HW]
+AddReg = Novatek.USBDCamAF.HW.AddReg
+
+[Novatek.USBDCamAF.HW.AddReg]
+HKR,,FriendlyName,,%Novatek_USBCAM_AF_Desc%
+
+[Novatek.USBDCamAF.x86.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,Novatek.USBDCamAF.Interface
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,Novatek.USBDCamAF.Interface
+
+[Novatek.USBDCamAF.amd64.Interfaces]
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,Novatek.USBDCamAF.Interface
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,Novatek.USBDCamAF.Interface
+
+[Novatek.USBDCamAF.Interface]
+AddReg=Novatek.USBDCamAF.Intf.AddReg
+         
+[Novatek.USBDCamAF.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%Novatek_USBCAM_AF_Desc%
+HKR,,ExtensionDLL,,%ExnensionDLL%
+;HKR,PageAliases,"{71F96464-78F3-11d0-A18C-00A0C9118956}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+;HKR,PageAliases,"{71F96465-78F3-11d0-A18C-00A0C9118956}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+HKR,PageAliases,"{2AAEB140-59DA-11d2-BA41-00A0C90D2B05}",1,30,ee,c5,10,51,56,03,4e,0x63, 0xaf,0x7A,0xFA,0xAD,0x73,0xA5,0x3A
+HKR,PinFactory\1\Interfaces\{5BB95400-52BB-11d2-BA41-00A0C90D2B05},,,
+
+
+[Novatek.USBDCamAF.x86.Services]
+AddService = DCamUSBNovatek,0x00000002,Novatek.USBDCam.ServiceInstall
+
+[Novatek.USBDCamAF.amd64.Services]
+AddService = DCamUSBNovatek,0x00000002,Novatek.USBDCam.ServiceInstall
+
+
+;================================================================================
+;================================================================================
+[Novatek.USBDCam.AddReg.NT]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,nvtcam.sys
+HKR,,PageOutWhenUnopened,3,00
+; WIA
+HKR,,HardwareConfig,1,1
+HKR,,USDClass,,"{0527d1d0-88c2-11d2-82c7-00c04f8ec183}"
+;HKLM,%RunOncePath%,"NVTBM",,"rundll32.exe DoShellExecute %10%\NVTBM.exe"
+;HKLM,%RunPath%,"NVTBM",,"%10%\NVTBM.exe"
+
+[Novatek.USBDCam.ServiceInstall]
+DisplayName   = %SERVICE_DISPLAY_NAME%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %10%\System32\Drivers\nvtcam.sys
+
+[Novatek.USBDCam.Files.NT]
+nvtcam.sys
+nvtcamd2.sys
+
+[Novatek.Monitor.CopyFiles]
+NVTBM.exe
+
+[DSHOWEXT.PlugIns.AddReg]
+;Custom Property Page
+HKCR,CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05},,,%PlugIn_CustomCameraProp%
+HKCR,CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\InprocServer32,,,%ExnensionDLL%
+HKCR,CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\InprocServer32,ThreadingModel,,Both
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{3dc2e820-4713-11d2-ba41-00a0c90d2b05},,,%PlugIn_CustomCameraProp%
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{3dc2e820-4713-11d2-ba41-00a0c90d2b05},IID,1,0X20,0XE8,0XC2,0X3D,0X13,0X47,0XD2,0X11,0XBA,0X41,0X00,0XA0,0XC9,0X0D,0X2B,0X05
+
+;VideoSetting Page
+;HKCR,CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomVideoSet%
+;HKCR,CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+
+;SpecialEffect Page
+;HKCR,CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomSpecialEFfect%
+;HKCR,CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+
+
+;DigitalZoom Page
+;HKCR,CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomDigitalZoom%
+;HKCR,CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+
+
+;HKLM,System\CurrentControlSet\Control\MediaSets\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\PropertyPages\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomVideoSet%
+;HKLM,System\CurrentControlSet\Control\MediaSets\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\PropertyPages\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomSpecialEFfect%
+;HKLM,System\CurrentControlSet\Control\MediaSets\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\PropertyPages\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomDigitalZoom%
+
+[DSHOWEXT.amd64.PlugIns.AddReg]
+;Custom Property Page
+HKCR,CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05},,,%PlugIn_CustomCameraProp%
+HKCR,CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\InprocServer32,,,%ExnensionDLL%
+HKCR,CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\InprocServer32,ThreadingModel,,Both
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{3dc2e820-4713-11d2-ba41-00a0c90d2b05},,,%PlugIn_CustomCameraProp%
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{3dc2e820-4713-11d2-ba41-00a0c90d2b05},IID,1,0X20,0XE8,0XC2,0X3D,0X13,0X47,0XD2,0X11,0XBA,0X41,0X00,0XA0,0XC9,0X0D,0X2B,0X05
+HKCR,Wow6432Node\CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05},,,%PlugIn_CustomCameraProp%
+HKCR,Wow6432Node\CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\InprocServer32,,,%ExnensionDLL%
+HKCR,Wow6432Node\CLSID\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\InprocServer32,ThreadingModel,,Both
+
+;VideoSetting Page
+;HKCR,CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomVideoSet%
+;HKCR,CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+;HKCR,Wow6432Node\CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomVideoSet%
+;HKCR,Wow6432Node\CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,Wow6432Node\CLSID\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+
+;SpecialEffect Page
+;HKCR,CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomSpecialEFfect%
+;HKCR,CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+;HKCR,Wow6432Node\CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomSpecialEFfect%
+;HKCR,Wow6432Node\CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,Wow6432Node\CLSID\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+
+;DigitalZoom Page
+;HKCR,CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomDigitalZoom%
+;HKCR,CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+;HKCR,Wow6432Node\CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomDigitalZoom%
+;HKCR,Wow6432Node\CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,,,%ExnensionDLL%
+;HKCR,Wow6432Node\CLSID\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A}\InprocServer32,ThreadingModel,,Both
+
+;HKLM,System\CurrentControlSet\Control\MediaSets\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\PropertyPages\{10C5EE30-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomVideoSet%
+;HKLM,System\CurrentControlSet\Control\MediaSets\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\PropertyPages\{10C5EE31-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomSpecialEFfect%
+;HKLM,System\CurrentControlSet\Control\MediaSets\{3dc2e820-4713-11d2-ba41-00a0c90d2b05}\PropertyPages\{10C5EE32-5651-4e03-AF63-7AFAAD73A53A},,,%PropPage_CustomDigitalZoom%
+
+[DSHOWEXT.Filters.Files]
+NVTCA122.AX
+
+[DSHOWEXT.Filters.amd64.Files]
+NVTCA122.AX
+
+[Novatek.USBDCam.INI]
+NVTBM.ini
+
+[Novatek.USBDCam.amd64.INI]
+NVTBM.ini
+
+[CAMERA.DeviceData]
+Server=local
+UI DLL=sti.dll
+UI Class ID={5d8ef5a3-ac13-11d2-a093-00c04f72dc3c}
+
+[DSHOWEXT.AddReg]
+;;; ==============================================================================
+;;; Default values
+;;; ==============================================================================
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Brightness",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Contrast",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Gamma",0x10001,100
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Hue",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Saturation",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Sharpness",0x10001,52
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Gain",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Banding",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"ColorEnable",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"OutDoor",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Mirror",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Flip",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"BackLight",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Exposure",0x10001,-7
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"ExposureAuto",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Whitebalance",0x10001,4600
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"WhitebalanceAuto",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"Focus",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"FocusAuto",0x10001,1
+;Unused
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"LowLight",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"GainAuto",0x10001,0
+
+;;; ==============================================================================
+;;; Default TMP values
+;;; ==============================================================================
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"BrightnessTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"ContrastTmp",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"GammaTmp",0x10001,100
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"HueTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"SaturationTmp",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"SharpnessTmp",0x10001,52
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"GainTmp",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"BandingTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"ColorEnableTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"OutDoorTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"MirrorTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"FlipTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"BackLightTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"LowLightTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"LEDCtrlTmp",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"ExposureTmp",0x10001,-7
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"ExposureAutoTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"WhitebalanceTmp",0x10001,4600
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"WhitebalanceAutoTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"FocusTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\DEFAULT,"FocusAutoTmp",0x10001,1
+
+;;; ==============================================================================
+;;; Current values
+;;; ==============================================================================
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Brightness",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Contrast",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Gamma",0x10001,100
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Hue",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Saturation",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Sharpness",0x10001,52
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Gain",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Banding",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ColorEnable",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"OutDoor",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Mirror",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Flip",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"BackLight",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Exposure",0x10001,-7
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ExposureAuto",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Whitebalance",0x10001,4600
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"WhitebalanceAuto",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"Focus",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"FocusAuto",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"FTEnable",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ZoomEnable",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ZoomScale",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ZoomXofst",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ZoomYofst",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"SpecialEffect",0x10001,1
+;Unused
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"LowLight",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"GainAuto",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"UDFrame",,""
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"CameraStatus",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"QuickLaunch",,"amcap.exe"
+
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"NVTTray",0x10001,1
+
+;;; ==============================================================================
+;;; Current TMP values
+;;; ==============================================================================
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"BrightnessTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ContrastTmp",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"GammaTmp",0x10001,100
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"HueTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"SaturationTmp",0x10001,128
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"SharpnessTmp",0x10001,52
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"GainTmp",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"BandingTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ColorEnableTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"OutDoorTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"MirrorTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"FlipTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"BackLightTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"LowLightTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"LEDCtrlTmp",0x10001,0
+
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ExposureTmp",0x10001,-7
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"ExposureAutoTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"WhitebalanceTmp",0x10001,4600
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"WhitebalanceAutoTmp",0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"FocusTmp",0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,"FocusAutoTmp",0x10001,1
+
+;;; ==============================================================================
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP01,0x10001,50
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP02,0x10001,160
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP03,0x10001,10
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP04,0x10001,10
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP05,0x10001,5
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP06,0x10001,30
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP07,0x10001,30
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP10,0x10001,1
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP11,0x10001,4
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP12,0x10001,50
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP13,0x10001,-46
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP14,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP15,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP16,0x10001,46
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP17,0x10001,-31
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP18,0x10001,-4
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP20,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP21,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP22,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP23,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP24,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP25,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP26,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP27,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP28,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP30,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP31,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP32,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP33,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP34,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP35,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP36,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP37,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP38,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP40,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP41,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP42,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP43,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP44,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP45,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP46,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP47,0x10001,0
+HKLM,Software\%ProviderName%\%ProductName%\CURRENT,FTPROP48,0x10001,0
+
+[Strings]
+;Dshext
+PlugIn_CustomCameraProp=     "Custom ICustomCamera Interface handler"
+
+PropPage_CustomVideoSet= "Custom Camera Property Page"
+PropPage_CustomSpecialEFfect= "Custom Special Effect Page"
+PropPage_CustomDigitalZoom= "Custom Digital Zoom Page"
+
+;----------------
+; Non-Localizable
+;----------------
+
+; note: only register value is case sensitive, key is not.
+ProxyVCap.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_VIDEO="{6994AD05-93EF-11D0-A3CC-00A0C9223196}"
+SERVICE_KERNEL_DRIVER=1
+; PnP should use demand start
+SERVICE_DEMAND_START=3
+SERVICE_ERROR_NORMAL=1
+SERVICE_DISPLAY_NAME="USB2.0 UVC Camera"
+ExnensionDLL="NVTCA122.ax"
+
+RunOncePath = "SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+RunPath = "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+
+;----------------
+; Localizable
+;----------------
+
+ProviderName="Novatek"
+DiskName="PC-Camera Driver Disk"
+NovatekMfg="Hewlett-Packard"
+ProductName= "NTCAM122"
+
+Novatek_USBCAM_Desc="HP Webcam 3110"
+Novatek_USBCAM_AM_Desc="HP Webcam 3100"
+Novatek_USBCAM_AF_Desc="USB2.0 Camera"

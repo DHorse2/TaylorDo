@@ -1,0 +1,6 @@
+# Script: ZoneDo ZoneTypeSelectOsPageHiberDump
+# PageHiberDump start.
+(
+!include "..\SelectCategory\SelOsPageHiberDump.MyDs"!
+)
+# PageHiberDump end.

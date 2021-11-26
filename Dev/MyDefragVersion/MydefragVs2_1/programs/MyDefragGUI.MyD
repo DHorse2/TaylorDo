@@ -1,0 +1,73 @@
+﻿# MyDefragGUI script
+Title('sort files by name - ascending')
+Description('Created by MyDefragGUI 2.1.0')
+Language('english')
+Slowdown(10)
+OtherInstances(exit)
+BatteryPower(allow)
+WhenFinished(exit)
+Debug(7)
+SetColor(Empty,0,0,0)
+SetColor(Allocated,45,72,128)
+SetColor(BusyRead,255,255,255)
+SetColor(BusyWrite,255,255,255)
+SetFileColor(All,139,158,198)
+SetFileColor(Fragmented,229,229,0)
+  ExcludeVolumes(Cdrom(yes))
+VolumeSelect
+  CommandlineVolumes()
+VolumeActions
+
+  
+  SetFileColor(All,All,139,158,198)
+  SetFileColor(All,Fragmented,229,229,0)
+  SetFileColor(All,not(Movable),204,92,92)
+  SetFileColor(All,Selected,174,198,248)
+  SetFileColor(All,Selected and Fragmented,255,255,0)
+  SetFileColor(All,Selected and not(Movable),255,115,115)
+  FileSelect
+    All
+  FileActions
+    SortByName(Ascending)
+  FileEnd
+
+  AppendLogfile('programs\Fragmented.ini','!FILES212G!|')
+  WriteLogfile('logs\MyDefrag.log','
+
+
+Date: !Date! !Time!
+Drive: !MountPoint!
+!VolumeName!
+Total disk space:  !TotalDiskSpaceBytes! bytes     Bytes per cluster: !BytesPerCluster!
+Files:             !FILES020N!
+Folders:           !FILES120N!
+Unfragmented Data: !FILES202N! bytes     Unfragmented Items:!FILES200N!
+Fragmented Data:   !FILES212N! bytes     Fragmented Items:  !FILES210N!
+Gaps Data:         !GAP10N! bytes     Gaps Items:        !GAP00N!
+Average gap:       !GAP13N! bytes
+Biggest gap:       !GAP15N! bytes
+
+These items could not be moved->
+Fragments   Bytes          Clusters     Name
+------- ----------------- ------- -----
+!UnmovablesList!
+------- ----------------- ------- -----
+!UnmovablesTotalFragments! !UnmovablesTotalBytes! !UnmovablesTotalClusters!  Total
+
+
+These items are fragmented->
+Fragments   Bytes          Clusters     Name
+------- ----------------- ------- -----
+!FragmentedList!
+------- ----------------- ------- -----
+!FragmentedTotalFragments! !FragmentedTotalBytes! !FragmentedTotalClusters!  Total
+
+
+The 25 largest items on disk->
+Fragments   Bytes          Clusters     Name
+------- ----------------- ------- -----
+!LargestItemsList!
+------- ----------------- ------- -----
+!LargestItemsTotalFragments! !LargestItemsTotalBytes! !LargestItemsTotalClusters!  Total
+xENDx')
+VolumeEnd

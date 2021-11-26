@@ -1,0 +1,32 @@
+# MyDefrag v4.0 script: All Volume Weekly
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+/* All Volumes Weekly */
+SetVariable(RunStepDescription,"All Vol Weekly")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Weekly: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesWeek!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesWeek!")
+
+SetVariable(RunStepDescription,"!Sys Vol Weekly!")
+!include "..\Display\DisplaySetRun.MyDc"!
+!include "..\DefragVolumeSys.MyDc"!
+
+SetVariable(RunStepDescription,"!Dev Vol Weekly!")
+!include "..\Display\DisplaySetRun.MyDc"!
+!include "..\DefragVolumeDev.MyDc"!
+
+SetVariable(RunStepDescription,"!Archive Vol Weekly!")
+/* !include "..\Display\DisplaySetRun.MyDc"! */
+/* !include "..\DefragVolumeArchive.MyDc"! */
+
+SetVariable(RunStepDescription,"!Data Vol Weekly!")
+/* !include "..\Display\DisplaySetRun.MyDc"! */
+/* !include "..\DefragVolumeData.MyDc"! */
+

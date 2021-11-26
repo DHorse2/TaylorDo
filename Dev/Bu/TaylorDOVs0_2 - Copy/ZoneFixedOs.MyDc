@@ -1,0 +1,9 @@
+/* x */
+  
+/*  SetVariable(ZoneNoOs1, VolumeSize * 0.05) */
+/*  SetVariable(ZoneNoOs1, (VolumeSize - (MftGapAfter)) * 0.05) */
+
+
+/*  SetVariable(ZoneNoCurrent, ZoneNoCurrent + 1) */
+
+/*  SetVariable(ZoneNoCurrent, ZoneNoOs + ZoneNoDevCurrent) */

@@ -1,0 +1,3 @@
+DIR %1 /S /B /A:-D /O:EN > C:\TEMP\FILELIST.DAT
+Rem DIR C:\*.* /S /A:-D /O:EN
+EDIT C:\TEMP\FILELIST.DAT /H

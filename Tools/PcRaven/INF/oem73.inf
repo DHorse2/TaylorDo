@@ -1,0 +1,189 @@
+;*****************************************************************************
+;  Module Name    amdsafd.inf
+;  Project        AMD Streaming Audio Driver
+;  Device
+;
+;  Description     Driver information file
+;
+;  Copyright (c) 2020 Advanced Micro Devices, Inc. (unpublished)
+;
+;  All rights reserved.  This notice is intended as a precaution against
+;  inadvertent publication and does not imply publication or any waiver
+;  of confidentiality.  The year included in the foregoing notice is the
+;  year of creation of the work.
+;
+;
+;*****************************************************************************
+
+[Version]
+Signature="$Windows NT$"
+Class=MEDIA
+Provider=%ManufacturerName%
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+DriverVer = 03/27/2021, 1.0.0.3
+CatalogFile=amdsafd.cat
+PnpLockDown = 1
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+amdsafd.sys=1
+
+[SignatureAttributes]
+amdsafd.sys=SignatureAttributes.DRM
+
+[SignatureAttributes.DRM]
+DRMLevel=1300
+
+[Manufacturer]
+%ManufacturerName%=AMD,NTAMD64
+
+[AMD.NTAMD64]
+%AMDSAfdDeviceDescription%=AMDSAfdInstall, Root\AMDSAFD&FUN_01&REV_01
+
+[DestinationDirs]
+AMDSAfdInstall.CopyList=13 ; 13=Package's DriverStore directory
+
+[AMDSAfdInstall]
+Include=ks.inf,wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration, MsApoFxProxy.Registration
+CopyFiles=AMDSAfdInstall.CopyList
+AddReg=AMDSAfdInstall.AddReg
+
+[AMDSAfdInstall.CopyList]
+amdsafd.sys
+
+[AMDSAfdInstall.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,amdsafd.sys
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv,Description,,%AMDSAfdDeviceDescription%
+HKR,Drivers\midi\wdmaud.drv,Description,,%AMDSAfdDeviceDescription%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%AMDSAfdDeviceDescription%
+
+
+HKR,PowerSettings,ConservationIdleTime,3,3,0,0,0          ; 3 seconds for idle power management when on battery
+HKR,PowerSettings,PerformanceIdleTime,3,3,0,0,0           ; 3 seconds for idle power management when on AC power
+HKR,PowerSettings,IdlePowerState,3,3,0,0,0                ; go to D3 for idle power management
+
+
+[AMDSAfdInstall.Services]
+AddService=AMDSAFD,0x00000002,SAfdAudio_Service_Install
+
+[SAfdAudio_Service_Install]
+DisplayName=%AMDSAfdDriver.SVCDESC%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%13%\amdsafd.sys
+
+[AMDSAfdInstall.Interfaces]
+;
+; Interfaces for speaker render endpoint.
+;
+AddInterface=%KSCATEGORY_AUDIO%, %KSNAME_WaveSpeaker%, AMDSAfdInstall.I.WaveSpeaker
+AddInterface=%KSCATEGORY_RENDER%, %KSNAME_WaveSpeaker%, AMDSAfdInstall.I.WaveSpeaker
+AddInterface=%KSCATEGORY_REALTIME%, %KSNAME_WaveSpeaker%, AMDSAfdInstall.I.WaveSpeaker
+AddInterface=%KSCATEGORY_AUDIO%, %KSNAME_TopologySpeaker%, AMDSAfdInstall.I.TopologySpeaker
+AddInterface=%KSCATEGORY_TOPOLOGY%, %KSNAME_TopologySpeaker%, AMDSAfdInstall.I.TopologySpeaker
+;
+; Interfaces for microphonecapture endpoint 
+;
+AddInterface=%KSCATEGORY_AUDIO%,    %KSNAME_WaveMicIn%, AMDSAfdInstall.I.WaveMicIn
+AddInterface=%KSCATEGORY_REALTIME%, %KSNAME_WaveMicIn%, AMDSAfdInstall.I.WaveMicIn
+AddInterface=%KSCATEGORY_CAPTURE%,  %KSNAME_WaveMicIn%, AMDSAfdInstall.I.WaveMicIn
+AddInterface=%KSCATEGORY_AUDIO%,    %KSNAME_TopologyMicIn%, AMDSAfdInstall.I.TopologyMicIn
+AddInterface=%KSCATEGORY_TOPOLOGY%, %KSNAME_TopologyMicIn%, AMDSAfdInstall.I.TopologyMicIn
+
+
+;======================================================
+; render interfaces: speaker
+;======================================================
+[AMDSAfdInstall.I.WaveSpeaker]
+AddReg=AMDSAfdInstall.I.WaveSpeaker.AddReg
+
+[AMDSAfdInstall.I.WaveSpeaker.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%AMDSAfdInstall.WaveSpeaker.szPname%
+
+[AMDSAfdInstall.I.TopologySpeaker]
+AddReg=AMDSAfdInstall.I.TopologySpeaker.AddReg
+
+[AMDSAfdInstall.I.TopologySpeaker.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%AMDSAfdInstall.TopologySpeaker.szPname%
+
+HKR,EP\0,%PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,FX\0,%PKEY_FX_Association%,,%KSNODETYPE_ANY%
+
+; The following lines opt-in to pull mode.
+HKR,EP\0,%PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+
+;======================================================
+; capture interfaces: mic in
+;======================================================
+[AMDSAfdInstall.I.WaveMicIn]
+AddReg=AMDSAfdInstall.I.WaveMicIn.AddReg
+
+[AMDSAfdInstall.I.WaveMicIn.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%AMDSAfdInstall.WaveMicIn.szPname%
+
+[AMDSAfdInstall.I.TopologyMicIn]
+AddReg=AMDSAfdInstall.I.TopologyMicIn.AddReg
+
+[AMDSAfdInstall.I.TopologyMicIn.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%AMDSAfdInstall.TopologyMicIn.szPname%
+; The following lines opt-in to pull mode.
+HKR,EP\0,%PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
+HKR,EP\0,%PKEY_AudioEndpoint_Supports_EventDriven_Mode%,0x00010001,0x1
+
+;======================================================
+; WDF
+;======================================================
+[AMDSAfdInstall.Wdf]
+KmdfService = AMDSAFD, SAfd_Install_WdfSect
+
+[SAfd_Install_WdfSect]
+KmdfLibraryVersion = 1.15
+
+;======================================================
+; COMMON
+;======================================================
+[Strings]
+
+ManufacturerName            = "AMD"
+DiskName                    = "AMD Driver Installation Disk"
+AMDSAfdDeviceDescription    = "AMD Streaming Audio Device"
+AMDSAfdDriver.SVCDESC       = "AMDSAFD"
+
+KSNAME_WaveSpeaker          = "WaveSpeaker"
+KSNAME_TopologySpeaker      = "TopologySpeaker"
+KSNAME_WaveMicIn            = "WaveMicIn"
+KSNAME_TopologyMicIn        = "TopologyMicIn"
+
+AMDSAfdInstall.WaveSpeaker.szPname              = "AMDSAfdInstall Wave Speaker"
+AMDSAfdInstall.TopologySpeaker.szPname          = "AMDSAfdInstall Topology Speaker"
+AMDSAfdInstall.WaveMicIn.szPname                = "AMDSAfdInstall Wave Microphone"
+AMDSAfdInstall.TopologyMicIn.szPname            = "AMDSAfdInstall Topology Microphone"
+
+Proxy.CLSID                                     = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO                                = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER                               = "{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE                              = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_REALTIME                             = "{EB115FFC-10C8-4964-831D-6DCB02E6F23F}"
+KSCATEGORY_TOPOLOGY                             = "{DDA54A40-1E4C-11D1-A050-405705C10000}"
+KSNODETYPE_ANY                                  = "{00000000-0000-0000-0000-000000000000}"
+
+PKEY_FX_Association                             = "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0"
+PKEY_AudioEndpoint_Association                  = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+PKEY_AudioEndpoint_Supports_EventDriven_Mode    = "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},7"
+

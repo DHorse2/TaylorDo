@@ -1,0 +1,4 @@
+/* empty */
+# ServerName (IE. Computer name or number.)
+
+!include "..\SettingsYours\SettingsYoursSysServer.MyDc"!

@@ -1,0 +1,288 @@
+;*********************************************************************************************
+;
+; Name		: ssudadb.inf
+;
+; Function	: Install SAMSUNG Escape USB Android Debug Bridge driver
+;
+; Copyright (c) DEVGURU Co., Ltd. (www.devguru.co.kr)
+;
+;*********************************************************************************************
+
+[Version]
+Signature           = "$Windows NT$"
+Class               = AndroidUsbDeviceClass
+ClassGuid           = {3F966BD9-FA04-4ec5-991C-D326973B5128}
+Provider            = %ProviderName%
+DriverVer=04/21/2020,2.16.14.0
+CatalogFile         = ssudAdb.cat
+
+[ClassInstall32]
+Addreg = AndroidWinUsbClassReg
+
+[AndroidWinUsbClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-1
+
+[Manufacturer]
+%ProviderName% = Google, NTx86, NTx86.6.1, NTamd64, NTamd64.6.1, NTarm64
+
+[Google.NTx86]
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685D&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685E&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6860&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6861&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6862&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6864&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6866&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6867&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6868&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686A&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686B&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686C&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_A50B&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\SAMSUNG_MOBILE&ADB
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685D&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685E&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6860&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6861&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6862&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6864&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6866&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6867&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6868&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686A&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686C&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_A50B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\SAMSUNG_MOBILE&FASTBOOT
+
+[Google.NTx86.6.1]
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_685D&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_685E&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6860&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6861&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6862&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6864&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6866&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6867&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6868&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686A&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686B&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686C&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_A50B&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\SAMSUNG_MOBILE&ADB
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_685D&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_685E&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6860&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6861&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6862&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6864&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6866&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6867&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6868&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686A&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686C&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_A50B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\SAMSUNG_MOBILE&FASTBOOT
+
+[Google.NTamd64]
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685D&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685E&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6860&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6861&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6862&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6864&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6866&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6867&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6868&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686A&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686B&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686C&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_A50B&ADB
+%CompositeAdbInterface%     = ssud.Install.CoInst, USB\SAMSUNG_MOBILE&ADB
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685D&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_685E&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6860&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6861&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6862&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6864&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6866&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6867&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_6868&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686A&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_686C&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\VID_04E8&PID_A50B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install.CoInst, USB\SAMSUNG_MOBILE&FASTBOOT
+
+[Google.NTamd64.6.1]
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_685D&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_685E&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6860&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6861&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6862&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6864&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6866&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6867&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6868&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686A&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686B&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686C&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_A50B&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\SAMSUNG_MOBILE&ADB
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_685D&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_685E&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6860&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6861&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6862&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6864&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6866&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6867&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6868&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686A&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686C&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_A50B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\SAMSUNG_MOBILE&FASTBOOT
+
+[Google.NTarm64]
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_685D&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_685E&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6860&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6861&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6862&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6864&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6866&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6867&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_6868&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686A&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686B&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_686C&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\VID_04E8&PID_A50B&ADB
+%CompositeAdbInterface%     = ssud.Install, USB\SAMSUNG_MOBILE&ADB
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_685D&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_685E&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6860&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6861&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6862&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6864&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6866&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6867&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_6868&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686A&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_686C&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\VID_04E8&PID_A50B&FASTBOOT
+%SingleBootLoaderInterface%     = ssud.Install, USB\SAMSUNG_MOBILE&FASTBOOT
+
+[ssud.Install.NT]
+Include = winusb.inf
+Needs   = WINUSB.NT
+
+[ssud.Install.NT.Services]
+Include     = winusb.inf
+AddService  = WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[ssud.Install.NT.Wdf]
+KmdfService = WINUSB, Winssud.Install
+
+[ssud.Install.NT.HW]
+AddReg  = Dev_AddReg
+
+[ssud.Install.CoInst.NT]
+Include = winusb.inf
+Needs   = WINUSB.NT
+
+[ssud.Install.CoInst.NT.Services]
+Include     = winusb.inf
+AddService  = WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[ssud.Install.CoInst.NT.Wdf]
+KmdfService = WINUSB, Winssud.Install
+
+[ssud.Install.CoInst.NT.HW]
+AddReg  = Dev_AddReg
+
+[ssud.Install.CoInst.NT.CoInstallers]
+AddReg    = CoInstallers_AddReg
+CopyFiles = CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01007.dll,WdfCoInstaller","WinUSBCoInstaller.dll"
+;HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller.dll
+WdfCoInstaller01007.dll
+;WdfCoInstaller01009.dll
+;WinUSBCoInstaller2.dll
+
+[ssud.Install.NTarm64]                                                                                                              
+Include = winusb.inf
+Needs   = WINUSB.NT
+
+[ssud.Install.NTarm64.Services]
+Include     = winusb.inf
+AddService  = WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[ssud.Install.NTarm64.Wdf]
+KmdfService = WINUSB, Winssud.Install
+
+[ssud.Install.NTarm64.HW]
+AddReg  = Dev_AddReg
+
+[ssud.Install.NTarm64.CoInstallers]
+AddReg    = CoInstallers_AddReg_NTarm64
+CopyFiles = CoInstallers_CopyFiles_NTarm64
+
+[CoInstallers_AddReg_NTarm64]
+; No AddReg
+
+[CoInstallers_CopyFiles_NTarm64]
+; No CopyFiles
+
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[Winssud.Install]
+KmdfLibraryVersion  = 1.7
+;KmdfLibraryVersion  = 1.9
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{F72FE0D4-CBCB-407d-8814-9ED673D0DD6B}"
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\i386
+2 = %DISK_NAME%,,,\amd64
+3 = %DISK_NAME%,,,\arm64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller.dll  = 1
+WdfCoInstaller01007.dll = 1
+;WdfCoInstaller01009.dll = 1
+;WinUSBCoInstaller2.dll  = 1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller.dll  = 2
+WdfCoInstaller01007.dll = 2
+;WdfCoInstaller01009.dll = 2
+;WinUSBCoInstaller2.dll  = 2
+
+[SourceDisksFiles.arm64]
+
+[Strings]
+ProviderName                = "SAMSUNG Electronics Co., Ltd. "
+SingleAdbInterface          = "SAMSUNG Android ADB Interface"
+CompositeAdbInterface       = "SAMSUNG Android ADB Interface"
+SingleBootLoaderInterface   = "SAMSUNG Android Bootloader Interface"
+WinUSB_SvcDesc              = "SAMSUNG Android USB Driver"
+DISK_NAME                   = "SAMSUNG Android WinUsb installation disk"
+ClassName                   = "SAMSUNG Android Phone"

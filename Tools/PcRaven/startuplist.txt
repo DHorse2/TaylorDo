@@ -1,0 +1,329 @@
+StartupList report, 2021-10-30, 4:19:10 PM
+StartupList version: 1.52.2
+Started from : G:\MdmSt\Vs\DsVs3\Library\System\Boot\HijackThis\HijackThis.EXE
+Detected: Unknown Windows (WinNT 6.02.1008)
+Detected: Internet Explorer v11.0 (11.00.18362.0001)
+* Using default options
+* Showing rarely important sections
+==================================================
+
+Running processes:
+
+C:\Program Files (x86)\Kaspersky Lab\Kaspersky VPN 5.3\ksdeui.exe
+C:\Program Files (x86)\Kaspersky Lab\Kaspersky Password Manager 9.0.2\kpm_tray.exe
+C:\Program Files (x86)\Common Files\ArcSoft\Connection Service\Bin\ACDaemon.exe
+C:\Program Files (x86)\HP\HP System Event\HPMSGSVC.exe
+C:\DevSupportCd2\System\ZoomIt v3.03\ZoomIt.exe
+C:\Program Files (x86)\YCIII\YankClip.exe
+C:\Program Files (x86)\MWSnap\MWSnap.exe
+C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe
+C:\DevSupportCd2\Support\SystemInternals\ProcessExplorer\SiPeVs9_12\ProgramsWxp\procexp.exe
+G:\MdmSt\Vs\DsVs3\Library\System\Boot\HijackThis\HijackThis.exe
+
+--------------------------------------------------
+
+Listing of startup folders:
+
+Shell folders Common Startup:
+[C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup]
+Sys Tasks ProcExplorer.lnk = C:\DevSupportCd2\Support\SystemInternals\ProcessExplorer\SiPeVs9_12\ProgramsWxp\procexp.exe
+UI MWSnap3.lnk = C:\Program Files (x86)\MWSnap\MWSnap.exe
+
+--------------------------------------------------
+
+Checking Windows NT UserInit:
+
+[HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+UserInit = C:\WINDOWS\system32\userinit.exe,
+
+--------------------------------------------------
+
+Autorun entries from Registry:
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+
+IJNetworkScannerSelectorEX2 = C:\Program Files (x86)\Canon\IJ Network Scanner Selector EX2\CNMNSST2.exe /FORCE
+ArcSoft Connection Service = C:\Program Files (x86)\Common Files\ArcSoft\Connection Service\Bin\ACDaemon.exe
+HPMessageService = C:\Program Files (x86)\HP\HP System Event\HPMSGSVC.exe
+SunJavaUpdateSched = "C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe"
+
+--------------------------------------------------
+
+Autorun entries from Registry:
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+
+OneDrive = "C:\Users\david\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
+Steam = "C:\Program Files (x86)\Steam\steam.exe" -silent
+AMDDVR = "C:\Program Files\AMD\CNext\CNext\AMDRSServ.exe"
+Discord = C:\Users\david\AppData\Local\Discord\Update.exe --processStart Discord.exe
+
+--------------------------------------------------
+
+File association entry for .HTA:
+HKEY_CLASSES_ROOT\htafile\shell\open\command
+
+(Default) = C:\Windows\SysWOW64\mshta.exe "%1" {1E460BD7-F1C3-4B2E-88BF-4E770A288AF5}%U{1E460BD7-F1C3-4B2E-88BF-4E770A288AF5} %*
+
+--------------------------------------------------
+
+Enumerating Active Setup stub paths:
+HKLM\Software\Microsoft\Active Setup\Installed Components
+(* = disabled by HKCU twin)
+
+[>{22d6f312-b0f6-11d0-94ab-0080c74c7e95}]
+StubPath = %SystemRoot%\system32\unregmp2.exe /ShowWMP
+
+[{6BF52A52-394A-11d3-B153-00C04F79FAA6}] *
+StubPath = %SystemRoot%\system32\unregmp2.exe /FirstLogon
+
+[{89B4C1CD-B018-4511-B0A1-5476DBF70820}] *
+StubPath = C:\Windows\SysWOW64\Rundll32.exe C:\Windows\SysWOW64\mscories.dll,Install
+
+--------------------------------------------------
+
+Shell & screensaver key from C:\WINDOWS\SYSTEM.INI:
+
+Shell=*INI section not found*
+SCRNSAVE.EXE=*INI section not found*
+drivers=*INI section not found*
+
+Shell & screensaver key from Registry:
+
+Shell=explorer.exe
+SCRNSAVE.EXE=C:\WINDOWS\system32\Ribbons.scr
+drivers=*Registry value not found*
+
+Policies Shell key:
+
+HKCU\..\Policies: Shell=*Registry key not found*
+HKLM\..\Policies: Shell=*Registry value not found*
+
+--------------------------------------------------
+
+Checking for EXPLORER.EXE instances:
+
+C:\WINDOWS\Explorer.exe: PRESENT!
+
+C:\Explorer.exe: not present
+C:\WINDOWS\Explorer\Explorer.exe: not present
+C:\WINDOWS\System\Explorer.exe: not present
+C:\WINDOWS\System32\Explorer.exe: not present
+C:\WINDOWS\Command\Explorer.exe: not present
+C:\WINDOWS\Fonts\Explorer.exe: not present
+
+--------------------------------------------------
+
+Checking for superhidden extensions:
+
+.lnk: HIDDEN! (arrow overlay: yes)
+.pif: HIDDEN! (arrow overlay: yes)
+.exe: not hidden
+.com: not hidden
+.bat: not hidden
+.hta: not hidden
+.scr: not hidden
+.shs: *Registry key not found*
+.shb: *Registry key not found*
+.vbs: not hidden
+.vbe: not hidden
+.wsh: not hidden
+.scf: HIDDEN! (arrow overlay: NO!)
+.url: HIDDEN! (arrow overlay: yes)
+.js: not hidden
+.jse: not hidden
+
+--------------------------------------------------
+
+Verifying REGEDIT.EXE integrity:
+
+- Regedit.exe found in C:\WINDOWS
+- .reg open command is normal (regedit.exe %1)
+- Company name OK: 'Microsoft Corporation'
+- Original filename NOT OK: 'REGEDIT.EXE.MUI'
+- File description: 'Registry Editor'
+
+Registry check failed!
+
+--------------------------------------------------
+
+Enumerating Browser Helper Objects:
+
+IEToEdge BHO - C:\Program Files (x86)\Microsoft\Edge\Application\95.0.1020.30\BHO\ie_to_edge_bho.dll - {1FD49718-1D00-4B19-AF5F-070AF6D5D54C}
+Lync Click to Call BHO - C:\Program Files\Microsoft Office\root\VFS\ProgramFilesX86\Microsoft Office\Office16\OCHelper.dll - {31D09BA0-12F5-4CCE-BE8A-2923E76605DA}
+(no name) - C:\Program Files (x86)\Java\jre1.8.0_311\bin\ssv.dll - {761497BB-D6F0-462C-B6EB-D4DAF1D92D43}
+(no name) - C:\Program Files (x86)\Java\jre1.8.0_311\bin\jp2ssv.dll - {DBC80044-A445-435b-BC74-9C25C1C588A9}
+
+--------------------------------------------------
+
+Enumerating Task Scheduler jobs:
+
+DropboxUpdateTaskMachineCore.job
+DropboxUpdateTaskMachineUA.job
+User_Feed_Synchronization-{B8D5F9E1-FA8D-4C9F-BDBB-4791859FEFEB}.job
+
+--------------------------------------------------
+
+Enumerating Winsock LSP files:
+
+NameSpace #1: C:\WINDOWS\system32\napinsp.dll
+NameSpace #2: C:\WINDOWS\system32\pnrpnsp.dll
+NameSpace #3: C:\WINDOWS\system32\pnrpnsp.dll
+NameSpace #6: C:\WINDOWS\system32\NLAapi.dll
+NameSpace #7: C:\WINDOWS\system32\wshbth.dll
+
+--------------------------------------------------
+
+Enumerating Windows NT/2000/XP services
+
+ArcSoft Connect Daemon: C:\Program Files (x86)\Common Files\ArcSoft\Connection Service\Bin\ACService.exe (autostart)
+Adobe Acrobat Update Service: "C:\Program Files (x86)\Common Files\Adobe\ARM\1.0\armsvc.exe" (autostart)
+AMD Crash Defender Service: %SystemRoot%\system32\amdfendrsr.exe (autostart)
+AMD External Events Utility: %SystemRoot%\System32\DriverStore\FileRepository\u0368456.inf_amd64_fc65705fd5034968\B367348\atiesrxx.exe (autostart)
+@%SystemRoot%\system32\AudioEndpointBuilder.dll,-204: %SystemRoot%\System32\svchost.exe -k LocalSystemNetworkRestricted -p (autostart)
+@%SystemRoot%\system32\audiosrv.dll,-200: %SystemRoot%\System32\svchost.exe -k LocalServiceNetworkRestricted -p (autostart)
+AMD User Experience Program Launcher: "C:\Program Files\AMD\CIM\..\Performance Profile Client\AUEPLauncher.exe" (autostart)
+Kaspersky Anti-Virus Service 21.3: "C:\Program Files (x86)\Kaspersky Lab\Kaspersky Security Cloud 21.3\avp.exe" -r (autostart)
+AzureAttestService: C:\WINDOWS\system32\svchost.exe -k AzureAttestService (autostart)
+@%SystemRoot%\system32\bfe.dll,-1001: %systemroot%\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p (autostart)
+Bonjour Service: "C:\Program Files\Bonjour\mDNSResponder.exe" (autostart)
+BootRacerServ: C:\Program Files (x86)\BootRacer\BootRacerServ.exe (autostart)
+@%windir%\system32\bisrv.dll,-100: %SystemRoot%\system32\svchost.exe -k DcomLaunch -p (autostart)
+BTDevManager: "C:\Program Files (x86)\REALTEK\Realtek Bluetooth\BTDevMgr.exe" (autostart)
+@%SystemRoot%\system32\cdpsvc.dll,-100: %SystemRoot%\system32\svchost.exe -k LocalService -p (autostart)
+@%SystemRoot%\system32\cdpusersvc.dll,-100: %SystemRoot%\system32\svchost.exe -k UnistackSvcGroup (autostart)
+Connected Devices Platform User Service_2603fc: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup (autostart)
+Windows Cloud Files Filter Driver: system32\drivers\cldflt.sys (autostart)
+Microsoft Office Click-to-Run Service: "C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe" /service (autostart)
+@%SystemRoot%\system32\coremessaging.dll,-1: %SystemRoot%\system32\svchost.exe -k LocalServiceNoNetwork -p (autostart)
+@%SystemRoot%\system32\cryptsvc.dll,-1001: %SystemRoot%\system32\svchost.exe -k NetworkService -p (autostart)
+@combase.dll,-5012: %SystemRoot%\system32\svchost.exe -k DcomLaunch -p (autostart)
+@%SystemRoot%\system32\das.dll,-100: %SystemRoot%\system32\svchost.exe -k LocalSystemNetworkRestricted -p (autostart)
+@%SystemRoot%\system32\dhcpcore.dll,-100: %SystemRoot%\system32\svchost.exe -k LocalServiceNetworkRestricted -p (autostart)
+@%SystemRoot%\system32\diagtrack.dll,-3001: %SystemRoot%\System32\svchost.exe -k utcsvc -p (autostart)
+@%SystemRoot%\system32\dispbroker.desktop.dll,-101: %SystemRoot%\system32\svchost.exe -k LocalService -p (autostart)
+@%SystemRoot%\System32\dnsapi.dll,-101: %SystemRoot%\system32\svchost.exe -k NetworkService -p (autostart)
+@%systemroot%\system32\dosvc.dll,-100: %SystemRoot%\System32\svchost.exe -k NetworkService -p (autostart)
+@%systemroot%\system32\dps.dll,-500: %SystemRoot%\System32\svchost.exe -k LocalServiceNoNetwork -p (autostart)
+@%SystemRoot%\System32\dusmsvc.dll,-1: %SystemRoot%\System32\svchost.exe -k LocalServiceNetworkRestricted -p (autostart)
+Microsoft Edge Update Service (edgeupdate): "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /svc (autostart)
+@%SystemRoot%\system32\wevtsvc.dll,-200: %SystemRoot%\System32\svchost.exe -k LocalServiceNetworkRestricted -p (autostart)
+@comres.dll,-2450: %SystemRoot%\system32\svchost.exe -k LocalService -p (autostart)
+@%systemroot%\system32\fdrespub.dll,-100: %SystemRoot%\system32\svchost.exe -k LocalServiceAndNoImpersonation -p (autostart)
+@%systemroot%\system32\FntCache.dll,-100: %SystemRoot%\system32\svchost.exe -k LocalService -p (autostart)
+@gpapi.dll,-112: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+Google Update Service (gupdate): "C:\Program Files (x86)\Google\Update\GoogleUpdate.exe" /svc (autostart)
+HP Comm Recovery: "c:\Program Files\HPCommRecovery\HPCommRecovery.exe" (autostart)
+HP App Helper HSA Service: "C:\Program Files\HP\HP Enabling Services\AppHelperCap.exe" (autostart)
+HP Diagnostics HSA Service: "C:\Program Files\HP\HP Enabling Services\DiagsCap.exe" (autostart)
+HP Network HSA Service: "C:\Program Files\HP\HP Enabling Services\NetworkCap.exe" (autostart)
+HP Support Solutions Framework Service: "C:\Program Files (x86)\Hewlett-Packard\HP Support Solutions\HPSupportSolutionsFrameworkService.exe" (autostart)
+HP System Info HSA Service: "C:\Program Files\HP\HP Enabling Services\SysInfoCap.exe" (autostart)
+HPWMISVC: C:\Program Files (x86)\HP\HP System Event\HPWMISVC.exe (autostart)
+Canon Inkjet Printer/Scanner/Fax Extended Survey Program: "C:\Program Files (x86)\Canon\IJPLM\IJPLMSVC.EXE" (autostart)
+@%SystemRoot%\system32\ikeext.dll,-501: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%SystemRoot%\system32\iphlpsvc.dll,-500: %SystemRoot%\System32\svchost.exe -k NetSvcs -p (autostart)
+Windows Phone IP over USB Transport (IpOverUsbSvc): "C:\Program Files (x86)\Common Files\Microsoft Shared\Phone Tools\CoreCon\11.0\bin\IpOverUsbSvc.exe" (autostart)
+Kaspersky VPN Secure Connection Service 5.3: "C:\Program Files (x86)\Kaspersky Lab\Kaspersky VPN 5.3\ksde.exe" -r (autostart)
+@%systemroot%\system32\srvsvc.dll,-100: %SystemRoot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%systemroot%\system32\wkssvc.dll,-100: %SystemRoot%\System32\svchost.exe -k NetworkService -p (autostart)
+@%SystemRoot%\system32\lltdres.dll,-6: system32\drivers\lltdio.sys (autostart)
+@%windir%\system32\lsm.dll,-1001: %SystemRoot%\system32\svchost.exe -k DcomLaunch -p (autostart)
+@%systemroot%\system32\drivers\luafv.sys,-100: \SystemRoot\system32\drivers\luafv.sys (autostart)
+@%SystemRoot%\System32\moshost.dll,-100: %SystemRoot%\System32\svchost.exe -k NetworkService -p (autostart)
+MBAMChameleon: \SystemRoot\System32\Drivers\MbamChameleon.sys (autostart)
+@%systemroot%\system32\drivers\mmcss.sys,-100: \SystemRoot\system32\drivers\mmcss.sys (autostart)
+@%SystemRoot%\system32\FirewallAPI.dll,-23090: %SystemRoot%\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p (autostart)
+@%systemroot%\system32\wkssvc.dll,-1004: system32\DRIVERS\mrxsmb10.sys (autostart)
+@%SystemRoot%\system32\drivers\mslldp.sys,-200: system32\drivers\mslldp.sys (autostart)
+SQL Server (SQLEXPRESS): "C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Binn\sqlservr.exe" -sSQLEXPRESS (autostart)
+@%SystemRoot%\system32\drivers\Ndu.sys,-10001: system32\drivers\Ndu.sys (autostart)
+Net.Tcp Port Sharing Service: %systemroot%\Microsoft.NET\Framework64\v4.0.30319\SMSvcHost.exe (autostart)
+@%SystemRoot%\System32\nlasvc.dll,-1: %SystemRoot%\System32\svchost.exe -k NetworkService -p (autostart)
+@%SystemRoot%\system32\nsisvc.dll,-200: %systemroot%\system32\svchost.exe -k LocalService -p (autostart)
+@%SystemRoot%\system32\APHostRes.dll,-10002: %SystemRoot%\system32\svchost.exe -k UnistackSvcGroup (autostart)
+Sync Host_2603fc: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup (autostart)
+PEAUTH: system32\drivers\peauth.sys (autostart)
+@%SystemRoot%\system32\umpo.dll,-100: %SystemRoot%\system32\svchost.exe -k DcomLaunch -p (autostart)
+@%systemroot%\system32\profsvc.dll,-300: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%Systemroot%\system32\rasmans.dll,-200: %SystemRoot%\System32\svchost.exe -k netsvcs (autostart)
+Cyberlink RichVideo64 Service(CRVS): "C:\Program Files\CyberLink\Shared files\RichVideo64.exe" (autostart)
+@%windir%\system32\RpcEpMap.dll,-1001: %SystemRoot%\system32\svchost.exe -k RPCSS -p (autostart)
+@combase.dll,-5010: %SystemRoot%\system32\svchost.exe -k rpcss -p (autostart)
+@%SystemRoot%\system32\lltdres.dll,-5: system32\drivers\rspndr.sys (autostart)
+Realtek Audio Service: "C:\Program Files\Realtek\Audio\HDA\RtkAudioService64.exe" (autostart)
+@oem31.inf,%RtkBtManServ.SvcDesc%;Realtek Bluetooth Device Manager Service: %SystemRoot%\RtkBtManServ.exe (autostart)
+@%SystemRoot%\system32\samsrv.dll,-1: %SystemRoot%\system32\lsass.exe (autostart)
+@%SystemRoot%\system32\schedsvc.dll,-100: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+Secondary Logon: %windir%\system32\svchost.exe -k netsvcs -p (autostart)
+@%SystemRoot%\system32\Sens.dll,-200: %SystemRoot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%SystemRoot%\System32\SgrmBroker.exe,-100: %SystemRoot%\system32\SgrmBroker.exe (autostart)
+@%SystemRoot%\System32\shsvcs.dll,-12288: %SystemRoot%\System32\svchost.exe -k netsvcs -p (autostart)
+@%systemroot%\system32\spoolsv.exe,-1: %SystemRoot%\System32\spoolsv.exe (autostart)
+@%SystemRoot%\system32\sppsvc.exe,-101: %SystemRoot%\system32\sppsvc.exe (autostart)
+SQL Server Agent (SQLEXPRESS): "C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Binn\SQLAGENT.EXE" -i SQLEXPRESS (autostart)
+SQL Server Browser: "C:\Program Files (x86)\Microsoft SQL Server\90\Shared\sqlbrowser.exe" (autostart)
+SQL Server CEIP service (SQLEXPRESS): "C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Binn\sqlceip.exe" -Service SQLEXPRESS (autostart)
+SQL Server VSS Writer: "C:\Program Files\Microsoft SQL Server\90\Shared\sqlwriter.exe" (autostart)
+@%systemroot%\system32\srvsvc.dll,-102: System32\DRIVERS\srv.sys (autostart)
+@%SystemRoot%\system32\wiaservc.dll,-9: %SystemRoot%\system32\svchost.exe -k imgsvc (autostart)
+@%SystemRoot%\System32\drivers\storqosflt.sys,-101: system32\drivers\storqosflt.sys (autostart)
+SynTPEnh Caller Service: "C:\Program Files\Synaptics\SynTP\SynTPEnhService.exe" (autostart)
+@%SystemRoot%\system32\sysmain.dll,-1000: %systemroot%\system32\svchost.exe -k LocalSystemNetworkRestricted -p (autostart)
+@%windir%\system32\SystemEventsBrokerServer.dll,-1001: %SystemRoot%\system32\svchost.exe -k DcomLaunch -p (autostart)
+@%SystemRoot%\system32\TabSvc.dll,-100: %SystemRoot%\System32\svchost.exe -k LocalSystemNetworkRestricted -p (autostart)
+TCP/IP Registry Compatibility: System32\drivers\tcpipreg.sys (autostart)
+@%SystemRoot%\System32\themeservice.dll,-8192: %SystemRoot%\System32\svchost.exe -k netsvcs -p (autostart)
+@%SystemRoot%\system32\trkwks.dll,-1: %SystemRoot%\System32\svchost.exe -k LocalSystemNetworkRestricted -p (autostart)
+TightVNC Server: "C:\Program Files\TightVNC\tvnserver.exe" -service (autostart)
+CamMonitor: C:\Program Files (x86)\ArcSoft\HP Webcam Software Suite\Magic-i Visual Effects 2\uCamMonitor.exe (autostart)
+@%systemroot%\system32\usermgr.dll,-100: %SystemRoot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%systemroot%\system32\usosvc.dll,-101: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%systemroot%\system32\mprmsg.dll,-32011: System32\DRIVERS\wanarp.sys (autostart)
+@%systemroot%\system32\drivers\wcifs.sys,-100: \SystemRoot\system32\drivers\wcifs.sys (autostart)
+@%SystemRoot%\System32\wcmsvc.dll,-4097: %SystemRoot%\system32\svchost.exe -k LocalServiceNetworkRestricted -p (autostart)
+WildTangentHelper: "C:\Program Files (x86)\WildTangent Games\Integration\WildTangentHelperService.exe" (autostart)
+@%Systemroot%\system32\wbem\wmisvc.dll,-205: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%SystemRoot%\System32\wlansvc.dll,-257: %SystemRoot%\system32\svchost.exe -k LocalSystemNetworkRestricted -p (autostart)
+@%SystemRoot%\system32\wpnservice.dll,-1: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+@%SystemRoot%\system32\WpnUserService.dll,-1: %SystemRoot%\system32\svchost.exe -k UnistackSvcGroup (autostart)
+Windows Push Notifications User Service_2603fc: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup (autostart)
+@%SystemRoot%\System32\wscsvc.dll,-200: %SystemRoot%\System32\svchost.exe -k LocalServiceNetworkRestricted -p (autostart)
+@%systemroot%\system32\SearchIndexer.exe,-103: %systemroot%\system32\SearchIndexer.exe /Embedding (autostart)
+@%systemroot%\system32\wuaueng.dll,-105: %systemroot%\system32\svchost.exe -k netsvcs -p (autostart)
+
+
+--------------------------------------------------
+
+Enumerating Windows NT logon/logoff scripts:
+*No scripts set to run*
+
+Windows NT checkdisk command:
+BootExecute = autocheck autochk *
+
+Windows NT 'Wininit.ini':
+PendingFileRenameOperations: C:\WINDOWS\system32\DRIVERS\SET6F76.tmp||C:\WINDOWS\TEMP\{6B5BBA17-317A-4B1B-AD56-146D9B90BC4E}\binaries.hsh||C:\WINDOWS\TEMP\{6B5BBA17-317A-4B1B-AD56-146D9B90BC4E}\klim6.cat||C:\WINDOWS\TEMP\{6B5BBA17-317A-4B1B-AD56-146D9B90BC4E}\msi_common.dll||C:\WINDOWS\TEMP\{6B5BBA17-317A-4B1B-AD56-146D9B90BC4E}\msi_misc.dll||C:\WINDOWS\TEMP\{6B5BBA17-317A-4B1B-AD56-146D9B90BC4E}\product_info.dll||C:\WINDOWS\TEMP\{6B5BBA17-317A-4B1B-AD56-146D9B90BC4E}|||9
+
+--------------------------------------------------
+
+Enumerating ShellServiceObjectDelayLoad items:
+
+WebCheck: *Registry key not found*
+
+--------------------------------------------------
+Autorun entries from Registry:
+HKLM\Software\Microsoft\Windows\CurrentVersion\policies\Explorer\Run
+
+BootRacer = "C:\Program Files (x86)\BootRacer\bootrace.exe" /2
+
+--------------------------------------------------
+
+End of report, 20,322 bytes
+Report generated in 0.422 seconds
+
+Command line options:
+   /verbose  - to add additional info on each section
+   /complete - to include empty sections and unsuspicious data
+   /full     - to include several rarely-important sections
+   /force9x  - to include Win9x-only startups even if running on WinNT
+   /forcent  - to include WinNT-only startups even if running on Win9x
+   /forceall - to include all Win9x and WinNT startups, regardless of platform
+   /history  - to list version history only

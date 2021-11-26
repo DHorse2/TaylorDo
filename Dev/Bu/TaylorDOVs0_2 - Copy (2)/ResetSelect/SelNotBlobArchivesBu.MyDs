@@ -1,0 +1,12 @@
+# NotBlobsArchivesBu start.
+(not (
+!include "..\SelectCategory\SelBlobs.MyDs"!
+# NotBlobsArchivesBu
+or 
+!include "..\SelectCategory\SelArchives.MyDs"!
+# NotBlobsArchivesBu
+or
+!include "..\SelectCategory\SelBackups.MyDs"!
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.

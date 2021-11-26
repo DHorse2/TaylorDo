@@ -1,0 +1,4 @@
+# File Action - Type Os Dir.
+# BY 10
+SortByName(Ascending SkipBlock(SkipBlockFiles,(SkipBlockBytes / 10)))
+	

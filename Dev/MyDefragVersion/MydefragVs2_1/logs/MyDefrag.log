@@ -1,0 +1,182 @@
+﻿
+
+
+Date: 2019/06/13 08:19:12
+Drive: C:
+\\?\Volume{c04e02d2-203b-11e0-ae02-806e6f6e6963}
+Total disk space:    250,057,060,352 bytes     Bytes per cluster:             4,096
+Files:                       355,040
+Folders:                      57,271
+Unfragmented Data:    65,557,901,312 bytes     Unfragmented Items:          412,221
+Fragmented Data:      31,872,208,896 bytes     Fragmented Items:                 90
+Gaps Data:           152,626,900,992 bytes     Gaps Items:                    2,559
+Average gap:              59,641,856 bytes
+Biggest gap:          11,819,397,120 bytes
+
+These items could not be moved->
+Fragments   Bytes          Clusters     Name
+------- ----------------- ------- -----
+      1             8,192       2  C:\$Boot
+      1                64       1  C:\Windows\System32\LogFiles\WMI\RtBackup\EtwRTDiagLog.etl
+      1                64       1  C:\Windows\System32\LogFiles\WMI\RtBackup\EtwRTEventLog-System.etl
+      1                64       1  C:\Windows\System32\LogFiles\WMI\RtBackup\EtwRTEventLog-Application.etl
+      1                64       1  C:\Windows\System32\LogFiles\WMI\RtBackup\EtwRTEventlog-Security.etl
+      1            65,536      16  C:\System Volume Information\{3808876b-c176-4e48-b7ae-04046e6cc752}
+      1             2,195       1  C:\Windows\bthservsdp.dat
+      1        67,108,864  16,384  C:\$LogFile
+     13            52,576      13  C:\$MFT::$BITMAP
+      1            16,384       4  C:\$MFT
+     68    11,643,200,616   8,704  C:\$Extend\$UsnJrnl:$J:$DATA
+      1         8,396,800   2,050  C:\System Volume Information\kliddb.dat
+      1             4,096       1  C:\$Extend\$RmMetadata\$TxfLog
+      1             4,096       1  C:\$Extend\$RmMetadata\$Txf
+      1       104,865,792  25,602  C:\System Volume Information\klBackupDepository.dat
+      4           737,280     180  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\KSN\strg7e516011-9698-458e-8a32-01825f2df364
+      6         6,619,648   1,617  C:\System Volume Information\klmeta.dat
+      6         1,628,160     398  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\WFD\strg988cbfc7-f61d-4db7-a6b3-5b2ad81b4744
+      1        16,000,044   3,907  C:\System Volume Information\ISwift3.dat
+      2            59,392      15  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\CONFIG\strg6abec8fa-fb94-4d10-b4bd-f285d81d32fa
+      3     2,072,272,896 505,926  C:\hiberfil.sys
+      1             4,096       1  C:\$MFTMirr
+      1         7,631,136   1,864  C:\$Bitmap
+      1            67,584      17  C:\Windows\bootstat.dat
+      1            53,248      13  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\KSN\strg596c4ef6-6b74-4305-ab22-9491813d8c96
+      1            53,248      13  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\WFD\strg61c1ce34-3b9c-448f-964c-4f525d0e9999
+     49    26,214,400,000 6,400,000  C:\System Volume Information\{9e3b4713-8c33-11e9-aa46-0024816d3ae5}{3808876b-c176-4e48-b7ae-04046e6cc752}
+      1     1,199,194,112 292,772  C:\System Volume Information\{9e3b4709-8c33-11e9-aa46-0024816d3ae5}{3808876b-c176-4e48-b7ae-04046e6cc752}
+     20     2,703,720,448 660,088  C:\pagefile.sys
+
+------- ----------------- ------- -----
+    191    44,046,166,695 7,919,593  Total
+
+
+These items are fragmented->
+Fragments   Bytes          Clusters     Name
+------- ----------------- ------- -----
+     66       423,100,416 103,292  C:\$MFT
+      4            53,056      13  C:\Users\MdmSysUser\AppData\Local\VirtualStore\Program Files\YCIII\History.YC\TextItems.YCF
+     23         1,214,789     297  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\07aa0b826b9d560b.klq
+      7           144,965      36  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\8c97efc98736eb02.klq
+      7           237,878      59  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\7c870ac7abf4500d.klq
+     15           700,556     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\01e56947f888894a.klq
+      5           243,112      64  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\Database\reports.db-wal
+      9        11,914,576   2,909  C:\$Secure:$SDS:$DATA
+     15           700,571     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\5c90a999ca16eda6.klq
+      5         1,095,680     272  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\APU\log1
+      2           131,072      32  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\cat_engine64FA7200-4B38-4048-92A2-6A4C6854761B
+      6           140,112      48  C:\ProgramData\Kaspersky Lab\KSDE3.0.0\Data\persistent_q.db-wal
+      2            59,392      16  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\IA\log5
+     11         3,894,184     951  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\klavasyswatch.dll.942205d90561860ce53524217a06cd87
+     88         4,128,272   1,008  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Data\persistent_q.db-wal
+      7           144,963      36  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\04eabd6a1487cda1.klq
+     56         2,719,232     666  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Data\detects.db-wal
+     14           700,526     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\23af9485467c2c33.klq
+     19         5,236,736   1,279  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\APU\log0
+     15           700,521     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\721aa2b88c7ef9c0.klq
+     14           700,551     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\106856ce46e1f9dc.klq
+      4            21,497       6  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\0556d863d2e7e8dd.klq
+      6         1,049,000     257  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\SW2\cache\klswapiproxy.kdl.56e9f041d71053248f0ed95df53e22a6.798adc56-54a7-4299-9d29-68866acea9b8
+      6            95,811      24  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\daf6171864955a37.klq
+     14           700,505     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\1e4d7708a5c9cc35.klq
+     15           700,583     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\820dc24493279619.klq
+     10           700,492     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\a5d3202d5f800969.klq
+     15           700,591     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\4c5c2666fe93b6d7.klq
+     15           700,510     172  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\21b0ff19035c7f64.klq
+      4            27,651       7  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\37031c40a3c408c1.klq
+      4            21,547       6  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\4b8b48f368b30c79.klq
+      4            27,703       7  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\e9b9e5dff8fc104a.klq
+      4            27,736       7  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\57b5f3340a89f599.klq
+      4            21,582       6  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\62e6f528dd87b9fc.klq
+      4           460,496     113  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\wlengine.dll.00000000000706d0-01d50e9facc8b84e-01d521e0779c6950
+      2            56,656      14  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\klpshk32.dll.2fc35010ed769153053cd6c89686de3b
+      6         7,664,751   1,872  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\sw2.2494b4ecb248f022.kmc
+      6            95,809      24  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\23149212d74913c7.klq
+      9         3,003,216     734  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\kjim.kdl.d2e6a12425cb046114d20a505ee057ae
+     12         2,465,792     608  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\KLAVA\log5
+      3           106,976      27  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\pupsinfocollector.dll.2c70e67ef0cc7c8e5fe82d1e9592425e
+     29         1,129,776     276  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Data\storage_saas.kvdb-wal
+      2            35,483       9  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\app_rules.xms
+      4           286,952      71  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\klsihk64.dll
+      2           130,449      32  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\syscheck.avz
+      2            20,429       5  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Data\ipm\default\meta.xml
+     41           538,704     136  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Data\settings_saas.kvdb-wal
+      5           716,800     208  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\KSN\log5
+      3            19,384       5  C:\Windows\System32\spool\spooler.xml
+    189         9,138,173   2,240  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\25\00000001_objdt.dat
+     77         2,397,165     592  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\25\00000001_objid.dat
+    103         2,391,765     592  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\report.rpt
+     23        64,719,000  15,801  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\kavbase.2494d6ac8c792f03.kmc
+     13            52,576      13  C:\$MFT::$BITMAP
+      6         2,228,224     544  C:\Windows\System32\WDI\{a7a5847a-7511-4e4e-90b1-45ad2a002f51}\{1c028aad-8efe-4582-9a87-5e58ac6f4178}\krundown.etl
+     11         2,760,704     768  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\ADB\log6
+      7         4,128,768   1,008  C:\Windows\System32\WDI\{a7a5847a-7511-4e4e-90b1-45ad2a002f51}\{1c028aad-8efe-4582-9a87-5e58ac6f4178}\ksnapshot.etl
+    353        20,334,806   4,976  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\g_objdt.dat
+     75         1,336,612     328  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\g_objbt.dat
+      2           135,992      36  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Data\antimalware.patch_management.product_registry.kvdb-wal
+    990        67,842,048  16,563  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\Database\reports.db
+      5           993,280     272  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\APU\log2
+     68    11,643,200,616   8,704  C:\$Extend\$UsnJrnl:$J:$DATA
+     18           963,071     236  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\ddd32329e730a24a.klq
+     19           962,535     235  C:\ProgramData\Kaspersky Lab\AVP19.0.0\QB\3aaa13fbab41db3b.klq
+     97        12,963,840   3,165  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\vapm_613728840\patch_db.db
+      3           113,465      28  C:\Windows\System32\catroot2\dberr.txt
+      2        15,425,536   3,820  C:\ProgramData\Kaspersky Lab\AVP19.0.0\SysWHist\context.sdb
+      9           834,328     204  C:\Users\MdmSysUser\AppData\Local\VirtualStore\Program Files\YCIII\History.YC\RTFItems.YCF
+      2            66,056      32  C:\ProgramData\Kaspersky Lab\KSDE3.0.0\Data\settings_ksde.kvdb-wal
+      2           622,152     160  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\traffic_stats.db-wal
+      4           737,280     180  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\KSN\strg7e516011-9698-458e-8a32-01825f2df364
+      6         6,619,648   1,617  C:\System Volume Information\klmeta.dat
+      6         1,628,160     398  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\WFD\strg988cbfc7-f61d-4db7-a6b3-5b2ad81b4744
+      4            29,030       8  C:\Users\MdmSysUser\AppData\Local\VirtualStore\Program Files\YCIII\History.YC\URLItems.YCF
+      6         7,664,751   1,872  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\Cache\sw2.2494dc4cb9e773bf.kmc
+      2            59,392      16  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\IA\log6
+      2            57,344      16  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\KLAVA\log6
+      3            73,728      24  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\SW2\log6
+      2            59,392      16  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\UBI\log6
+     19         8,181,760   2,144  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\SW2\log5
+      3        40,509,440   9,890  C:\ProgramData\Kaspersky Lab\AVP19.0.0\SysWHist\main.sdb
+      2            55,296      16  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\UDS\log5
+      5           940,032     240  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\WMUF\log5
+      2            59,392      15  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\CONFIG\strg6abec8fa-fb94-4d10-b4bd-f285d81d32fa
+      3     2,072,272,896 505,926  C:\hiberfil.sys
+    186        86,335,488  21,078  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Bases\KLAVA\log0
+     57         1,160,308     288  C:\ProgramData\Kaspersky Lab\AVP19.0.0\Report\25\00000001_objbt.dat
+     49    26,214,400,000 6,400,000  C:\System Volume Information\{9e3b4713-8c33-11e9-aa46-0024816d3ae5}{3808876b-c176-4e48-b7ae-04046e6cc752}
+     20     2,703,720,448 660,088  C:\pagefile.sys
+
+------- ----------------- ------- -----
+  3,080    43,477,662,538 7,781,301  Total
+
+
+The 25 largest items on disk->
+Fragments   Bytes          Clusters     Name
+------- ----------------- ------- -----
+     49    26,214,400,000 6,400,000  C:\System Volume Information\{9e3b4713-8c33-11e9-aa46-0024816d3ae5}{3808876b-c176-4e48-b7ae-04046e6cc752}
+     20     2,703,720,448 660,088  C:\pagefile.sys
+      1     2,523,922,432 616,192  C:\$Extend\$RmMetadata\$TxfLog\$Tops:$T:$DATA
+      3     2,072,272,896 505,926  C:\hiberfil.sys
+      1     1,387,098,471 338,648  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20181104_103222.mp4
+      1     1,199,194,112 292,772  C:\System Volume Information\{9e3b4709-8c33-11e9-aa46-0024816d3ae5}{3808876b-c176-4e48-b7ae-04046e6cc752}
+      1     1,036,011,577 252,933  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20190106_122156.mp4
+      1       803,046,628 196,057  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20181218_183614.mp4
+      1       786,432,000 192,000  C:\Ide\Google\Android\Sdk\system-images\android-22\google_apis\x86\system.img
+      1       684,430,509 167,098  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20180902_155639.mp4
+      1       670,997,434 163,818  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20190106_123022.mp4
+      1       646,788,540 157,908  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20181218_184336.mp4
+      1       576,716,800 140,800  C:\Ide\Google\Android\Sdk\system-images\android-22\google_apis\x86\userdata.img
+      1       576,037,672 140,635  C:\Dev\Window Internals Hand-on Lab\Window Internals Hand-on Lab 20090116\Window Internals Hand-on Lab Setup\1) Install the Debugging Tools for Windows\WindowsVista.6002.081017-1605.x86fre.Symbols.exe
+      1       566,304,768 138,258  C:\Windows\SoftwareDistribution\DataStore\DataStore.edb
+      1       557,679,304 136,153  C:\Ide\OpenOfficeOrg - Ooo\XAware Open Source Data Integration\Release\XAware_windows_Vs5_1_1_581\Download\XAware_windows_5_1_1_581_offline.exe
+      1       428,804,608 104,689  C:\Windows\Installer\1ed245fb.msp
+     66       423,100,416 103,292  C:\$MFT
+      1       397,973,629  97,162  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20180625_092923.mp4
+      1       364,772,764  89,056  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20180627_145531.mp4
+      1       363,553,480  88,759  C:\Users\wayne\AppData\Roaming\Apple Computer\iTunes\iPod Software Updates\iPod2,1_4.2.1_8C148_Restore.ipsw
+      1       343,058,432  83,755  C:\Windows\Installer\968c8c.msp
+      1       341,541,454  83,385  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20180901_115940.mp4
+      1       334,429,308  81,648  C:\Data\Dgh\G6\201905Dgh\DCIM\DghCameraG6201905\20181218_183224.mp4
+      1       329,305,990  80,397  C:\Windows\MEMORY.DMP
+
+------- ----------------- ------- -----
+    159    46,331,593,672 11,311,429  Total
+xENDx

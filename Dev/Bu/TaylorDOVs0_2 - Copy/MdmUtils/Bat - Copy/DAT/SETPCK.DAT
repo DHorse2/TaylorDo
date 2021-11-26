@@ -1,0 +1,5 @@
+@Rem
+@Echo Off
+@Rem
+@Set Native=PCK
+@Call SetPrompt

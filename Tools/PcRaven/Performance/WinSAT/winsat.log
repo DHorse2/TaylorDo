@@ -1,0 +1,300 @@
+
+4478562 (10732) - exe\logging.cpp:0841: --- START 2021\6\17 14:28:11 PM ---
+4478562 (10732) - exe\main.cpp:4363: WinSAT registry node is created or present
+4478609 (10732) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+4478609 (10732) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+4478609 (10732) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+4478609 (10732) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+4478625 (10732) - exe\main.cpp:2531: > DWM not running.
+4478625 (10732) - exe\main.cpp:2496: > EMD service will be restored on exit.
+4478703 (10732) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+4478703 (10732) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+4478703 (10732) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+4478703 (10732) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+4478703 (10732) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+4478703 (10732) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+4478703 (10732) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+4478703 (10732) - storage\diskprof.cpp:0698: Random seed is 1623965291
+4484250 (10732) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+4484312 (10732) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 67584
+4484312 (10732) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 3670088
+4484312 (10732) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+4484312 (10732) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+4484312 (10732) - exe\main.cpp:2764: > Successfully reenabled EMD.
+4484546 (10732) - exe\main.cpp:5040: > exit value = 0.
+
+87001703 (1744) - exe\logging.cpp:0841: --- START 2021\6\23 16:02:54 PM ---
+87001781 (1744) - exe\main.cpp:4363: WinSAT registry node is created or present
+87001828 (1744) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+87001875 (1744) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+87001875 (1744) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+87001875 (1744) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+87001875 (1744) - exe\main.cpp:2531: > DWM not running.
+87001890 (1744) - exe\main.cpp:2496: > EMD service will be restored on exit.
+87001953 (1744) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+87001953 (1744) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+87001953 (1744) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+87001953 (1744) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+87002156 (1744) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+87002171 (1744) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+87002171 (1744) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+87002171 (1744) - storage\diskprof.cpp:0698: Random seed is 1624489375
+87009015 (1744) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+87009203 (1744) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 58368
+87009218 (1744) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 4980823
+87009218 (1744) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+87009265 (1744) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+87009265 (1744) - exe\main.cpp:2764: > Successfully reenabled EMD.
+87009390 (1744) - exe\main.cpp:5040: > exit value = 0.
+
+87010796 (1756) - exe\logging.cpp:0841: --- START 2021\6\23 16:03:03 PM ---
+87010843 (1756) - exe\main.cpp:4363: WinSAT registry node is created or present
+87010859 (1756) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+87010875 (1756) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+87010875 (1756) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+87010875 (1756) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+87010890 (1756) - exe\main.cpp:2531: > DWM not running.
+87010890 (1756) - exe\main.cpp:2496: > EMD service will be restored on exit.
+87010921 (1756) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+87010937 (1756) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+87010937 (1756) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+87010937 (1756) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+87010937 (1756) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+87010953 (1756) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+87010953 (1756) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+87010953 (1756) - storage\diskprof.cpp:0698: Random seed is 1624489383
+87016406 (1756) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+87016421 (1756) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 56320
+87016421 (1756) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 1376275
+87016437 (1756) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+87016437 (1756) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+87016437 (1756) - exe\main.cpp:2764: > Successfully reenabled EMD.
+87016562 (1756) - exe\main.cpp:5040: > exit value = 0.
+
+885681609 (37376) - exe\logging.cpp:0841: --- START 2021\7\23 16:25:40 PM ---
+885681609 (37376) - exe\main.cpp:4363: WinSAT registry node is created or present
+885681640 (37376) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+885681656 (37376) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+885681656 (37376) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+885681656 (37376) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+885681656 (37376) - exe\main.cpp:2531: > DWM not running.
+885681671 (37376) - exe\main.cpp:2496: > EMD service will be restored on exit.
+885681703 (37376) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+885681703 (37376) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+885681703 (37376) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+885681703 (37376) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+885681718 (37376) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+885681734 (37376) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+885681734 (37376) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+885681734 (37376) - storage\diskprof.cpp:0698: Random seed is 1627082741
+885687968 (37376) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+885688156 (37376) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 79872
+885688203 (37376) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 5963797
+885688234 (37376) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+885688281 (37376) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+885688296 (37376) - exe\main.cpp:2764: > Successfully reenabled EMD.
+885688359 (37376) - exe\main.cpp:5040: > exit value = 0.
+
+885689937 (46000) - exe\logging.cpp:0841: --- START 2021\7\23 16:25:49 PM ---
+885689937 (46000) - exe\main.cpp:4363: WinSAT registry node is created or present
+885689937 (46000) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+885689953 (46000) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+885689953 (46000) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+885689968 (46000) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+885689984 (46000) - exe\main.cpp:2531: > DWM not running.
+885689984 (46000) - exe\main.cpp:2496: > EMD service will be restored on exit.
+885690031 (46000) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+885690031 (46000) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+885690031 (46000) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+885690031 (46000) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+885690031 (46000) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+885690031 (46000) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+885690031 (46000) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+885690046 (46000) - storage\diskprof.cpp:0698: Random seed is 1627082749
+885695203 (46000) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+885695234 (46000) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 80896
+885695234 (46000) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 0
+885695312 (46000) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+885695312 (46000) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+885695312 (46000) - exe\main.cpp:2764: > Successfully reenabled EMD.
+885695359 (46000) - exe\main.cpp:5040: > exit value = 0.
+
+514817984 (37376) - exe\logging.cpp:0841: --- START 2021\8\23 9:52:20 AM ---
+514818000 (37376) - exe\main.cpp:4363: WinSAT registry node is created or present
+514818000 (37376) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+514818078 (37376) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+514818078 (37376) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+514818078 (37376) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+514818078 (37376) - exe\main.cpp:2531: > DWM not running.
+514818109 (37376) - exe\main.cpp:2496: > EMD service will be restored on exit.
+514818187 (37376) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+514818187 (37376) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+514818187 (37376) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+514818187 (37376) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+514818312 (37376) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+514818328 (37376) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+514818328 (37376) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+514818328 (37376) - storage\diskprof.cpp:0698: Random seed is 1629737540
+514834406 (37376) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+514834984 (37376) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 51200
+514834984 (37376) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 6553700
+514835328 (37376) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+514835359 (37376) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+514835359 (37376) - exe\main.cpp:2764: > Successfully reenabled EMD.
+514835890 (37376) - exe\main.cpp:5040: > exit value = 0.
+
+514838718 (34216) - exe\logging.cpp:0841: --- START 2021\8\23 9:52:40 AM ---
+514838718 (34216) - exe\main.cpp:4363: WinSAT registry node is created or present
+514838718 (34216) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+514838859 (34216) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+514838859 (34216) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+514838875 (34216) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+514838875 (34216) - exe\main.cpp:2531: > DWM not running.
+514838875 (34216) - exe\main.cpp:2496: > EMD service will be restored on exit.
+514839015 (34216) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+514839015 (34216) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+514839015 (34216) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+514839015 (34216) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+514839015 (34216) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+514839031 (34216) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+514839031 (34216) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+514839031 (34216) - storage\diskprof.cpp:0698: Random seed is 1629737561
+514844484 (34216) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+514844515 (34216) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 63488
+514844515 (34216) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 1900577
+514844515 (34216) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+514844531 (34216) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+514844531 (34216) - exe\main.cpp:2764: > Successfully reenabled EMD.
+514844703 (34216) - exe\main.cpp:5040: > exit value = 0.
+
+2577665156 (29456) - exe\logging.cpp:0841: --- START 2021\9\22 10:30:47 AM ---
+2577665203 (29456) - exe\main.cpp:4363: WinSAT registry node is created or present
+2577665203 (29456) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+2577665250 (29456) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+2577665265 (29456) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+2577665265 (29456) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+2577665265 (29456) - exe\main.cpp:2531: > DWM not running.
+2577665296 (29456) - exe\main.cpp:2496: > EMD service will be restored on exit.
+2577665343 (29456) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+2577665343 (29456) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+2577665343 (29456) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+2577665343 (29456) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+2577665406 (29456) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+2577665437 (29456) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+2577665437 (29456) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+2577665437 (29456) - storage\diskprof.cpp:0698: Random seed is 1632331847
+2577673515 (29456) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+2577674125 (29456) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 71680
+2577674140 (29456) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 4915257
+2577674296 (29456) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+2577674453 (29456) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+2577674453 (29456) - exe\main.cpp:2764: > Successfully reenabled EMD.
+2577674593 (29456) - exe\main.cpp:5040: > exit value = 0.
+
+2577677765 (14912) - exe\logging.cpp:0841: --- START 2021\9\22 10:30:59 AM ---
+2577677828 (14912) - exe\main.cpp:4363: WinSAT registry node is created or present
+2577677875 (14912) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+2577677890 (14912) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+2577677890 (14912) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+2577677890 (14912) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+2577677906 (14912) - exe\main.cpp:2531: > DWM not running.
+2577677906 (14912) - exe\main.cpp:2496: > EMD service will be restored on exit.
+2577678031 (14912) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+2577678031 (14912) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+2577678031 (14912) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+2577678031 (14912) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+2577678031 (14912) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+2577678140 (14912) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+2577678187 (14912) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+2577678187 (14912) - storage\diskprof.cpp:0698: Random seed is 1632331860
+2577691375 (14912) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+2577691406 (14912) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 58368
+2577691500 (14912) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 2162743
+2577691609 (14912) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+2577691609 (14912) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+2577691609 (14912) - exe\main.cpp:2764: > Successfully reenabled EMD.
+2577691718 (14912) - exe\main.cpp:5040: > exit value = 0.
+
+93698953 (11036) - exe\logging.cpp:0841: --- START 2021\9\28 12:15:03 PM ---
+93698984 (11036) - exe\main.cpp:4363: WinSAT registry node is created or present
+93699000 (11036) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+93699046 (11036) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+93699046 (11036) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+93699046 (11036) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+93699062 (11036) - exe\main.cpp:2531: > DWM not running.
+93699062 (11036) - exe\main.cpp:2496: > EMD service will be restored on exit.
+93699093 (11036) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+93699093 (11036) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+93699093 (11036) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+93699093 (11036) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+93699093 (11036) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+93699109 (11036) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+93699125 (11036) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+93699125 (11036) - storage\diskprof.cpp:0698: Random seed is 1632856503
+93703750 (11036) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+93703890 (11036) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 90112
+93703890 (11036) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 262154
+93703890 (11036) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+93703906 (11036) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+93703906 (11036) - exe\main.cpp:2764: > Successfully reenabled EMD.
+93704015 (11036) - exe\main.cpp:5040: > exit value = 0.
+
+39211281 (12064) - exe\logging.cpp:0841: --- START 2021\10\29 3:46:01 AM ---
+39211375 (12064) - exe\main.cpp:4363: WinSAT registry node is created or present
+39211406 (12064) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+39211484 (12064) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+39211484 (12064) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+39211484 (12064) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+39211531 (12064) - exe\main.cpp:2531: > DWM not running.
+39211718 (12064) - exe\main.cpp:2496: > EMD service will be restored on exit.
+39212156 (12064) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+39212156 (12064) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+39212156 (12064) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+39212156 (12064) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+39212281 (12064) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+39212312 (12064) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+39212312 (12064) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+39212312 (12064) - storage\diskprof.cpp:0698: Random seed is 1635504362
+39223656 (12064) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+39224343 (12064) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 55296
+39224343 (12064) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 6553700
+39224343 (12064) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+39224609 (12064) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+39224671 (12064) - exe\main.cpp:2764: > Successfully reenabled EMD.
+39224859 (12064) - exe\main.cpp:5040: > exit value = 0.
+
+39226859 (6644) - exe\logging.cpp:0841: --- START 2021\10\29 3:46:17 AM ---
+39226859 (6644) - exe\main.cpp:4363: WinSAT registry node is created or present
+39226906 (6644) - exe\main.cpp:4394: Command Line = "C:\WINDOWS\system32\winsat.exe" disk -wsswap
+39226906 (6644) - exe\main.cpp:4016: INFO: The axe results path environment variable is not set. Assuming we aren't running under AXE.
+39226906 (6644) - exe\main.cpp:4500: INFO: Winsat is not running in AXE mode.
+39226906 (6644) - exe\main.cpp:4529: Skipping writing the Initial values to the registry - Axe Mode
+39226921 (6644) - exe\main.cpp:2531: > DWM not running.
+39226953 (6644) - exe\main.cpp:2496: > EMD service will be restored on exit.
+39227062 (6644) - exe\main.cpp:0816: > WinSAT info: Version=V10.0 Build-18362.778
+
+39227062 (6644) - exe\main.cpp:0948: > IsOfficial=TRUE  IsFormal=FALSE  IsMoobe=FALSE  RanOverTs=FALSE  RanOnbatteries=FALSE
+39227062 (6644) - exe\main.cpp:3826: > Power 'execution' request successfully set.
+39227062 (6644) - exe\main.cpp:1764: > Run Assessment disk -wsswap -drive C:
+39227062 (6644) - storage\diskprof.cpp:0161: CCC Support not disabled in registry
+39227078 (6644) - storage\diskprof.cpp:0677: DiskProfilerThreadProc Launched with priority 0
+39227078 (6644) - storage\diskprof.cpp:0690: ITERATION NUMBER 1
+39227078 (6644) - storage\diskprof.cpp:0698: Random seed is 1635504377
+39235375 (6644) - exe\main.cpp:3865: > Power request 'execution' successfully cleared.
+39236046 (6644) - exe\processresults.cpp:4767: > Wrote wsswap throughput, from the profiler, to the registry 56320
+39236125 (6644) - exe\processresults.cpp:4777: > Wrote wsswap interference, from the profiler, to the registry 2228271
+39236125 (6644) - exe\processresults.cpp:4854: Skipping Registry Entry for random read disk score
+39236468 (6644) - exe\processwinsaterror.cpp:0340: Skipping writing the exit code, cant msg and why msg to registry
+39236500 (6644) - exe\main.cpp:2764: > Successfully reenabled EMD.
+39236671 (6644) - exe\main.cpp:5040: > exit value = 0.

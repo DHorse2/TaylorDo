@@ -1,0 +1,1 @@
+dir *. /od- > Ds.txt

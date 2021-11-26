@@ -1,0 +1,71 @@
+; SMBUSamd.inf
+;
+; Installation file (.inf) for the AMD SMBus device.
+;
+; Copyright (c) 2008-2021 Advanced Micro Devices Inc.
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%AMD%
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318}
+Class=System
+CatalogFile=SMbusamd.cat
+DriverVer=06/04/2021, 5.12.0.38
+
+[DestinationDirs]
+DefaultDestDir   = 12
+
+[Manufacturer]
+%AMD%   = InstallSection, NTX86, NTamd64
+
+;==================================================
+;                   32-bit
+;==================================================
+
+[InstallSection.NTX86]
+%AMD.DeviceDesc0% = AMDSMBus, PCI\VEN_1002&DEV_4353
+%AMD.DeviceDesc0% = AMDSMBus, PCI\VEN_1002&DEV_4363
+%AMD.DeviceDesc0% = AMDSMBus, PCI\VEN_1002&DEV_4372
+%AMD.DeviceDesc0% = AMDSMBus, PCI\VEN_1002&DEV_4385
+%AMD.DeviceDesc0% = AMDSMBus, PCI\VEN_1022&DEV_780B
+%AMD.DeviceDesc0% = AMDSMBus, PCI\VEN_1022&DEV_790B
+
+
+[AMDSMBus]
+
+[AMDSMBus.Services]
+AddService = , 0x00000002
+
+;==================================================
+;                   64-bit
+;==================================================
+
+[InstallSection.NTamd64]
+%AMD.DeviceDesc0% = AMDSMBus64, PCI\VEN_1002&DEV_4353
+%AMD.DeviceDesc0% = AMDSMBus64, PCI\VEN_1002&DEV_4363
+%AMD.DeviceDesc0% = AMDSMBus64, PCI\VEN_1002&DEV_4372
+%AMD.DeviceDesc0% = AMDSMBus64, PCI\VEN_1002&DEV_4385
+%AMD.DeviceDesc0% = AMDSMBus64, PCI\VEN_1022&DEV_780B
+%AMD.DeviceDesc0% = AMDSMBus64, PCI\VEN_1022&DEV_790B
+
+[AMDSMBus64]
+
+[AMDSMBus64.Services]
+AddService = , 0x00000002
+
+;==================================================
+;                   Others
+;==================================================
+
+[SourceDisksNames]
+1 = %DiskId1%,,,
+
+[SourceDisksFiles]
+
+[Strings]
+AMD.DeviceDesc0 = "AMD SMBus"
+DiskId1 = "AMD SMBus Installation Disk"
+AMD = "Advanced Micro Devices, Inc"
+DisplayName = "AMD SMBus"
+Install = "Success"

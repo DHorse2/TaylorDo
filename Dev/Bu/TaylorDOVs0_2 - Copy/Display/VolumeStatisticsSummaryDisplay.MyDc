@@ -1,0 +1,24 @@
+SetVariable(VolumeStatisticsSummary,"----------------------------------------------------------
+SUMMARY: !VolumeLabel! !VolumeDescription!
+  
+          Volume Size:       !VolumeSize! (!VolumeSizeTemp!)
+          Volume Used:       !VolumeUsed! (!VolumeUsedTemp!)
+          Volume Free:       !VolumeFree!, (!VolumeFreeTemp!)
+         
+     Volume Used Calc:       !VolumeUsedTotal! (!VolumeUsedTotalTemp!)
+      Volume Free Adj:       !VolumeFreeAdj!
+    Bytes per cluster:       !BytesPerCluster! bytes
+
+   Unfragmented Items:       !FILES200N!
+     Fragmented Items:       !FILES210N!
+
+    Unfragmented Data:       !FILES202N! bytes
+      Fragmented Data:       !FILES212N! bytes
+
+             All Gaps:       !GAP00N!
+             All gaps:       !GAP10N! bytes
+          Average gap:       !GAP13N! bytes
+           Median gap:       !GAP14N! bytes
+          Biggest gap:       !GAP15N! bytes
+----------------------------------------------------------
+") 

@@ -1,0 +1,63 @@
+# Script: DefragZoneTypeOsProgramHints
+/* ---------------------------------------------------------- */
+# Zone 1 of 2 ProgramHints Fixed.
+	!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+	SetVariable(ZoneLabel, 			"!ZoneLabelProgramHints!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramHints!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramHints!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizeProgramHints!")
+	SetVariable(ZoneTypeSelect,		'!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsProgramHints.MyDc"!')
+
+		!include "..\..\Zone\ZoneDoHeader.MyDc"!
+		!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsProgramHints.MyDc"!
+		and not(
+			!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+		)
+
+		FileActions
+		  	!include "..\..\Gap\GapZoneCalc.MyDc"!
+		
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+			!include "..\..\Display\DisplaySetFileStep.MyDc"!
+	
+			!include "..\..\ActionVerbs\ZoneDoActionTypeOsProgramHintsFixed.MyDc"!
+
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+			!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\..\Zone\ZoneDoFooter.MyDc"!
+	
+/* ---------------------------------------------------------- */
+# Zone 2 of 2 ProgramHints Data.
+	!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+	SetVariable(ZoneLabel, 			"!ZoneLabelProgramHintsData!")
+	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramHintsData!")
+	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramHints!")
+	SetVariable(ZoneGapSize, 		"!ZoneGapSizeProgramHints!")
+	SetVariable(ZoneTypeSelect,'
+                # ProgramHints - Data files.
+                not(
+                     !include "..\..\SelectCategory\SelOsPageHiberDump.MyDs"!
+                )
+')
+
+		!include "..\..\Zone\ZoneDoHeader.MyDc"!
+		!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsProgramHints.MyDc"!
+		and not(
+			!include "..\..\SelectCategory\SelOsPageHiberDump.MyDs"!
+		)
+		
+		FileActions
+		  	!include "..\..\Gap\GapZoneCalc.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+			!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+			!include "..\..\ActionVerbs\ZoneDoActionTypeOsProgramHintsData.MyDc"!
+	
+			SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+			!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+		!include "..\..\Zone\ZoneDoFooter.MyDc"!
+	
+/* ---------------------------------------------------------- */

@@ -1,0 +1,6 @@
+# ServerName (IE. Computer name or number.)
+♦
+
+!include "..\Settings\SettingsSysServerNames.MyDc"!
+
+!include "..\SettingsYours\SettingsYoursSysServerName.MyDc"!

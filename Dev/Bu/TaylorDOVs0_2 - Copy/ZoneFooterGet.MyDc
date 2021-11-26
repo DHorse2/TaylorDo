@@ -1,0 +1,46 @@
+# Footer:
+SetVariable(ZoneFooter, "----------------------------------------------------------
+Zone: !ZoneNoCurrent! !ZoneLabel! !ZoneDescription! !Date! !Time!
+
+Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                 Files: !ZoneSizeCurrent! (!ZoneSizePerCurrent!%)
+                  Gap: !ZoneGapActualCurrent! (!ZoneGapActualPerCurrent!%)
+                Total: !ZoneSizeActualCurrent! (!ZoneEndActualPerCurrent!%)
+
+        Files/folders: !ZoneFilesFolders! (!ZoneFilesFoldersPer!%) 
+            Fragments: !ZoneFragments! (!ZoneFragmentsPer!%) 
+
+   Location:
+   ------------------------
+           Zone Start: !ZoneBeginCurrent! (!ZoneBeginPerCurrent!%)
+             Files End: !ZoneEndCurrent!
+             Zone End: !ZoneEndActualCurrent! (!ZoneEndActualPerCurrent!%)
+      
+   Gap Settings:
+   ------------------------
+         Gap Requested: !ZoneGapSizePer!%
+      Volume Rounding: !ZoneVolRoundUpPer!%
+           Actual Gap: !ZoneGapActualPerCurrent!% (!ZoneGapActualCurrent!)
+                 
+               The desired min gap size. (GapRequested): !ZoneGapRequestedCurrent!  !ZoneGapRequestedLocCurrent!
+              Must be half the zone size. (GapAdjusted): !ZoneGapAdjustedCurrent!  !ZoneGapAdjustedLocCurrent!
+               Align to the volume evenly. (GapRounded): !ZoneGapRoundedCurrent! !ZoneGapRoundedLocCurrent!
+          The remaining space available. (GapAvailable): !ZoneGapAvailableCurrent! !ZoneGapAvailableLocCurrent!
+      The lower of adjusted and available. (GapCurrent): !ZoneGapCurrent! !ZoneGapLocCurrent!
+    (GapCurrent) after any code you inserted. (GapUsed): !ZoneGapUsedCurrent! !ZoneGapUsedLocCurrent!
+     
+   Free Space after Zone:
+   ------------------------
+              Total Requested: !VolumeFreeRequested! (!VolumeFreeRequestedPer!%)
+                   Total Used: !VolumeFreeUsed! (!VolumeFreeUsedPer!%)
+         Volume Used by Zones: !VolumeZoneUsed! (!VolumeZoneUsedPer!%)
+
+Directory and Files Select:
+---------------------------
+!ZoneTypeSelectCurrent!               
+---------------------------
+----------------------------------------------------------
+")

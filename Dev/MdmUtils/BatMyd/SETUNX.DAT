@@ -1,0 +1,5 @@
+@Rem
+@Echo Off
+@Rem
+@Set Natvie=UNX
+@Call SetPrompt

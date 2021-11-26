@@ -1,0 +1,13 @@
+# Defrag Development Volume
+
+SetVariable(VolumeLabel,"!VolumeDev!")
+SetVariable(VolumeDescription,"Development")
+!include "..\..\Display\DisplaySetVolume.MyDc"!
+
+!include "..\..\Settings\SettingsRunVolume.MyDc"!
+
+SetVariable(MftZone, "Shares")
+
+!include "..\..\Settings\SettingsYours\SettingsYoursDev.MyDc"!
+
+!include "..\..\Defrag\DefragAnyComplexVolume.MyDc"!

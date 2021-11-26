@@ -1,0 +1,1 @@
+TYPE \REC\FIX.REC | MORE

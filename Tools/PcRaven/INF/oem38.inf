@@ -1,0 +1,140 @@
+;***************************************************************************************
+;
+; Name		: ssudrmnet.inf  
+;
+; Function	: Install SAMSUNG Escape USB RMNET  Parent driver
+;
+; Copyright (c) DEVGURU Co., Ltd. (www.devguru.co.kr)
+;
+;***************************************************************************************
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = USB
+ClassGuid   = {36FC9E60-c465-11cf-8056-444553540000}
+Provider    = %Provider%
+DriverVer=01/02/2014,2.11.7.0
+CatalogFile = ssudrmnet.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames.x86]
+1 = %DiskString%,,,\i386
+
+[SourceDisksNames.amd64]
+1 = %DiskString%,,,\amd64
+
+[SourceDisksFiles]
+; filename = diskid[,[ subdir][, size]]
+ssudrmnet.sys = 1
+WdfCoInstaller01007.dll=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+CoInstaller_CopyFiles = 11
+
+; ================= Device section =====================
+
+[Manufacturer]
+%ssud%=ssud,NTx86, NTamd64
+
+[ssud]
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_685D&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_685E&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6860&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6861&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6862&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6864&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6866&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6867&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_686A&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_686B&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\SAMSUNG_MOBILE&RMNET
+
+[ssud.NTx86]
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_685D&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_685E&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6860&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6861&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6862&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6864&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6866&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6867&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_686A&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_686B&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\SAMSUNG_MOBILE&RMNET
+
+[ssud.NTamd64]
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_685D&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_685E&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6860&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6861&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6862&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6864&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6866&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_6867&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_686A&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\VID_04E8&PID_686B&RMNET
+%USB\SAMSUNG_MOBILE&RMNET.DeviceDesc% = ssud.Install, USB\SAMSUNG_MOBILE&RMNET
+
+[ssud.Install.NT]
+AddReg          = ssud.Reg
+CopyFiles		= CopyFiles
+
+[ssud.Install.NT.Services]
+AddService = ssudrmnet, 2, ssud.AddService, ssud.EventLog
+
+[ssud.Reg]
+
+[CopyFiles]
+ssudrmnet.sys
+
+[ssud.AddService]
+DisplayName    = %ssud.Service.Name%
+Description	   = %ssud.Service.Desc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\ssudrmnet.sys
+AddReg         = TextModeFlags.Reg
+LoadOrderGroup = Base
+
+[ssud.EventLog]
+AddReg = ssud.AddEventLog.Reg
+
+[ssud.AddEventLog.Reg]
+
+[TextModeFlags.Reg]
+HKR, Parameters, GetClientIDWaitTime, 0x00010001, 0x003C
+
+;-------------- WDF Coinstaller installation
+
+[ssud.Install.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01007.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01007.dll,WdfCoInstaller"
+
+
+[ssud.Install.NT.Wdf]
+KmdfService = ssudrmnet, ssud_wdfsect
+[ssud_wdfsect]
+KmdfLibraryVersion = 1.7
+
+;---------------------------------------------------------------;
+
+[Strings]
+Provider="SAMSUNG Electronics Co., Ltd."
+ssud="SAMSUNG Electronics Co., Ltd."
+
+DiskString="SAMSUNG Mobile USB RMNET Drivers Installation Disk"
+
+USB\SAMSUNG_MOBILE&RMNET.DeviceDesc="SAMSUNG Mobile USB RMNET Drivers"
+
+ssud.Service.Name="SAMSUNG Mobile USB RMNET Drivers"
+ssud.Service.Desc="SAMSUNG Mobile USB RMNET Drivers"

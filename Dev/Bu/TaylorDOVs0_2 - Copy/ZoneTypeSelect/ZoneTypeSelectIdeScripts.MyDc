@@ -1,0 +1,11 @@
+# IdeScripts start.
+!include "..\SelectCategory\SelNotBlobArchivesBu.MyDs"!
+# IdeScripts
+and ( 
+!include "..\SelectCategory\SelIde.MyDs"!
+# IdeScripts
+or  
+!include "..\SelectCategory\SelScripts.MyDs"!
+# IdeScripts
+)
+# IdeScripts end.

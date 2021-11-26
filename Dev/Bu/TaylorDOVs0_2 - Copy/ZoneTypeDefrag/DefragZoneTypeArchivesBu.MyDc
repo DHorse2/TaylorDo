@@ -1,0 +1,19 @@
+/* ---------------------------------------------------------- */
+/* Zone ArchivesBu (All) Archives and Backups*/
+
+SetVariable(ZoneLabel, "!ZoneLabelArchivesBu!")
+SetVariable(ZoneDescription, "!ZoneDescriptionArchivesBu!")
+SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpArchivesBu!")
+SetVariable(ZoneGapSize, "!ZoneGapSizeArchivesBu!")
+SetVariable(ZoneTypeSelect,'!include "..\ZoneTypeSelect\ZoneTypeSelectArchivesBu.MyDc"!')
+
+/* Note: This should be all Blob archives and backups */
+/* The sorting the "z Archive", "z Bu" and "z Backup" directories */
+/* sort to the very end of the Volume. */
+
+	!include "..\ZoneDoHeader.MyDc"!
+	!include "..\ZoneTypeSelect\ZoneTypeSelectArchivesBu.MyDc"!
+	!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
+	!include "..\ZoneDoFooter.MyDc"!
+
+/* ---------------------------------------------------------- */

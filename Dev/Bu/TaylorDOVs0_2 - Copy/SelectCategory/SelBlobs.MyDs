@@ -1,0 +1,23 @@
+# Blobs start.
+(
+!include "..\SelectCategory\SelBlobsAndExceptions.MyDs"!
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.

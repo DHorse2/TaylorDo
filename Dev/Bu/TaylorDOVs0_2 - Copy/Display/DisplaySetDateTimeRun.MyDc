@@ -1,0 +1,5 @@
+# DATE TIME RUN ELP
+
+SetVariable(DateTimeRunDescription,		"!Date! !Time! !RunTime!")
+/* Xinclude "..\Display\BannerSet.MyDc"X */
+/* pause(1) */

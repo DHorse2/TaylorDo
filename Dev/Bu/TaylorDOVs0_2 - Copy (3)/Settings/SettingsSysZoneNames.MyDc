@@ -1,0 +1,274 @@
+/* ---------------------------------------------------------- */
+# ROUNDING factors:
+
+/* HERE if you want to tweak how type the Gaps are if growth is slow. */
+/* HERE if your DISK IS VERY FULL */
+/* This is where you can tweak growth rounding if the Volume gets really full. */
+/* You don't have to use these, you can use actual percentages in the Zone section. */
+
+/* Note: Volume and Gap Sizes are paired to a degree and */
+/* set relative to each other. */
+	
+	      SetVariable(VolumeRoundUpNone, 	1) // ??? 1? s/b 0?
+	      SetVariable(VolumeRoundUpTiny, 	0.005)
+	     SetVariable(VolumeRoundUpSmall, 	0.01)
+	    SetVariable(VolumeRoundUpMedium, 	0.02)
+	     SetVariable(VolumeRoundUpLarge, 	0.03)
+	SetVariable(VolumeRoundUpExtraLarge, 	0.05)
+	
+	    SetVariable(VolumeRoundUpBlogBu, 	0.10)
+	
+	      SetVariable(ZoneGapSizeNone, 		0)
+	      SetVariable(ZoneGapSizeTiny, 		0.005)
+	     SetVariable(ZoneGapSizeSmall, 		0.01)
+	    SetVariable(ZoneGapSizeMedium, 		0.05)
+	     SetVariable(ZoneGapSizeLarge, 		0.10)
+	SetVariable(ZoneGapSizeExtraLarge, 		0.15)
+		
+	    SetVariable(ZoneGapSizeBlobBu, 		0.10)
+
+/* ---------------------------------------------------------- */
+# ZONE SETTINGS:
+/* ---------------------------------------------------------- */
+/* These are the Zone Names */
+/* Regular is at the end but otherwise */
+/* this is in the order they appear on disk */
+
+# Os Programs.
+SetVariable(ZoneLabelBoot, 					"Boot")
+SetVariable(ZoneLabelBootData, 				"BootData")
+SetVariable(ZoneLabelProgramHints,			"ProgramHints")
+SetVariable(ZoneLabelProgramHintsData,		"ProgramHintsData")
+SetVariable(ZoneLabelPrograms,				"Programs")
+SetVariable(ZoneLabelProgramsWindows,		"ProgramsWindows")
+SetVariable(ZoneLabelProgramsData,			"ProgramsData")
+# Moved to after Mft & Dir.
+SetVariable(ZoneLabelPageHiperDump,			"PageHiperDump")
+
+# Os Mft & Directories.
+SetVariable(ZoneLabelMft,					"MFT")
+SetVariable(ZoneLabelDir,					"DIR")
+
+# Standard Zones.
+SetVariable(ZoneLabelIdeScripts, 			"IdeScripts")
+SetVariable(ZoneLabelDevToDo, 				"DevToDo")
+SetVariable(ZoneLabelLinksCorp, 			"LinksCorp")
+SetVariable(ZoneLabelPeople, 				"People")
+# MFT.
+# DIR.
+# Games. 
+SetVariable(ZoneLabelGames, 				"Games")
+SetVariable(ZoneLabelShares, 				"Shares")
+SetVariable(ZoneLabelSystemOtherData, 		"SystemOtherData")
+SetVariable(ZoneLabelReference, 			"Reference")
+
+
+# Sys.
+# People.
+# OS, Mft, Dir.
+# Games.
+SetVariable(ZoneLabelRegular, 				"Regular")
+
+# Common.
+SetVariable(ZoneLabelSpaceHogs, 			"SpaceHogs")
+SetVariable(ZoneLabelArchivesBu, 			"ArchivesBu")
+
+/* ---------------------------------------------------------- */
+/* Use however you like */
+
+# Os Programs.
+SetVariable(ZoneDescriptionBoot, 				"!ZoneLabelBoot!")
+SetVariable(ZoneDescriptionBootData, 			"!ZoneLabelBootData!")
+SetVariable(ZoneDescriptionProgramHints, 		"!ZoneLabelProgramHints!")
+SetVariable(ZoneDescriptionProgramHintsData, 	"!ZoneLabelProgramHintsData!")
+SetVariable(ZoneDescriptionPrograms, 			"!ZoneLabelPrograms!")
+SetVariable(ZoneDescriptionProgramsWindows, 	"!ZoneLabelProgramsWidows!")
+SetVariable(ZoneDescriptionProgramsData, 		"!ZoneLabelProgramsData!")
+SetVariable(ZoneDescriptionPageHiperDump, 		"!ZoneLabelPageHiperDump!")
+
+# Os Mft & Directories.
+SetVariable(ZoneDescriptionMft, 				"!ZoneLabelMft!")
+SetVariable(ZoneDescriptionDir, 				"!ZoneLabelDir!")
+
+# Standard Zones:
+SetVariable(ZoneDescriptionIdeScripts, 			"!ZoneLabelIdeScripts!")
+SetVariable(ZoneDescriptionDevToDo, 			"!ZoneLabelDevToDo!")
+SetVariable(ZoneDescriptionLinksCorp, 			"!ZoneLabelLinksCorp!")
+SetVariable(ZoneDescriptionPeople, 				"!ZoneLabelPeople!")
+# MFT.
+# DIR.
+# Games. 
+SetVariable(ZoneDescriptionGames, 				"!ZoneLabelGames!")
+SetVariable(ZoneDescriptionShares, 				"!ZoneLabelShares!")
+SetVariable(ZoneDescriptionSystemOtherData, 	"!ZoneLabelSystemOtherData!")
+SetVariable(ZoneDescriptionReference, 			"!ZoneLabelReference!")
+
+# Sys.
+# People.
+# OS, Mft, Dir.
+SetVariable(ZoneDescriptionRegular, 			"!ZoneLabelRegular!")
+
+SetVariable(ZoneDescriptionSpaceHogs, 			"!ZoneLabelSpaceHogs!")
+SetVariable(ZoneDescriptionArchivesBu, 			"!ZoneLabelArchivesBu!")
+
+/* ---------------------------------------------------------- */
+/* This rounds up to even locations on the volume to keep */
+/* the location of data relatively stable during fluctuation. */
+
+/* NOTE: For Volume specifice settings you would have to copy these */
+/* next two sections and use them in the SettingsYours\SettingsYours for each Volume. */
+/* You would need a copy of these two to use in a Reset function between Volumes. */
+
+# Os Programs.
+SetVariable(ZoneVolRoundUpBoot, 			"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpProgramHints, 	"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpPrograms, 		"!VolumeRoundUpMedium!")
+SetVariable(ZoneVolRoundUpPageHiperDump,	"!VolumeRoundUpSmall!")
+
+# Os Mft & Directories.
+SetVariable(ZoneVolRoundUpMft,				"!VolumeRoundUpTiny!")
+SetVariable(ZoneVolRoundUpDir,		 		"!VolumeRoundUpLarge!")
+
+# Standard Zones.
+SetVariable(ZoneVolRoundUpIdeScripts, 		"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpDevToDo, 			"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpLinksCorp, 		"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpPeople, 			"!VolumeRoundUpMedium!")
+# MFT.
+# DIR.
+# Games. 
+# ToDo.............
+SetVariable(ZoneVolRoundUpGames, 			"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpShares, 			"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpSystemOtherData, 	"!VolumeRoundUpSmall!")
+SetVariable(ZoneVolRoundUpReference, 		"!VolumeRoundUpMedium!")
+
+# Sys.
+# People.
+# OS, Mft, Dir.
+# Games.
+SetVariable(ZoneVolRoundUpRegular, 			"!VolumeRoundUpMedium!")
+
+# Common.
+SetVariable(ZoneVolRoundUpSpaceHogs, 		"!VolumeRoundUpMedium!")
+SetVariable(ZoneVolRoundUpArchivesBu, 		"!VolumeRoundUpTiny!")
+
+/* ---------------------------------------------------------- */
+/* Your Zone Gap consumption of free space as a percentage. */
+/* Clearly this can not exceed 100%. Keep it under 99%. */
+
+# Os Programs.
+SetVariable(ZoneGapSizeBoot, 				"!ZoneGapSizeTiny!")
+SetVariable(ZoneGapSizeProgramHints,	 	"!ZoneGapSizeTiny!")
+SetVariable(ZoneGapSizePrograms, 			"!ZoneGapSizeSmall!")
+SetVariable(ZoneGapSizePageHiperDump, 		"!ZoneGapSizeSmall!")
+
+# Mft & Directories.
+SetVariable(ZoneGapSizeMft, 				"!ZoneGapSizeTiny!")
+SetVariable(ZoneGapSizeDir,		 			"!ZoneGapSizeTiny!")
+
+# Standard Zones.
+SetVariable(ZoneGapSizeIdeScripts, 			"!ZoneGapSizeMedium!")
+SetVariable(ZoneGapSizeDevToDo, 			"!ZoneGapSizeMedium!")
+SetVariable(ZoneGapSizeLinksCorp, 			"!ZoneGapSizeMedium!")
+SetVariable(ZoneGapSizePeople, 				"!ZoneGapSizeMedium!")
+# MFT.
+# DIR.
+# Games. 
+# ToDo.............
+SetVariable(ZoneGapSizeGames, 				"!ZoneGapSizeMedium!")
+SetVariable(ZoneGapSizeShares, 				"!ZoneGapSizeMedium!")
+SetVariable(ZoneGapSizeSystemOtherData, 	"!ZoneGapSizeMedium!")
+SetVariable(ZoneGapSizeReference, 			"!ZoneGapSizeSmall!")
+
+# Sys.
+# People.
+# OS, Mft, Dir.
+# Games.
+SetVariable(ZoneGapSizeRegular, 			"!ZoneGapSizeMedium!")
+
+# Common.
+SetVariable(ZoneGapSizeSpaceHogs, 			"!ZoneGapSizeMedium!")
+SetVariable(ZoneGapSizeArchivesBu, 			"!ZoneGapSizeTiny!")
+
+/* ---------------------------------------------------------- */
+# ZONE CALCULATION METHODS:
+# OS ZONE SETTINGS:
+/* ---------------------------------------------------------- */
+
+	/* ---------------------------------------------------------- */
+	# VOLUME MFT Location.
+	/* The Volume Location of the MFT as a percentage of the Volume. */
+		
+		SetVariable(MftVolumeRoundUp, 		"!VolumeRoundUpLarge!")
+		SetVariable(MftVolumeGapSize, 		"!ZoneGapSizeTiny!")
+		
+		# MFT CALCULATION METHODS.
+			# STANDARD Method.
+			/* IMPORTANT: Standard method currently in use. */
+			/* IE: The others below are ignored but instructive. */
+			/* None of the following settings are used, hence zero. */
+			SetVariable(MftPer, 			0)
+			SetVariable(MftLocation, 		0)
+			
+			# MFT Method.
+			/* Place files at X% (MftPerSys) into the data on the Volume. */
+			/* This is really tied the ratio of executables to data and blobs. */
+			# SetVariable(MftPer, 				0.30)
+			# SetVariable(MftLocation, 			1000000000)
+			# SetVariable(MftGapSize, 			"!ZoneGapSizeLarge!")
+		
+			# FIXED Method.
+			# SetVariable(MftLocation, 			1000000000) // (IE. Yours)
+			# SetVariable(MftPer, 				MftLocation / VolumeSize)
+			
+			# ORIGINAL Method.
+			/* DEPRECIATED, not in use. */
+			/* Note: Orginally, The Gap between the MFT and Directories is fixed and tiny. */
+			# SetVariable(MftPer, 				0.30)
+		    # SetVariable(MftSize, 				0)
+		
+		# ROUNDING.	
+		# SetVariable(MftLocation,				RoundUp(MftLocation, VolumeSize * MftVolumeRoundUp))
+		
+		# MFT ZONE.
+		/* Zone Number (not used for locating MFT.) */
+		SetVariable(MftZone, 					4) // Insert before this zone, info only.
+		/* Zone 10 on the Dev Volume */
+	
+	/* ---------------------------------------------------------- */
+	# VOLUME SPECIFIC MFT.
+	/* Note: You may need to set Volume specific values for the MFT location, */
+	/* On these volume types do not "push" the data above the MFT table? */
+	/* You can use a standard gap instead. */
+		
+			/* The current Volume Type Mft Percentage */
+		    # SetVariable(MftPer, 				0)
+		    # SetVariable(MftSize, 				0)
+		    # SetVariable(MftSizeDefault,		"!MftSize!)
+		    # SetVariable(MftPerTypedDefault, 	"!MftPer!")
+			# Volume Types:	
+			#         SetVariable(MftPerSys, 	0.35)
+			# 	    SetVariable(MftPerDev, 		0.10)
+			# 	   SetVariable(MftPerData, 		0.35)
+			# 	SetVariable(MftPerArchive, 		0.10)
+	
+	/* ---------------------------------------------------------- */
+	# VOLUME DIR Location.
+	/* The amount of Gap between Mft and Dir's, the Location of DIR. */
+	
+		/* Note: Orginally, The Gap between the MFT and Directories is fixed and tiny. */
+	
+		SetVariable(DirVolumeRoundUp, 			"!VolumeRoundUpLarge!")
+		SetVariable(DirVolumeGapSize, 			"!ZoneGapSizeLarge!")
+		
+/* ---------------------------------------------------------- */
+# SETTINGS YOURS
+!include "..\..\Settings\SettingsYours\SettingsYoursSysZoneNames.MyDc"!
+/* ---------------------------------------------------------- */
+
+/* ---------------------------------------------------------- */
+# STATISTICS
+/* ---------------------------------------------------------- */
+
+/* Xinclude "..\..\StatisticsInitialization.MyDc"X ToDo */

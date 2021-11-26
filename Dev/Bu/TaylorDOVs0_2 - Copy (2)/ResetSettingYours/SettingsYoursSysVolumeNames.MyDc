@@ -1,0 +1,14 @@
+# IMPORTANT: VOLUME NAME: 
+
+	# SetVariable(VolumeSys,"!VolumeNamePrefix!Sys")
+	# SetVariable(VolumeDev,"!VolumeNamePrefix!Dev")
+	# SetVariable(VolumeData,"!VolumeNamePrefix!Data")
+	# SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive")
+
+	#    or this:
+	
+	
+	# SetVariable(VolumeSys,"C:")
+	# SetVariable(VolumeDev,"C:")
+
+!include "..\SettingsYours\SettingsYoursVolume.MyDc"!

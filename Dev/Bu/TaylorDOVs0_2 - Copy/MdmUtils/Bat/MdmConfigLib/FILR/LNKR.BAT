@@ -1,0 +1,1 @@
+TYPE \REC\LNK.REC | MORE

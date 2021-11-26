@@ -1,0 +1,17 @@
+﻿Version: MyDefrag v4.1
+Date: 2019/06/13 12:21:15
+Windows version: v6.0 build 6002 S
+Commandline: "E:\Ide\MyDefrag\MyDefrag\Version\MydefragVs2_1\programs\MyDefrag.exe"  -r MyDefragGUI.MyD -v e:  
+Working Directory: E:\Ide\MyDefrag\MyDefrag\Version\MydefragVs2_1
+---> See the 'MyDefrag.log' file for information intended for endusers. This is the debug
+---> logfile. The contents is highly technical and not documented. See the 'Debug' setting
+---> or the '-d' commandline option to control the level of information in this file.
+12:21:15 Analyzing the commandline.
+12:21:15   Commandline argument '-r' accepted, added 'MyDefragGUI.MyD' to the scripts.
+12:21:15   Commandline argument '-v' accepted, added 'e:' to the list of CommandlineVolumes.
+12:21:15 Running script: Language.MyD
+12:21:15 Running script: MyDefragGUI.MyD
+12:21:15 Exiting because the computer is running on battery power. See the ExitIfOnBatteryPower() script command.
+12:21:15 Processing disk E:
+12:22:10 Finished with disk E:
+12:22:10 Stopped.

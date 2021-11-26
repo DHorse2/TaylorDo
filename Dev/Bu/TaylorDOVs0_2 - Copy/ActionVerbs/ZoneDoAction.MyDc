@@ -1,0 +1,37 @@
+# Zone Do File Action - SortByName.
+
+FileActions
+
+	!include "..\ZoneFooterGet.MyDc"!
+	SetStatisticsWindowText("!ZoneFooter!")
+	
+	SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+	!include "..\Display\DisplaySetFileStep.MyDc"!
+
+# Commands:
+
+/* Moves to Zone or above it. */
+# MoveUpToZone()
+
+# Defrag
+
+# Defragment(OPTIONS)
+
+/* Shuffles files around trying to make a big enough gap for fragmented files. */
+# Defragment()
+
+/* Only does files where a gap will fit it. */
+# Defragment(Fast)
+
+/* Skips fragmented files larger than the Chunck Size.
+/* The build-in defragmenter that comes with Vista does a chunk defragment, ignoring fragments larger than 64 megabytes. */
+# Defragment(Chunk Size)
+
+/* Moves down to zone and packs zone to beginning if there are gaps. */
+/* Can be similar in performance to doing a SortBy. */
+# MoveDownFill()
+
+!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
+
+	SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+	!include "..\Display\DisplaySetFileStep.MyDc"!

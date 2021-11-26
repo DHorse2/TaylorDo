@@ -1,0 +1,14 @@
+SetVariable(VolumeNoCurrent, VolumeNoCurrent + 1)
+SetVariable(VolumeNoAdjCurrent, VolumeNoCurrent + VolumeCurrentAjust)
+
+SetVariable(ZoneNoCurrent, 		0)
+SetVariable(ZoneNoAdjCurrent, 	0) 
+SetVariable(ZoneCurrentAjust,	0)
+
+SetVariable(ZoneListByLine, 		"Volume started.
+")
+SetVariable(ZoneStepByLine, 		"Initialize.
+")
+SetVariable(ZoneStatisticsDetail, 	"")
+
+SetVariable(ZoneStepNoCurrent, 0)

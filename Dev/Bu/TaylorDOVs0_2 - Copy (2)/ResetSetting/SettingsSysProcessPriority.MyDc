@@ -1,0 +1,2 @@
+ProcessPriority(Normal)
+!include "..\SettingsYours\SettingsYoursProcessPriority.MyDc"!

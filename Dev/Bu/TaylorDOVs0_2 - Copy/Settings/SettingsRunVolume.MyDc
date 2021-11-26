@@ -1,0 +1,65 @@
+SetVariable(ZoneListByLine, "")
+SetVariable(ZoneFooter, "")
+
+# This script is part of the standard disk configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+/* Progress Display */
+SetVariable(ZoneListByLine, 	"Volume start.
+")
+SetVariable(ZoneStepByLine, 	"
+")
+
+# VOLUME INFORMATION
+
+!include "..\VolumeNoIncrement.MyDc"!
+
+!include "..\ZoneDoCurrentClear.MyDc"!
+
+!include "..\Display\BannerSet.MyDc"!
+
+# OVERRIDES
+# YOUR SETTINGS Volume overrides:
+
+!include "..\SettingsYours\SettingsYoursSysVolume.MyDc"!
+
+!include "..\Display\DisplaySetVolume.MyDc"!
+
+# LOGGING:
+	!include "..\Display\BannerDescriptionSet.MyDc"!
+
+	AppendLogfile("!LogFileName!", "!Description! Started: !Date! !Time!")
+	AppendLogfile("!LogFileName!", ".")
+	AppendLogfile("!LogFileName!", "Script Directory:")
+	AppendLogfile("!LogFileName!", "!ScriptDir!")
+	AppendLogfile("!LogFileName!", ".")
+	AppendLogfile("!LogFileName!", "Log File:")
+	AppendLogfile("!LogFileName!", "!LogFileName!")
+	AppendLogfile("!LogFileName!", ".")
+	/* AppendLogfile("!LogFileName!", "Log Header:") */
+	/* AppendLogfile("!LogFileName!", "!LogHeader!") */
+	/* AppendLogfile("!LogFileName!", "End of Log Header.") */
+	AppendLogfile("!LogFileName!", ".")
+
+	AppendLogfile("!LogFileName!", "MFT Percentage: !MftPer!")
+	AppendLogfile("!LogFileName!", "MFT Volume RoundUp: !MftRoundUp!")
+	AppendLogfile("!LogFileName!", "MFT Gap %: !MftAdjRoundUp!")
+	AppendLogfile("!LogFileName!", ".")
+
+/* This file is where you override the above setting for */
+/* global settings. */
+/* There is a "SettingsYours\SettingsYours???.MyDc" for each volume type */
+/* so this is where you set the volume specific settings */
+/* or you can put them all in the file below. */
+
+# Volume Preprocessing Do Before.
+!include "..\Settings\SettingsRunVolum$ DoBefore.MyDc"!
+
+# BANNER:
+/* !include "..\Display\VolumeSizeLog.MyDc"! */
+
+/* Missed: ToDo: */
+/* Games Zone Type */
+
+

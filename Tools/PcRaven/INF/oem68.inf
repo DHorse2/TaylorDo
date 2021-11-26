@@ -1,0 +1,74 @@
+; ========================================================
+; Copyright (c) 2010-2019 Advanced Mirco Devices, Inc
+; INF file for installing IOIC device
+; ========================================================
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%AMD%
+DriverVer=04/23/2019,1.2.0.0046
+
+CatalogFile=AmdAS4.cat
+
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles.x86]
+AmdAS4.sys = 1, \x86
+
+[SourceDisksFiles.amd64]
+AmdAS4.sys = 1, \x64 
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+
+[Manufacturer]
+%AMD%=AMD,NTX86.6.2,NTamd64.6.2
+
+[AMD.NTX86.6.2]
+; DisplayName       		Section           DeviceId
+; -----------       		-------           --------
+%AmdAS4.DeviceDesc% = AmdAS4,ACPI\ASD0001
+%AmdAS4.DeviceDesc% = AmdAS4,ACPI\AMDI0050
+
+[AMD.NTamd64.6.2]
+; DisplayName       		Section           DeviceId
+; -----------       		-------           --------
+%AmdAS4.DeviceDesc% = AmdAS4,ACPI\ASD0001
+%AmdAS4.DeviceDesc% = AmdAS4,ACPI\AMDI0050
+
+[AmdAS4]
+CopyFiles=AmdAS4.CopyDrv
+
+[AmdAS4.CopyDrv]
+AmdAS4.sys
+
+
+;-------------- Service installation
+
+[AmdAS4.Services]
+AddService = AmdAS4, %SPSVCINST_ASSOCSERVICE% , AmdAS4_Service_Inst
+
+
+; -------------- AmdAS4 Filter Driver install section
+[AmdAS4_Service_Inst]
+DisplayName    = %AmdAS4.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\AmdAS4.sys
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+AMD = "Advanced Mirco Devices, Inc"
+
+DiskId1 = "AmdAS4 Device Installation Disk #1"
+
+AmdAS4.SVCDESC = "AmdAS4 service"
+
+AmdAS4.DeviceDesc = "AmdAS4 Device"
+
+

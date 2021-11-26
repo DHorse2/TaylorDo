@@ -1,0 +1,4 @@
+SetVariable(LogFileName,"TestLog !Date!.txt")
+WriteLogfile("!LogFileName!", "Script Test")
+AppendLogfile("!LogFileName!", "
+Script Test Line 2 !Date!")

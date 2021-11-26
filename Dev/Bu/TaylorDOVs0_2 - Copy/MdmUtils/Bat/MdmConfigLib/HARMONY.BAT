@@ -1,0 +1,2 @@
+CD \COM\PKH
+DIR *.

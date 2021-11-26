@@ -1,0 +1,1 @@
+TYPE \REC\INF.REC | MORE

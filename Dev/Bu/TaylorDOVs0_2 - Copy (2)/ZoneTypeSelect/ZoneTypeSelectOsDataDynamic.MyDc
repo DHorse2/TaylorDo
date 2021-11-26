@@ -1,0 +1,9 @@
+# Script: ZoneDo ZoneTypeSelectOsDataDynamic
+# Os Data Dynamic start.
+(
+!include "..\SelectCategory\SelOsDataDynamic.MyDs"!
+  or 
+!include "..\SelectCategory\SelOsPageHiberDump.MyDs"!
+# Os Data Dynamic
+)
+# Os Data Dynamic end.

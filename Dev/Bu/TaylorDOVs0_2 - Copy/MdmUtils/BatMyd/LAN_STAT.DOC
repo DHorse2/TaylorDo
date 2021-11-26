@@ -1,0 +1,66 @@
+ 
+
+ Volume in drive C has no label
+ Volume Serial Number is 3C15-12D4
+ Directory of C:\LAN\USERS\SERVER1
+
+.            <DIR>     11-13-94   3:48p
+..           <DIR>     11-13-94   3:48p
+BACKUP   CFG        56 05-30-85   1:22p
+COM00001 CFG         4 10-31-94   5:32a
+COM00002 CFG         4 10-31-94   5:32a
+CON00001 CFG         4 10-31-94   5:32a
+DRIVE00A CFG         4 10-31-94   5:32a
+DRIVE00B CFG         4 10-31-94   5:32a
+DRIVE00C CFG         4 10-31-94   5:32a
+LPT00001 CFG         4 10-31-94   5:32a
+MATH0001 CFG         4 10-31-94   5:32a
+NULL0001 CFG         4 10-31-94   5:32a
+TAPE0001 CFG         4 10-31-94   5:32a
+       13 file(s)         96 bytes
+                     1802240 bytes free
+ 
+
+ Volume in drive C has no label
+ Volume Serial Number is 3C15-12D4
+ Directory of C:\LAN\USERS\PC1
+
+.            <DIR>     11-13-94   3:48p
+..           <DIR>     11-13-94   3:48p
+G-DRIVE      <DIR>     11-13-94   3:53p
+I-DRIVE      <DIR>     11-13-94   3:55p
+J-DRIVE      <DIR>     11-13-94   3:55p
+K-DRIVE      <DIR>     11-13-94   3:55p
+PRINTER      <DIR>     11-14-94  12:19a
+PRINTER1     <DIR>     11-14-94  12:19a
+BACKUP   CFG        56 05-30-85   1:22p
+COM00001 CFG         4 10-31-94   5:32a
+COM00002 CFG         4 10-31-94   5:32a
+CON00001 CFG         4 10-31-94   5:32a
+DRIVE00A CFG         4 10-31-94   5:32a
+DRIVE00B CFG         4 10-31-94   5:32a
+DRIVE00C CFG         4 10-31-94   5:32a
+GAMES001 CFG         4 10-31-94   5:32a
+MATH0001 CFG         4 10-31-94   5:32a
+MOUSE001 CFG         4 10-31-94   5:32a
+NULL0001 CFG         4 10-31-94   5:32a
+TAPE0001 CFG         4 10-31-94   5:32a
+       20 file(s)        100 bytes
+                     1802240 bytes free
+ 
+LANtastic (R) Connection Manager V4.10 - (C) Copyright 1991 ARTISOFT Inc.
+Machine PC1 is being used as a Redirector and a Server
+File and record locking is currently ENABLED
+Unsolicited messages will BEEP and POP-UP 
+LPT notification is DISABLED
+LPT timeout in seconds: 3
+Autologin is ENABLED with username PC1
+Logged into \\PC1 as PC1 on adapter 0
+Logged into \\SERVER1 as PC1 on adapter 0
+Disk G: is redirected to \\SERVER1\C-DRIVE
+Disk I: is redirected to \\SERVER1\A-DRIVE
+Disk J: is redirected to \\SERVER1\B-DRIVE
+Disk K: is redirected to \\SERVER1\C-DRIVE
+Printer PRN is redirected to \\SERVER1\@PRINTER1
+Printer LPT3 is redirected to \\SERVER1\@PRINTER1
+

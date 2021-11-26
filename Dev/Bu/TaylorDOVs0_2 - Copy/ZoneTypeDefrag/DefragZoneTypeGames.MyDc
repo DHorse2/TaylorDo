@@ -1,0 +1,14 @@
+/* ---------------------------------------------------------- */
+/* Zone Games */
+SetVariable(ZoneLabel, "!ZoneLabelGames!")
+SetVariable(ZoneDescription, "!ZoneDescriptionGames!")
+SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpGames!")
+SetVariable(ZoneGapSize, "!ZoneGapSizeGames!")
+SetVariable(ZoneTypeSelect,'!include "..\ZoneTypeSelect\ZoneTypeSelectGames.MyDc"!')
+
+	!include "..\ZoneDoHeader.MyDc"!
+	!include "..\ZoneTypeSelect\ZoneTypeSelectGames.MyDc"!
+	!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
+	!include "..\ZoneDoFooter.MyDc"!
+
+/* ---------------------------------------------------------- */

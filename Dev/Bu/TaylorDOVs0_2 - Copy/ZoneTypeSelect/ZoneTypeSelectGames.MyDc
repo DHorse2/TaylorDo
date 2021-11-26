@@ -1,0 +1,8 @@
+# Games start.
+!include "..\SelectCategory\SelNotBlobArchivesBu.MyDs"!
+# People
+and (
+!include "..\SelectCategory\SelGames.MyDs"!
+# People
+)
+# People end.

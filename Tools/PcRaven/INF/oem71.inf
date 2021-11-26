@@ -1,0 +1,100 @@
+;
+; Copyright (c) 2019  AMD 
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%AMD%
+
+DriverVer=04/28/2021, 21.10.0.0007
+
+CatalogFile=amdfendr.cat
+
+[DestinationDirs]
+Drivers_Dir = 12
+Utility_Dir = 11
+Drivers_Del = 12
+Utility_Del = 11
+
+[SourceDisksNames.x86]
+1 = %DISK_NAME%,,,""
+
+[SourceDisksNames.amd64]
+1 = %DISK_NAME%,,,""
+
+
+[SourceDisksFiles]
+amdfendr.sys  = 1,,
+amdfendrsr.exe  = 1,,
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD%=AMDFENDR_KM,NTAMD64
+
+[DeviceInstall32]
+ADDDevice = ROOT\AMDLOG\0000,,AMDFENDR_RootDevices_Inst
+
+[AMDFENDR_RootDevices_Inst]
+HardwareIds = ROOT\AMDLOG
+
+[AMDFENDR_KM.NTAMD64]
+%AMDFENDR_Desc%=AMDFENDR_INSTALL, ROOT\AMDLOG
+
+[AMDFENDR_INSTALL]
+CopyFiles=Drivers_Dir, Utility_Dir
+DelFiles=Drivers_Del, Utility_Del 
+
+[Drivers_Dir]
+amdfendr.sys,,,2
+
+[Utility_Dir]
+amdfendrsr.exe,,,0x00004000
+
+[Drivers_Del]
+amdlog.sys
+
+[Utility_Del]
+amdlogsr.exe
+
+[AMDFENDR_INSTALL.Services]
+DelService = AMD Log Utility, 0x00000200
+DelService = amdlog, 0x00000200
+AddService = amdfendr,0x00000802,amdfendr_ServiceInstallSection
+AddService = AMD Crash Defender Service, 0x00000800, amdfendrsr_Generic_Service_Inst, amdfendrsr_EventLog_Inst
+
+
+
+
+[amdfendr_ServiceInstallSection]
+DisplayName    = %AMDFENDR_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\amdfendr.sys
+
+[amdfendrsr_EventLog_Inst]
+;AddReg=amdfendrsr_EventLog_AddReg
+
+[amdfendrsr_Generic_Service_Inst]
+ServiceType    = 0x10
+StartType      = 2
+ErrorControl   = 1
+ServiceBinary  = %11%\amdfendrsr.exe
+LoadOrderGroup = Event log
+
+[Strings]
+AMD = "AMD"
+AMDFENDR_Desc = "AMD Crash Defender"
+SystemClassName = "System devices"
+AMDFENDR_svcdesc = "AMD Crash Defender Driver"
+DISK_NAME = "AMD Crash Defender Install Disk"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_AUTO_START     = 2
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1

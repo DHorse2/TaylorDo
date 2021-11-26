@@ -1,0 +1,3 @@
+CD \COM\PKH\Vs2_2
+PKH
+M

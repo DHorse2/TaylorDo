@@ -1,0 +1,15 @@
+# Gap Calculation Methods:
+
+/* AddGap Variants */
+	/* Standard */
+	/* MFT Low High Method */
+	/* OS Volume Type Method */
+
+/* MakeGap Variants */
+	/* Original Os 1-3 + MFT 2 */
+
+/* Note: You could comment out the ones not in use */
+/* However having the data in the log is useful. */
+/* Therefore the following line is otherwise needed. */
+
+/* Standard is used currently */
