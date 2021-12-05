@@ -1,0 +1,35 @@
+# Script: DisplaySetVolume
+
+SetVariable(VolumeStepDescription, 	"!VolumeLabel! - !VolumeDescription!")
+SetVariable(ZoneStepDescription,	"")
+SetVariable(FileStepDescription,	"")
+
+# Message VolumeSummary
+SetVariable(VolumeSummary, '
+Volume Summary:
+ MountPoint:		!MountPoint!
+ VolumeName:		!VolumeName!
+ VolumeType:		!VolumeType!
+VolumeSizeG:		!VolumeSizeG! !VolumeSizeP!%
+VolumeFreeG:		!VolumeFreeG! !VolumeFreeP!%
+    MftSize:		!MftSize!
+
+         BytesPerCluster:	!BytesPerCluster!
+    UnmovablesTotalBytes:	!UnmovablesTotalBytes!
+FragmentedTotalFragments:	!FragmentedTotalFragments!
+
+The 25 largest items from the LargestItemsList:
+!LargestItemsList!
+')
+
+# Zones processed
+SetVariable(ZoneListByLine, 		"Volume started !Date! !Time! !RunTime!:
+")
+
+# Zone processing steps
+SetVariable(ZoneStepByLine, 		"Pending.")
+
+!include "..\..\Display\BannerDescriptionSet.MyDc"!
+pause(2)
+
+# Precision issue: (!VolumeNoCurrent!-!ZoneNoCurrent!-!ZoneStepNoCurrent!) 

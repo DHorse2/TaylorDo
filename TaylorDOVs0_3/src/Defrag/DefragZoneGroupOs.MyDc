@@ -1,0 +1,53 @@
+# Script: DefragZoneGroupOs
+# Defrag Zones Os
+	/* System Zones */
+
+AppendLogfile("!LogFileName!", "!Description! Os Zones started: !Date! !Time!")
+SetVariable(FileStepDescription,"System Zones.")
+!include "..\..\Zone\ZoneNoIncrement.MyDc"!
+!include "..\..\Display\BannerSet.MyDc"!
+!include "..\..\Display\BannerLog.MyDc"!
+AppendLogfile("!LogFileName!",".")
+
+AppendLogfile("!LogFileName!", "System Disk optimized layout for boot and executables. !Date! !Time!")
+/* Dgh 20190618 */
+/* ---------------------------------------------------------- */
+/* Defrag the Pagefile.sys on the next boot. */
+!include "..\..\Settings\SettingsYours\SettingsYoursSysPagedfrg.MyDc"!
+/* ---------------------------------------------------------- */
+AppendLogfile("!LogFileName!", "Place files at the beginning of the disk: !Date! !Time!")
+
+	MakeGap(0)
+/* ---------------------------------------------------------- */
+# Zone Boot Fixed and Data 
+# Os Group Zone 1 & 2
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeOsBoot.MyDc"!
+
+/* ---------------------------------------------------------- */
+# Zone ProgramHints Fixed and Data
+# Os Group Zone 3 & 4
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeOsProgramHints.MyDc"!
+
+/* ---------------------------------------------------------- */
+# Zone Programs Fixed size but not windows..
+# Os Group Zone 5d Fixed, 6l Fixed Windows, 7l Fixed Data
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeOsPrograms.MyDc"!
+
+/* ---------------------------------------------------------- */
+/* OLD: ToDo */
+	# The MakeGap call is put between which ever zones you want
+		# So the actual zone number is unknown
+		# SetVariable(ZoneCurrent,"4, 5")
+
+	# 2019: Originally the MFT and DIRs were processed first.
+		# Zone 1 and 2 originally
+		# Zone 4 and 5 normally
+
+	#20211120 - Vs3 Feature testing and analysis step.
+		# On test bed RavenPC using 
+
+	# MakeGap(RoundUp(VolumeUsed * (!MftPer! + 0.15), VolumeSize * ZoneVolRoundUpLarge), DoNotVacate)
+
+/* ---------------------------------------------------------- */
+SetVariable(FileStepDescription,"System Zones completed.")
+!include "..\..\Display\DisplaySetFileStep.MyDc"!

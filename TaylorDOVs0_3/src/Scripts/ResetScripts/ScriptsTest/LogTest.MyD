@@ -1,0 +1,7 @@
+SetVariable(LogFileName,"C:\MyDefragLogs\MyTestLog !Date!")
+WriteLogfile("!LogFileName!.txt", "Script Test")
+AppendLogfile("!LogFileName!.txt", "
+Script Test Line 2 !Date!")
+WriteLogfile("!LogFileName! plus 1.txt", "Script Test")
+AppendLogfile("!LogFileName! plus 0.txt", "
+Script Test Line 2 !Date!")

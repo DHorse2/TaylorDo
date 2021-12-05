@@ -1,0 +1,7 @@
+# Links start.
+(
+    DirectoryName("*Favorites*") or
+    DirectoryName("*Job*") or
+    DirectoryName("*Links*")
+)
+# Links end.

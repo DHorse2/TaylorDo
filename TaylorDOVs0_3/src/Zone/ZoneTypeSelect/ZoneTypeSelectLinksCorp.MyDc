@@ -1,0 +1,15 @@
+# Script: ZoneDo ZoneTypeSelectLinksCorp
+# LinksCorp start.
+!include "..\..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
+# LinksCorp
+and ( 
+!include "..\..\FileSelectCategory\SelCorp.MyDs"!
+# LinksCorp
+or 
+!include "..\..\FileSelectCategory\SelLinks.MyDs"!
+# LinksCorp
+or 
+!include "..\..\FileSelectCategory\SelSupport.MyDs"!
+# LinksCorp
+)
+# LinksCorp end.

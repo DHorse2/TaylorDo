@@ -1,0 +1,20 @@
+# Script: DefragZoneTypeReference
+/* ---------------------------------------------------------- */
+/* Zone Reference & World */
+SetVariable(ZoneLabel,			"!ZoneLabelReference!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionReference!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpReference!")
+SetVariable(ZoneGapSize,			 "!ZoneGapSizeReference!")
+
+SetVariable(ZoneTypeSelect,'
+# Reference:
+!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectReference.MyDc"!
+')
+
+	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectReference.MyDc"!
+	!include "..\..\ActionVerbs\ZoneDoAction.MyDc"!
+	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+
+/* ---------------------------------------------------------- */

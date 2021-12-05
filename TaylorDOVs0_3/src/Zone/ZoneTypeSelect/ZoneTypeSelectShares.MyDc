@@ -1,0 +1,12 @@
+# Script: ZoneDo ZoneTypeSelectShares
+# Shares start.
+!include "..\..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
+# Shares
+and (
+!include "..\..\FileSelectCategory\SelShare.MyDs"!
+# Shares
+or 
+!include "..\..\FileSelectCategory\SelFamily.MyDs"!
+# Shares
+)
+# Shares end.

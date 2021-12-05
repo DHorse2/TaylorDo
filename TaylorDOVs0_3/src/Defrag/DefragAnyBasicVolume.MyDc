@@ -1,0 +1,77 @@
+# Defrag Basic Volume
+/* Basic Volume */
+# MyDefrag v4.0 script: Basic Volume Defrag
+#
+!include "..\..\Volume\VolumeStatisticsDetailGet.MyDc"!
+SetStatisticsWindowText("!VolumeStatisticsSummary!")
+
+SetVariable(FileStepDescription,"!VolumeLabel! !VolumeDescription! started: !Date! !Time!.")
+!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+SetVariable(FileStepDescription,"Analyzing Volume")
+!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+/* ---------------------------------------------------------- */
+VolumeSelect
+
+	{Label("!VolumeLabel!") or Name("!VolumeLabel!") 
+	or CommandlineVolumes}
+	and Writable(yes) and Mounted(yes)
+
+/* ---------------------------------------------------------- */
+VolumeActions
+
+/* ---------------------------------------------------------- */
+/* Volume Init */
+!include "..\..\Volume\VolumeStatisticsDetailGet.MyDc"!
+SetStatisticsWindowText("!VolumeStatisticsSummary!")
+
+SetVariable(ZoneStepDescription,"Volume started.")
+SetVariable(FileStepDescription,"Analze.")
+!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+!include "..\..\Volume\VolumeWhenStarted.MyDc"!
+
+/* ---------------------------------------------------------- */
+/* System Zones */
+/* ---------------------------------------------------------- */
+
+	!include "..\..\Defrag\DefragZoneGroupOs.MyDc"!
+
+/* ---------------------------------------------------------- */
+/* Any Volume Regular Zones */
+/* ---------------------------------------------------------- */
+
+/* ---------------------------------------------------------- */
+/* Zone People */
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypePeople.MyDc"!
+
+/* ---------------------------------------------------------- */
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXX */
+/* Process MFT & Dir's HERE. */
+	!include "..\..\Defrag\DefragZoneGroupMftDir.MyDc"!
+/* XXXXXXXXXXXXXXXXXXXXXXXXX */
+
+/* ---------------------------------------------------------- */
+/* Zone Games */
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeGames.MyDc"!
+
+/* ---------------------------------------------------------- */
+/* Zone Regular */
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeRegular.MyDc"!
+
+/* ---------------------------------------------------------- */
+/* Zone Blobs (BLOBS) */
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeBlobs.MyDc"!
+
+/* ---------------------------------------------------------- */
+/* Zone ArchivesBu (All) Archives and Backups*/
+!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
+
+/* ---------------------------------------------------------- */
+VolumeEnd
+/* ---------------------------------------------------------- */
+
+AppendLogfile("!LogFileName!", "!Description! Basic Volume end: !Date! !Time!")
+AppendLogfile("!LogFileName!",".")

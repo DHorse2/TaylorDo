@@ -1,0 +1,8 @@
+	# Gap Calculation Methods:
+	/* MakeGap Variants */
+	/* Original Os 1-3 + MFT 2 */
+	/* plus MFT gap placed inline at the dividing zone. */
+	SetVariable(GapRequestedOrig, VolumeFreeAdj * ZoneGapSize)
+	AppendLogfile("!LogFileName!", "Orig Gap size: !GapRequestedOrig!")
+	SetVariable(GapRequested, GapRequestedOrig)
+	

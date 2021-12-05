@@ -1,0 +1,74 @@
+# Volume Do Current Clear
+
+/* ---------------------------------------------------------- */
+# Current Values.
+	SetVariable(VolumeLabel, "NotSet")
+	SetVariable(VolumeDescription, "")
+
+	SetVariable(VolumeCount, 0)
+	SetVariable(VolumeNoCurrent, 0)
+	SetVariable(VolumeNoAdjCurrent, 0)
+  	SetVariable(VolumeCurrentAjust, 0) // not used
+
+/* ---------------------------------------------------------- */
+# OS Disk Usage.
+
+/* Percentage of disk used by OS */
+
+	SetVariable(OsPer, 0.18)
+
+	     SetVariable(ZoneCountOs, 5)
+
+       SetVariable(ZoneCountType, 0) // not used
+      SetVariable(ZoneCountVolume, ZoneCountOs + ZoneCountType)
+
+	    SetVariable(ZoneCountSys, 2)
+	    SetVariable(ZoneCountDev, 7)
+
+	   SetVariable(ZoneCountData, 0)
+	SetVariable(ZoneCountArchive, 0)
+	
+	/* SetVariable(GapCalc, VolumeFreeAdj * ZoneAdjRoundUp) */
+
+/* ---------------------------------------------------------- */
+# Volume Totals
+	# USED:
+	/* Current total volume space used */
+	SetVariable(VolumeZoneUsed, 			0)
+	/* percentage */
+	SetVariable(VolumeZoneUsedPer, 			0)
+
+	# FREE:
+	/* Current total of free space used */
+	SetVariable(VolumeFreeRequested, 		0)
+	/* percentage */
+	SetVariable(VolumeFreeRequestedPer, 	0)
+
+	/* Current total of free space used */
+	SetVariable(VolumeFreeUsed, 			0)
+	/* percentage */
+	SetVariable(VolumeFreeUsedPer, 			0)
+	
+/* ---------------------------------------------------------- */
+# Volume Free Space Proportional Used Space vs Volume Size.
+	/* We only want to use a ratio of the free space relative to the volume. */
+	/* We could just use percentages of the total free space as well. */
+
+	/* SetVariable(VolumeFreeAdj, 		1) */
+	
+	SetVariable(VolumeFreeAdj,				(VolumeFree * (VolumeUsed / VolumeSize)))
+
+/* ---------------------------------------------------------- */
+# ZONES
+
+	SetVariable(ZoneNoCurrent,		0)
+	SetVariable(ZoneNoAdjustCurrent,	0)
+	SetVariable(ZoneNoDisplay,		0) 
+
+	!include "..\..\Zone\ZoneDoCurrentClear.MyDc"!
+
+	SetVariable(ZoneLabel, "Volume")
+	SetVariable(ZoneDescription, "Analysis...")
+	!include "..\..\Display\BannerSet.MyDc"!
+
+	

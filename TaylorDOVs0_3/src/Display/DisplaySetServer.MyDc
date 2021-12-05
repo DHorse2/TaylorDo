@@ -1,0 +1,27 @@
+# Script: DisplaySetServer
+# RunStepDescription
+# (Volume)
+SetVariable(SeverStepDescription, 	"!ServerNameFull!")
+SetVariable(VolumeStepDescription, 	"")
+SetVariable(ZoneStepDescription, 	"")
+SetVariable(FileStepDescription, 	"")
+
+# Message ServerSummary
+SetVariable(ServerSummary, '
+Server Summary:
+ Sever Name:        !SeverStepDescription!
+    Command:	    !Commandline!
+MyDefrag Vs:    	!MyDefragVersion!
+Executable Directory: !ExecutableDirectory!
+ScriptDirectory:    !ScriptDirectory!
+Run:
+WindowsVersion:     !WindowsVersion!
+     ProcessID:     !ProcessID!
+   ScriptTitle:     !ScriptTitle!
+          Date:     !Date! !Time!
+  Elapsed Time:     !RunTime!
+')
+
+
+!include "..\..\Display\BannerSet.MyDc"!
+/* pause(2) */
