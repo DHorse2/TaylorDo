@@ -1,0 +1,231 @@
+[Main]
+670=Enabled
+620=Description|Date time|Parent
+621=
+600=History
+601=
+681=Click to visit website
+610=History
+611=
+640=Text|Pictures|Rich text|All formats|URLs
+641=
+650=Boilerplates
+651=
+630=Text|Pictures|Rich text|All formats|URLs
+631=
+300=&Show
+301=
+310=&About
+311=
+320=Utils
+321=
+330=Run calendar
+331=
+340=Run screensaver
+341=
+350=&Exit
+351=
+10=&File
+11=
+20=&Save
+21=Save current history to disk
+30=&Print
+31=Print current item
+40=E&xit
+41=Exit the application
+50=&Edit
+51=
+60=&Find
+61=Find text in history
+70=Find &Next
+71=Find next occurence of text in history
+80=Clea&r history
+81=Clear history lists
+90=&Configuration
+91=Configure the application
+100=&Empty clipboard 
+101=Clear clipboard contents
+110=&View
+111=
+120=&Text
+121=
+130=&Pictures
+131=
+140=&Rich text
+141=
+150=&All Formats
+151=
+160=&URL
+161=
+170=H&istory
+171=
+180=&Boilerplates
+181=
+190=&Window
+191=
+; This needs to be a <TAB>
+200=&Hide	Esc
+201=Hide the application
+210=Floa&t
+211=Make Window always on top
+220=&Tools
+221=
+230=&Enable
+231=Enable history collection
+240=Copy time &to clipboard
+241=Copies current time to clipboard
+250=&Shoot
+251=Does a 3-4 second delayed paste 
+260=&Help
+261=
+270=Index
+271=
+280=&Visit our website ...
+281=
+290=&About
+291=
+360=&Large icons
+361=
+370=&Small icons
+371=
+380=Switch boilerplate collection
+381=
+390=New boilerplate ...
+391=
+460=Print
+461=
+470=Delete 
+471=
+480=Clear history
+481=
+490=Run URL
+491=
+500=Shoot
+501=
+510=Load in editor
+511=Write to file and load in editor
+520=Utils
+521=
+530=Strip Characters
+531=
+540=Run screensaver
+541=
+550=Combine top to bottom
+551=Combine all items and send to clipboard
+560=Combine bottom to top
+561=Combine all items and send to clipboard
+570=Change Description
+571=
+580=Send to boilerplate
+581=
+590=Change order of items
+591=
+400=&Undo
+401=
+410=Cu&t
+411=
+420=&Copy
+421=
+430=&Paste
+431=
+440=Select &All
+441=
+450=Copy as plain te&xt
+451=
+
+[Configuration]
+130=Configuration
+200=General
+201=
+140=&Main window shortcut 
+141=
+150=&Global history menu shortcut
+151=
+70=&Run at Windows startup
+71=Run when Windows starts
+80=&Save history between sessions
+81=Save clippings between sessions
+171=Key combination to show main window
+211=Key combination to show global clippings menu
+190=Advanced
+191=
+160=Use this character
+161=
+50=&Auto-Save clippings
+51=Do periodic autosaves
+120="X" hides main window
+121=Clicking the "X" button on the main form hides window
+100=Store MetaFile Items
+101=Un-check to ignore Metafile items
+90=Store Bitmap Items
+91=Un-check to ignore bitmap items
+110=Use "smart" char stripping
+111=Un-check to use specific char
+41=
+60=Ignore pictures from problematic apps
+61=Ignore pictures from apps that may cause errors
+10=&Ok
+11=
+20=&Cancel
+21=
+30=Help
+31=
+
+[About]
+11= Click to visit homepage 
+31= Click to email authors 
+21=
+41= Click to email authors 
+61=
+50=&Ok
+51=
+
+[Print]
+10=&Title
+11=
+20=&Cancel
+21=
+30=&Print
+31=
+41=
+
+[Upgrade]
+20=Click here to visit our webpage
+21=
+10=The functionality that you are trying to access is not yet available. Check our website for an updated version of YC III.
+11=
+30=&Ok
+31=
+
+[Messages]
+1=This boilerplate already exists
+2=You have reached maximum quantity of one collection
+3=You have reached maximum quantity in URL collection
+4=Start options
+5=Error opening file
+6=Error copying source to destination
+8=Name for new boiler plate set
+9=Application already running check the system tray
+10=Disable history collection?
+11=Please verify.........
+12=Clear history
+13=Clear boiler plate
+14=Enter new name (Do NOT include path info)
+15=Clear history set
+16=Clear boiler plate set
+
+[Individual]
+1=Enabled
+2=Disabled
+3=Items
+4=No Items
+5=Clear boiler plate
+6=Clear history
+
+
+
+
+
+
+
+
