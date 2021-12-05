@@ -1,12 +1,18 @@
 # gitignore file
 ## Ignore Project Working Directories
 
-Dev/*; !Dev/MdmUtils/*
+# Dev/*
+# !Dev/MdmUtils/*
 
-Tools/* ; !Tools/SystemInternals/* ; !Tools/BootRacer/*
-# Tools/NirsoftUtils64/
+MdmSysTools/*
+!MdmSysTools/SystemInternals/*
+!MdmSysTools/BootRacer/*
+!MdmSysTools/YankeeClipperIIIVs1043/*
+!MdmSysTools/MwSnapVs30074
 
-TaylorDOVs0_2/*
+# MdmSysTools/NirsoftUtils64/
+
+# TaylorDOVs0_2/*
 TaylorDOVs0_3/src/MattTaylorAndNumenta/
 
 ## GitHub VisualStudio.gitignore:
