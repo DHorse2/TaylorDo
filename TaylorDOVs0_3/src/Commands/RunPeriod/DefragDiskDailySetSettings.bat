@@ -1,5 +1,5 @@
 ﻿@Echo off
-@Echo -------- Command: DefragDiskDailySetSettings
+@Echo - Command: DefragDiskDailySetSettings
 @Echo
 @TIMEOUT /T 1 /NOBREAK
 @call "..\Commands\DoStateSave.bat"

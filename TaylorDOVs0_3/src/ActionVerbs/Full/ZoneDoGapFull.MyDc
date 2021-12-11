@@ -1,6 +1,6 @@
 # Vacate (good for diagnostics)
-/* Xinclude "..\..\Gap\GapCommandDoVacate.MyDc"X */
+# Xinclude "..\Gap\GapCommandDoVacate.MyDc"X
 
 # DoNotVacate - DO NOT Vacate (recommended)
-!include "..\..\Gap\GapCommandDoNotVacate.MyDc"!
+!include "..\Gap\GapCommandDoNotVacate.MyDc"!
 	

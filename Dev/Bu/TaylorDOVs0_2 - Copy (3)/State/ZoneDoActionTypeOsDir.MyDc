@@ -1,4 +1,0 @@
-# File Action - Type Os Dir - Regular -  SortByName.
-# File Action - SortByName BY 10
-SortByName(Ascending SkipBlock(SkipBlockFiles,(SkipBlockBytes / 10)))
-	

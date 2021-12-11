@@ -14,4 +14,4 @@ SetVariable(VolumeUsedTotalTemp, VolumeFree / DisplayUnitDivisorCurrent)
 SetVariable(VolumeFreeTemp, VolumeFree / DisplayUnitDivisorCurrent)
 
 # Set the display text:
-!include "..\..\Volume\VolumeStatisticsSummaryDisplay.MyDc"!
+!include "..\Volume\VolumeStatisticsSummaryDisplay.MyDc"!

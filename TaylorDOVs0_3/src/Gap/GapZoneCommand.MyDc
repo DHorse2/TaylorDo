@@ -1,7 +1,15 @@
+# Script: GapZoneCommand
 # Vacate (good for diagnostics)
 # DoNotVacate - DO NOT Vacate (recommended)
-!include "..\..\ActionVerbs\ZoneDoGapThis.MyDc"!
-# Script: GapZoneCommand
-# *** Moved to setting yours ***
-/* Xinclude "..\..\ActionVerbs\ZoneDoGapThis.MyDc"X */
-!include "..\..\Settings\SettingsYours\SettingsYoursGapCommandDo.MyDc"!
+
+SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionGapDo!")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+# *** Moved to setting yours *** 
+# (to avoid doing it twice)
+# (ie the later wouldn't "overwrite" the former in the usual manner)
+
+# Do one or the other:
+!include "..\ActionVerbs\ZoneDoGapThis.MyDc"!
+
+!include "..\Settings\SettingsYours\SettingsYoursGapCommandDo.MyDc"!

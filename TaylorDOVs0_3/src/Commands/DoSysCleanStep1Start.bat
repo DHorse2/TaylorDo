@@ -1,6 +1,6 @@
 @Echo off
-@Echo -------- ToDo Command: DoSysClean Step1 Start
-@Echo -------- 
+@Echo - ToDo Command: DoSysClean Step1 Start
+@Echo - 
 @Echo This script starts the system file cleanup processes.
 @Echo It is a 3 step process: Start(Disables), Reboot, Logon.
 @Echo 

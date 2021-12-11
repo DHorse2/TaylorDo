@@ -1,0 +1,248 @@
+# Script: VolumeStatisticsDataGet
+# Not used anywhere
+# Headings
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","Headings"')
+
+# Category
+SetVariable(CategoryHeadingText, 			'"!CategoryWord!","!UnfragmentedWord!","!FragmentedWord!","!AllWord!"')
+SetVariable(CategoryHeadingSeperator, 		'"--------------","-----------------","-----------------","-----------------"')
+
+SetVariable(SizeHeading2, 			'"!BytesWord!","!GigabytesWord!","!PercentSymbolWord! !OfWord! !AllWord!"')
+SetVariable(SizeHeading2Seperator, '"-----------------","-----------------","-----------------"')
+
+/* ------------------------- */
+# STATISTICS
+/* ------------------------- */
+
+SetVariable(VolDesc,				'"Volume Description"')
+SetVariable(VolumeMountpoint, 		'"VolumeMountpoint","!MountPoint!"')
+SetVariable(VolumeName, 			'"VolumeName","!VolumeName!"')
+SetVariable(VolumeType, 			'"VolumeType","!VolumeType!"')
+
+SetVariable(VolSizeDesc,			'"VolumeSize"')
+SetVariable(VolSizeB, 				'"VolSizeB",!VolumeSize!')
+SetVariable(VolSizeGb, 				'"VolSizeGb","!VolumeSizeG!')
+SetVariable(VolSizeMft,				'"Mft",!MftSize!')
+
+SetVariable(VolClusterSeekDesc,				'"!ClustersWord! !AndWord! !SeeksWord!"')
+SetVariable(VolBytesPerCluster, 			'"VolBytesPerCluster",!BytesPerCluster!')
+SetVariable(VolAverageEndBeginDistance, 	'"VolAverageEndBeginDistance",!AverageBeginEndDistance!')
+SetVariable(VolAverageBeginEndDistanceP, 	'"VolAverageBeginEndDistanceP",!AverageBeginEndDistanceP!)')
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","Statistics"')
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Counts"')
+
+SetVariable(VolItemCountDesc, 			'"!CountsWord!!ColonWord! !TheWordCaps! !NumberWord! !OfWord! !FilesWord! !AndWord! !FoldersWord!"')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Counts","Total"')
+SetVariable(VolCountFiles, 				'"VolCountFiles",!FILES000N!,!FILES010N!,!FILES020N!')
+SetVariable(VolCountFolders, 			'"VolCountFolders",!FILES100N!,!FILES110N!,!FILES120N!')
+SetVariable(VolCountAll, 				'"VolCountAll",!FILES200N!,!FILES210N!,!FILES220N!')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Counts","Percent %"')
+SetVariable(VolCountItemPercentDesc, 	'"VolCountItemPercentDesc,"Items: As percentage of total item count"')
+
+SetVariable(VolCountFilesPercent, 		'"VolCountFilesPercent",!FILES000P!,!FILES010P!,!FILES020P!')
+SetVariable(VolCountFoldersPercent, 	'"VolCountFoldersPercent",!FILES100P!,!FILES110P!,!FILES120P!')
+SetVariable(VolCountAllPercent, 		'"VolCountAllPercent",!FILES200P!,!FILES210P!,!FILES220P!')
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied"')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","Bytes")
+SetVariable(VolOccupiedSizeBDesc, 		'"VolOccupiedSizeBDesc,"Size: Occupied: In bytes"')
+
+SetVariable(VolOccupiedSizeFilesB, 		'"VolOccupiedSizeFilesB",!FILES002N!,!FILES012N!,!FILES022N!')
+SetVariable(VolOccupiedSizeFoldersB, 	'"VolOccupiedSizeFoldersB",!FILES102N!,!FILES112N!,!FILES122N!')
+
+SetVariable(VolOccupiedSizeAllB, 		'"VolOccupiedSizeAllB",!FILES202N!,!FILES212N!,!FILES222N!')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","GBytes")
+SetVariable(VolOccupiedSizeGbDesc, 		'"VolOccupiedSizeGbDesc,"Size: Occupied: In gigabytes")
+
+SetVariable(VolOccupiedSizeFilesGb, 	'"VolOccupiedSizeFilesGb",!FILES002G!,!FILES012G!,!FILES022G!')
+SetVariable(VolOccupiedSizeFoldersGb, 	'"VolOccupiedSizeFoldersGb",!FILES102G!,!FILES112G!,!FILES122G!')
+
+SetVariable(VolOccupiedAllGb, 			'"VolOccupiedAllGb",!FILES202G!,!FILES212G!,!FILES222G!')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","Percent %"')
+SetVariable(VolOccupiedSizePercentDesc,	'"VolOccupiedSizePercentDesc,"Size: Occupied: As a ) of total size"')
+
+SetVariable(VolOccupiedSizeFilesPercent, '"VolOccupiedSizeFilesPercent",!FILES002P!,!FILES012P!,!FILES022P!')
+SetVariable(VolOccupiedSizeFoldersPercent, '"VolOccupiedSizeFoldersPercent",!FILES102P!,!FILES112P!,!FILES122P!')
+
+SetVariable(VolOccupiedSizeAllPercent, '"VolOccupiedSizeAllPercent",!FILES202P!,!FILES212P!,!FILES222P!')
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Used"')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Used","Bytes"')
+SetVariable(VolUsedSizeBDesc, '"VolUsedSizeBDesc,"Size: Used: In bytes"')
+
+SetVariable(VolUsedSizeFilesB, '"VolUsedSizeFilesB",!FILES001N!,!FILES011N!,!FILES021N!')
+SetVariable(VolUsedSizeFoldersB, '"VolUsedSizeFoldersB",!FILES101N!,!FILES111N!,!FILES121N!')
+SetVariable(VolUsedSizeAllB, '"VolUsedSizeAllB",!FILES201N!,!FILES211N!,!FILES221N!')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Used","GBytes"')
+SetVariable(VolUsedSizeGbDesc, '"VolUsedSizeGbDesc,"Size: Used: In gigabytes"')
+
+SetVariable(VolUsedSizeFilesGb, '"VolUsedSizeFilesGb",!FILES001G!,!FILES011G!,!FILES021G!')
+SetVariable(VolUsedSizeFoldersGb, '"VolUsedSizeFoldersGb",!FILES101G!,!FILES111G!,!FILES121G!')
+SetVariable(VolUsedSizeAllGb, '"VolUsedSizeAllGb",!FILES201G!,!FILES211G!,!FILES221G!')
+
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Used","Percent %"')
+SetVariable(VolUsedSizePercentDesc, '"VolUsedSizePercentDesc,"Size: Used: As a % of total size"')
+
+SetVariable(VolUsedSizeFilesPercent, '"VolUsedSizeFilesPercent",!FILES001P!,!FILES011P!,!FILES021P!')
+SetVariable(VolUsedSizeFoldersPercent, '"VolUsedSizeFoldersPercent",!FILES101P!,!FILES111P!,!FILES121P!')
+SetVariable(VolUsedSizeAllPercent, '"VolUsedSizeAllPercent",!FILES201P!,!FILES211P!,!FILES221P!')
+
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","GAPS"')
+
+SetVariable(VolGapsHeading, 			'"Count","% of all"')
+SetVariable(VolGapsHeadingSeparator, 	'"-----------------","-----------------"')
+
+SetVariable(VolGapsCountDesc, 			'"Volume Gaps By Count"')
+
+SetVariable(VolSmallGaps, 	'"VolSmallGaps",!GAP01N!,!GAP01P!')
+SetVariable(VolBigGaps, 	'"VolBigGaps",!GAP02N!,!GAP02P!')
+SetVariable(VolAllGaps, 	'"VolAllGaps",!GAP00N!,!GAP00P!')
+
+SetVariable(Heading, 		'"VolGapsBySizeDesc.","?"')
+SetVariable(Heading, 		'"Bytes","Gigabytes","% of all"')
+
+SetVariable(VolGapsSizeDesc,	'"Volume Gaps By Size"')
+
+SetVariable(VolSmallGapsG, 	'"VolSmallGapsG",!GAP11N!,!GAP11G!,!GAP11P!')
+SetVariable(VolBigGapsG, 	'"VolBigGapsG",!GAP12N!,!GAP12G!,!GAP12P!')
+
+SetVariable(VolGapsSizeDistDesc,	'"Volume Gaps By Distribution"')
+
+SetVariable(VolAllGaps, 	'"VolAllGaps",!GAP10N!,!GAP10G!,!GAP10P!')
+SetVariable(VolAverageGap, 	'"VolAverageGap",!GAP13N!,!GAP13G!,!GAP13P!')
+SetVariable(VolMedianGap, 	'"VolMedianGap",!GAP14N!,!GAP14G!,!GAP14P!')
+SetVariable(VolBiggestGap, 	'"VolBiggestGap",!GAP15N!,!GAP15G!,!GAP15P!')
+
+")
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","ZONE"')
+/* ------------------------- */
+
+SetVariable(Section,'"Top","Server","VOLUME","ZONE","Summary"')
+
+SetVariable(ZoneDesc,		'"Zone Description"')
+SetVariable(ZoneMountpoint, '"ZoneMountpoint","!MountPoint!"')
+SetVariable(ZoneName, 		'"ZoneName","!ZoneName!"')
+SetVariable(ZoneType, 		'"ZoneType","!ZoneType!"')
+
+SetVariable(ZoneSizeDesc,	'"Zone Size"')
+SetVariable(ZoneSizeB, 		'"ZoneSize",!ZoneSize!')
+SetVariable(ZoneSizeG, 		'"ZoneSizeG",!ZoneSizeG!')
+
+SetVariable(ZoneClusterSeekDesc,			'"Clusters and Seeks"')
+SetVariable(ZoneBytesPerCluster, 			'"ZoneBytesPerCluster",!BytesPerCluster!')
+SetVariable(ZoneAverageEndBeginDistance, 	'"ZoneAverageEndBeginDistance",!AverageBeginEndDistance!')
+SetVariable(ZoneAverageBeginEndDistanceP, 	'"ZoneAverageBeginEndDistanceP",!AverageBeginEndDistanceP!')
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics"')
+/* ------------------------- */
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Counts"')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Counts","Total"')
+SetVariable(ZoneCountItemDesc, 	'"ZoneCountItemDesc"," count of files and folders."')
+
+SetVariable(ZoneCountFilesTotal, 			'"ZoneCountFiles",!ZONE000N!,!ZONE010N!,!ZONE020N!')
+SetVariable(ZoneCountFoldersTotal, 			'"ZoneCountFolders",!ZONE100N!,!ZONE110N!,!ZONE120N!')
+SetVariable(ZoneCountAllTotal, 				'"ZoneCountAll",!ZONE200N!,!ZONE210N!,!ZONE220N!')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Counts","Percent %"')
+SetVariable(ZoneCountPercentDesc, 	'"ZoneCountItemDescPercent Count as percentage of total item count"')
+
+SetVariable(ZoneCountFilesPercent, 				'"ZoneCountFilesPercent",!ZONE000P!,!ZONE010P!,!ZONE020P!')
+SetVariable(ZoneCountFoldersPercent, 			'"ZoneCountFoldersPercent",!ZONE100P!,!ZONE110P!,!ZONE120P!')
+SetVariable(ZoneCountAllPercent, 				'"ZoneCountAllPercent",!ZONE200P!,!ZONE210P!,!ZONE220P!')
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Occupied"')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Occupied","Bytes"')
+SetVariable(ZoneOccupiedSizeBDesc, 	'"ZoneOccupiedSizeDescB," size in bytes"')
+
+SetVariable(ZoneOccupiedSizeFilesB, 		'"ZoneOccupiedSizeFilesB",!ZONE002N!,!ZONE012N!,!ZONE022N!')
+SetVariable(ZoneOccupiedSizeFoldersB, 		'"ZoneOccupiedSizeFoldersB",!ZONE102N!,!ZONE112N!,!ZONE122N!')
+SetVariable(ZoneOccupiedSizeAllB, 			'"ZoneOccupiedSizeAllB",!ZONE202N!,!ZONE212N!,!ZONE222N!')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Occupied","GBytes"')
+SetVariable(ZoneOccupiedSizeGbDesc, 	'"ZoneOccupiedSizeDescGb," size in gigabytes"')
+
+SetVariable(ZoneOccupiedSizeFilesGb, 		'"ZoneOccupiedSizeFilesGb",!ZONE002G!,!ZONE012G!,!ZONE022G!')
+SetVariable(ZoneOccupiedSizeFoldersGb, 		'"ZoneOccupiedSizeFoldersGb",!ZONE102G!,!ZONE112G!,!ZONE122G!')
+SetVariable(ZoneOccupiedSizeAllGb, 			'"ZoneOccupiedSizeAllGb",!ZONE202G!,!ZONE212G!,!ZONE222G!')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Occupied","Percent %"')
+SetVariable(ZoneOccupiedSizePercentDesc,	'"Zone Occupied Size % of total size"')
+
+SetVariable(ZoneOccupiedSizeFilesPercent, 	'"ZoneOccupiedSizeFilesPercent",!ZONE002P!,!ZONE012P!,!ZONE022P!')
+SetVariable(ZoneOccupiedSizeFoldersPercent, '"ZoneOccupiedSizeFoldersPercent",!ZONE102P!,!ZONE112P!,!ZONE122P!')
+SetVariable(ZoneOccupiedSizeAllPercent, 	'"ZoneOccupiedSizeAllPercent",!ZONE202P!,!ZONE212P!,!ZONE222P!')
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Used"')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Used","Bytes"')
+SetVariable(ZoneUsedSizeBDesc, 			'"Zone Used Size in bytes"')
+
+SetVariable(ZoneUsedSizeFilesB, 		'"ZoneUsedSizeFilesB",!ZONE001N!,!ZONE011N!,!ZONE021N!')
+SetVariable(ZoneUsedSizeFoldersB, 		'"ZoneUsedSizeFoldersB",!ZONE101N!,!ZONE111N!,!ZONE121N!')
+SetVariable(ZoneUsedSizeAllB, 			'"ZoneUsedSizeAllB",!ZONE201N!,!ZONE211N!,!ZONE221N!')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Used","GBytes"')
+SetVariable(ZoneUsedGbDesc, 			'"Zone Used Size in gigabytes"')
+
+SetVariable(ZoneUsedSizeFilesGb, 		'"ZoneUsedSizeFilesGb",!ZONE001G!,!ZONE011G!,!ZONE021G!')
+SetVariable(ZoneUsedSizeFoldersGb, 		'"ZoneUsedSizeFoldersGb",!ZONE101G!,!ZONE111G!,!ZONE121G!')
+SetVariable(ZoneUsedSizeAllGb,			'"ZoneUsedAllGb",!ZONE201G!,!ZONE211G!,!ZONE221G!')
+
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","Used","Percent %"')
+SetVariable(ZoneUsedSizePercentDesc, 	'"Zone Used Size % of total size"')
+
+SetVariable(ZoneUsedSizeFilesPercent, 	'"ZoneUsedSizeFilesPercent",!ZONE001P!,!ZONE011P!,!ZONE021P!')
+SetVariable(ZoneUsedSizeFoldersPercent, '"ZoneUsedSizeFoldersPercent",!ZONE101P!,!ZONE111P!,!ZONE121P!')
+SetVariable(ZoneUsedSizeAllPercent, 	'"ZoneUsedAllPercent",!ZONE201P!,!ZONE211P!,!ZONE221P!')
+
+/* ------------------------- */
+SetVariable(Section, '"Top","Server","VOLUME","ZONE","Statistics","GAPS"')
+
+SetVariable(ZoneGapsHeading, 			'"Count","% of all"')
+SetVariable(ZoneGapsHeadingSeparator, 	'"-----------------","-----------------"')
+
+SetVariable(ZoneGapsCountDesc, 			'"Zone Gaps By Count"')
+
+SetVariable(ZoneSmallGaps, 		'"ZoneSmallGaps",!GAP01N!,!GAP01P!')
+SetVariable(ZoneBigGaps, 		'"ZoneBigGaps",!GAP02N!,!GAP02P!')
+SetVariable(ZoneAllGaps, 		'"ZoneAllGaps",!GAP00N!,!GAP00P!')
+
+SetVariable(ZoneGapsSizeDesc,	'"Zone Gaps By Size"')
+
+SetVariable(ZoneSmallGaps, 		'"ZoneSmallGaps",!GAP11N!,!GAP11G!,!GAP11P!')
+SetVariable(ZoneBigGaps, 		'"ZoneBigGaps",!GAP12N!,!GAP12G!,!GAP12P!')
+ 
+SetVariable(ZoneGapsSizeDistDesc,	'"Zone Gaps By Distribution"')
+
+SetVariable(ZoneAllGaps, 			'"ZoneAllGaps",!GAP10N!,!GAP10G!,!GAP10P!')
+SetVariable(ZoneAverageGap, 		'"ZoneAverageGap",!GAP13N!,!GAP13G!,!GAP13P!')
+SetVariable(ZoneMedianGap, 			'"ZoneMedianGap",!GAP14N!,!GAP14G!,!GAP14P!')
+SetVariable(ZoneBiggestGap, 		'"ZoneBiggestGap",!GAP15N!,!GAP15G!,!GAP15P!')
+
+/* ------------------------- */
+# FILE STEP
+/* SetVariable(Section, '"Top","Server","VOLUME","ZONE","FILESTEP"') */
+/* ------------------------- */

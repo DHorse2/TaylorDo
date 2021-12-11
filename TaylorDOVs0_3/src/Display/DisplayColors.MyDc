@@ -70,4 +70,4 @@ SetFileColor(Selected,								152,	251, 	152)	// Light Green
 SetFileColor(Selected and Fragmented,				237,	240,	11)		// Neon Yellow 
 SetFileColor(Selected and not(Movable),				255,	115,	115)	// Light red
 
-!include "..\..\Settings\SettingsYours\SettingsYoursDisplayColors.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursDisplayColors.MyDc"!

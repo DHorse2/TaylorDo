@@ -1,16 +1,15 @@
 # Script: DisplaySetZone
 
-SetVariable(ZoneId,					"!ZoneLabel! - !ZoneDescription!")
-SetVariable(ZoneStepDescription,	"!ZoneLabel! - !ZoneDescription!")
-SetVariable(FileStepDescription,	"")
+SetVariable(ZoneId,					"!ZoneLabel! !DashWord! !ZoneDescription!")
+SetVariable(ZoneStepDescription,	"!ZoneLabel! !DashWord! !ZoneDescription!")
 
 # Message ZoneSummary
-SetVariable(ZoneSummary, '
-Zone Summary:
-')
+# SetVariable(ZoneSummary, '
+# Zone Summary:
+# ')
 # Zone processing steps
-SetVariable(ZoneStepByLine, 'Zone started.
-')
+# SetVariable(ZoneStepByLine, 'Zone !ZoneLabel! !StartedWord!!PeiordWord!
+# ')
 
-!include "..\..\Display\BannerDescriptionSet.MyDc"!
-pause(1)
+# !include "..\Display\BannerDescriptionSet.MyDc"!
+# pause(1)

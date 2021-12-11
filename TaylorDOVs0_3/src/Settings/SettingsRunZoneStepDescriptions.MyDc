@@ -1,0 +1,44 @@
+# Script SettingRunZoneStepDescription
+# The variable ZoneStepDescription get set to
+# the messages below according to the Zone File
+# step the defrag is on.
+
+# Display fields you can set for your personal tastes / needs:
+
+# ZONE. Process One Zone (the steps and messages displayed.
+
+SetVariable(ZoneStepDescriptionZoneStart, 			"Zone started.")
+
+# "Your Zone Pre (before)Processing."
+SetVariable(ZoneStepDescriptionYourZonePre, 		"!ZoneStepDescriptionZoneStart!") 		
+
+SetVariable(ZoneStepDescriptionFileSelect,			"Selecting Files.")
+
+# "Your Pre Sort File Actions."
+SetVariable(ZoneStepDescriptionYourFileActionsPre, 	"!ZoneStepDescriptionFileSelect!")
+
+SetVariable(ZoneStepDescriptionFileActionStart, 	"File Actions started.")
+
+# "Your Post Sort File Actions."
+SetVariable(ZoneStepDescriptionYourFileActionsPost, "!ZoneStepDescriptionFileActionStart!")
+
+SetVariable(ZoneStepDescriptionFileActionEnd, 		"File Actions completed.")
+
+# "Your Zone Post (after) Processing."
+SetVariable(ZoneStepDescriptionYourZonePost, 		"!ZoneStepDescriptionFileActionEnd!") 		
+
+SetVariable(ZoneStepDescriptionFileActionGap, 		"Calculating Gap.")
+
+SetVariable(ZoneStepDescriptionFileActionGapDo,		"Processing Gap.")
+
+SetVariable(ZoneStepDescriptionZoneReporting,		"Processing finished, reporting.")
+
+SetVariable(ZoneStepDescriptionZoneEnd, 			"Zone finished.")
+
+# Pattern: SetVariable(ZoneStepDescriptionXXX, 	"XXX xxxxxxxxx")
+
+# Note: If you add custom script code in the PRE and POST areas then at that
+# time you fill in the messages above as appropriate.
+
+!include "..\Settings\SettingsYours\SettingsYoursZoneStepDescriptions.MyDc"!
+

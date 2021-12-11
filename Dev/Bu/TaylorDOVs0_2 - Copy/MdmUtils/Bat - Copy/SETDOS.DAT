@@ -1,5 +1,0 @@
-@Rem
-@Echo Off
-@Rem
-@Set Native=DOS
-@Call SetPrompt

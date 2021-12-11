@@ -22,9 +22,6 @@
 	SetVariable(ZoneFragments,				"!ZONE210N!")
 	SetVariable(ZoneFragmentsPer,			ZoneFragments / FILES210N * 100) 
 		
-/* Xinclude "..\..\Gap\GapZoneActualFreeSetCurrent.MyDc"X */
-/* identical code to here: (separation not needed. TEST.) */	
-
 # Current Gap, Actual and Free Values
 	# Gap
 	SetVariable(ZoneGapRequestedCurrent,	GapRequested / DisplayUnitDivisorCurrent)
@@ -61,6 +58,7 @@
 	SetVariable(ZoneFreeUsedPer, 			GapActual / VolumeFreeUsed * 100)
 	SetVariable(ZoneFreeRequestedPer, 		ZoneGapRequested / VolumeFreeRequested * 100)
 
-	!include "..\..\Zone\ZoneFooterGet.MyDc"!
-	!include "..\..\Zone\ZoneFooterSetStatisticsWindowText.MyDc"!
+	!include "..\Zone\ZoneStatisticsReportGet.MyDc"!
+	!include "..\Zone\ZoneSetWindowText.MyDc"!
 	
+	SetVariable(ZoneEndCurrentGapped,		ZoneBeginCurrent + ZoneSizeActualCurrent)

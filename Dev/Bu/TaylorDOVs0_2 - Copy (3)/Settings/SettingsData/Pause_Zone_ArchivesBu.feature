@@ -1,1 +1,0 @@
-/* Pause after the ArchivesBu Zone */

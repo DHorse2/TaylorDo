@@ -1,2 +1,0 @@
-AppendLogfile("!LogFileName!", "!Title!")
-

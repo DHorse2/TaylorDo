@@ -1,2 +1,0 @@
-CD \
-TREE \ /A > \REC\ALLTREES.REC

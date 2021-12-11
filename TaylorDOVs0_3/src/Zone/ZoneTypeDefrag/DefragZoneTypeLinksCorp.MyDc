@@ -1,5 +1,5 @@
 # Script: DefragZoneTypeLinksCorp
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone LinksCorp Links and Corp */
 SetVariable(ZoneLabel,			"!ZoneLabelLinksCorp!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionLinksCorp!")
@@ -8,13 +8,13 @@ SetVariable(ZoneGapSize,			"!ZoneGapSizeLinksCorp!")
 
 SetVariable(ZoneTypeSelect,'
 Links and Corporate:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectLinksCorp.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectLinksCorp.MyDc"!
 ')
 
-	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectLinksCorp.MyDc"!
-	!include "..\..\ActionVerbs\ZoneDoAction.MyDc"!
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectLinksCorp.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */

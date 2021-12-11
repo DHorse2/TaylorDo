@@ -1,29 +1,22 @@
 # Script: ZoneWhenFinished
 
-!include "..\..\Display\BannerSet.MyDc"!
-!include "..\..\Display\BannerLog.MyDc"!
+# Add the zone to the zone details log:
+# This is temporarily disable until logging is fixed
+# It is performed during file action to preserve the correct (original) calculations.
+# Xinclude "..\Zone\ZoneStatisticsAdd.MyDc"X
 
-# SetVariable(ZoneKeyCurr, "!LogFileName! !ZoneCurrentDescription!")
-# Zone Statistics	
-/* Xinclude "..\..\Zone\ZoneDoStatistics.MyDc"X */
-# Footer
-!include "..\..\Zone\ZoneFooterGet.MyDc"!
-SetVariable(ZoneFooter,     "!ZoneFooter1!!ZoneFooter2!")
-WriteLogfile("!ZoneKeyCurr! part1", "!ZoneFooter1!")
-WriteLogfile("!ZoneKeyCurr! part2", "!ZoneFooter2!")
-
+WriteLogfile("!ZoneKeyCurr! part1", "!ZoneStatisticsReport1!")
+WriteLogfile("!ZoneKeyCurr! part2", "!ZoneStatisticsReport2!")
 # !Date! !Time!
-RunProgram("..\..\Commands\WriteDateTime.bat LastZone")
+RunProgram("..\Commands\WriteDateTime.bat LastZone")
 # Append Datetime to logs
-
 RunProgram("copy","'!ZoneKeyCurr! part1'+'DateTimeLastZone.txt'+'!ZoneKeyCurr! part2'","!ZoneKeyCurr!","/Y")
-
 RunProgram("copy","'!LogFileName!'+'DateTimeLastZone.txt'", "!LogFileName!","/Y")
 
-AppendLogfile("!LogFileName!", ".")
-AppendLogfile("!LogFileName!", "!ZoneFooter!")
-AppendLogfile("!LogFileName!", ".")
+AppendLogfile("!LogFileName!", "!PeriodWord!")
+AppendLogfile("!LogFileName!", "!ZoneStatisticsReport!")
+AppendLogfile("!LogFileName!", "!PeriodWord!")
 
-!include "..\..\Zone\ZoneFooterSetStatisticsWindowText.MyDc"!
+!include "..\Zone\ZoneSetWindowText.MyDc"!
 
-!include "..\..\Pause\PauseZone.MyDc"!
+!include "..\Pause\PauseZone.MyDc"!

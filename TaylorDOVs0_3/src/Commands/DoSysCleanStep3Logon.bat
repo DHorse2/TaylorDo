@@ -1,6 +1,6 @@
 @Echo off
-@Echo -------- ToDo Command: DoSysClean Step3 Logon
-@Echo -------- RUN THIS AFTER THE DEFRAG
+@Echo - ToDo Command: DoSysClean Step3 Logon
+@Echo - RUN THIS AFTER THE DEFRAG
 @Echo Deletes, Recreates or Defrags:
 @Echo Pagefile, Hyberfile, Dumpfile, 
 @Echo System Indexes, 

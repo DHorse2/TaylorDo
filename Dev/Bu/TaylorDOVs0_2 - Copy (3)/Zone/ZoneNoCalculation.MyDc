@@ -1,7 +1,0 @@
-/* x */
-  
-	SetVariable(ZoneCurrent, ZoneNoCurrent + ZoneCurrentAjust)
-
-/* SetVariable(ZoneCurrent, ZoneNoCurrent) */
-/* SetVariable(ZoneCurrent, ZoneNoOs + ZoneNoVolCurrent) */
-

@@ -1,1 +1,0 @@
-TYPE \REC\LIB.REC | MORE

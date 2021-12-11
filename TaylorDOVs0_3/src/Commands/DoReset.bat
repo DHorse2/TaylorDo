@@ -1,5 +1,5 @@
 @Echo off
-@Echo -------- Command: DoReset
+@Echo - Command: DoReset
 @TIMEOUT /T 1 /NOBREAK
 call "..\Commands\DoSortRegular.bat"
 @Echo ------------------------------------------------------
@@ -11,5 +11,5 @@ call "..\Commands\DoGapNoVacate.bat"
 @Echo ------------------------------------------------------
 call "..\Commands\DoStateSave.bat"
 @Echo 
-@Echo --------------- End of DoReset -----------------
+@Echo - End of DoReset -----------------
 @TIMEOUT /T 1 /NOBREAK

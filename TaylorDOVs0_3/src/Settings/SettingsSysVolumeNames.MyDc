@@ -1,0 +1,19 @@
+Script: SettingsSysVolumeNames
+# IMPORTANT: VOLUME NAME: SET YOUR:
+	/* VOLUME NAMES IN SettingsYours\SettingsYoursVolumeNames.MyDc */
+	/* 		or    			*/
+	SetVariable(VolumeSys,			"!VolumeNamePrefix!Sys")
+	SetVariable(VolumeDev,			"!VolumeNamePrefix!Dev")
+	SetVariable(VolumeData,			"!VolumeNamePrefix!Data")
+	SetVariable(VolumeArchive,		"!VolumeNamePrefix!Archive")
+
+	# SetVariable(VolumeSys,		"W:")
+	# SetVariable(VolumeDev,		"X:")
+	# SetVariable(VolumeData,		"Y:")
+	# SetVariable(VolumeArchive,	"Z:")
+
+	/* These are for dedicated disks. */
+	/* So it means JUST Data or JUST Archives. */
+
+	SetVariable(VolumeData,"!VolumeNamePrefix!Data")
+	SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive")

@@ -2,22 +2,30 @@
 
 /* Write the "after" statistics to the logfile. */
 
-!include "..\..\Display\BannerSet.MyDc"!
-!include "..\..\Display\BannerLog.MyDc"!
+!include "..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerLog.MyDc"!
 
-!include "..\..\Volume\VolumeFooterGet.MyDc"!
+!include "..\Volume\VolumeFooterGet.MyDc"!
 
-!include "..\..\Volume\VolumeSizeLog.MyDc"!
+!include "..\Volume\VolumeSizeLog.MyDc"!
 
 /* Write/display stats: */
 
 # Log:  
 
-!include "..\..\Volume\VolumeStatisticsDetailGet.MyDc"!
+!include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
+# Update display
+SetVariable(ZoneStatisticsReport, '
+
+ZONE PROCESSING COMPLETE - Finished.
+
+')
+SetVariable(ZoneStatisticsDetail, '!ZoneStatisticsDetail!!ZoneStatisticsReport!')
 
 # Write to log
 # VolumeStatisticsSummary
 SetVariable(VolumeFooter,     "!VolumeStatisticsSummary!")
+#
 # SetVariable(VolumeFooter,     "!VolumeStatisticsSummary1!!VolumeStatisticsSummary2!")
 
 SetVariable(VolumeKeyCurr, "!LogFileName! !VolumeCurrentDescription!")
@@ -26,7 +34,7 @@ WriteLogfile("!VolumeKeyCurr!", "!VolumeFooter!")
 
 # WriteLogfile("!VolumeKeyCurr! part1", "!VolumeFooter1!")
 # WriteLogfile("!VolumeKeyCurr! part2", "!VolumeFooter2!")
-# RunProgram("..\..\Commands\WriteDateTime.bat LastVolume")
+# RunProgram("..\Commands\WriteDateTime.bat LastVolume")
 
 RunProgram("Echo","!VolumeFooter1! > !VolumeKeyCurr!.log")
 RunProgram("Type","DateTimeLastVolume.txt",">>","!VolumeKeyCurr!.log")
@@ -49,5 +57,5 @@ SetVariable(LogFileBlock,	"!LogFileBlock!Volume End.
 
 # SetStatisticsWindowText("!VolumeStatisticsDetail!")
 
-!include "..\..\Pause\PauseVolume.MyDc"!
+!include "..\Pause\PauseVolume.MyDc"!
   

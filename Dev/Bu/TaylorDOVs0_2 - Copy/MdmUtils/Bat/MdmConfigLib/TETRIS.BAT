@@ -1,4 +1,0 @@
-@ECHO OFF
-CD \games\TETRIS
-CTETRIS H
-M

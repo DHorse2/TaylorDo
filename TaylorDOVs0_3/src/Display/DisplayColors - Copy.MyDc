@@ -23,4 +23,4 @@ SetFileColor(Selected,								175,	198,	247)	// Light-blue
 SetFileColor(Selected and Fragmented,				255,	255,	0)		// Light-yellow
 SetFileColor(Selected and not(Movable),				255,	115,	115)	// Light-red 
 
-!include "..\..\Settings\SettingsYours\SettingsYoursDisplayColors.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursDisplayColors.MyDc"!

@@ -1,5 +1,5 @@
 # Script: DefragZoneTypeOsPageHiberDump
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 # PageHiberDump
 # You cannot move Pagefile or Hiberfil generally speaking.
 # This might work in safe mode with preparation.
@@ -13,25 +13,28 @@
 
 	SetVariable(ZoneTypeSelect,	'
 Program Page, Hiber and Dump files:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPageHiberDump.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPageHiberDump.MyDc"!
 ')
 
-	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPageHiberDump.MyDc"!
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPageHiberDump.MyDc"!
 		
 	FileActions
-		!include "..\..\Gap\GapZoneCalc.MyDc"!
-	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
 
-		!include "..\..\ActionVerbs\ZoneDoActionTypeOsPageHiberDump.MyDc"!
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
 
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
-	!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+		!include "..\ActionVerbs\ZoneDoActionTypeOsPageHiberDump.MyDc"!
 
-/* ---------------------------------------------------------- */
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
+	!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* ------------------------- */
   

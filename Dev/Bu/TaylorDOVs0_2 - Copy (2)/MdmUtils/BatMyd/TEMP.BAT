@@ -1,3 +1,0 @@
-~TEMP.BAT~
-MD E:\WCCL
-

@@ -1,13 +1,13 @@
 # Defrag Archive Volume
 
 SetVariable(VolumeLabel,"!VolumeArchive!")
-SetVariable(VolumeDescription,"Archives & Backup")
-!include "..\..\Display\DisplaySetVolume.MyDc"!
+SetVariable(VolumeDescription,"!ArchivesWord! !AndWord! !BackupWord!")
+SetVariable(RunStepDescription,"!RunDescription!")
 
-!include "..\..\Settings\SettingsRunVolume.MyDc"!
+!include "..\Settings\SettingsRunVolume.MyDc"!
 
-SetVariable(MftZone, "Shares")
+SetVariable(MftZone, "!SharesWord!")
 
-!include "..\..\Settings\SettingsYours\SettingsYoursArchive.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursArchive.MyDc"!
 
-!include "..\..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\Defrag\DefragAnyComplexVolume.MyDc"!

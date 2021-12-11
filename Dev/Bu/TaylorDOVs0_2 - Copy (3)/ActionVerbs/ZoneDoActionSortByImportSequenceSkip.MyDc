@@ -1,3 +1,0 @@
-# File Action - SortByImportSequence with SkipBlock.
-SortByImportSequence(Ascending SkipBlock(SkipBlockFiles,SkipBlockBytes)) 
-	

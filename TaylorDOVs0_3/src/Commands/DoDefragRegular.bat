@@ -1,5 +1,5 @@
 @Echo off
-@Echo -------- Command: DoDefragRegular
+@Echo - Command: DoDefragRegular
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
@@ -11,9 +11,9 @@ call "..\Commands\DoSortRegular.bat"
 call "..\Commands\DoGapNoVacate.bat"
 @Echo 
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
-@Echo ------------------------------------------------------
-call "..\Commands\DoStateSave.bat"
+@Rem @TIMEOUT /T 1 /NOBREAK
+@Rem @Echo ------------------------------------------------------
+@Rem call "..\Commands\DoStateSave.bat"
 @Echo 
-@Echo --------------- End of DoDefragRegular -----------------
+@Echo - End of DoDefragRegular -----------------
 @TIMEOUT /T 1 /NOBREAK

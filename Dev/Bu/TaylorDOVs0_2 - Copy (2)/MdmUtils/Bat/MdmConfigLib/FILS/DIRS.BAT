@@ -1,1 +1,0 @@
-DIR %1 | SORT | MORE

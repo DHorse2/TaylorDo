@@ -1,0 +1,4 @@
+# Script: ZoneDoActionAutomaticThis
+	# AUTOMATIC SETTINGS Run overrides:
+	!include "..\Settings\SettingsAutomaticRun.MyDc"!
+

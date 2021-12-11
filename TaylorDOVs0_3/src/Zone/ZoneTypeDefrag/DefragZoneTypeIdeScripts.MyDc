@@ -1,5 +1,5 @@
 # Script: DefragZoneTypeIdeScripts
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone IdeScripts Ide, Scripts, Support */
 
 SetVariable(ZoneLabel,			"!ZoneLabelIdeScripts!")
@@ -9,13 +9,13 @@ SetVariable(ZoneGapSize,			"!ZoneGapSizeIdeScripts!")
 
 SetVariable(ZoneTypeSelect,'
 IDE and Scripts:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectIdeScripts.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectIdeScripts.MyDc"!
 ')
 
-	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectIdeScripts.MyDc"!
-	!include "..\..\ActionVerbs\ZoneDoAction.MyDc"!
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectIdeScripts.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */

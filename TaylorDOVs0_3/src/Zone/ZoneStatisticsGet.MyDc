@@ -1,0 +1,14 @@
+# Script: ZoneStatisticsGet
+# Zone / Volume Statistics and Display
+		
+	# Accumulate Totals
+  	!include "..\Zone\ZoneDoVolumeTotals.MyDc"!
+
+	# Current Values
+	!include "..\Zone\ZoneDoCurrentSet.MyDc"!
+
+	SetVariable(ZoneStatisticsData, 
+"     s-( size !ZoneSizeCurrent! / actual gap !ZoneGapActualCurrent! / act size !ZoneSizeActualCurrent!) 
+     z [begin !ZoneBeginCurrent! /  zone end !ZoneEndCurrent! / act end !ZoneEndCurrentGapped!]
+     g < used !ZoneGapUsedCurrent! / gap unused !ZoneGapAvailableCurrent! / round up !ZoneVolRoundUp!>")
+

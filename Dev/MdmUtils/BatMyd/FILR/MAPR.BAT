@@ -1,1 +1,0 @@
-TYPE \REC\MAP.REC | MORE

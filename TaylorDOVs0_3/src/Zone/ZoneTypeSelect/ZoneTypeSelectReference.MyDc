@@ -1,15 +1,15 @@
 # Script: ZoneDo ZoneTypeSelectReference
 # Reference start.
-# Xinclude "..\..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"X
+# Xinclude "..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"X
 # NotBlobsArchivesBu start.
 (not (
-!include "..\..\FileSelectCategory\SelBlobs.MyDs"!
+!include "..\FileSelectCategory\SelBlobs.MyDs"!
 # NotBlobsArchivesBu
 or 
-!include "..\..\FileSelectCategory\SelArchives.MyDs"!
+!include "..\FileSelectCategory\SelArchives.MyDs"!
 # NotBlobsArchivesBu
 or
-!include "..\..\FileSelectCategory\SelBackups.MyDs"!
+!include "..\FileSelectCategory\SelBackups.MyDs"!
 # The following has to be ignored in the reference zone:
 # or 
 # FileName("ReferenceMarker.MyDx")
@@ -19,7 +19,7 @@ or
 #
 # Reference
 and (
-!include "..\..\FileSelectCategory\SelReference.MyDs"!
+!include "..\FileSelectCategory\SelReference.MyDs"!
 # Reference
 )
 # Reference end.

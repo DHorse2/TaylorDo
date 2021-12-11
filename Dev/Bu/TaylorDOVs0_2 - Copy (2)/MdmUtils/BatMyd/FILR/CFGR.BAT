@@ -1,1 +1,0 @@
-TYPE \REC\CFG.REC | MORE

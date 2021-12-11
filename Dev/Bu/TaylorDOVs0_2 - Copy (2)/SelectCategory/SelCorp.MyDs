@@ -1,6 +1,0 @@
-# Corp start.
-(
-    DirectoryName("*Corp*") or
-    DirectoryName("*Mdm*")
-)
-# Corp end.

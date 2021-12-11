@@ -1,22 +1,22 @@
 # Script: DisplaySetRun
 
-SetVariable(RunStepDescription,			"!RunStepDescription! - !ScriptTitle!")
+SetVariable(RunStepDescription,			"!RunStepDescription! !DashWord! !ScriptTitle!")
 SetVariable(SeverStepDescription,		"")
 SetVariable(VolumeStepDescription,		"")
 SetVariable(ZoneStepDescription,		"")
-SetVariable(FileStepDescription,		"")
+SetVariable(ZoneStepDescription,		"")
 
-SetVariable(RunStepSummary,			"!RunStepSummary! - !ScriptTitle!")
+SetVariable(RunStepSummary,			"!RunStepSummary! !DashWord! !ScriptTitle!")
 SetVariable(SeverStepSummary,		"")
 SetVariable(VolumeStepSummary,		"")
 SetVariable(ZoneStepSummary,		"")
-SetVariable(FileStepSummary,		"")
+SetVariable(ZoneStepSummary,		"")
 
 
 SetVariable(VolumeStatisticsDetail, 	"")
 
-SetVariable(ZoneListByLine, 			"Run start.")
+SetVariable(ZoneListByLine, 			"!RunWord! !StartWord!!PeriodWord!")
 SetVariable(ZoneStepByLine, 			"")
 
-!include "..\..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerSet.MyDc"!
 pause(2)

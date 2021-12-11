@@ -1,7 +1,7 @@
 # Script: DefragZoneTypeOsPrograms
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 # Zone Programs Fixed size but not windows.. - Zone 1 (5)
-	!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+	!include "..\Display\DisplayColorsZoneDark.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelPrograms!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionPrograms!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpPrograms!")
@@ -9,103 +9,114 @@
 
 	SetVariable(ZoneTypeSelect,		'
 Programs:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
 and not(
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
 	or 
 	DirectoryName("Windows*")
 	)
 ')
 
-	!include "..\..\Zone\ZoneNoIncrementAdjust.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+	!include "..\Zone\ZoneNoIncrementAdjust.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
 	and not(
-		!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+		!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
 		or 
 			DirectoryName("Windows*")
 	)
+
 	FileActions
-		!include "..\..\Gap\GapZoneCalc.MyDc"!
-	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
 
-		!include "..\..\ActionVerbs\ZoneDoActionTypeOsProgramsFixed.MyDc"!
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
 	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+
+		!include "..\ActionVerbs\ZoneDoActionTypeOsProgramsFixed.MyDc"!
 	
-/* ---------------------------------------------------------- */
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+	
+/* ------------------------- */
 # Zone Programs Fixed size just Windows.  - Zone 2 (6)
-	!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+	!include "..\Display\DisplayColorsZoneLight.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelProgramsWindows!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramsWindows!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramsWindows!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeProgramsWindows!")
 	SetVariable(ZoneTypeSelect,'
 Programs Windows folder:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
 and not(
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
 )
 ')
 
-	!include "..\..\Zone\ZoneNoIncrementAdjust.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+	!include "..\Zone\ZoneNoIncrementAdjust.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
 	and not(
-		!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+		!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
 	)
 
 	FileActions
-		!include "..\..\Gap\GapZoneCalc.MyDc"!
-	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
 
-		!include "..\..\ActionVerbs\ZoneDoActionTypeOsProgramsFixed.MyDc"!
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
 	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+		!include "..\ActionVerbs\ZoneDoActionTypeOsProgramsFixed.MyDc"!
 	
-/* ---------------------------------------------------------- */
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+	
+/* ------------------------- */
 # Zone Program Data. - Zone 3 (7)
-	!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+	!include "..\Display\DisplayColorsZoneDark.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelProgramsData!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramsData!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramsData!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeProgramsData!")
 	SetVariable(ZoneTypeSelect,'
 # Program Data:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
 not(
-!include "..\..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
+!include "..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
 )
 ')
 
-	!include "..\..\Zone\ZoneNoIncrementAdjust.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
+	!include "..\Zone\ZoneNoIncrementAdjust.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsPrograms.MyDc"!
 	and not(
-		!include "..\..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
+		!include "..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
 	)
 
 	FileActions
-		!include "..\..\Gap\GapZoneCalc.MyDc"!
-	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
 
-		!include "..\..\ActionVerbs\ZoneDoActionTypeOsProgramsData.MyDc"!
-	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
 
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+		!include "..\ActionVerbs\ZoneDoActionTypeOsProgramsData.MyDc"!
 	
-/* ---------------------------------------------------------- */
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+	
+/* ------------------------- */

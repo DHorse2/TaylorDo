@@ -1,5 +1,5 @@
 # Script: DefragZoneTypeBlobs
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone Blobs (BLOBS) */
 SetVariable(ZoneLabel,			"!ZoneLabelBlobs!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionBlobs!")
@@ -8,29 +8,33 @@ SetVariable(ZoneGapSize,			"!ZoneGapSizeBlobs!")
 
 SetVariable(ZoneTypeSelect,'
 Blobs:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectBlobs.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectBlobs.MyDc"!
 ')
 
 /* Note: This should be all Blob Files but not archives and backups */
 /* It does not matter in my case because given the sorting the */
 /* "z Archive", "z Bu" and "z Backup" directories sort to the end. */
 
-	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectBlobs.MyDc"!
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectBlobs.MyDc"!
 
-	# Xinclude "..\..\ActionVerbs\ZoneDoAction.MyDc"X
+	# Xinclude "..\Zone\ZoneDoAction.MyDc"X
+
 	FileActions
-		!include "..\..\Gap\GapZoneCalc.MyDc"!
+
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 	
-		SetVariable(FileStepDescription, 	"!FileStepDescriptionFileActionStart!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
-	
-		!include "..\..\ActionVerbs\ZoneDoActionTypeBlobs.MyDc"!
+		!include "..\ActionVerbs\ZoneDoActionTypeBlobs.MyDc"!
 
-		SetVariable(FileStepDescription, 	"!FileStepDescriptionFileActionEnd!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		SetVariable(ZoneStepDescription, 	"!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */

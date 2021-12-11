@@ -1,9 +1,0 @@
-# Dev start.
-(
-  DirectoryName("*Dev") 
-  or DirectoryName("Dev *") 
-  or DirectoryName("*Development*") 
-  or DirectoryName("DsVs*") 
-  or DirectoryName("Srt*") 
-)
-# Dev end.

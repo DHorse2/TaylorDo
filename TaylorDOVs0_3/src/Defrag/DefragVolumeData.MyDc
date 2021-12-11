@@ -1,13 +1,13 @@
 # Defrag Data Volume
 
 SetVariable(VolumeLabel,"!VolumeData!")
-SetVariable(VolumeDescription,"Data & Databases")
-!include "..\..\Display\DisplaySetVolume.MyDc"!
+SetVariable(VolumeDescription,"!DataWord! !AndWord! !DatabasesWord!")
+!include "..\Display\DisplaySetVolume.MyDc"!
 
-!include "..\..\Settings\SettingsRunVolume.MyDc"!
+!include "..\Settings\SettingsRunVolume.MyDc"!
 
-SetVariable(MftZone, "Shares")
+SetVariable(MftZone, "!SharesWord!")
 
-!include "..\..\Settings\SettingsYours\SettingsYoursData.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursData.MyDc"!
 
-!include "..\..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\Defrag\DefragAnyComplexVolume.MyDc"!

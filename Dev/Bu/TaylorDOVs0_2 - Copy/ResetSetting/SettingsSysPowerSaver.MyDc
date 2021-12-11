@@ -1,5 +1,0 @@
-# Power management
-
-	/* SetScreenPowerSaver(off) */
-
-	!include "..\SettingsYours\SettingsYourseSetScreenPowerSaver.MyDc"!

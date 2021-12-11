@@ -3,18 +3,18 @@
 /* AddGap Variants */
 
 	/* Standard */
-	!include "..\..\Gap\GapCalcStd.MyDc"!
+	!include "..\Gap\GapCalcStd.MyDc"!
 
 	/* MFT Low High Method */
-	!include "..\..\Gap\GapCalcMft.MyDc"!
+	!include "..\Gap\GapCalcMft.MyDc"!
 
 	/* OS Volume Type Method */
-	!include "..\..\Gap\GapCalcOs.MyDc"!
+	!include "..\Gap\GapCalcOs.MyDc"!
 
 /* MakeGap Variants */
 
 	/* Original Os 1-3 + MFT 2 */
-	!include "..\..\Gap\GapCalcOriginal.MyDc"!
+	!include "..\Gap\GapCalcOriginal.MyDc"!
 	
 /* Note: You could comment out the ones not in use */
 /* However having the data in the log is useful. */
@@ -24,4 +24,4 @@
 
 SetVariable(GapRequested, GapRequestedStd)
 
-!include "..\..\Settings\SettingsYours\SettingsYoursGapCalcMethod.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursGapCalcMethod.MyDc"!

@@ -1,2 +1,2 @@
 /* pause() */
-!include "..\..\Settings\SettingsYours\SettingsYoursPauseVolume.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursPauseVolume.MyDc"!

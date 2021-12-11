@@ -1,2 +1,2 @@
 /* pause() */
-!include "..\..\Settings\SettingsYours\SettingsYoursPauseZone.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursPauseZone.MyDc"!

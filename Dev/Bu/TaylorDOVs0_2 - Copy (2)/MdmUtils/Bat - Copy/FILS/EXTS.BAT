@@ -1,1 +1,0 @@
-TYPE \REC\%1.REC | SORT | MORE

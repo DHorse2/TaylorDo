@@ -1,5 +1,0 @@
-# IMPORTANT: ServerName NAME: 
-
-	# SetVariable(ServerName,"PcAny")
-
-!include "..\..\Settings\SettingsYours\SettingsYoursSysServer.MyDc"!

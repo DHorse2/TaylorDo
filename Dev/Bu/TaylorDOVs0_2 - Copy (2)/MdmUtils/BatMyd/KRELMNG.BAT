@@ -1,3 +1,0 @@
-CD \CABLE
-CD KBILF
-DIR *.

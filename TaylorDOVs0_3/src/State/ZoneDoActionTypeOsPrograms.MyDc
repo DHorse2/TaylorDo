@@ -1,4 +1,3 @@
-# File Action - Type Os Programs Data - Regular - MoveUpToZone.
-!include "..\..\ActionVerbs\ZoneDoActionSortByCreationDate.MyDc"!
-# Xinclude "..\..\ActionVerbs\ZoneDoActionSortByImportSequenceSkip.MyDc"X
+# File Action - Type Os Programs Data - Fast - MoveUpToZone.
+	MoveUpToZone()
 	

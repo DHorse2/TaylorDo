@@ -1,2 +1,2 @@
-# File Action - All - Regular -  SortByName.
-!include "..\..\ActionVerbs\ZoneDoActionSortByCreationDate.MyDc"!
+# File Action - All - Full -  SortByCreationDate
+!include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!

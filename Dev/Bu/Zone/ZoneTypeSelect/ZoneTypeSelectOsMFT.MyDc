@@ -1,4 +1,0 @@
-# Script: ZoneDo ZoneTypeSelectOsMFT
-# MFT start.
-SelectNtfsSystemFiles(yes)
-# MFT end.

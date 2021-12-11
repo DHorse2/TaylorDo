@@ -1,5 +1,5 @@
 # Script: DefragZoneTypeRegular
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone Regular */
 SetVariable(ZoneLabel, 			"!ZoneLabelRegular!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionRegular!")
@@ -8,13 +8,13 @@ SetVariable(ZoneGapSize, 			"!ZoneGapSizeRegular!")
 
 SetVariable(ZoneTypeSelect,'
 Regular:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectRegular.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectRegular.MyDc"!
 ')
 
-	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectRegular.MyDc"!
-	!include "..\..\ActionVerbs\ZoneDoAction.MyDc"!
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectRegular.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */

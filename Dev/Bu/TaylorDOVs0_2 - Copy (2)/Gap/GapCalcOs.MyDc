@@ -1,6 +1,0 @@
-	# Gap Calculation Methods:
-	/* AddGap Variants */
-	/* OS Volume Type Method */
-	AppendLogfile("!LogFileName!", "  OS Gap size: !GapRequestedOs!")
-	SetVariable(GapRequested, GapRequestedOs)
-

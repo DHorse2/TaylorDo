@@ -1,1 +1,0 @@
-Set MdmDefragOptExt==%1

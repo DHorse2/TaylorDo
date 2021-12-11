@@ -1,6 +1,6 @@
 # Script: VolumeFooterGet
 SetVariable(ZoneKeyCurr, "!LogFileName! !ZoneCurrentDescription!")
 
-!include "..\..\Volume\VolumeStatisticsSummaryGet.MyDc"!
+!include "..\Volume\VolumeStatisticsSummaryGet.MyDc"!
 
 SetVariable(VolumeFooter, "!VolumeStatisticsSummary!")

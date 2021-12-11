@@ -1,17 +1,17 @@
 # Script: BannerSet
 
-# Xinclude "..\..\Display\DisplaySetDateTimeRun.MyDc"X
+# NOTE: Can't round or truncate to integer precision. 
+# This internal fields like ZoneCount format really badly.
+#  for !RunTimeNow! does not work. None of the date functions do.
+# Xinclude "..\Display\DisplaySetDateTimeRun.MyDc"X
 
-SetVariable(HeadingTemp0,	ZoneNumber + 0)
-SetVariable(HeadingTemp1,	ZoneNumber - ZoneNoAdj)
 SetVariable(HeadingTemp2,	ZoneCount + 0)
 
-SetVariable(Heading, '!RunDescription! !include "..\..\ActionVerbs\ZoneDoActionThisMode.txt"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Zone: !HeadingTemp0! (!HeadingTemp1!) of !HeadingTemp2! ||Server: !SeverStepDescription! - !RunStepDescription! started on !RunDateTime! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
-
-# "Zone !ZoneNoCurrent! (!ZoneNoCurrent! + !ZoneCurrentAdjust!) of !ZoneCount!."
+SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.txt"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNoDisplay! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust!) of !HeadingTemp2!  ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
 
 Title('!Heading!')
 
 /* pause(1) */
 
-/* NOTE: Can't round or truncate to integer precision. */
+# Last SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.txt"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNumber! of !ZoneCount! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust! or !ZoneNoDisplay!) ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! for !RunTimeNow! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
+

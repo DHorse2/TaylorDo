@@ -1,1 +1,0 @@
-TYPE \REC\MNU.REC | MORE

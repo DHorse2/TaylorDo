@@ -1,35 +1,27 @@
 # Script: DisplaySetVolume
 
-SetVariable(VolumeStepDescription, 	"!VolumeLabel! - !VolumeDescription!")
+SetVariable(VolumeStatisticsSummary,	"")
+SetVariable(VolumeStatisticsDetail,	    "")
+
+SetVariable(VolumeStepDescription, 	"!VolumeLabel! !DashWord! !VolumeDescription!")
 SetVariable(ZoneStepDescription,	"")
-SetVariable(FileStepDescription,	"")
+SetVariable(ZoneStepDescription,	"")
 
-# Message VolumeSummary
-SetVariable(VolumeSummary, '
-Volume Summary:
- MountPoint:		!MountPoint!
- VolumeName:		!VolumeName!
- VolumeType:		!VolumeType!
-VolumeSizeG:		!VolumeSizeG! !VolumeSizeP!%
-VolumeFreeG:		!VolumeFreeG! !VolumeFreeP!%
-    MftSize:		!MftSize!
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
 
-         BytesPerCluster:	!BytesPerCluster!
-    UnmovablesTotalBytes:	!UnmovablesTotalBytes!
-FragmentedTotalFragments:	!FragmentedTotalFragments!
+!include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
 
-The 25 largest items from the LargestItemsList:
-!LargestItemsList!
-')
-
+# Clear list of Zones processed
 # Zones processed
-SetVariable(ZoneListByLine, 		"Volume started !Date! !Time! !RunTime!:
+SetVariable(ZoneListByLine, 		"!VolumeWord! !VolumeLabel! !StartedWord! !DateNow! !TimeNow! !RunTimeNow!!ColonWord!
 ")
 
+# Clear list of Steps processed within Zone
 # Zone processing steps
-SetVariable(ZoneStepByLine, 		"Pending.")
+SetVariable(ZoneStepByLine, 		"!PendingWord!!PeriodWord!
+")
 
-!include "..\..\Display\BannerDescriptionSet.MyDc"!
+!include "..\Display\BannerDescriptionSet.MyDc"!
 pause(2)
 
-# Precision issue: (!VolumeNoCurrent!-!ZoneNoCurrent!-!ZoneStepNoCurrent!) 
+# Precision issue: (!VolumeNoCurrent!!DashWord!!ZoneNoCurrent!!DashWord!!ZoneStepNoCurrent!) 

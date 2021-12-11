@@ -1,8 +1,0 @@
-# Os PageHiberDump start.
-(
-  FileName("DataStore.edb")
-  or FileName("DUMP*.*")
-  or FileName("Hiberfil.sys")
-  or FileName("Pagefile.sys")
-)
-# Os PageHiberDump end.

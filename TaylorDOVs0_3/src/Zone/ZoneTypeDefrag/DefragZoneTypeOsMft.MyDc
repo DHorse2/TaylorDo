@@ -1,5 +1,5 @@
 # Script: DefragZoneTypeOsMft
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Mft Method: MakeGap(MftLocation, DoNotVacate) */ 
   
 SetVariable(ZoneLabel,				"MFT") // "4" 
@@ -10,30 +10,32 @@ SetVariable(ZoneGapSize, 			"!ZoneGapSizeMft!")
 
 SetVariable(ZoneTypeSelect,			'
 MFT Master File Table:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsMFT.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsMFT.MyDc"!
 ')
 
 	# First 1st of 2 in Group MftDir
-	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsMFT.MyDc"!
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsMFT.MyDc"!
 	
 	FileActions
-	  	!include "..\..\Gap\GapZoneCalc.MyDc"!
-	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
 
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
-	
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+
 		SetVariable(MftZone,	ZoneCurrent) 
 
-		!include "..\..\ActionVerbs\ZoneDoActionTypeOsMft.MyDc"!
+		!include "..\ActionVerbs\ZoneDoActionTypeOsMft.MyDc"!
 
   		# SetVariable(MftSize,	ZoneSize) 
 
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
 
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-  	!include "..\..\Zone\ZoneDoFooter.MyDc"!
-/* ---------------------------------------------------------- */
+  	!include "..\Zone\ZoneDoFooter.MyDc"!
+/* ------------------------- */

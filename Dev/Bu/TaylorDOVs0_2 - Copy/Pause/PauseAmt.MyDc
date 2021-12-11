@@ -1,4 +1,0 @@
-
-Title("!DebugMessage!")
-pause(DebugPauseAmt)
-Title("!Heading!")

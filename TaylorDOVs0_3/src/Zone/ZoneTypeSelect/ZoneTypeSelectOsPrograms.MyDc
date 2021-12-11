@@ -1,12 +1,12 @@
 # Script: ZoneDo ZoneTypeSelectOsPrograms
 # Programs start.
 # Mark: 1
-!include "..\..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
+!include "..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
 # Mark: 2
 # Programs
 and (
 # Mark: 3
-!include "..\..\FileSelectCategory\SelSystemDir.MyDs"!
+!include "..\FileSelectCategory\SelSystemDir.MyDs"!
 # Mark: 4
 # Programs
 )

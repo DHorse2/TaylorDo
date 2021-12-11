@@ -1,9 +1,9 @@
 # Script: ZoneDo ZoneTypeSelectBlobs
 # Blobs start.
-!include "..\..\FileSelectCategory\SelNotArchivesBu.MyDs"!
+!include "..\FileSelectCategory\SelNotArchivesBu.MyDs"!
 # Blobs
 and ( 
-!include "..\..\FileSelectCategory\SelBlobs.MyDs"!
+!include "..\FileSelectCategory\SelBlobs.MyDs"!
 # Blobs
 )
 # Blobs end.

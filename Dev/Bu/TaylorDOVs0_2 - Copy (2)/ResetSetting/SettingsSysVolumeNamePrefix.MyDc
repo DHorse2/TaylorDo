@@ -1,8 +1,0 @@
-# VolumeNamePrefix
-
-/* Descriptive Information so maybe */
-/* VolumeNamePrefix (IE. Person or company initials) not used. */
-/* "Xyz" */
-	SetVariable(VolumeNamePrefix,"Mdm")
-
-	!include "..\SettingsYours\SettingsYoursVolumeNamePrefix.MyDc"!

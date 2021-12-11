@@ -1,12 +1,11 @@
-	/* ---------------------------------------------------------- */
 	# Script: GapZoneCalc
 	# Gap
-		SetVariable(FileStepDescription,"!FileStepDescriptionFileActionGap!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		SetVariable(ZoneStepDescription,"!ZoneStepDescriptionFileActionGap!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 	
 	# ACTUAL GAP
 		/* AddGap Variant. */
-	  	!include "..\..\Gap\GapZoneSet.MyDc"!
+	  	!include "..\Gap\GapZoneSet.MyDc"!
 	
 	# Zone Statistics	
-	!include "..\..\Zone\ZoneDoStatistics.MyDc"!
+		!include "..\Zone\ZoneStatisticsGet.MyDc"!

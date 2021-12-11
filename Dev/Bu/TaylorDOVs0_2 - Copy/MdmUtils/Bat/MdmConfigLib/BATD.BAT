@@ -1,1 +1,0 @@
-DIR \BAT\*.BAT | SORT | MORE

@@ -1,4 +1,0 @@
-CD \COM\PKH\vs2_4
-MODE COM2: 2400
-PKH
-M

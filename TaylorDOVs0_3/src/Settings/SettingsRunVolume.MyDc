@@ -1,53 +1,53 @@
 # Script: SettingsRunVolume
 
 SetVariable(ZoneListByLine, "")
-SetVariable(ZoneFooter, "")
+SetVariable(ZoneStatisticsReport, "")
 
 # This script is part of the standard disk configuration
 # Author: David G. Horsman (DBA MacroDM) (C) 2019
 # based on MyDefrag distribution.
 
 /* Progress Display */
-SetVariable(ZoneListByLine, 	"Volume start.
+SetVariable(ZoneListByLine, 	"Volume !VolumeLabel! start.
 ")
 SetVariable(ZoneStepByLine, 	"
 ")
 
 # VOLUME INFORMATION
 
-!include "..\..\Volume\VolumeNoIncrement.MyDc"!
+!include "..\Volume\VolumeNoIncrement.MyDc"!
 
-!include "..\..\Zone\ZoneDoCurrentClear.MyDc"!
+!include "..\Zone\ZoneDoCurrentClear.MyDc"!
 
-!include "..\..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerSet.MyDc"!
 
 # OVERRIDES
 # YOUR SETTINGS Volume overrides:
 
-!include "..\..\Settings\SettingsYours\SettingsYoursSysVolume.MyDc"!
+!include "..\Settings\SettingsYours\SettingsYoursSysVolume.MyDc"!
 
-!include "..\..\Display\DisplaySetVolume.MyDc"!
+!include "..\Display\DisplaySetVolume.MyDc"!
 
 # LOGGING:
-	!include "..\..\Display\BannerDescriptionSet.MyDc"!
+	!include "..\Display\BannerDescriptionSet.MyDc"!
 
 	AppendLogfile("!LogFileName!", "!Description! Started: !Date! !Time!")
-	AppendLogfile("!LogFileName!", ".")
-	AppendLogfile("!LogFileName!", "Script Directory:")
+	AppendLogfile("!LogFileName!", "!PeriodWord!")
+	AppendLogfile("!LogFileName!", "Script !DirectoryWord!:")
 	AppendLogfile("!LogFileName!", "!ScriptDir!")
-	AppendLogfile("!LogFileName!", ".")
+	AppendLogfile("!LogFileName!", "!PeriodWord!")
 	AppendLogfile("!LogFileName!", "Log File:")
 	AppendLogfile("!LogFileName!", "!LogFileName!")
-	AppendLogfile("!LogFileName!", ".")
+	AppendLogfile("!LogFileName!", "!PeriodWord!")
 	/* AppendLogfile("!LogFileName!", "Log Header:") */
 	/* AppendLogfile("!LogFileName!", "!LogHeader!") */
 	/* AppendLogfile("!LogFileName!", "End of Log Header.") */
-	AppendLogfile("!LogFileName!", ".")
+	AppendLogfile("!LogFileName!", "!PeriodWord!")
 
 	AppendLogfile("!LogFileName!", "MFT Percentage: !MftPer!")
 	AppendLogfile("!LogFileName!", "MFT Volume RoundUp: !MftRoundUp!")
 	AppendLogfile("!LogFileName!", "MFT Gap %: !MftAdjRoundUp!")
-	AppendLogfile("!LogFileName!", ".")
+	AppendLogfile("!LogFileName!", "!PeriodWord!")
 
 /* This file is where you override the above setting for */
 /* global settings. */
@@ -56,10 +56,10 @@ SetVariable(ZoneStepByLine, 	"
 /* or you can put them all in the file below. */
 
 # Volume Preprocessing Do Before.
-!include "..\..\Settings\SettingsRunVolum$ DoBefore.MyDc"!
+!include "..\Settings\SettingsRunVolum$ DoBefore.MyDc"!
 
 # BANNER:
-/* Xinclude "..\..\Volume\VolumeSizeLog.MyDc"X */
+# Xinclude "..\Volume\VolumeSizeLog.MyDc"X
 
 /* Missed: Zone Type ToDo: */
 /* Games Zone Type */

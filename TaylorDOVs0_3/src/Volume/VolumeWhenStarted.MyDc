@@ -4,54 +4,58 @@ SetVariable(VolumeFreeAdj, (VolumeFree * (VolumeUsed / VolumeSize)))
 
 SetVariable(MftLocation, RoundUp(VolumeUsed * MftPerDev, VolumeSize * VolumeRoundUpLarge)) 
 
-SetVariable(ZoneFooter, "")
-SetVariable(ZoneListByLine, 		"Volume started.
+SetVariable(ZoneStatisticsReport, "")
+SetVariable(ZoneListByLine, 		"Volume !VolumeLabel! started.
 ")
 SetVariable(ZoneStepByLine, 		"Initialize.
 ")
 SetVariable(ZoneStatisticsDetail, 	"")
 
-SetVariable(ZoneNoCurrent, 		0)
-SetVariable(ZoneNoAdjustCurrent, 	0) 
-SetVariable(ZoneNoDisplay,		0) 
+SetVariable(ZoneNoCurrent, 			0)
+SetVariable(ZoneNoCurrentAdjust, 	0) 
+SetVariable(ZoneNoDisplay,			0) 
 
-!include "..\..\Display\BannerSet.MyDc"!
-!include "..\..\Display\BannerLog.MyDc"!
-!include "..\..\Volume\VolumeStatisticsDetailGet.MyDc"!
-!include "..\..\Display\BannerLog.MyDc"!
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+
+!include "..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerLog.MyDc"!
+!include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
+!include "..\Display\BannerLog.MyDc"!
 
 /* Write/display stats: */
 # Log:
 SetVariable(VolumeDescription,"")
-SetVariable(VolumeDescription, "!VolumeDescription!!Title! started.")
-SetVariable(VolumeDescription, "!VolumeDescription!
-!Date! !Time!.")
 
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock,"")
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!!!Heading! started.")
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
+!DateNow! !TimeNow!.")
+
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 .")
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 .")
 
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 Volume: !VolumeLabel!")
 
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 .")
 
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 !VolumeStatisticsDetail!")
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 .")
 
-SetVariable(VolumeDescription, "!VolumeDescription!
-!Title! started.")
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
+!ScriptTitle! started.")
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 !Date! !Time!.")
-SetVariable(VolumeDescription, "!VolumeDescription!
+SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 .")
 
-WriteLogfile("!LogFileName! Volume !VolumenName! !RunDescription! !Date! !Time!","!VolumeDescription!")
-AppendLogfile("!LogFileName!","!VolumeDescription!")
+WriteLogfile("!LogFileName! Volume !VolumenName! !RunDescription! !DateNow! !TimeNow!","!VolumeDescriptionBlock!")
+AppendLogfile("!LogFileName!","!VolumeDescriptionBlock!")
 
 # In program statistics window (view):
-SetStatisticsWindowText("!VolumeStatisticsDetail!")
+SetStatisticsWindowText("!VolumeDescriptionBlock!")

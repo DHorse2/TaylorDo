@@ -1,0 +1,35 @@
+# MyDefrag v4.0 script: All Volumes Monthly
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+/* All Volume Monthly */
+SetVariable(RunStepDescription,"All Vol Monthly")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Monthly: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesMonth!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
+
+/* Sys */
+SetVariable(RunStepDescription,"!SysWord! !VolWord! !MonthlyWord!")
+!include "..\Display\DisplaySetRun.MyDc"!
+!include "..\Defrag\DefragVolumeSys.MyDc"!
+
+/* Dev */
+SetVariable(RunStepDescription,"!DevWord! !VolWord! !MonthlyWord!!")
+!include "..\Display\DisplaySetRun.MyDc"!
+!include "..\Defrag\DefragVolumeDev.MyDc"!
+
+/* Archive */
+/* SetVariable(RunStepDescription,"!ArchiveWord! !VolWord! !MonthlyWord!!") */
+# Xinclude "..\Display\DisplaySetRun.MyDc"X
+# Xinclude "..\Defrag\DefragVolumeArchive.MyDc"X
+
+/* Data */
+/* SetVariable(RunStepDescription,"!DataWord! !VolWord! !MonthlyWord!!") */
+# Xinclude "..\Display\DisplaySetRun.MyDc"X
+# Xinclude "..\Defrag\DefragVolumeData.MyDc"X

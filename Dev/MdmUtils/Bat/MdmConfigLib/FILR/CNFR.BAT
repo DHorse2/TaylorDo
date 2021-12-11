@@ -1,1 +1,0 @@
-TYPE \REC\CNF.REC | MORE

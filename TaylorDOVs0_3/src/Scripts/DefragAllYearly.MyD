@@ -1,0 +1,39 @@
+# MyDefrag v4.0 script: All Volumes Yearly
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+/* All Volume Yearly */
+SetVariable(RunStepDescription,"All Vol Yearly!)
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Yearly: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesYear!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
+
+/* Sys */
+SetVariable(RunStepDescription,"!SysWord! !VolWord! !YearlyWord!")
+SetVariable(RunStepDescription,"!RunDescription!")
+!include "..\Display\DisplaySetRun.MyDc"!
+!include "..\Defrag\DefragVolumeSys.MyDc"!
+
+/* Dev */
+!include "..\Volume\VolumeDoCurrentClear.MyDc"!
+SetVariable(RunStepDescription,"Dev Vol Yearly")
+!include "..\Display\DisplaySetRun.MyDc"!
+!include "..\Defrag\DefragVolumeDev.MyDc"!
+
+/* Archive */
+# Xinclude "..\Volume\VolumeDoCurrentClear.MyDc"X
+/* SetVariable(RunStepDescription,"!ArchiveWord VolWord YearlyWord") */
+# Xinclude "..\Display\DisplaySetRun.MyDc"X
+# Xinclude "..\Defrag\DefragVolumeArchive.MyDc"X
+
+/* Data */
+# Xinclude "..\Volume\VolumeDoCurrentClear.MyDc"X
+/* SetVariable(RunStepDescription,"DataWord VolWord YearlyWord") */
+# Xinclude "..\Display\DisplaySetRun.MyDc"X
+# Xinclude "..\Defrag\DefragVolumeData.MyDc"X

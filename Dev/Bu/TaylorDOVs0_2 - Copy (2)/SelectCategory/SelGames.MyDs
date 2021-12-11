@@ -1,8 +1,0 @@
-# Games start.
-(
-  DirectoryName("Game*")
-  or DirectoryName("Epic*")
-  or DirectoryName("*XBox*")
-  or DirectoryName("*PS2*")
-)
-# Games end.

@@ -1,3 +1,0 @@
-SetVariable(LogFileName,"TestLog.txt")
-WriteLogfile("!LogFileName!", "Script Test")
-AppendLogfile("!LogFileName!", "Script Test")

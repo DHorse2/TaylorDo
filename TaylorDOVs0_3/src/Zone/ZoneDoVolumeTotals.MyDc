@@ -26,4 +26,4 @@ AppendLogfile("!LogFileName!", "VolumeFreePerUsed: !VolumeFreePerUsed!%")
 
 # DEBUG EXAMPLE: Debugging. Use of DebugMessage to troubleshoot Gap Calculation.
 /* SetVariable(DebugMessage, "GAP:Req !GapRequested!Rnd !GapRounded!Adj !GapAdjusted!Ava !GapAvailable!Cur !GapCurrent!Act !GapActual!") */
-/* Xinclude "..\..\DebugDisplayPause.MyDc"X */
+# Xinclude "..\DebugDisplayPause.MyDc"X

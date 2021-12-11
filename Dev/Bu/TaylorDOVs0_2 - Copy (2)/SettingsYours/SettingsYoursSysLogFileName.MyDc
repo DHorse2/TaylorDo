@@ -1,6 +1,0 @@
-SetVariable(ScriptDir,"..\")
-
-/* SetVariable(ScriptDir,"..\") */
-/* SetVariable(ScriptDir,"!ScriptDirectory!") */
-/* SetVariable(ScriptDir,"E:\Ide\MyDefrag\MyDefrag\MdmScriptMyDefragVs4_3_1\") */
-

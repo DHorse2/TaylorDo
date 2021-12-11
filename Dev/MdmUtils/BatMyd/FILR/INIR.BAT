@@ -1,1 +1,0 @@
-TYPE \REC\INI.REC | MORE

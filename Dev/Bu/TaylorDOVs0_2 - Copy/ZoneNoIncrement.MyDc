@@ -1,4 +1,0 @@
-SetVariable(ZoneNoCurrent, ZoneNoCurrent + 1)
-SetVariable(ZoneNoAdjCurrent, ZoneNoCurrent + ZoneCurrentAjust)
-
-SetVariable(ZoneStepNoCurrent, 0)

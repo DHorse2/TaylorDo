@@ -1,5 +1,0 @@
-@Rem
-@Echo Off
-Cd C:\QBACKUP
-QBACKUP
-M

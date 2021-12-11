@@ -1,6 +1,0 @@
-@Rem
-@Echo off
-@Rem
-@Call SetMsd
-MSD /S \REC\MSD-S.REC
-COPY \REC\MSD-S.REC+\REC\MSD-D.REC \REC\MSD.REC

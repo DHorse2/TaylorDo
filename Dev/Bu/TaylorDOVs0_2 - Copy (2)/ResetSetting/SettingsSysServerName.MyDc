@@ -1,8 +1,0 @@
-# ServerName (IE. Computer name or number.)
-
-/* System99 */
-SetVariable(ServerName,"Pc15")
-
-!include "..\SettingsYours\SettingsYoursServerName.MyDc"!
-
-!include "..\SettingsServerNames.MyDc"!

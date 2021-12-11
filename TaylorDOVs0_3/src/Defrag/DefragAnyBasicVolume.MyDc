@@ -2,76 +2,78 @@
 /* Basic Volume */
 # MyDefrag v4.0 script: Basic Volume Defrag
 #
-!include "..\..\Volume\VolumeStatisticsDetailGet.MyDc"!
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+
+!include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
 SetStatisticsWindowText("!VolumeStatisticsSummary!")
 
-SetVariable(FileStepDescription,"!VolumeLabel! !VolumeDescription! started: !Date! !Time!.")
-!include "..\..\Display\DisplaySetFileStep.MyDc"!
+SetVariable(ZoneStepDescription,"!VolumeLabel! !VolumeDescription! started: !DateNow! !TimeNow! !RunTimeNow!.")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-SetVariable(FileStepDescription,"Analyzing Volume")
-!include "..\..\Display\DisplaySetFileStep.MyDc"!
+SetVariable(ZoneStepDescription,"!AnalyzingWord! !VolumeWord!")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 VolumeSelect
 
 	{Label("!VolumeLabel!") or Name("!VolumeLabel!") 
 	or CommandlineVolumes}
 	and Writable(yes) and Mounted(yes)
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 VolumeActions
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Volume Init */
-!include "..\..\Volume\VolumeStatisticsDetailGet.MyDc"!
+!include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
 SetStatisticsWindowText("!VolumeStatisticsSummary!")
 
 SetVariable(ZoneStepDescription,"Volume started.")
-SetVariable(FileStepDescription,"Analze.")
-!include "..\..\Display\DisplaySetFileStep.MyDc"!
+SetVariable(ZoneStepDescription,"Analze.")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-!include "..\..\Volume\VolumeWhenStarted.MyDc"!
+!include "..\Volume\VolumeWhenStarted.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* System Zones */
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 
-	!include "..\..\Defrag\DefragZoneGroupOs.MyDc"!
+	!include "..\Defrag\DefragZoneGroupOs.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Any Volume Regular Zones */
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone People */
-!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypePeople.MyDc"!
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypePeople.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 
 /* XXXXXXXXXXXXXXXXXXXXXXXXX */
 /* Process MFT & Dir's HERE. */
-	!include "..\..\Defrag\DefragZoneGroupMftDir.MyDc"!
+	!include "..\Defrag\DefragZoneGroupMftDir.MyDc"!
 /* XXXXXXXXXXXXXXXXXXXXXXXXX */
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone Games */
-!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeGames.MyDc"!
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeGames.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone Regular */
-!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeRegular.MyDc"!
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeRegular.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone Blobs (BLOBS) */
-!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeBlobs.MyDc"!
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeBlobs.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 /* Zone ArchivesBu (All) Archives and Backups*/
-!include "..\..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 VolumeEnd
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 
-AppendLogfile("!LogFileName!", "!Description! Basic Volume end: !Date! !Time!")
-AppendLogfile("!LogFileName!",".")
+AppendLogfile("!LogFileName!", "!Description! Basic Volume end: !DateNow! !TimeNow! !RunTimeNow!")
+AppendLogfile("!LogFileName!", "!PeriodWord!")

@@ -1,12 +1,12 @@
 # Script: ZoneDo ZoneTypeSelectIdeScripts
 # IdeScripts start.
-!include "..\..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
+!include "..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
 # IdeScripts
 and ( 
-!include "..\..\FileSelectCategory\SelIde.MyDs"!
+!include "..\FileSelectCategory\SelIde.MyDs"!
 # IdeScripts
 or  
-!include "..\..\FileSelectCategory\SelScripts.MyDs"!
+!include "..\FileSelectCategory\SelScripts.MyDs"!
 # IdeScripts
 )
 # IdeScripts end.

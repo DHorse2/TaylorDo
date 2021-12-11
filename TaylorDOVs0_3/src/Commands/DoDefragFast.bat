@@ -1,6 +1,6 @@
 @Echo off
 @Echo 
-@Echo -------- Command: DoDefragFast
+@Echo - Command: DoDefragFast
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
@@ -12,9 +12,9 @@ call "..\Commands\DoSortFast.bat"
 call "..\Commands\DoGapNoVacate.bat"
 @Echo 
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
-@Echo ------------------------------------------------------
-call "..\Commands\DoStateSave.bat"
+@Rem @TIMEOUT /T 1 /NOBREAK
+@Rem @Echo ------------------------------------------------------
+@Rem call "..\Commands\DoStateSave.bat"
 @Echo 
-@Echo --------------- End of DoDefragFast -----------------
+@Echo - End of DoDefragFast -----------------
 @TIMEOUT /T 1 /NOBREAK

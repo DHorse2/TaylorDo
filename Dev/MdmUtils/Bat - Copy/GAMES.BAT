@@ -1,2 +1,0 @@
-CD \GAMES
-DIR *.COM

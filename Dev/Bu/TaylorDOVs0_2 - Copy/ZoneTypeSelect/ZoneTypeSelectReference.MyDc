@@ -1,8 +1,0 @@
-# Reference start.
-!include "..\SelectCategory\SelNotBlobArchivesBu.MyDs"!
-# Reference
-and (
-!include "..\SelectCategory\SelReference.MyDs"!
-# Reference
-)
-# Reference end.

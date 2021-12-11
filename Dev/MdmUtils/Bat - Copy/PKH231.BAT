@@ -1,3 +1,0 @@
-CD \COM\PKH\Vs2_31
-PKH
-M

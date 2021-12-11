@@ -1,5 +1,0 @@
-@Rem
-@Echo Off
-@Rem
-@Set Natvie=WIN
-@Call SetPrompt

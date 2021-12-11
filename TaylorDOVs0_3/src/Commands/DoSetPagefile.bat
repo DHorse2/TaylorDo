@@ -17,5 +17,5 @@ REM wmic pagefileset where name="<volume:\\path\filename>" set InitialSize=<init
 
 wmic /user:usirmc\%logon% /node:%server% pagefileset where name="%pathfilename%" set InitialSize=%StartSize%,MaximumSize=%MaxSize%
 @Echo 
-@Echo --------------- End of DoSetPagefile -----------------
+@Echo - End of DoSetPagefile -----------------
 @TIMEOUT /T 1 /NOBREAK

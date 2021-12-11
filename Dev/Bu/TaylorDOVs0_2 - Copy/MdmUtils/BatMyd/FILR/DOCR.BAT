@@ -1,1 +1,0 @@
-TYPE \REC\DOC.REC | MORE

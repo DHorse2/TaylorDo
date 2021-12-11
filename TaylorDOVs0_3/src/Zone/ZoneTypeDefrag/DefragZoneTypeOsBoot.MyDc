@@ -1,7 +1,7 @@
 # Script: DefragZoneTypeOsBoot
-/* ---------------------------------------------------------- */
+/* ------------------------- */
 # Zone 1 Boot Fixed.
-	!include "..\..\Display\DisplayColorsZoneDark.MyDc"!
+	!include "..\Display\DisplayColorsZoneDark.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelBoot!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionBoot!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpBoot!")
@@ -9,36 +9,39 @@
 
 	SetVariable(ZoneTypeSelect,'
 Boot:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
 and not(
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
 	)
 ')
 
 	# First 1st of 7 in Group OS
-	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
 	and not(
-		!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
+		!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDataDynamic.MyDc"!
 	)
 
 	FileActions
-		!include "..\..\Gap\GapZoneCalc.MyDc"!
+
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
 	
-		SetVariable(FileStepDescription, 	"!FileStepDescriptionFileActionStart!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
-	
-		!include "..\..\ActionVerbs\ZoneDoActionTypeOsBootFixed.MyDc"!
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-		SetVariable(FileStepDescription, 	"!FileStepDescriptionFileActionEnd!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		!include "..\ActionVerbs\ZoneDoActionTypeOsBootFixed.MyDc"!
 
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+		SetVariable(ZoneStepDescription, 	"!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-/* ---------------------------------------------------------- */
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* ------------------------- */
 # Zone 2 Boot Data (Variable and other).
-	!include "..\..\Display\DisplayColorsZoneLight.MyDc"!
+	!include "..\Display\DisplayColorsZoneLight.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelBootData!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionBootData!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpBootData!")
@@ -46,30 +49,33 @@ and not(
 
 	SetVariable(ZoneTypeSelect,'
 Boot Data:
-!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
 not(
-    !include "..\..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
+    !include "..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
 )
 ')
 
-	!include "..\..\Zone\ZoneNoIncrementAdjust.MyDc"!
-	!include "..\..\Zone\ZoneDoHeader.MyDc"!
-	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
+	!include "..\Zone\ZoneNoIncrementAdjust.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsBoot.MyDc"!
 	and not(
-		!include "..\..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
+		!include "..\FileSelectCategory\SelOsPageHiberDump.MyDs"!
 	)
 
-FileActions
-		!include "..\..\Gap\GapZoneCalc.MyDc"!
+	FileActions
+
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
 	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-		!include "..\..\ActionVerbs\ZoneDoActionTypeOsBootData.MyDc"!
+		!include "..\ActionVerbs\ZoneDoActionTypeOsBootData.MyDc"!
 	
-		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
-		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+		!include "..\Zone\ZoneDoFooter.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */

@@ -1,1 +1,0 @@
-TYPE \REC\DIF.REC | MORE

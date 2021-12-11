@@ -1,4 +1,4 @@
-SetVariable(ZoneNoAdjustCurrent, ZoneNoAdjustCurrent + 1)
-SetVariable(ZoneNoDisplay, ZoneNoCurrent + ZoneNoAdjustCurrent)
+SetVariable(ZoneNoCurrentAdjust, ZoneNoCurrentAdjust + 1)
+SetVariable(ZoneNoDisplay, ZoneNoCurrent + ZoneNoCurrentAdjust)
 
 SetVariable(ZoneStepNoCurrent, 0)

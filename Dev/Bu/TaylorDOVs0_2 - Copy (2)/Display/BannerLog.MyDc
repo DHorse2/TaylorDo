@@ -1,4 +1,0 @@
-# Script: BannerLog
-
-AppendLogfile("!LogFileName!", "!Title!")
-

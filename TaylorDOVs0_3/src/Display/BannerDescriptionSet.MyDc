@@ -1,4 +1,4 @@
 # Script: BannerDescriptionSet
 
-!include "..\..\Display\BannerSet.MyDc"!
-!include "..\..\Display\BannerLog.MyDc"!
+!include "..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerLog.MyDc"!

@@ -1,30 +1,30 @@
 # Script: ZoneDoFooter
 
 /* --------------------------------- */
-# File Select
-	# Select Statments
-# File Actions 
-	# Standard or OS File Actions.
-	# Resume...
+	# File Select
+		# Select Statments
+	# File Actions 
+		# Standard or OS File Actions.
+		# Resume...
 	
-	# your stuff HERE (X)... post zone (file) file actions code.
-		# SetVariable(FileStepDescription, "!FileStepDescriptionYourFileActionsPre!")
-		# Xinclude "..\..\Display\DisplaySetFileStep.MyDc"X
-		# (X)
+		# your stuff HERE (X)... post zone (file) file actions code.
+			# SetVariable(ZoneStepDescription, "!ZoneStepDescriptionYourFileActionsPre!")
+			# Xinclude "..\Display\DisplaySetZoneStep.MyDc"X
+			# (X)
 		
-		/* ??? Set window? */
+			/* ??? Set window? */
 	
-	# ADD THE GAP
-!include "..\..\Gap\GapZoneCommand.MyDc"!
+		# ADD THE GAP
+		!include "..\Gap\GapZoneCommand.MyDc"!
 		
-# 
-FileEnd
+	# 
+	FileEnd
 /* --------------------------------- */
 # your stuff HERE (X)... post zone (file) code.
 
-SetVariable(FileStepDescription,"Zone finished, reporting.")
-!include "..\..\Display\DisplaySetFileStep.MyDc"!
+SetVariable(ZoneStepDescription, "!ZoneStepDescriptionZoneReporting!")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
 
-!include "..\..\Zone\ZoneWhenFinished.MyDc"!
+!include "..\Zone\ZoneWhenFinished.MyDc"!
 
-/* ---------------------------------------------------------- */
+/* ------------------------- */

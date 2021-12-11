@@ -1,3 +1,0 @@
-@Rem
-@Echo off
-@Rem

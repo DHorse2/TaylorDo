@@ -1,5 +1,0 @@
-@Rem
-@Echo Off
-@Rem
-@Set ServerId=PC2
-@Call SetPrompt

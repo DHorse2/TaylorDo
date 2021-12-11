@@ -1,6 +1,8 @@
 # Script: ZoneDoCurrentClear
 
 SetVariable(ZoneTypeSelectCurrent, 		"")
+SetVariable(ZoneStatisticsData, 		"")
+SetVariable(ZoneStepByLine, 			"")
 
 SetVariable(ZoneBeginCurrent, 			0)
 SetVariable(ZoneBeginPerCurrent, 		0)
