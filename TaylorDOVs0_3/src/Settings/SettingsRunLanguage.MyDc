@@ -146,6 +146,8 @@ SetVariable(SizeWord,							"Size")
 SetVariable(SortWord,							"Sort")
 SetVariable(SortingWord,						"Sorting")
 SetVariable(SpaceWord,							"Space")
+SetVariable(StartWord,							"start")
+SetVariable(StartWordCaps,						"Start")
 SetVariable(StartedWord,						"Started")
 SetVariable(StartingWord,						"Starting")
 
