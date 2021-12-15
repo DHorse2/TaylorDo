@@ -1,5 +1,8 @@
-@echo off
-@@Rem Seamonkey's quick date batch (MMDDYYYY format)
+@Echo off
+@Echo .
+@Echo ------------------------------------------------------
+@Echo WriteDateTime Seamonkey's quick date batch (MMDDYYYY format)
+@Echo ------------------------------------------------------
 @@Rem Set ups %date variable
 @@Rem First parses month, day, and year into mm , dd, yyyy formats and then combines to be MMDDYYYY
 
@@ -19,7 +22,7 @@
 @Rem Echo mytime%mytime%
 
 @SET mydatetime=%mydate%_%mytime%
-@Echo %mydatetime% > ".\DateTimeLast.txt"
-@Echo %mydatetime% > ".\DateTime%1.txt"
+@Echo . %mydatetime% > ".\DateTimeLast.txt"
+@Echo . %mydatetime% > ".\DateTime%1.txt"
 @SET mydatetimelong=%CDATE% %CTIME%
-@Echo %mydatetimelong% > ".\DateTimeLastLong.txt"
+@Echo . %mydatetimelong% > ".\DateTimeLastLong.txt"

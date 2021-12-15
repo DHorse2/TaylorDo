@@ -31,23 +31,23 @@ SetVariable(ZoneStepByLine, 	"
 # LOGGING:
 	!include "..\Display\BannerDescriptionSet.MyDc"!
 
-	AppendLogfile("!LogFileName!", "!Description! Started: !Date! !Time!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "Script !DirectoryWord!:")
-	AppendLogfile("!LogFileName!", "!ScriptDir!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "Log File:")
-	AppendLogfile("!LogFileName!", "!LogFileName!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	/* AppendLogfile("!LogFileName!", "Log Header:") */
-	/* AppendLogfile("!LogFileName!", "!LogHeader!") */
-	/* AppendLogfile("!LogFileName!", "End of Log Header.") */
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! Started: !Date! !Time!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "Script !DirectoryWordCaps!:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptDir!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "Log File:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!LogFileName!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	/* #dgh@Z#  Appendlogfile("!LogFileName!", "Log Header:") */
+	/* #dgh@Z#  Appendlogfile("!LogFileName!", "!LogHeader!") */
+	/* #dgh@Z#  Appendlogfile("!LogFileName!", "End of Log Header.") */
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 
-	AppendLogfile("!LogFileName!", "MFT Percentage: !MftPer!")
-	AppendLogfile("!LogFileName!", "MFT Volume RoundUp: !MftRoundUp!")
-	AppendLogfile("!LogFileName!", "MFT Gap %: !MftAdjRoundUp!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "MFT Percentage: !MftPer!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "MFT Volume RoundUp: !MftRoundUp!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "MFT Gap %: !MftAdjRoundUp!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 
 /* This file is where you override the above setting for */
 /* global settings. */

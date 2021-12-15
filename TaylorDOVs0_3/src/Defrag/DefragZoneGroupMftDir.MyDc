@@ -39,11 +39,13 @@ SetVariable(MftReport, "!MftReport!VolumeFreePerUsed: !VolumeFreePerUsed!
 /* ------------------------- */
 /* Mft Method: MFT GAP HERE. */
 /* For fixed zone locations */
-WriteLogfile("!LogFileName! Volume !VolumenName! MftReport", "!MftReport!
+SetVariable(LogBlock, "!MftReport!
 Mft Zone: !MftZone! 
 Location: !MftLocation! 
   MftGap: !MftGapSize! !DateNow! !TimeNow! !RunTimeNow!
 ")
+#dgh@Z#  Writelogfile("!LogFileName! Volume !VolumenName! MftReport", , '!LogBlock!')
+
 /* MakeGap(MftGap, DoNotVacate) */
   
 /* ------------------------- */
@@ -55,6 +57,6 @@ Location: !MftLocation!
 # Possibly a Gap should be vacated so there is a space available upon recreation of the files.
 
 !include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsPageHiberDump.MyDc"!
-AppendLogfile("!LogFileName!","!MftReport!")
+#dgh@Z#  Appendlogfile("!LogFileName!","!MftReport!")
 
 /* ------------------------- */

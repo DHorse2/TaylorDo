@@ -2,8 +2,9 @@
 
 /* ------------------------- */
 # Current Values.
-	SetVariable(VolumeLabel, "NotSet")
-	SetVariable(VolumeDescription, "")
+	SetVariable(VolumeLabel,		"!NotSet!")
+	SetVariable(VolumeMountpoint,	"!NotSet!")
+	SetVariable(VolumeDescription,	"")
 
 	SetVariable(VolumeCount, 0)
 	SetVariable(VolumeNoCurrent, 0)

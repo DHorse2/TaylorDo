@@ -3,4 +3,4 @@
 # ???
 
 /* System99 */
-SetVariable(ServerName,"RavenPC")
+SetVariable(ServerName,"ThisPc")

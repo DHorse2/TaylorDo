@@ -11,7 +11,7 @@ ZoneDoActionSortByImportSequence.MyDc
 ZoneDoActionSortByImportSequenceSkip.MyDc
 ZoneDoActionSortByName.MyDc
 ZoneDoActionThis.MyDc
-ZoneDoActionThisMode.txt
+ZoneDoActionThisMode.MyDc
 ZoneDoActionTypeAll.MyDc
 ZoneDoActionTypeOsBootData.MyDc
 ZoneDoActionTypeOsBootFixed.MyDc

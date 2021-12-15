@@ -7,11 +7,11 @@
 
 SetVariable(HeadingTemp2,	ZoneCount + 0)
 
-SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.txt"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNoDisplay! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust!) of !HeadingTemp2!  ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
+SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNoDisplay! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust!) of !HeadingTemp2!  ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
 
 Title('!Heading!')
 
 /* pause(1) */
 
-# Last SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.txt"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNumber! of !ZoneCount! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust! or !ZoneNoDisplay!) ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! for !RunTimeNow! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
+# Last SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNumber! of !ZoneCount! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust! or !ZoneNoDisplay!) ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! for !RunTimeNow! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
 

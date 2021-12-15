@@ -9,7 +9,7 @@ Description("Data Disk Weekly description")   // See the "Settings.MyD" file.
 
 /* Write the header to the logfile. See the "Settings.MyD" file for the
    definition of the "LogHeader" string. */
-WriteLogfile("MyDefrag.log","LogHeader")
+#dgh@Z#  Writelogfile("MyDefrag.log","LogHeader")
 
 /* Select and process the volumes one by one. */
 VolumeSelect
@@ -18,7 +18,7 @@ VolumeActions
 
   /* Write the "before" statistics to the logfile. See the "Settings.MyD" file
      for the definition of the "LogBefore" string. */
-  AppendLogfile("MyDefrag.log","LogBefore")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogBefore")
 
   /* Zone 1: Place the MFT and some other special NTFS files. */
   FileSelect
@@ -47,10 +47,10 @@ VolumeActions
 
   /* Write the "after" statistics to the logfile. See the "Settings.MyD" file
      for the definition of the "LogAfter" string. */
-  AppendLogfile("MyDefrag.log","LogAfter")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAfter")
 
 VolumeEnd
 
 /* Write the footer to the logfile. See the "Settings.MyD" file for the
    definition of the "LogFooter" string. */
-AppendLogfile("MyDefrag.log","LogFooter")
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

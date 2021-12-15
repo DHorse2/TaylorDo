@@ -3,16 +3,16 @@
 	/* System Zones */
 
 !include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
-AppendLogfile("!LogFileName!", "!Description! Os Zones started: !Date! !Time!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! Os Zones started: !Date! !Time!")
 SetVariable(ZoneStepDescription,"System Zones.")
-AppendLogfile("!LogFileName!", "!PeriodWord!")
-AppendLogfile("!LogFileName!", "System Disk optimized layout for boot and executables. !DateNow! !TimeNow! !RunTimeNow!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "System Disk optimized layout for boot and executables. !DateNow! !TimeNow! !RunTimeNow!")
 /* Dgh 20190618 */
 /* ------------------------- */
 /* Defrag the Pagefile.sys on the next boot. */
 !include "..\Settings\SettingsYours\SettingsYoursSysPagedfrg.MyDc"!
 /* ------------------------- */
-AppendLogfile("!LogFileName!", "Place files at the beginning of the disk: !DateNow! !TimeNow! !RunTimeNow!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "Place files at the beginning of the disk: !DateNow! !TimeNow! !RunTimeNow!")
 
 	MakeGap(0)
 /* ------------------------- */

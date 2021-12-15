@@ -31,9 +31,10 @@ Directories:
 
 /* Mft Method: MFT GAP HERE. */
 /* For fixed zone locations */
-AppendLogfile("!LogFileName!", "Mft Zone: !MftZone! 
+SetVariable(LogBlock, 'Mft Zone: !MftZone! 
 Location: !MftLocation! 
  Mft Gap: !MftGapSize!
- ")
+ ')
+#dgh@Z#  Appendlogfile("!LogFileName!", '!LogBlock!')
 /* MakeGap(MftGap, DoNotVacate) */
 /* ------------------------- */

@@ -1,3 +1,2 @@
-# File Action - All - Fast - MoveUpToZone.
-	MoveUpToZone()
-	
+# File Action - All - Full -  SortByCreationDate
+!include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!

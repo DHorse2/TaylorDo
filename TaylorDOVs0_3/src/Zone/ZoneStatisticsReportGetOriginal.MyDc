@@ -54,5 +54,5 @@ Directory and Files Select:
 
 SetVariable(ZoneStatisticsReport, "!ZoneStatisticsReport1! !DateNow! !TimeNow! !RunTimeNow! !ZoneStatisticsReport2!")
 
-# WriteLogfile("!LogFileName! Volume !VolumenName! Zone !ZoneNoCurrent! !ZoneCurrentDescription!", "!ZoneStatisticsReport!")
-# AppendLogfile("!LogFileName!", "!ZoneStatisticsReport!")
+# #dgh@Z#  Writelogfile("!LogFileName! Volume !VolumenName! Zone !ZoneNoCurrent! !ZoneCurrentDescription!", "!ZoneStatisticsReport!")
+# #dgh@Z#  Appendlogfile("!LogFileName!", "!ZoneStatisticsReport!")

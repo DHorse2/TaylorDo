@@ -1,6 +1,6 @@
 # Script: VolumeStatisticsSummaryDisplay
 
-SetVariable(VolumeStatisticsSummary, "----------------------------------------------------------
+SetVariable(VolumeStatisticsSummary, '----------------------------------------------------------
 VOLUME SUMMARY: !VolumeLabel! !VolumeDescription!
 Volume mountpoint:          !MountPoint!
 Volume label:               !VolumeLabel!
@@ -31,4 +31,4 @@ Volume type:                !VolumeType!
                  Size:       !MftSize! 
             Gap slack:       !MftGapSlack!
 ----------------------------------------------------------
-") 
+') 

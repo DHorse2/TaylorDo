@@ -4,7 +4,4 @@
 	# Add Zone Details to Report.	
 	SetVariable(ZoneStatisticsDetail, 	'!ZoneStatisticsDetail!
 !ZoneStatisticsReport!
-----------------------------------------------------------
-!ZoneStepByLine!    
-----------------------------------------------------------
 ')

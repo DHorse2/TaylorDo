@@ -4,7 +4,10 @@
 # Author: David G. Horsman (DBA MacroDM) (C) 2019
 # based on MyDefrag distribution.
 
-/* System Volume Daily*/
+Title('System Volume Daily')
+Description("System Volume Daily description")
+
+/* System Volume Daily */
 SetVariable(RunDescription,"Sys Vol Daily")
 SetVariable(RunStepDescription,"Sys Vol Daily")
 !include "..\Display\DisplaySetRun.MyDc"!

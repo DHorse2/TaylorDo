@@ -2,24 +2,24 @@
 #
 # This script is part of the standard MyDefrag distribution.
 
-SetVariable(RunDescription,"Analyze only")
 Title('Analyze only')
 Description("Analyze only description")            // See the "Settings.MyD" file.
 
+SetVariable(RunDescription,"Analyze only")
 
 WhenFinished(exit)
 RememberUnmovables(no)
 
-WriteLogfile("MyDefrag.log","!Commandline!")
-AppendLogfile("MyDefrag.log","
+#dgh@Z#  Writelogfile("MyDefrag.log","!Commandline!")
+#dgh@Z#  Appendlogfile("MyDefrag.log","
 LogHeader
 ")
 
 VolumeSelect
   CommandlineVolumes()
 VolumeActions
-  AppendLogfile("MyDefrag.log","LogAnalyzeOnly")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAnalyzeOnly")
   Pause()
 VolumeEnd
 
-AppendLogfile("MyDefrag.log","LogFooter")
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

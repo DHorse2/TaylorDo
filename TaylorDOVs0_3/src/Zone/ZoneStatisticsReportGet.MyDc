@@ -16,38 +16,35 @@ SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
                   Gap!ColonWord! !ZoneGapActualCurrent! (!ZoneGapActualPerCurrent!%)
                 Total!ColonWord! !ZoneSizeActualCurrent! (!ZoneEndActualPerCurrent!%)
 
-        !FilesWord!!SlashWord!!FoldersWord!!ColonWord! !ZoneFilesFolders! (!ZoneFilesFoldersPer!%) 
+        !FilesWordCaps!!SlashWord!!FoldersWordCaps!!ColonWord! !ZoneFilesFolders! (!ZoneFilesFoldersPer!%) 
             !FragmentsWord!!ColonWord! !ZoneFragments! (!ZoneFragmentsPer!%) 
 
    !LocationWord!!ColonWord!
    ------------------------
-           !ZoneWord! !StartWord!!ColonWord! !ZoneBeginCurrent! (!ZoneBeginPerCurrent!%)
-            !FilesWord! !EndWord!!ColonWord! !ZoneEndCurrent!
-             !ZoneWord! !EndWord!!ColonWord! !ZoneEndActualCurrent! (!ZoneEndActualPerCurrent!%)
+           !ZoneWordCaps! !StartWord!!ColonWord! !ZoneBeginCurrent! (!ZoneBeginPerCurrent!%)
+            !FilesWordCaps! !EndWord!!ColonWord! !ZoneEndCurrent!
+             !ZoneWordCaps! !EndWord!!ColonWord! !ZoneEndActualCurrent! (!ZoneEndActualPerCurrent!%)
       
-   !GapWord! !SettingsWord!!ColonWord!
+   !GapWordCaps! !SettingsWord!!ColonWord!
    ------------------------
-         !GapWord! !RequestedWord!!ColonWord! !ZoneGapSizePer!%
-       !VolumeWord! !RoundingWord!!ColonWord! !ZoneVolRoundUpPer!%
-            !ActualWord! !GapWord!!ColonWord! !ZoneGapActualPerCurrent!% (!ZoneGapActualCurrent!)
+         !GapWordCaps! !RequestedWord!!ColonWord! !ZoneGapSizePer!%
+       !VolumeWordCaps! !RoundingWord!!ColonWord! !ZoneVolRoundUpPer!%
+            !ActualWord! !GapWordCaps!!ColonWord! !ZoneGapActualPerCurrent!% (!ZoneGapActualCurrent!)
                  
-               !TheWordCaps! !DesiredWord! !MinWord! !GapWord! !SizeWord!!PeriodWord! (GapRequested)!ColonWord! !ZoneGapRequestedCurrent!  (!LocWord!) !ZoneGapRequestedLocCurrent!
-              !MustWordCaps! !BeWord! !HalfWord! !TheWord! !ZoneWord! !SizeWord!!PeriodWord! (GapAdjusted)!ColonWord! !ZoneGapAdjustedCurrent!  (---) !ZoneGapAdjustedLocCurrent!
-               !AlignWord! !ToWord! !TheWord! !VolumeWord! !EvenlyWord!!PeriodWord! (GapRounded)!ColonWord! !ZoneGapRoundedCurrent!  (---) !ZoneGapRoundedLocCurrent!
+               !TheWordCaps! !DesiredWord! !MinWord! !GapWordCaps! !SizeWord!!PeriodWord! (GapRequested)!ColonWord! !ZoneGapRequestedCurrent!  (!LocWord!) !ZoneGapRequestedLocCurrent!
+              !MustWordCaps! !BeWord! !HalfWord! !TheWord! !ZoneWordCaps! !SizeWord!!PeriodWord! (GapAdjusted)!ColonWord! !ZoneGapAdjustedCurrent!  (---) !ZoneGapAdjustedLocCurrent!
+               !AlignWord! !ToWord! !TheWord! !VolumeWordCaps! !EvenlyWord!!PeriodWord! (GapRounded)!ColonWord! !ZoneGapRoundedCurrent!  (---) !ZoneGapRoundedLocCurrent!
           !TheWordCaps! !RemainingWord! !SpaceWord! !AvailableWord!!PeriodWord! (GapAvailable)!ColonWord! !ZoneGapAvailableCurrent!  (---) !ZoneGapAvailableLocCurrent!
       !TheWordCaps! !LowerWord! !OfWord! !AdjustedWord! !AndWord! !AvailableWord!!PeriodWord! (GapCurrent)!ColonWord! !ZoneGapCurrent!  (---) !ZoneGapLocCurrent!
     (GapCurrent) !AfterWord! !AnyWord! !CodeWord! !YouWord! !InsertedWord!!PeriodWord! (GapUsed)!ColonWord! !ZoneGapUsedCurrent!  (---) !ZoneGapUsedLocCurrent!
      
-   !FreeWord! !SpaceWord! !AfterWord! !ZoneWord!!ColonWord!
+   !FreeWord! !SpaceWord! !AfterWord! !ZoneWordCaps!!ColonWord!
    ------------------------
               !TotalWord! !RequestedWord!!ColonWord! !VolumeFreeRequested! (!VolumeFreeRequestedPer!%)
                    !TotalWord! !UsedWord!!ColonWord! !VolumeFreeUsed! (!VolumeFreeUsedPer!%)
-         !VolumeWord! !UsedWord! !ByWord! !ZonesWord!!ColonWord! !VolumeZoneUsed! (!VolumeZoneUsedPer!%)
+         !VolumeWordCaps! !UsedWord! !ByWord! !ZonesWord!!ColonWord! !VolumeZoneUsed! (!VolumeZoneUsedPer!%)
 
-!DirectoryWord! !AndWord! !FilesWord! !SelectWord!!ColonWord!
----------------------------
-!ZoneTypeSelectCurrent!               
----------------------------
+!DirectoryWordCaps! !AndWord! !FilesWordCaps! !SelectWord!!ColonWord!
 ----------------------------------------------------------
 ")
 #
@@ -55,5 +52,5 @@ SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
 
 SetVariable(ZoneStatisticsReport, "!ZoneStatisticsReport1! !DateNow! !TimeNow! !RunTimeNow! !ZoneStatisticsReport2!")
 
-# WriteLogfile("!LogFileName! Volume !VolumenName! Zone !ZoneNoCurrent! !ZoneCurrentDescription!", "!ZoneStatisticsReport!")
-# AppendLogfile("!LogFileName!", "!ZoneStatisticsReport!")
+# #dgh@Z#  Writelogfile("!LogFileName! Volume !VolumenName! Zone !ZoneNoCurrent! !ZoneCurrentDescription!", "!ZoneStatisticsReport!")
+# #dgh@Z#  Appendlogfile("!LogFileName!", "!ZoneStatisticsReport!")

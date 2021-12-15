@@ -13,7 +13,7 @@ SetVariable(ZoneStepDescription,	"")
 
 # Clear list of Zones processed
 # Zones processed
-SetVariable(ZoneListByLine, 		"!VolumeWord! !VolumeLabel! !StartedWord! !DateNow! !TimeNow! !RunTimeNow!!ColonWord!
+SetVariable(ZoneListByLine, 		"!VolumeWordCaps! !VolumeLabel! !StartedWord! !DateNow! !TimeNow! !RunTimeNow!!ColonWord!
 ")
 
 # Clear list of Steps processed within Zone

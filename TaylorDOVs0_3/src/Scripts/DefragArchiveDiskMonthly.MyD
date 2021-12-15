@@ -4,7 +4,10 @@
 # Author: David G. Horsman (DBA MacroDM) (OpenSource) 2019
 # based on MyDefrag distribution.
 
-/* Archive Volume Yearly*/
+Title('Archive Volume Monthly')
+Description("Archive Volume Monthly description")
+
+/* Archive Volume Monthly */
 SetVariable(RunDescription,"Archive Vol Monthly")
 SetVariable(RunStepDescription,"Archive Vol Yearly")
 !include "..\Display\DisplaySetRun.MyDc"!

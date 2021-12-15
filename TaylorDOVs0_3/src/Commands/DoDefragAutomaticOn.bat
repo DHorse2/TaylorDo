@@ -1,4 +1,6 @@
 @Echo off
+@Echo . 
+@Echo ------------------------------------------------------
 @Echo - Command: DoDefragAutomaticOn
 @Echo ------------------------------------------------------
 @Echo - Do Automatic Run

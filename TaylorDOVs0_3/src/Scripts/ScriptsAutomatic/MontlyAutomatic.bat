@@ -1,9 +1,11 @@
 @Echo off
-@Echo - Command: Defrag Monthly Disk(s) Automatic
+@Echo .
+@Echo ------------------------------------------------------
+@Echo - Command: MontlyAutomatic Defrag Monthly Disk(s) Automatic
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
-@Echo starting Defrag Monthly Disk(s) Automatic
+@Echo . starting Defrag Monthly Disk(s) Automatic
 call "..\Commands\DoDefragAutomaticOn.bat"
 "DefragSystemDiskMonthly.MyD"
 @Echo ------------------------------------------------------
@@ -16,5 +18,5 @@ call "..\Commands\DoDefragAutomaticOn.bat"
 call "..\Commands\DoDefragAutomaticOn.bat"
 "DefragArchiveDiskMonthly.MyD"
 @Echo ------------------------------------------------------
-@Echo end of Defrag Monthly Disk(s) Automatic
+@Echo . end of MontlyAutomatic Defrag Monthly Disk(s) Automatic
 @TIMEOUT /T 1 /NOBREAK

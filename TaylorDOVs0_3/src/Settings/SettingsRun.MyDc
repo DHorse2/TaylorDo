@@ -6,10 +6,12 @@
 !include "..\Display\DisplaySetDateTimeRun.MyDc"!
 SetVariable(RunId,		"C:\MyDefragLogs\!RunDescription! !RunDateTime!")
 SetVariable(Heading,	"Initializing...")
-WriteLogfile("!RunId!", "!ZoneStatisticsData!")
+#dgh@Z#  Writelogfile("!RunId!", "!ZoneStatisticsData!")
+
 /* ------------------------- */
 # Run Preprocessing Do Before.
 !include "..\Settings\SettingsRu$ DoBefore.MyDc"!
+
 /* ------------------------- */
 SetVariable(SeverStepDescription,	"")
 SetVariable(VolumeStepDescription,	"")
@@ -123,6 +125,7 @@ SetVariable(DisplayUnitDivisor, 	1)
 	!include "..\Volume\VolumeDoCurrentClear.MyDc"!
 	  
 	SetVariable(VolumeLabel,		"!VolumeLabelDefault!")
+	SetVariable(VolumeMountPoint,	"!VolumeLabelDefault!")
 	SetVariable(VolumeDescription,	"")
 	SetVariable(VolumeUsedTotal,	0)
 	Title("")
@@ -160,8 +163,12 @@ SetVariable(DisplayUnitDivisor, 	1)
 	/* 		or    			*/
 	/* VOLUME NAME (one only for override) in SettingsYours\SettingsYoursVolume.MyDc */
 	/* 		or here also 	*/
+	SetVariable(AnyVolume,"!VolumeNamePrefix!!NotSet!")
 	SetVariable(VolumeSys,"!VolumeNamePrefix!Sys")
 	SetVariable(VolumeDev,"!VolumeNamePrefix!Dev")
+	SetVariable(VolumeData,"!VolumeNamePrefix!Data")
+	SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive")
+	
 
 	/* SetVariable(VolumeSys,"C:") */
 	/* SetVariable(VolumeDev,"E:") */
@@ -169,9 +176,6 @@ SetVariable(DisplayUnitDivisor, 	1)
 	/* These are for dedicated disks. */
 	/* So it means JUST Data or JUST Archives. */
 
-	SetVariable(VolumeData,"!VolumeNamePrefix!Data")
-	SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive")
-	
 	!include "..\Settings\SettingsYours\SettingsYoursSysVolumeNames.MyDc"!
 
 /* ------------------------- */
@@ -385,20 +389,20 @@ SetVariable(DisplayUnitDivisor, 	1)
 /* Write the header to the logfile. */
 	!include "..\Display\BannerSet.MyDc"!
 
-	WriteLogfile("!LogFileName!", "Log File: !LogFileName! Started.")
+	#dgh@Z#  Writelogfile("!LogFileName!", "Log File: !LogFileName! Started.")
 	!include "..\Display\BannerLog.MyDc"!
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 
 /* ------------------------- */
 /* Script Information */
-	AppendLogfile("!LogFileName!", "!Description! !StartedWord!: !Date! !Time!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "!ScriptWord!:")
-	AppendLogfile("!LogFileName!", "!ScriptTitle!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "!ScriptWord! !DirectoryWord!:")
-	AppendLogfile("!LogFileName!", "!ScriptDir!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "!LogWord! !FileWord!:")
-	AppendLogfile("!LogFileName!", "!LogFileName!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! !StartedWord!: !Date! !Time!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptWordCaps!:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptTitle!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptWordCaps! !DirectoryWordCaps!:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptDir!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!LogWord! !FileWordCaps!:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!LogFileName!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")

@@ -4,7 +4,10 @@
 # Author: David G. Horsman (DBA MacroDM) (OpenSource) 2019
 # based on MyDefrag distribution.
 
-/* Archive Volume Weekly*/
+Title('Archive Volume Weekly')
+Description("Archive Volume Weekly description")
+
+/* Archive Volume Weekly */
 SetVariable(RunDescription,"Archive Vol Weekly")
 SetVariable(RunStepDescription,"Archive Vol Weekly")
 !include "..\Display\DisplaySetRun.MyDc"!

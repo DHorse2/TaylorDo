@@ -1,4 +1,6 @@
 @Echo off
+@Echo . 
+@Echo ------------------------------------------------------
 @Echo - Command: DoDefragAutomaticOff
 @Echo ------------------------------------------------------
 @Echo - Do Interactive Run

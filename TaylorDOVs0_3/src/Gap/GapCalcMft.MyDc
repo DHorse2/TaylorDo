@@ -2,6 +2,6 @@
 	/* AddGap Variants */
 	/* MFT Low High Method */
 	SetVariable(GapRequestedMft, (100 - MftPer) * (VolumeFreeAdj * ZoneGapSize) )
-	AppendLogfile("!LogFileName!", " Mft Gap size: !GapRequestedMft!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", " Mft Gap size: !GapRequestedMft!")
 	SetVariable(GapRequested, GapRequestedMft)
 	

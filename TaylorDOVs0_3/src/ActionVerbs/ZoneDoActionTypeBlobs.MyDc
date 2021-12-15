@@ -1,3 +1,2 @@
-# File Action - Type Blobs - Fast - MoveUpToZone.
-	MoveUpToZone()
-	
+# File Action - Blobs - Full -  SortByCreationDate
+!include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!

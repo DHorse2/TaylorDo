@@ -4,8 +4,11 @@
 # Author: David G. Horsman (DBA MacroDM) (OpenSource) 2019
 # based on MyDefrag distribution.
 
-/* Data Volume Yearly*/
-SetVariable(RunDescription,"!DataWord! !VolWord! !YearlyWord!")
+Title('Data Volume Yearly')
+Description("Data Volume Yearly description")
+
+/* Data Volume Yearly */
+SetVariable(RunDescription,"!DataWordCaps! !VolWord! !YearlyWord!")
 SetVariable(RunStepDescription,"!RunDescription!")
 !include "..\Display\DisplaySetRun.MyDc"!
 

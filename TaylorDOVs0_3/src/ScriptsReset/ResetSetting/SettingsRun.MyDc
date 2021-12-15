@@ -6,7 +6,7 @@
 !include "..\Display\DisplaySetDateTimeRun.MyDc"!
 SetVariable(RunId,		"C:\MyDefragLogs\!RunDescription! !RunDateTime!")
 SetVariable(Heading,	"Initializing...")
-WriteLogfile("!RunId!", "!ZoneStatisticsData!")
+#dgh@Z#  Writelogfile("!RunId!", "!ZoneStatisticsData!")
 
 !include "..\Settings\SettingsSysProcessPriority.MyDc"!
 !include "..\Settings\SettingsSysExitIfTimeout.MyDc"!
@@ -110,6 +110,7 @@ SetVariable(DisplayUnitDivisor, 	1)
 	!include "..\Volume\VolumeDoCurrentClear.MyDc"!
 	  
 	SetVariable(VolumeLabel,		"NotSet")
+	SetVariable(VolumeLabelSelect,	"NotSet")
 	SetVariable(VolumeDescription,	"")
 	SetVariable(VolumeUsedTotal,	0)
 	Title("")
@@ -198,7 +199,7 @@ SetVariable(DisplayUnitDivisor, 	1)
 	SetVariable(ZoneNoCurrentAdjust, 	0) 
 	SetVariable(ZoneNoDisplay,			0) 
 
-	SetVariable(ZoneListByLine, 		"!VolumeWord! !VolumeLabel! !StartedWord!!PeiordWord!
+	SetVariable(ZoneListByLine, 		"!VolumeWordCaps! !VolumeLabel! !StartedWord!!PeiordWord!
 ")
 	SetVariable(ZoneStepByLine, 		"!InitializeWord!!PeiordWord!
 ")
@@ -365,23 +366,23 @@ SetVariable(DisplayUnitDivisor, 	1)
 /* Write the header to the logfile. */
 	!include "..\Display\BannerSet.MyDc"!
 
-	WriteLogfile("!LogFileName!", "Log File: !LogFileName! !StartedWord!!PeiordWord!")
+	#dgh@Z#  Writelogfile("!LogFileName!", "Log File: !LogFileName! !StartedWord!!PeiordWord!")
 	!include "..\Display\BannerLog.MyDc"!
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 
 /* ------------------------- */
 /* Script Information */
-	AppendLogfile("!LogFileName!", "!Description! !StartedWord!!ColondWord! !Date! !Time!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "!ScriptWord!:")
-	AppendLogfile("!LogFileName!", "!ScriptTitle!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "!ScriptWord! Directory:")
-	AppendLogfile("!LogFileName!", "!ScriptDir!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
-	AppendLogfile("!LogFileName!", "Log File:")
-	AppendLogfile("!LogFileName!", "!LogFileName!")
-	AppendLogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! !StartedWord!!ColondWord! !Date! !Time!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptWordCaps!:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptTitle!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptWordCaps! Directory:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptDir!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "Log File:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!LogFileName!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 
 /* ------------------------- */
 # Run Preprocessing Do Before.

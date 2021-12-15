@@ -1,12 +1,14 @@
-# Defrag Data Volume
+# Script: DefragVolumeData # Defrag Data Volume
 
-SetVariable(VolumeLabel,"!VolumeData!")
-SetVariable(VolumeDescription,"!DataWord! !AndWord! !DatabasesWord!")
+SetVariable(VolumeLabel,		"!VolumeData!")
+SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeData.MyDc"!')
+
+VolumeTypeDevSetVariable(VolumeDescription,"!DataWordCaps! !AndWord! !DatabasesWordCaps!")
 !include "..\Display\DisplaySetVolume.MyDc"!
 
 !include "..\Settings\SettingsRunVolume.MyDc"!
 
-SetVariable(MftZone, "!SharesWord!")
+SetVariable(MftZone,			"!SharesWordCaps!")
 
 !include "..\Settings\SettingsYours\SettingsYoursData.MyDc"!
 

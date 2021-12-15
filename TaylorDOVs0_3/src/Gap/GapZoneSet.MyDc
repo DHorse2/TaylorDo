@@ -18,7 +18,7 @@
 
 	SetVariable(GapRequestedLoc, ZoneEnd + GapRequested)
 
-	AppendLogfile("!LogFileName!", "  Gap requested: !GapRequested! at !GapRequestedLoc!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap requested: !GapRequested! at !GapRequestedLoc!")
 
 /* ------------------------- */
 /* 3) SMALL ZONE ADJUSTMENT. */
@@ -28,7 +28,7 @@
 	
 	SetVariable(GapAdjustedLoc, ZoneEnd + GapAdjusted)
 
-	AppendLogfile("!LogFileName!", "  Gap adjusted: !GapAdjusted! at !GapAdjustedLoc!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap adjusted: !GapAdjusted! at !GapAdjustedLoc!")
 
 /* ------------------------- */
 /* 4) VOLUME ROUND UP: to round Volume even numbers to prevent constant zone moves. */
@@ -38,7 +38,7 @@
 	
 	SetVariable(GapRounded, GapRoundedLoc - ZoneEnd)
 
-	AppendLogfile("!LogFileName!", "  Gap rounded: !GapRounded! at !GapRoundedLoc!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap rounded: !GapRounded! at !GapRoundedLoc!")
 
 /* ------------------------- */
 # BYPASS THIS.
@@ -48,7 +48,8 @@
 	/* X) OVERFLOW: Adjust for previous zone overflow. */
 		# Zone Overflow.
 		# SetVariable(GapAdjusted, GapRounded + VolumeFreeRequested - VolumeFreeUsed)
-			# AppendLogfile("!LogFileName!", "  Gap adjusted: !GapAdjusted! (VolumeFreeRequested # !VolumeFreeRequested! 			        # VolumeFreeUsed !				# VolumeFreeUsed!)")
+			SetVariable(LogBlock, 			"  Gap adjusted: !GapAdjusted! (VolumeFreeRequested # !VolumeFreeRequested! 			        # VolumeFreeUsed !				# VolumeFreeUsed!)")
+			# #dgh@Z#  Appendlogfile("!LogFileName!", '!LogBlock!')
 
 /* ------------------------- */
 /* 5) END OF VOLUME: Adjust for total remaining volume space available. */
@@ -58,7 +59,7 @@
 	
 	SetVariable(GapAvailable, GapAvailableLoc - ZoneEnd)
 
-	AppendLogfile("!LogFileName!", "  Gap adjusted: !GapAvailable! at !GapAvailableLoc!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap adjusted: !GapAvailable! at !GapAvailableLoc!")
 
 /* ------------------------- */
 # CURRENT gap to use.

@@ -8,14 +8,14 @@ Move all the files and directories to the end of the selected disk(s).
 ')
 
 
-WriteLogfile("MyDefrag.log","LogHeader")
+#dgh@Z#  Writelogfile("MyDefrag.log","LogHeader")
 
 # Analyze the volume and move the not-excluded files to the end of the disk.
 VolumeSelect
   CommandlineVolumes()
 VolumeActions
 
-  AppendLogfile("MyDefrag.log","LogBefore")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogBefore")
 
   /* Place your normal zones here. The zone with files at the end of the
      disk must be the last zone. */
@@ -28,8 +28,8 @@ VolumeActions
     MoveToEndOfDisk()
   FileEnd
 
-  AppendLogfile("MyDefrag.log","LogAfter")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAfter")
 
 VolumeEnd
 
-AppendLogfile("MyDefrag.log","LogFooter")
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

@@ -1,0 +1,14 @@
+# Script: ZoneStatisticsAdd
+# Append Zone to Details of each zone.
+		
+	# Add Zone Details to Report.	
+	SetVariable(ZoneStatisticsDetail, 	'!ZoneStatisticsDetail!
+----------------------------------------------------------
+!ZoneStepByLine!
+---------------------------
+!ZoneTypeSelectCurrent!               
+---------------------------
+----------------------------------------------------------
+!EndWordCaps! !OfWord! !ZoneWordCaps!!PeriodWord!
+----------------------------------------------------------
+')

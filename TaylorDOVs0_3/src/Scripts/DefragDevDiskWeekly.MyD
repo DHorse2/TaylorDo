@@ -4,7 +4,10 @@
 # Author: David G. Horsman (DBA MacroDM) (C) 2019
 # based on MyDefrag distribution.
 
-/* Development Volume Weekly*/
+Title('Development Volume Weekly')
+Description("Development Volume Weekly description")
+
+/* Development Volume Weekly */
 SetVariable(RunDescription,"Dev Vol Weekly")
 SetVariable(RunStepDescription,"Dev Vol Weekly")
 !include "..\Display\DisplaySetRun.MyDc"!

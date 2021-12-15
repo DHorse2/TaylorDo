@@ -1,9 +1,13 @@
 # Script: ZoneDo ZoneTypeSelectBlobs
 # Blobs start.
+(
 !include "..\FileSelectCategory\SelNotArchivesBu.MyDs"!
 # Blobs
 and ( 
 !include "..\FileSelectCategory\SelBlobs.MyDs"!
+) 
 # Blobs
+and not(FileName("ReferenceMarker.MyDx"))
 )
+# NotBlobsArchivesBu
 # Blobs end.

@@ -5,7 +5,7 @@
 SetVariable(Section, '"Top","Server","VOLUME","Headings"')
 
 # Category
-SetVariable(CategoryHeadingText, 			'"!CategoryWord!","!UnfragmentedWord!","!FragmentedWord!","!AllWord!"')
+SetVariable(CategoryHeadingText, 			'"!CategoryWordCaps!","!UnfragmentedWord!","!FragmentedWord!","!AllWord!"')
 SetVariable(CategoryHeadingSeperator, 		'"--------------","-----------------","-----------------","-----------------"')
 
 SetVariable(SizeHeading2, 			'"!BytesWord!","!GigabytesWord!","!PercentSymbolWord! !OfWord! !AllWord!"')
@@ -25,7 +25,7 @@ SetVariable(VolSizeB, 				'"VolSizeB",!VolumeSize!')
 SetVariable(VolSizeGb, 				'"VolSizeGb","!VolumeSizeG!')
 SetVariable(VolSizeMft,				'"Mft",!MftSize!')
 
-SetVariable(VolClusterSeekDesc,				'"!ClustersWord! !AndWord! !SeeksWord!"')
+SetVariable(VolClusterSeekDesc,				'"!ClustersWordCaps! !AndWord! !SeeksWord!"')
 SetVariable(VolBytesPerCluster, 			'"VolBytesPerCluster",!BytesPerCluster!')
 SetVariable(VolAverageEndBeginDistance, 	'"VolAverageEndBeginDistance",!AverageBeginEndDistance!')
 SetVariable(VolAverageBeginEndDistanceP, 	'"VolAverageBeginEndDistanceP",!AverageBeginEndDistanceP!)')
@@ -35,7 +35,7 @@ SetVariable(Section, '"Top","Server","VOLUME","Statistics"')
 /* ------------------------- */
 SetVariable(Section, '"Top","Server","VOLUME","Statistics","Counts"')
 
-SetVariable(VolItemCountDesc, 			'"!CountsWord!!ColonWord! !TheWordCaps! !NumberWord! !OfWord! !FilesWord! !AndWord! !FoldersWord!"')
+SetVariable(VolItemCountDesc, 			'"!CountsWord!!ColonWord! !TheWordCaps! !NumberWord! !OfWord! !FilesWordCaps! !AndWord! !FoldersWordCaps!"')
 
 SetVariable(Section, '"Top","Server","VOLUME","Statistics","Counts","Total"')
 SetVariable(VolCountFiles, 				'"VolCountFiles",!FILES000N!,!FILES010N!,!FILES020N!')

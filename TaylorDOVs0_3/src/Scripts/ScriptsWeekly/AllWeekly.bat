@@ -1,16 +1,26 @@
 @Echo off
-@Echo - Command: Defrag All Disk(s) Weekly
+@Echo .
+@Echo ------------------------------------------------------
+@Echo - Command: AllWeekly Defrag All Disk(s) Weekly
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
+@Echo . starting Defrag Weekly Disk(s) 
 cd ..
-call "..\Commands\DoStateSave.bat"
+@Echo . System Disks
+"DefragSystemDiskWeekly.MyD"
 @Echo ------------------------------------------------------
+@Echo . Dev Disks
+"DefragDevDiskWeekly.MyD"
+@Echo ------------------------------------------------------
+@Echo . Data Disks
+"DefragDataDiskWeekly.MyD"
+@Echo ------------------------------------------------------
+@Echo . Archive Disks
+"DefragArchiveDiskWeekly.MyD"
+@Echo ------------------------------------------------------
+@Echo . end of Defrag Weekly Disk(s)
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
-call "..\Commands\DoDefragRegular.bat"
-@Echo ------------------------------------------------------
+@Echo . end of AllWeekly Defrag All Disk(s) Weekly
 @TIMEOUT /T 1 /NOBREAK
-@Echo ------------------------------------------------------
-@Echo starting Defrag All Disk(s) Weekly
-"DefragAllDiskWeekly.MyD"

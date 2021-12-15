@@ -3,7 +3,7 @@
 	/* Standard */
 
 	SetVariable(GapRequestedStd, VolumeFreeAdj * ZoneGapSize)
-	AppendLogfile("!LogFileName!", " Std Gap size: !GapRequestedStd!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", " Std Gap size: !GapRequestedStd!")
 
 	SetVariable(GapRequested, GapRequestedStd)
 	

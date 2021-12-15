@@ -1,9 +1,10 @@
-/* XXXXXXXXXXXX ToDo Zone numbering errors still XXXXXXXXXXXXX */
 # Script: DefragAnyComplexVolume
 /* Complex Volume */
 # MyDefrag v4.0 script: Defrag Complex (Mixed or Any) Volume.
 
 !include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+
+SetVariable(MftZone, "!DevWordCaps!")
 
 !include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
 SetStatisticsWindowText("!VolumeStatisticsSummary!")
@@ -19,16 +20,23 @@ Analyzing Volume.
 !include "..\Display\DisplaySetZoneStep.MyDc"!
 /* ------------------------- */
 /* ------------------------- */
+	# (Label("!VolumeLabel!") or Name("!VolumeLabel!") 
 VolumeSelect
-	Label("!VolumeLabel!") or Name("!VolumeLabel!")
+	(
+	!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!
+	 # or CommandlineVolumes()
+	 )
+	 and Writable(yes) 
+	 and Mounted(yes)
 /* ------------------------- */
 VolumeActions
 /* ------------------------- */
 /* Volume Init */
+SetVariable(VolumeLabel,			MountPoint)
 !include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
 SetStatisticsWindowText("!VolumeStatisticsSummary!")
 SetVariable(ZoneStepDescription,	"!VolumeStartDescription!")
-SetVariable(ZoneStepDescription,	"!AnalyzeWord!")
+SetVariable(ZoneStepDescription,	"!AnalyzeWordCaps!")
 !include "..\Display\DisplaySetZoneStep.MyDc"!
 
 !include "..\Volume\VolumeWhenStarted.MyDc"!
@@ -103,17 +111,22 @@ SetVariable(ZoneStepDescription,	"!AnalyzeWord!")
 !include "..\Display\DisplayColorsZoneLight.MyDc"!
 !include "..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
 /* ------------------------- */
+/* ------------------------- */
+/* 13 (99) Zone 21 Unallocated (All) Directories and Files */
+!include "..\Display\DisplayColorsZoneLight.MyDc"!
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
+/* ------------------------- */
 /* Volume End */
 !include "..\Volume\VolumeWhenFinished.MyDc"!
 
 VolumeEnd
 
 /* ------------------------- */
-AppendLogfile("!LogFileName!", "!PeriodWord!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 !include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
-SetVariable(ZoneStepDescription,"!Description! !ComplexWord! !VolumeWord! !EndWord!!ColonWord! !DateNow! !TimeNow! !RunTimeNow!.")
+SetVariable(ZoneStepDescription,"!Description! !ComplexWord! !VolumeWordCaps! !EndWord!!ColonWord! !DateNow! !TimeNow! !RunTimeNow!.")
 !include "..\Display\BannerDescriptionSet.MyDc"!
-AppendLogfile("!LogFileName!", "!PeriodWord!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 
 /* ------------------------- */
 # End. ;-) (Return to caller lovely nubes, only MyD's get executed.)

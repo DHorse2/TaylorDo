@@ -30,10 +30,10 @@ SetVariable(VolumeFooter,     "!VolumeStatisticsSummary!")
 
 SetVariable(VolumeKeyCurr, "!LogFileName! !VolumeCurrentDescription!")
 
-WriteLogfile("!VolumeKeyCurr!", "!VolumeFooter!")
+#dgh@Z#  Writelogfile("!VolumeKeyCurr!", "!VolumeFooter!")
 
-# WriteLogfile("!VolumeKeyCurr! part1", "!VolumeFooter1!")
-# WriteLogfile("!VolumeKeyCurr! part2", "!VolumeFooter2!")
+# #dgh@Z#  Writelogfile("!VolumeKeyCurr! part1", "!VolumeFooter1!")
+# #dgh@Z#  Writelogfile("!VolumeKeyCurr! part2", "!VolumeFooter2!")
 # RunProgram("..\Commands\WriteDateTime.bat LastVolume")
 
 RunProgram("Echo","!VolumeFooter1! > !VolumeKeyCurr!.log")

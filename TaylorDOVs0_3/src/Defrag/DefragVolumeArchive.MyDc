@@ -1,12 +1,14 @@
-# Defrag Archive Volume
+# Script: DefragVolumeArchive # Defrag Archive Volume
 
 SetVariable(VolumeLabel,"!VolumeArchive!")
-SetVariable(VolumeDescription,"!ArchivesWord! !AndWord! !BackupWord!")
+SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeArchive.MyDc"!')
+
+SetVariable(VolumeDescription,"!ArchivesWordCaps! !AndWord! !BackupWordCaps!")
 SetVariable(RunStepDescription,"!RunDescription!")
 
 !include "..\Settings\SettingsRunVolume.MyDc"!
 
-SetVariable(MftZone, "!SharesWord!")
+SetVariable(MftZone, "!SharesWordCaps!")
 
 !include "..\Settings\SettingsYours\SettingsYoursArchive.MyDc"!
 

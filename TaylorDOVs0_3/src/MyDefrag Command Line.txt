@@ -49,4 +49,4 @@ Weekly -v F:
 For example:
 MyDefrag.exe -d 3
 Also see: the *  Debug setting.
-Note: The debug logfile is highly technical. See the *  WriteLogfile and *  AppendLogfile script commands to create a logfile more suitable for users. 
+Note: The debug logfile is highly technical. See the *  #dgh@Z#  Writelogfile and *  #dgh@Z#  Appendlogfile script commands to create a logfile more suitable for users. 

@@ -21,7 +21,7 @@
 //Debug(447)            /* Same as 431 plus scripting high-detail information messages. */
 //Debug(495)            /* Same as 431 plus volume analysis high-detail information messages. */
 #
-Debug(31)
+Debug(16)
 #
 #
 !include "..\Settings\SettingsYours\SettingsYoursSysDebugLevel.MyDc"!

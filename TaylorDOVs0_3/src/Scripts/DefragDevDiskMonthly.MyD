@@ -4,7 +4,10 @@
 # Author: David G. Horsman (DBA MacroDM) (FOSS) 2019
 # based on MyDefrag distribution.
 
-/* Development Volume Monthly*/
+Title('Development Volume Monthly')
+Description("Development Volume Monthly description")
+
+/* Development Volume Monthly */
 SetVariable(RunDescription,"Dev Vol Monthly")
 SetVariable(RunStepDescription,"Dev Vol Monthly")
 !include "..\Display\DisplaySetRun.MyDc"!

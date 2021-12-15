@@ -1,7 +1,6 @@
-# Script: ZoneSetWindowText
+# Script: DisplaySetWindowText
 # Zone Footer Set Statistics Window Text
-
-SetStatisticsWindowText("!Heading!
+SetVariable(StatisticsWindowText, '!Heading!
 ----------------------------------------------------------
 Zones Processed: 
 ----------------------------------------------------------
@@ -26,5 +25,8 @@ Zone Detailed Report:
 ----------------------------------------------------------
 !ZoneStatisticsDetail!
 ----------------------------------------------------------
-")
+')
 
+SetStatisticsWindowText('!StatisticsWindowText!')
+
+Writelogfile("MyDefrag.TaylorDoLog",	'!StatisticsWindowText!')

@@ -10,26 +10,25 @@ SetStatisticsWindowText("!VolumeStatisticsSummary!")
 SetVariable(ZoneStepDescription,"!VolumeLabel! !VolumeDescription! started: !DateNow! !TimeNow! !RunTimeNow!.")
 !include "..\Display\DisplaySetZoneStep.MyDc"!
 
-SetVariable(ZoneStepDescription,"!AnalyzingWord! !VolumeWord!")
+SetVariable(ZoneStepDescription,"!AnalyzingWord! !VolumeWordCaps!")
 !include "..\Display\DisplaySetZoneStep.MyDc"!
 
 /* ------------------------- */
+	# (Label("!VolumeLabel!") or Name("!VolumeLabel!") 
 VolumeSelect
-
-	{Label("!VolumeLabel!") or Name("!VolumeLabel!") 
-	or CommandlineVolumes}
+	(!include "..\ActionVerbs\VolumeTypeSelect.MyDc"! 
+	or CommandlineVolumes()) 
 	and Writable(yes) and Mounted(yes)
-
 /* ------------------------- */
 VolumeActions
-
 /* ------------------------- */
 /* Volume Init */
+SetVariable(VolumeLabel,			MountPoint)
 !include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
 SetStatisticsWindowText("!VolumeStatisticsSummary!")
 
-SetVariable(ZoneStepDescription,"Volume started.")
-SetVariable(ZoneStepDescription,"Analze.")
+SetVariable(ZoneStepDescription,	"Volume started.")
+SetVariable(ZoneStepDescription,	"Analze.")
 !include "..\Display\DisplaySetZoneStep.MyDc"!
 
 !include "..\Volume\VolumeWhenStarted.MyDc"!
@@ -75,5 +74,5 @@ SetVariable(ZoneStepDescription,"Analze.")
 VolumeEnd
 /* ------------------------- */
 
-AppendLogfile("!LogFileName!", "!Description! Basic Volume end: !DateNow! !TimeNow! !RunTimeNow!")
-AppendLogfile("!LogFileName!", "!PeriodWord!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! Basic Volume end: !DateNow! !TimeNow! !RunTimeNow!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")

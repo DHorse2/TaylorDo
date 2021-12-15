@@ -1,6 +1,6 @@
 # Script: SettingsRu$ DoBefore
 # The structured naming convention uses a $ to show
-# order of execution.
+# order of execution in explorer name sorted views.
 #
 # Bad attempt at internationalization
   !include "..\Settings\SettingsRunLanguage.MyDc"!

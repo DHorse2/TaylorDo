@@ -12,7 +12,8 @@ SetVariable(VolumeStepSummary,		"")
 SetVariable(ZoneStepSummary,		"")
 SetVariable(ZoneStepSummary,		"")
 
-
+SetVariable(VolumeLabel,			'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
+SetVariable(VolumeLabelSelect,		'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
 SetVariable(VolumeStatisticsDetail, 	"")
 
 SetVariable(ZoneListByLine, 			"!RunWord! !StartWord!!PeriodWord!")

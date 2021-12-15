@@ -1,0 +1,21 @@
+# MyDefrag v4.0 script: Development Volume Monthly defrag
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (FOSS) 2019
+# based on MyDefrag distribution.
+
+Title('Any Volume Monthly')
+Description("Any Volume Monthly description")
+
+/* Any Vol Monthly */
+SetVariable(RunDescription,			"Any Vol Monthly")
+SetVariable(RunStepDescription,		"Any Vol Monthly")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* Use the SkipBlock values for a Monthly run: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesMonth!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
+
+!include "..\Defrag\DefragAnyVolume.MyDc"!

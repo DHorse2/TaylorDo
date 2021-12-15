@@ -54,8 +54,8 @@ SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 SetVariable(VolumeDescriptionBlock, "!VolumeDescriptionBlock!
 .")
 
-WriteLogfile("!LogFileName! Volume !VolumenName! !RunDescription! !DateNow! !TimeNow!","!VolumeDescriptionBlock!")
-AppendLogfile("!LogFileName!","!VolumeDescriptionBlock!")
+#dgh@Z#  Writelogfile("!LogFileName! Volume !VolumenName! !RunDescription! !DateNow! !TimeNow!","!VolumeDescriptionBlock!")
+#dgh@Z#  Appendlogfile("!LogFileName!","!VolumeDescriptionBlock!")
 
 # In program statistics window (view):
 SetStatisticsWindowText("!VolumeDescriptionBlock!")

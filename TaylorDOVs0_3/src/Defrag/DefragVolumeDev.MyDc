@@ -1,13 +1,14 @@
-# Script: DefragVolumeDev
-# Defrag Development Volume
+# Script: DefragVolumeDev # Defrag Development Volume
 
-SetVariable(VolumeLabel,			"!VolumeDev!")
-SetVariable(VolumeDescription,		"!DevelopmentWord!")
+SetVariable(VolumeLabel,		"!VolumeDev!")
+SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeDev.MyDc"!')
+
+SetVariable(VolumeDescription,	"!DevelopmentWordCaps!")
 !include "..\Display\DisplaySetVolume.MyDc"!
 
 !include "..\Settings\SettingsRunVolume.MyDc"!
 
-SetVariable(MftZone, "!ProgramsWord!")
+SetVariable(MftZone,			"!ProgramsWordCaps!")
 
 !include "..\Settings\SettingsYours\SettingsYoursDev.MyDc"!
 

@@ -3,4 +3,4 @@
 	# SetVariable(ServerName,"PcAny")
     /* System99 */
 # SET
-SetVariable(ServerName,"RavenPc")
+SetVariable(ServerName,"ThisPc")

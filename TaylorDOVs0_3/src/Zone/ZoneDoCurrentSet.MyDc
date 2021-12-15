@@ -59,6 +59,6 @@
 	SetVariable(ZoneFreeRequestedPer, 		ZoneGapRequested / VolumeFreeRequested * 100)
 
 	!include "..\Zone\ZoneStatisticsReportGet.MyDc"!
-	!include "..\Zone\ZoneSetWindowText.MyDc"!
+	!include "..\Display\DisplaySetWindowText.MyDc"!
 	
 	SetVariable(ZoneEndCurrentGapped,		ZoneBeginCurrent + ZoneSizeActualCurrent)

@@ -4,8 +4,11 @@
 # Author: David G. Horsman (DBA MacroDM) (FOSS) 2019
 # based on MyDefrag distribution.
 
-/* Development Volume Yearly*/
-SetVariable(RunDescription,"!DevWord! !DevWord! !YearlyWord!")
+Title('Development Volume Yearly')
+Description("Development Volume Yearly description")
+
+/* Development Volume Yearly */
+SetVariable(RunDescription,"!DevWordCaps! !DevWordCaps! !YearlyWord!")
 SetVariable(RunStepDescription,"!RunDescription!")
 !include "..\Display\DisplaySetRun.MyDc"!
 

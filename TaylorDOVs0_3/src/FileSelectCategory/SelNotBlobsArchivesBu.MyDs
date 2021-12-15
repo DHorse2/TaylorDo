@@ -1,4 +1,5 @@
 # NotBlobsArchivesBu start.
+# NOT!
 (not (
 !include "..\FileSelectCategory\SelBlobs.MyDs"!
 # NotBlobsArchivesBu

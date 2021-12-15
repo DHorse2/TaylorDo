@@ -1,2 +1,2 @@
-AppendLogfile("!LogFileName!", "!Heading!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!Heading!")
 
