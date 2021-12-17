@@ -300,6 +300,12 @@ Section "Matt Taylor Libraries" TaylorLibraries
     ;--------------------------------
     ; TODO Start Menu
     ; $INSTDIR\?\?
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Commands"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsByDrive"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsAutomatic"'
+
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Daily.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptDaily"'
 
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptWeekly"'
