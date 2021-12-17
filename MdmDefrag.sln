@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		TaylorDOVs0_3\src\QuickStart.md = TaylorDOVs0_3\src\QuickStart.md
+		TaylorDOVs0_3\src\ReadMe.md = TaylorDOVs0_3\src\ReadMe.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaylorDoUi", "TaylorDoUi\TaylorDoUi.csproj", "{C795E267-88CC-40A2-B371-6E8B64C806F5}"
@@ -14,6 +16,19 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaylorDoVs0_3", "TaylorDOVs0_3\TaylorDoVs0_3.csproj", "{1AA7B984-805A-4FC4-AC79-4EED6AD47BE4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdmSysTools", "MdmSysTools\MdmSysTools.csproj", "{4314CD82-23CB-4C35-907D-3E85256C27E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WsGithubIo", "WsGithubIo", "{049E7C7B-01AE-4E58-BFC4-33EA83256A8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{A7946327-49CA-44E6-A5EF-23898AB6990B}"
+	ProjectSection(SolutionItems) = preProject
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{9637CF9A-DCF3-4996-A5B7-FAAA2943AD31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "temp1", "temp1", "{A66C865A-1181-4CE2-ACB0-246E4CF4A247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WsGithubIo", "WsGithubIo\WsGithubIo.csproj", "{DECAD1D0-0EBC-4239-863C-323CE661843F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,9 +96,35 @@ Global
 		{4314CD82-23CB-4C35-907D-3E85256C27E5}.Release|x64.Build.0 = Release|Any CPU
 		{4314CD82-23CB-4C35-907D-3E85256C27E5}.Release|x86.ActiveCfg = Release|Any CPU
 		{4314CD82-23CB-4C35-907D-3E85256C27E5}.Release|x86.Build.0 = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|ARM.Build.0 = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|x64.Build.0 = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Debug|x86.Build.0 = Debug|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|ARM.Build.0 = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|ARM64.Build.0 = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|x64.ActiveCfg = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|x64.Build.0 = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|x86.ActiveCfg = Release|Any CPU
+		{DECAD1D0-0EBC-4239-863C-323CE661843F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{049E7C7B-01AE-4E58-BFC4-33EA83256A8E} = {EE76C910-B9B5-4A63-B72F-AEAF4BDCC40D}
+		{A7946327-49CA-44E6-A5EF-23898AB6990B} = {049E7C7B-01AE-4E58-BFC4-33EA83256A8E}
+		{9637CF9A-DCF3-4996-A5B7-FAAA2943AD31} = {EE76C910-B9B5-4A63-B72F-AEAF4BDCC40D}
+		{A66C865A-1181-4CE2-ACB0-246E4CF4A247} = {9637CF9A-DCF3-4996-A5B7-FAAA2943AD31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A31A2EF5-B457-4E48-9549-7888A0C8817B}

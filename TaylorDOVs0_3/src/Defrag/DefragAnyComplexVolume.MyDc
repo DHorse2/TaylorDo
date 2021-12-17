@@ -124,7 +124,7 @@ VolumeEnd
 /* ------------------------- */
 #dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 !include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
-SetVariable(ZoneStepDescription,"!Description! !ComplexWord! !VolumeWordCaps! !EndWord!!ColonWord! !DateNow! !TimeNow! !RunTimeNow!.")
+SetVariable(ZoneStepDescription,"!Description! !ComplexWordCaps! !VolumeWordCaps! !EndWord!!ColonWord! !DateNow! !TimeNow! !RunTimeNow!.")
 !include "..\Display\BannerDescriptionSet.MyDc"!
 #dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
 

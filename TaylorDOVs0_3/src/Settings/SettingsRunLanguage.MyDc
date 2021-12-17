@@ -18,23 +18,32 @@ SetVariable(VolumeLabelDefault,					"!NotSet!")
 # Process
 SetVariable(GapWord,							"gap")
 SetVariable(GapWordCaps,						"Gap")
+
 SetVariable(MountpointWord,						"mountpoint")
+
 SetVariable(StepWord,							"step")
 SetVariable(StepWordCaps,						"Step")
+
 SetVariable(ScriptWord,							"script")
 SetVariable(ScriptWordCaps,						"Script")
+
 SetVariable(VolWord,							"Vol")
+
 SetVariable(VolumeWord,							"volume")
 SetVariable(VolumeWordCaps,						"Volume")
+
 SetVariable(ZoneWord,							"zone")
 SetVariable(ZoneWordCaps,						"Zone")
+
 SetVariable(ZonesWord,							"Zones")
 
+/* ------------------------- */
 # Date/Time
 SetVariable(DateWord,							"Date")
 SetVariable(ElapsedWord,						"Elapsed")
 SetVariable(TimeWord,							"Time")
 
+/* ------------------------- */
 # Punctuation
 SetVariable(AndWord,							"&")
 SetVariable(BackslashWord,						"\")
@@ -47,12 +56,22 @@ SetVariable(PeriodWord,							".")
 SetVariable(SemicolonWord,						";")
 SetVariable(SlashWord,							"/")
 
+/* ------------------------- */
 # Volume Modes
-SetVariable(ComplexWord,						"Complex")
-SetVariable(FastWord,							"Fast")
-SetVariable(FullWord,							"Full")
-SetVariable(RegularWordCaps,						"Regular")
+SetVariable(ComplexWord,						"complex")
+SetVariable(ComplexWordCaps,					"Complex")
 
+SetVariable(FastWord,							"fast")
+SetVariable(FastWordCaps,						"Fast")
+
+SetVariable(FullWord,							"full")
+SetVariable(FullWordCaps,						"Full")
+
+SetVariable(RegularWord,						"regular")
+SetVariable(RegularWordCaps,					"Regular")
+
+
+/* ------------------------- */
 # Volume Periodic Temporal
 SetVariable(DailyWord,							"Daily")
 SetVariable(FirstWord,							"First")
@@ -60,22 +79,48 @@ SetVariable(MonthlyWord,						"Monthly")
 SetVariable(WeeklyWord,							"Weekly")
 SetVariable(YearlyWord,							"Yearly")
 
+/* ------------------------- */
 # Volume and Zone Types
 SetVariable(AnyWord,							"any")
 SetVariable(AnyWordCaps,						"Any")
+
+SetVariable(ArchWord,							"arch")
 SetVariable(ArchWordCaps,						"Arch")
+
+SetVariable(ArchiveWord,						"archive")
 SetVariable(ArchiveWordCaps,					"Archive")
+
+SetVariable(ArchivesWord,						"archives")
 SetVariable(ArchivesWordCaps,					"Archives")
+
+SetVariable(BackupWord,							"backup")
 SetVariable(BackupWordCaps,						"Backup")
+
+SetVariable(DataWord,							"data")
 SetVariable(DataWordCaps,						"Data")
+
+SetVariable(DatabasesWord,						"databases")
 SetVariable(DatabasesWordCaps,					"Databases")
+
+SetVariable(DevWord,							"dev")
 SetVariable(DevWordCaps,						"Dev")
+
+SetVariable(DevelopmentWord,					"development")
 SetVariable(DevelopmentWordCaps,				"Development")
+
+SetVariable(ProgramsWord,						"programs")
 SetVariable(ProgramsWordCaps,					"Programs")
+
+SetVariable(RegularWord,						"regular")
 SetVariable(RegularWordCaps,					"Regular")
+
+SetVariable(SysWord,							"sys")
 SetVariable(SysWordCaps,						"Sys")
+
+SetVariable(SharesWord,							"shares")
 SetVariable(SharesWordCaps,						"Shares")
 
+/* ------------------------- */
 # Other
 SetVariable(ActualWord,							"Actual")
 SetVariable(AdjustedWord,						"adjusted")
@@ -110,12 +155,16 @@ SetVariable(EvenlyWord,							"evenyly")
 
 SetVariable(FinishedWord,						"finished")
 SetVariable(FinishedWordCaps,					"Finished")
+
 SetVariable(FileWord,							"file")
 SetVariable(FileWordCaps,						"File")
+
 SetVariable(FilesWord,							"files")
 SetVariable(FilesWordCaps,						"Files")
+
 SetVariable(FoldersWord,						"folders")
 SetVariable(FoldersWordCaps,					"Folders")
+
 SetVariable(FragmentedWord,						"Fragmented") // caps
 SetVariable(FragmentsWord,						"Fragments") // caps
 SetVariable(FreeWord,							"Free") // caps
@@ -129,13 +178,16 @@ SetVariable(InsertedWord,						"inserted")
 SetVariable(ItemsWord,							"items")
 
 SetVariable(LocationWord,						"Location") // caps
-SetVariable(LocWord,							"Loc")
+SetVariable(LocWord,							"Loc") // caps
+
 SetVariable(LogWord,							"log")
 SetVariable(LogWordCaps,						"Log")
+
 SetVariable(LowerWord,							"lower")
 
 SetVariable(MegabytesWord,						"Megabytes") // caps
 SetVariable(MinWord,							"min")
+
 SetVariable(MustWord,							"must")
 SetVariable(MustWordCaps,						"Must")
 
@@ -149,9 +201,11 @@ SetVariable(PercentWord,						"Percent") // caps
 SetVariable(RemainingWord,						"remaining")
 SetVariable(RequestedWord,						"requested")
 SetVariable(RoundingWord,						"rounding")
+
 SetVariable(RunWord,							"run")
 SetVariable(RunWordCaps,						"Run")
 
+/* ------------------------- */
  // caps:
 SetVariable(SeeksWord,							"Seeks")
 SetVariable(SelectWord,							"Select")
@@ -176,6 +230,7 @@ SetVariable(UsedWord,							"Used") // caps
 SetVariable(YouWord,							"you")
 SetVariable(YouWordCaps,						"You")
 
+/* ------------------------- */
 # VOLUME REPORT
 # VOLUME SUMMARY
 # CURRENT ZONE

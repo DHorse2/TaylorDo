@@ -30,7 +30,7 @@ InstType "Full" IT_FULL
 ; InstType "Minimal" IT_MIN
 InstType "Custom" IT_CUSTOM
 
-Var /GLOBAL ProductAppName 
+Var /GLOBAL PeroductAppName 
 Var /GLOBAL ProductAppVersion 
 Var /GLOBAL ProductAppPublisher 
 Icon "G:\Dev\MdmDefrag\TaylorDOVs0_2\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
