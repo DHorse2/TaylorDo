@@ -2,11 +2,11 @@
 # Zone Footer Set Statistics Window Text
 SetVariable(StatisticsWindowText, '!Heading!
 ----------------------------------------------------------
-Zones Processed: 
+!ZonesWordCaps! !ProcessedWordCaps!: 
 ----------------------------------------------------------
 !ZoneListByLine!
 ----------------------------------------------------------
-Zone Processing Step:
+!ZoneWordCaps! Processing Step:
 !ZoneStepByLine!    
 ----------------------------------------------------------
 ----------------------------------------------------------

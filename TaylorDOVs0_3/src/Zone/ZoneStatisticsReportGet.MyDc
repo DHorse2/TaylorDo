@@ -17,9 +17,9 @@ SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
                 Total!ColonWord! !ZoneSizeActualCurrent! (!ZoneEndActualPerCurrent!%)
 
         !FilesWordCaps!!SlashWord!!FoldersWordCaps!!ColonWord! !ZoneFilesFolders! (!ZoneFilesFoldersPer!%) 
-            !FragmentsWord!!ColonWord! !ZoneFragments! (!ZoneFragmentsPer!%) 
+            !FragmentsWordCaps!!ColonWord! !ZoneFragments! (!ZoneFragmentsPer!%) 
 
-   !LocationWord!!ColonWord!
+   !LocationWordCaps!!ColonWord!
    ------------------------
            !ZoneWordCaps! !StartWord!!ColonWord! !ZoneBeginCurrent! (!ZoneBeginPerCurrent!%)
             !FilesWordCaps! !EndWord!!ColonWord! !ZoneEndCurrent!
@@ -31,18 +31,18 @@ SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
        !VolumeWordCaps! !RoundingWord!!ColonWord! !ZoneVolRoundUpPer!%
             !ActualWord! !GapWordCaps!!ColonWord! !ZoneGapActualPerCurrent!% (!ZoneGapActualCurrent!)
                  
-               !TheWordCaps! !DesiredWord! !MinWord! !GapWordCaps! !SizeWord!!PeriodWord! (GapRequested)!ColonWord! !ZoneGapRequestedCurrent!  (!LocWord!) !ZoneGapRequestedLocCurrent!
+               !TheWordCaps! !DesiredWord! !MinWord! !GapWordCaps! !SizeWord!!PeriodWord! (GapRequested)!ColonWord! !ZoneGapRequestedCurrent!  (!LocWordCaps!) !ZoneGapRequestedLocCurrent!
               !MustWordCaps! !BeWord! !HalfWord! !TheWord! !ZoneWordCaps! !SizeWord!!PeriodWord! (GapAdjusted)!ColonWord! !ZoneGapAdjustedCurrent!  (---) !ZoneGapAdjustedLocCurrent!
                !AlignWord! !ToWord! !TheWord! !VolumeWordCaps! !EvenlyWord!!PeriodWord! (GapRounded)!ColonWord! !ZoneGapRoundedCurrent!  (---) !ZoneGapRoundedLocCurrent!
           !TheWordCaps! !RemainingWord! !SpaceWord! !AvailableWord!!PeriodWord! (GapAvailable)!ColonWord! !ZoneGapAvailableCurrent!  (---) !ZoneGapAvailableLocCurrent!
       !TheWordCaps! !LowerWord! !OfWord! !AdjustedWord! !AndWord! !AvailableWord!!PeriodWord! (GapCurrent)!ColonWord! !ZoneGapCurrent!  (---) !ZoneGapLocCurrent!
     (GapCurrent) !AfterWord! !AnyWord! !CodeWord! !YouWord! !InsertedWord!!PeriodWord! (GapUsed)!ColonWord! !ZoneGapUsedCurrent!  (---) !ZoneGapUsedLocCurrent!
      
-   !FreeWord! !SpaceWord! !AfterWord! !ZoneWordCaps!!ColonWord!
+   !FreeWordCapsCaps! !SpaceWord! !AfterWord! !ZoneWordCaps!!ColonWord!
    ------------------------
               !TotalWord! !RequestedWord!!ColonWord! !VolumeFreeRequested! (!VolumeFreeRequestedPer!%)
                    !TotalWord! !UsedWord!!ColonWord! !VolumeFreeUsed! (!VolumeFreeUsedPer!%)
-         !VolumeWordCaps! !UsedWord! !ByWord! !ZonesWord!!ColonWord! !VolumeZoneUsed! (!VolumeZoneUsedPer!%)
+         !VolumeWordCaps! !UsedWord! !ByWord! !ZonesWordCaps!!ColonWord! !VolumeZoneUsed! (!VolumeZoneUsedPer!%)
 
 !DirectoryWordCaps! !AndWord! !FilesWordCaps! !SelectWord!!ColonWord!
 ----------------------------------------------------------

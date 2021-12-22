@@ -68,6 +68,7 @@
     <None Include="src\Defrag\DefragAnyVolume.MyDc" />
     <None Include="src\Display\DisplaySetDateTimeCurrent.MyDc" />
     <Content Include="src\Commands\WriteDateTimeNotes YYYYMMDD.txt" />
+    <Content Include="src\Install\TaylorDoSetup.exe" />
     <Content Include="src\ScriptsReset\ResetActionVerbs\DateThis.txt" />
     <Content Include="src\ScriptsReset\ResetActionVerbs\DateTimeThis.txt" />
     <Content Include="src\ScriptsReset\ResetActionVerbs\Fast\ZoneDoActionThisModeFast.txt" />
@@ -245,6 +246,7 @@
     <None Include="src\ActionVerbs\Regular\ZoneDoActionTypeArchivesBuRegular.MyDc" />
     <None Include="src\ActionVerbs\Regular\ZoneDoActionTypeBlobsRegular.MyDc" />
     <None Include="src\FileSelectCategory\SelUnallocated.MyDs" />
+    <None Include="src\Install\Sheduletask.nsi" />
     <None Include="src\ScriptsReset\ResetActionVerbs\Fast\ZoneDoActionTypeAllFast.MyDc" />
     <None Include="src\ScriptsReset\ResetActionVerbs\Fast\ZoneDoActionTypeAllRegular.MyDc" />
     <None Include="src\ScriptsReset\ResetActionVerbs\Fast\ZoneDoActionTypeArchivesBuFast.MyDc" />
@@ -860,7 +862,6 @@
     <Content Include="src\ActionVerbs\ZoneDoActionThisMode.txt" />
     <Content Include="src\Download\MyDefrag-v4.3.1.exe" />
     <Content Include="src\Install\Nsis Notes.txt" />
-    <Content Include="src\Install\TaylorDOSetup.exe" />
     <Content Include="src\License.txt" />
     <Content Include="src\MyDefrag Command Line.txt" />
     <Content Include="src\Resources\Icons\MdmControl.ico" />

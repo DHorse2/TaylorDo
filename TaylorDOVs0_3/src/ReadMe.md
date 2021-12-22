@@ -9,8 +9,8 @@ ___
 
 <table>
 <tr>
-<td>
-This product is dedicated in memory of:<br \><b>Matt Taylor (1978-2020)</b>, <br \>a dedicated teacher always willing to <br \>spend time with his students.
+<td width="50%">
+This product is dedicated in memory of:<br \><b>Matt Taylor (1978-2020)</b>, <br \>a dedicated teacher always willing to spend time with his students.
 </td>
 <td>
 <b>Engineer by Trade,<br />Scientist by Nature,<br />Artist at Heart"</b><br />

@@ -19,22 +19,22 @@
 
 ;--------------- Application -----------------
 !define PRODUCT_NAME "Taylor Disk Optimizer"
-; X.X.X.0 - Patch
-; X.X.0 - Proto/Dev/Alpha/Early, 1 - Beta, 2 - Released
-; 3.1 Refactor into directories
-; 3.2 Installer, Refactor ZoneType & Display 
-; 3.3 ActionVerbs, Fast (Daily) & Regular Optimize
+    ; X.X.X.0 - Patch
+    ; X.X.0 - Proto/Dev/Alpha/Early, 1 - Beta, 2 - Released
+    ; 3.1 Refactor into directories
+    ; 3.2 Installer, Refactor ZoneType & Display 
+    ; 3.3 ActionVerbs, Fast (Daily) & Regular Optimize
 !define PRODUCT_VERSION "3.3.1.0"
 !define PRODUCT_PUBLISHER "David G Horsman"
 InstType "Full" IT_FULL
 ; InstType "Minimal" IT_MIN
 InstType "Custom" IT_CUSTOM
 
-Var /GLOBAL PeroductAppName 
+Var /GLOBAL ProductAppName 
 Var /GLOBAL ProductAppVersion 
 Var /GLOBAL ProductAppPublisher 
-Icon "G:\Dev\MdmDefrag\TaylorDOVs0_2\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
-; Icon "G:\Dev\MdmDefrag\TaylorDOVs0_2\Resources\Icons\MdmControl.ico"
+Icon "G:\Dev\MdmDefrag\TaylorDoVs0_2\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+; Icon "G:\Dev\MdmDefrag\TaylorDoVs0_2\Resources\Icons\MdmControl.ico"
 
 SetCompressor lzma
  
@@ -44,7 +44,7 @@ Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 Caption "Matt Taylor Disk Optimizer"
 InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
     ; InstallDir "$PROGRAMFILES\MyDefrag"
-    ; InstallDir "$PROGRAMFILES\TaylorDO"
+    ; InstallDir "$PROGRAMFILES\TaylorDo"
 
 ; Get installation folder from registry if available
 InstallDirRegKey HKCU "Software\${PRODUCT_NAME}" "Install_Dir"
@@ -53,7 +53,12 @@ InstallDirRegKey HKCU "Software\${PRODUCT_NAME}" "Install_Dir"
 Var /GLOBAL InstallDirTaylorDo
 Var /GLOBAL InstallDirFull
 
-OutFile "TaylorDOSetup.exe"
+; var /GLOBAL SetOutPath
+; var /GLOBAL InstallDir
+; var /GLOBAL $InstallDirTaylorDo
+; var /GLOBAL $InstallDirFull
+
+OutFile "TaylorDoSetup.exe"
     ; OutFile "TaylorDiskOptimizerSetup.exe"
 
 RequestExecutionLevel Admin
@@ -71,7 +76,7 @@ Unicode True
 ; MUI Settings
     ; !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
     ; !define MUI_ICON "${NSISDIR}\Resources\Icons\MdmControl.ico"
-    ; G:\Dev\MdmDefrag\TaylorDOVs0_2
+    ; G:\Dev\MdmDefrag\TaylorDoVs0_2
     ; !define MUI_ICON "..\Resources\Icons\MdmControl.ico"
     ; !define MUI_UNICON "..\Resources\Icons\MdmControl.ico"
 !define MUI_ICON "..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
@@ -90,7 +95,7 @@ Unicode True
 
     ; Welcome page
 !define MUI_WELCOMEPAGE_TITLE "Welcome to the Taylor Disk Optimizer ${PRODUCT_VERSION} Setup Wizard"
-!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the installation of the TaylorDO (Taylor Disk Optimizer) ${PRODUCT_VERSION}, the next generation of the Windows disk optimization and defragmentation.$\r$\n$\r$\nTaylorDO works out of the box and tuned for the home user.$\r$\n$\r$\nBut it is designed for network system administration, is highly customizable and easy to change.$\r$\n$\r$\n$_CLICK"
+!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the installation of the TaylorDo (Taylor Disk Optimizer) ${PRODUCT_VERSION}, the next generation of the Windows disk optimization and defragmentation.$\r$\n$\r$\nTaylorDo works out of the box and tuned for the home user.$\r$\n$\r$\nBut it is designed for network system administration, is highly customizable and easy to change.$\r$\n$\r$\n$_CLICK"
 
 !insertmacro MUI_PAGE_WELCOME
 
@@ -150,13 +155,13 @@ VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "dba MacroDM (David G Horsma
 VIAddVersionKey /LANG=${LANG_ENGLISH} "InternalName" "MdmDefrag"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" "none"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© 2015, 2020, 2021 David G Horsman"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "TaylorDO Application using My Defrag Vs4.3.1"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "TaylorDo Application using My Defrag Vs4.3.1"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "3.0"
 
 ; ///////////////////////////////////////////////////////
 ; ///////////////// SECTIONS ////////////////////////////
 ; ///////////////// Section SETTINGS ////////////////////
-InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
+; InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
 Section -SETTINGS
     SectionInstType ${IT_FULL} ${IT_CUSTOM}
     SetOverwrite ifnewer
@@ -169,7 +174,7 @@ Section -SETTINGS
         SetOutPath "$PROGRAMFILES"
     ${EndIf} 
     ;       InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
-    StrCpy $InstallDirTaylorDo "Scripts\TaylorDO"
+    StrCpy $InstallDirTaylorDo "Scripts\TaylorDo"
     StrCpy $InstallDirFull $INSTDIR"\"$InstallDirTaylorDo
 SectionEnd
  
@@ -221,7 +226,7 @@ Section "Matt Taylor Libraries" TaylorLibraries
 
     ; $OUTDIR 
         SetOutPath $InstallDirFull
-        ; SetOutPath $INSTDIR\Scripts\TaylorDO
+        ; SetOutPath $INSTDIR\Scripts\TaylorDo
 
     ;--------------- Check if it exists ----------------- IT'S THE $ SIGN #2
     IfFileExists '$OUTDIR\$$ Readme.txt' +2 0
@@ -249,82 +254,32 @@ Section "Matt Taylor Libraries" TaylorLibraries
         Delete '$INSTDIR\MyDefrag v4.3.1\Scripts\*.MyD'
 
         ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AnalyzeOnly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticDaily.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticMonthly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticWeekly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AnalyzeOnly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticDaily.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticMonthly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticWeekly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
 
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\ConsolidateFreeSpace.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskDaily.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskMonthly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskWeekly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\ConsolidateFreeSpace.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskDaily.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskMonthly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskWeekly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
 
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DefragmentOnly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\FlashMemoryDisks.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\LogTest.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\Settings.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DefragmentOnly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\FlashMemoryDisks.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\LogTest.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\Settings.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
 
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskDaily.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskMonthly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskWeekly.MyD '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskDaily.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskMonthly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskWeekly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
 
     ; ///////////////////////////////////////////////////////
-    ;--------------- CREATE SHORT CUTS -----------------
-    Var /GLOBAL StartMenuFolder 
-    StrCpy $StartMenuFolder "${PRODUCT_NAME}"
-
-      ;Remember the Start Menu Folder
-      ;!define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
-      ;!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${PRODUCT_NAME}"
-      ;!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "StartMenuFolder"
-
-    CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-
-      ; !insertmacro MUI_STARTMENU_WRITE_BEGIN
-
-        ; Create shortcuts
-
-        ; CreateDirectory "$SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}"
-
-        ; CreateShortCut "$SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\<yourapp>.lnk" "$INSTDIR\<yourfile>.<ext>"
-
-      ; !insertmacro MUI_STARTMENU_WRITE_END
-
     ;--------------------------------
     ; TODO MyDefrag Pointers to TaylorDo Scripts
     ; (The installation directories can be different)
 
     ;--------------------------------
     ; TODO TaylorDo Pointers to MyDefrag
-
-    ;--------------------------------
-    ; TODO Start Menu
-    ; $INSTDIR\?\?
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Commands"'
-
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsByDrive"'
-
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsAutomatic"'
-
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Daily.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptDaily"'
-
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptWeekly"'
-
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Monthly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptMonthly"'
-
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Yearly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptYearly"'
-
-    ; CopyFiles /SILENT '$SMPROGRAMS\$StartMenuFolder\*.lnk' '$INSTDIR\MyDefrag v4.3.1\Scripts\'
-
-    ; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Run NSIS Example Application 1.lnk" "$SYSDIR\javaw.exe" "NSISExampleApplication1"
-
-    ; ///////////////////////////////////////////////////////
-    ;--------------------------------
-    ; Uninstall
-    WriteUninstaller $INSTDIR\uninstaller.exe
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall Example Application 1.lnk" "$INSTDIR\Uninstall.exe"
-
-    ;--------------- end of shortcuts -----------------
 
     ; ///////////////////////////////////////////////////////
     ;--------------- Registry -----------------
@@ -345,8 +300,96 @@ Section "Matt Taylor Libraries" TaylorLibraries
 
     ;--------------- end of regristry keys -----------------
     ;
+    ;--------------------------------
+    ; Uninstall
+    ;--------------------------------
+    WriteUninstaller $INSTDIR\uninstaller.exe
+
+    ;--------------------------------
     taylorDefragEnd:
     ;--------------- end of INSTALL Matt Taylor Libraries -----------------
+SectionEnd
+
+; ///////////////////////////////////////////////////////
+Section "TalyorDo Startmenu" TaylorStartMenu
+    ;--------------------------------
+    ; TODO Start Menu
+    ; $INSTDIR\?\?
+
+    ;--------------- CREATE SHORT CUTS -----------------
+MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to create start-menu shortcuts for ${MUI_PRODUCT}?" IDNO NoShortcuts
+
+    ; Var /GLOBAL StartMenuFolder 
+    StrCpy $StartMenuFolder "${PRODUCT_NAME}"
+
+      ;Remember the Start Menu Folder
+      ;!define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
+      ;!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${PRODUCT_NAME}"
+      ;!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "StartMenuFolder"
+
+    ; CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
+
+    ; !insertmacro MUI_STARTMENU_WRITE_BEGIN
+        ; Create shortcuts
+        ; CreateDirectory "$SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}"
+        ; CreateShortCut "$SMPROGRAMS\${MUI_STARTMENUPAGE_VARIABLE}\<yourapp>.lnk" "$INSTDIR\<yourfile>.<ext>"
+    ; !insertmacro MUI_STARTMENU_WRITE_END
+
+    ;!insertmacro MUI_STARTMENU_WRITE_BEGIN
+        ;CreateDirectory "$SMPROGRAMS\${COMPANY_NAME}"
+        ;CreateDirectory "$SMPROGRAMS\${COMPANY_NAME}\${MUI_PRODUCT}"
+        ;CreateShortCut "$SMPROGRAMS\${COMPANY_NAME}\${MUI_PRODUCT}\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
+        ;CreateShortCut "$SMPROGRAMS\${COMPANY_NAME}\${MUI_PRODUCT}\${MUI_PRODUCT}.lnk" "$INSTDIR\${EXE_NAME}" "" "$INSTDIR\${EXE_NAME}" 0
+    ;!insertmacro MUI_STARTMENU_WRITE_END
+
+    ;--------------------------------
+    CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$InstallDirFull\Commands"'
+    ; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Commands"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsByDrive"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsAutomatic"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Daily.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptDaily"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptWeekly"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Monthly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptMonthly"'
+
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Yearly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptYearly"'
+
+    ; CopyFiles /SILENT '$SMPROGRAMS\$StartMenuFolder\*.lnk' '$INSTDIR\MyDefrag v4.3.1\Scripts\'
+
+    ; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Run NSIS Example Application 1.lnk" "$SYSDIR\javaw.exe" "NSISExampleApplication1"
+
+    ; ///////////////////////////////////////////////////////
+    ;--------------------------------
+    ; Uninstall
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall Example Application 1.lnk" "$INSTDIR\Uninstall.exe"
+
+    ;--------------- end of shortcuts -----------------
+    NoShortcuts:
+
+SectionEnd
+
+    ;--------------- Task Manager -----------------
+Section "TalyorDo Task Manager" TaylorTaskMgr
+MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to disable (required) the Windows defragger?" IDNO NoTaskDisable
+
+; ToDo
+
+    NoTaskDisable:
+
+MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to schedule regular optimiations by ${MUI_PRODUCT}?" IDNO NoTaskSchedule
+
+
+; ToDo
+
+    ;--------------- end of Task Manager -----------------
+    NoTaskSchedule:
+
 SectionEnd
 
 ; ///////////////////////////////////////////////////////
@@ -410,3 +453,13 @@ SectionEnd
   ; Pop $R0
 ; noshortcuts:
 ; ///////////////////////////////////////////////////////
+; Source: Scheduled Tasks https://nsis.sourceforge.io/Scheduled_Tasks
+; Author: First: brainsucker, This: 
+; ///////////////////////////////////////////////////////
+; Adds a scheduled task running as a different user than the one
+; running the installer. Modified from a script by brainsucker
+; 
+; (c) Justin Dearing <zippy1981@gmail.com>, 2006
+; (c) brainsucker, 2002
+ 
+ 

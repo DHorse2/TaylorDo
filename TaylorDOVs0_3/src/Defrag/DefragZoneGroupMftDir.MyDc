@@ -18,7 +18,7 @@ SetVariable(MftReport, "!MftReport!MftGapSlackPerUsed: !MftGapSlackPerUsed!
 SetVariable(MftReport, "!MftReport!VolumeUsed !BeforeWord!!ColonWord! !VolumeUsedTotal!
 ")
 SetVariable(VolumeUsedTotal, MftLocation)
-SetVariable(MftReport, "!MftReport!VolumeUsed !AtWord! !LocationWord!!ColonWord! !VolumeUsedTotal!
+SetVariable(MftReport, "!MftReport!VolumeUsed !AtWord! !LocationWordCaps!!ColonWord! !VolumeUsedTotal!
 ")
 
 SetVariable(VolumeFreePerUsed, VolumeFreePerUsed + (MftGapSlack / VolumeFree))

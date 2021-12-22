@@ -35,7 +35,8 @@ SetVariable(VolumeWordCaps,						"Volume")
 SetVariable(ZoneWord,							"zone")
 SetVariable(ZoneWordCaps,						"Zone")
 
-SetVariable(ZonesWord,							"Zones")
+SetVariable(ZonesWord,							"zones")
+SetVariable(ZonesWordCaps,						"Zones")
 
 /* ------------------------- */
 # Date/Time
@@ -165,27 +166,27 @@ SetVariable(FilesWordCaps,						"Files")
 SetVariable(FoldersWord,						"folders")
 SetVariable(FoldersWordCaps,					"Folders")
 
-SetVariable(FragmentedWord,						"Fragmented") // caps
-SetVariable(FragmentsWord,						"Fragments") // caps
-SetVariable(FreeWord,							"Free") // caps
+SetVariable(FragmentedWordCaps,					"Fragmented")
+SetVariable(FragmentsWordCaps,					"Fragments")
+SetVariable(FreeWordCapsCaps,					"Free")
 
-SetVariable(GigabytesWord,						"Gigabytes") // caps
+SetVariable(GigabytesWordCaps,					"Gigabytes")
 
 SetVariable(HalfWord,							"half")
 
-SetVariable(InitializingWord,					"Initializing") // caps
+SetVariable(InitializingWordCaps,				"Initializing")
 SetVariable(InsertedWord,						"inserted")
 SetVariable(ItemsWord,							"items")
 
-SetVariable(LocationWord,						"Location") // caps
-SetVariable(LocWord,							"Loc") // caps
+SetVariable(LocationWordCaps,					"Location")
+SetVariable(LocWordCaps,						"Loc")
 
 SetVariable(LogWord,							"log")
 SetVariable(LogWordCaps,						"Log")
 
 SetVariable(LowerWord,							"lower")
 
-SetVariable(MegabytesWord,						"Megabytes") // caps
+SetVariable(MegabytesWordCaps,					"Megabytes")
 SetVariable(MinWord,							"min")
 
 SetVariable(MustWord,							"must")
@@ -195,8 +196,10 @@ SetVariable(NumberWord,							"number")
 
 SetVariable(OfWord,								"of")
 
-SetVariable(PendingWord,						"Pending") // caps
-SetVariable(PercentWord,						"Percent") // caps
+SetVariable(PendingWordCaps,					"Pending")
+SetVariable(PercentWordCaps,					"Percent")
+SetVariable(ProcessedWordCaps,					"Processed")
+SetVariable(ProcessingWordCaps,					"Processing")
 
 SetVariable(RemainingWord,						"remaining")
 SetVariable(RequestedWord,						"requested")
@@ -224,7 +227,7 @@ SetVariable(TheWordCaps,						"The")
 SetVariable(ToWord,								"to")
 SetVariable(TotalWord,							"Total") // caps
 
-SetVariable(UnfragmentedWord,					"Unfragmented") // caps
+SetVariable(UnFragmentedWordCaps,					"Unfragmented") // caps
 SetVariable(UsedWord,							"Used") // caps
 
 SetVariable(YouWord,							"you")
@@ -240,4 +243,4 @@ SetVariable(YouWordCaps,						"You")
 
 /* ------------------------- */
 # Zone Processing Steps
-SetVariable(ZoneStepDescriptionInitializing,	"!InitializingWord! !RunWord!!DotDotDotWord!")
+SetVariable(ZoneStepDescriptionInitializing,	"!InitializingWordCaps! !RunWord!!DotDotDotWord!")

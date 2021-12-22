@@ -5,10 +5,10 @@
 SetVariable(Section, '"Top","Server","VOLUME","Headings"')
 
 # Category
-SetVariable(CategoryHeadingText, 			'"!CategoryWordCaps!","!UnfragmentedWord!","!FragmentedWord!","!AllWord!"')
+SetVariable(CategoryHeadingText, 			'"!CategoryWordCaps!","!UnFragmentedWordCaps!","!FragmentedWordCaps!","!AllWord!"')
 SetVariable(CategoryHeadingSeperator, 		'"--------------","-----------------","-----------------","-----------------"')
 
-SetVariable(SizeHeading2, 			'"!BytesWord!","!GigabytesWord!","!PercentSymbolWord! !OfWord! !AllWord!"')
+SetVariable(SizeHeading2, 			'"!BytesWord!","!GigabytesWordCaps!","!PercentSymbolWord! !OfWord! !AllWord!"')
 SetVariable(SizeHeading2Seperator, '"-----------------","-----------------","-----------------"')
 
 /* ------------------------- */

@@ -18,7 +18,7 @@ SetVariable(ZoneListByLine, 		"!VolumeWordCaps! !VolumeLabel! !StartedWord! !Dat
 
 # Clear list of Steps processed within Zone
 # Zone processing steps
-SetVariable(ZoneStepByLine, 		"!PendingWord!!PeriodWord!
+SetVariable(ZoneStepByLine, 		"!PendingWordCaps!!PeriodWord!
 ")
 
 !include "..\Display\BannerDescriptionSet.MyDc"!
