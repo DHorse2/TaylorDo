@@ -68,7 +68,7 @@
     <None Include="src\Defrag\DefragAnyVolume.MyDc" />
     <None Include="src\Display\DisplaySetDateTimeCurrent.MyDc" />
     <Content Include="src\Commands\WriteDateTimeNotes YYYYMMDD.txt" />
-    <Content Include="src\Install\TaylorDoSetup.exe" />
+    <Content Include="src\Download\TaylorDoSetup.exe" />
     <Content Include="src\ScriptsReset\ResetActionVerbs\DateThis.txt" />
     <Content Include="src\ScriptsReset\ResetActionVerbs\DateTimeThis.txt" />
     <Content Include="src\ScriptsReset\ResetActionVerbs\Fast\ZoneDoActionThisModeFast.txt" />
