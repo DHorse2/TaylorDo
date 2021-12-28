@@ -1,0 +1,50 @@
+# MyDefrag color palette.
+
+# RGB Color pallets. (Red,Green,Blue).
+
+# Basics:
+
+# Red			255,	0,		0)			// Red					RGB(255, 0, 0)
+# Green			0,		255		0)			// Green				RGB(0, 255, 0)
+# Blue			0,		0,		255)		// Blue					RGB(0, 0, 255)
+
+# Shades:
+
+/* (White was left unused for the administrator to highlight things.) */
+# White 		255,	255,	255)		// White				RGB(255, 255, 255) 		
+# Black			0,		0,		0)			// Black 				RGB(0, 0, 0)
+# Grey 			240,	240,	240)		// Grey 				RGB(240, 240, 240)
+
+# Bright colors and shades:
+
+# Purple 		170,	89,		221)		// Purple 				RGB(170, 89, 221)
+# Magenta		255, 	5, 		255)		// Magenta (pinkish)	RGB(255, 5, 255)
+# Bright blue	0, 		255, 	0)			// Light bright blue 	RGB(7, 255, 255)
+# Pure yellow 	255,	255,	0)			// Pure yellow 			RGB(255, 255, 0)
+# Yellow 		229, 	229, 	0)			// Yellow 				RGB(229, 229, 0)
+# Light red		255,	115,	115)		// Light red			RGB(255, 115, 115)
+# Red 			204, 	92, 	92)			// Red 					RGB(204, 92, 92)
+
+
+# Window Colors
+SetColor(Empty,										240,  	240, 	240)	// Grey 				RGB(240, 240, 240)
+SetColor(Allocated,									45, 	72, 	128)	// Black 				RGB(0, 0, 0)
+
+SetColor(BusyRead,									255, 	5, 		255)	// Magenta (pinkish)	RGB(255, 5, 255)
+SetColor(BusyWrite,									0, 		255, 	0)		// Light bright blue 	RGB(7, 255, 255)
+
+#File Colors
+SetFileColor(All,									0,		0,		0)		// Black 				RGB(0, 0, 0)
+SetFileColor(Movable,								20,		87,		229)	// Dark blue			RGB(20, 87, 229)
+
+SetFileColor(Processed and not(Fragmented),			0, 		255, 	0)		// Green 				RGB(0, 255, 0)
+SetFileColor(Processed and Fragmented,				0, 		223, 	255)	// Bright Blue 			RGB(0, 223, 255)
+
+SetFileColor(Fragmented,							229, 	229, 	0)		// Yellow 				RGB(229, 229, 0)
+SetFileColor(not(Movable),							204, 	92, 	92)		// Red 					RGB(204, 92, 92)
+
+SetFileColor(Selected,								175,	198,	247)	// Light blue 			RGB(175, 198, 247)
+SetFileColor(Selected and Fragmented,				255,	255,	0)		// Pure yellow 			RGB(255, 255, 0)
+SetFileColor(Selected and not(Movable),				255,	115,	115)	// Light red			RGB(255, 115, 115) 
+
+!include "..\Settings\SettingsYours\SettingsYoursDisplayColors.MyDc"!

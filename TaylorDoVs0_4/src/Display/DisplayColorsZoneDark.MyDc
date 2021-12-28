@@ -1,0 +1,9 @@
+# Script: DisplayColors - Zone Dark
+# Processed
+SetFileColor(All, Processed and not(Fragmented),		0, 		191, 	255)	// Deep sky blue
+SetFileColor(All, Processed and Fragmented,				170,	89,		221)	// Purple
+
+# Light Green and Yellow
+SetFileColor(All, Selected,								152,	251, 	152)	// Light Green
+SetFileColor(All, Selected and Fragmented,				237,	240,	11)		// Neon Yellow 
+SetFileColor(All, Selected and not(Movable),			255,	115,	115)	// Light red

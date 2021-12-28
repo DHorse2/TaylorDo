@@ -1,0 +1,8 @@
+# VolumeNamePrefix
+
+/* Descriptive Information so maybe */
+/* VolumeNamePrefix (IE. Person or company initials) not used. */
+/* "Xyz" */
+	SetVariable(VolumeNamePrefix,"VolThis")
+
+	!include "..\Settings\SettingsYours\SettingsYoursSysVolumeNamePrefix.MyDc"!

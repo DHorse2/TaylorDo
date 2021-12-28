@@ -13,7 +13,7 @@ MdmSysTools/*
 # MdmSysTools/NirsoftUtils64/
 
 # TaylorDOVs0_2/*
-TaylorDOVs0_3/src/MattTaylorAndNumenta/
+!TaylorDOVs0_3/src/MattTaylorAndNumenta/
 
 ## GitHub VisualStudio.gitignore:
 ## Ignore Visual Studio temporary files, build results, and

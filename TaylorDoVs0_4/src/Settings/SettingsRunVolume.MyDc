@@ -1,0 +1,69 @@
+# Script: SettingsRunVolume
+
+SetVariable(ZoneListByLine, "")
+SetVariable(ZoneStatisticsReport, "")
+
+# This script is part of the standard disk configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+/* Progress Display */
+SetVariable(ZoneListByLine, 	"Volume !VolumeLabel! start.
+")
+SetVariable(ZoneStepByLine, 	"
+")
+
+# VOLUME INFORMATION
+
+!include "..\Volume\VolumeNoIncrement.MyDc"!
+
+!include "..\Zone\ZoneDoCurrentClear.MyDc"!
+
+!include "..\Display\BannerSet.MyDc"!
+
+# OVERRIDES
+# YOUR SETTINGS Volume overrides:
+
+!include "..\Settings\SettingsYours\SettingsYoursSysVolume.MyDc"!
+
+!include "..\Display\DisplaySetVolume.MyDc"!
+
+# LOGGING:
+	!include "..\Display\BannerDescriptionSet.MyDc"!
+
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! Started: !Date! !Time!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "Script !DirectoryWordCaps!:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptDir!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "Log File:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!LogFileName!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	/* #dgh@Z#  Appendlogfile("!LogFileName!", "Log Header:") */
+	/* #dgh@Z#  Appendlogfile("!LogFileName!", "!LogHeader!") */
+	/* #dgh@Z#  Appendlogfile("!LogFileName!", "End of Log Header.") */
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+
+	#dgh@Z#  Appendlogfile("!LogFileName!", "MFT Percentage: !MftPer!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "MFT Volume RoundUp: !MftRoundUp!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "MFT Gap %: !MftAdjRoundUp!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+
+/* This file is where you override the above setting for */
+/* global settings. */
+/* There is a "SettingsYours\SettingsYours???.MyDc" for each volume type */
+/* so this is where you set the volume specific settings */
+/* or you can put them all in the file below. */
+
+# Volume Preprocessing Do Before.
+!include "..\Settings\SettingsRunVolum$ DoBefore.MyDc"!
+
+# BANNER:
+# Xinclude "..\Volume\VolumeSizeLog.MyDc"X
+
+/* Missed: Zone Type ToDo: */
+/* Games Zone Type */
+/* Music Zone Type */
+/* Video Zone Type */
+
+

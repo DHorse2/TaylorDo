@@ -1,0 +1,457 @@
+##############################################################################
+# After this point only translations.
+##############################################################################
+#
+# Arguments in messages begin with a percent-sign '%', followed by a number,
+# followed by "u" for an unsigned number or "s" for a string. The arguments may be
+# reorganised based on the number. For example:
+#      Message("I have found %1n files, containing %2n bytes.",
+#              "Ik heb %2n bytes gevonden in %1n bestanden.")
+#
+# Strings must be enclosed in single-quotes or double quotes, for example:
+#      "......"
+#      '......'
+# If enclosed by single-quotes then the string may not contain a single-quote.
+# If enclosed by double-quotes then the string may not contain a double-quote.
+#
+# The following comments are supported:
+# - Enclosed by '/*' and '*/' (nesting is allowed)
+# - Anything after '//', 'REM', '#', or '--'.
+
+###############
+Language("English")
+###############
+
+###############
+# Script and disk selection window.
+Message("Select a script:",
+        "Select a script:")
+Message("Select 1 or more disks:",
+        "Select 1 or more disks:")
+Message("Run",
+        "Run")
+Message("Cancel",
+        "Cancel")
+Message("Disk",
+        "Disk")
+Message("Label",
+        "Label")
+Message("Size",
+        "Size")
+Message("Used",
+        "Used")
+Message("Free",
+        "Free")
+Message("Please choose 1 of the scripts in the list by clicking it, and then click the 'run' button.",
+        "Please choose 1 of the scripts in the list by clicking it, and then click the 'run' button.")
+Message("Please choose 1 of the disks in the list by clicking it, and then click the 'run' button.",
+        "Please choose 1 of the disks in the list by clicking it, and then click the 'run' button.")
+
+###############
+# Menu items.
+Message("Run",
+        "Run")
+Message("Pause",
+        "Pause")
+Message("Continue",
+        "Continue")
+Message("Exit",
+        "Exit")
+Message("View",
+        "View")
+Message("Diskmap",
+        "Diskmap")
+Message("Statistics",
+        "Statistics")
+Message("Zoom",
+        "Zoom")
+
+###############
+# Progress messages displayed above the diskmap.
+Message("Processing",
+        "Processing")
+Message("Disk %1s",
+        "Disk %1s")
+Message("Zone %1u of %2u",
+        "Zone %1u of %2u")
+Message("Paused, press space to continue....",
+        "Paused, press space to continue....")
+Message("Finished.",
+        "Finished.")
+Message("%1u files, %2u directories.",
+        "%1u files, %2u directories.")
+Message("Moving %1u bytes to LCN=%2u.",
+        "Moving %1u bytes to LCN=%2u.")
+Message("Moving %1u bytes at offset=%2u to LCN=%3u.",
+        "Moving %1u bytes at offset=%2u to LCN=%3u.")
+Message("Loading list of unmovable files",
+        "Loading list of unmovable files")
+Message("Applying ExcludeFiles policy",
+        "Applying ExcludeFiles policy")
+Message("Analyzing the boot optimization file",
+        "Analyzing the boot optimization file")
+Message("Looking for: %1s",
+        "Looking for: %1s")
+Message("Reclaiming the NTFS reserved area",
+        "Reclaiming the NTFS reserved area")
+Message("Vacating free area",
+        "Vacating free area")
+Message("Analyze",
+        "Analyze")
+Message("Defragment",
+        "Defragment")
+Message("FastFill",
+        "FastFill")
+Message("ForcedFill",
+        "ForcedFill")
+Message("MoveDownFill",
+        "MoveDownFill")
+Message("SortBy",
+        "SortBy")
+Message("Running external program",
+        "Running external program")
+Message("Analyzing the program hints",
+        "Analyzing the program hints")
+Message("Move to end of disk",
+        "Move to end of disk")
+Message("Move up to zone",
+        "Move up to zone")
+
+###############
+# Information about the file under the cursor, displayed below the diskmap.
+Message("LCN=%1u     Unmovable    Fragments=%2u, Bytes=%3u, BeginLCN=%4u",
+        "LCN=%1u     Unmovable    Fragments=%2u, Bytes=%3u, BeginLCN=%4u")
+Message("LCN=%1u     Unmovable    Bytes=%2u, BeginLCN=%3u",
+        "LCN=%1u     Unmovable    Bytes=%2u, BeginLCN=%3u")
+Message("LCN=%1u     Fragments=%2u, Bytes=%3u, BeginLCN=%4u",
+        "LCN=%1u     Fragments=%2u, Bytes=%3u, BeginLCN=%4u")
+Message("LCN=%1u     Bytes=%2u, BeginLCN=%3u",
+        "LCN=%1u     Bytes=%2u, BeginLCN=%3u")
+Message("LCN=%1u     NTFS reserved area",
+        "LCN=%1u     NTFS reserved area")
+Message("LCN=%1u     MFT locked clusters",
+        "LCN=%1u     MFT locked clusters")
+Message("LCN=%1u     Empty space",
+        "LCN=%1u     Empty space")
+
+###############
+# Pop-up window if another instance of MyDefrag is already running.
+Message("Other instance found",
+        "Other instance found")
+Message("MyDefrag is already running. In special cases it is possible to run multiple instances, but usually not. What shall I do?",
+        "MyDefrag is already running. In special cases it is possible to run multiple instances, but usually not. What shall I do?")
+Message("Exit","Exit")
+Message("Continue","Continue")
+Message("Kill the other","Kill the other")
+
+# Pop-up window if the computer is running on battery power.
+Message("Running on battery power",
+        "Running on battery power")
+Message("Warning: the computer is running on battery power. Shall I continue?",
+        "Warning: the computer is running on battery power. Shall I continue?")
+Message("Stop MyDefrag","Stop MyDefrag")
+Message("Continue","Continue")
+
+###############
+# Scripting errors.
+Message("Fatal error, cannot execute the script: %1s",
+        "Fatal error, cannot execute the script: %1s")
+Message("Fatal error, script not found: %1s",
+        "Fatal error, script not found: %1s")
+Message("Fatal error, could not load script: %1s",
+        "Fatal error, could not load script: %1s")
+
+###############
+# Other messages.
+Message("Oeps! Memory full. MyDefrag cannot handle this disk, it has too many items.",
+        "Oeps! Memory full. MyDefrag cannot handle this disk, it has too many items.")
+Message("Sorry! Cannot write to the debug  logfile: %1s",
+        "Sorry! Cannot write to the debug logfile: %1s")
+Message("The computer will reboot in 30 seconds. Please logoff immediately.",
+        "The computer will reboot in 30 seconds. Please logoff immediately.")
+Message("The computer will shutdown in 30 seconds. Please logoff immediately.",
+        "The computer will shutdown in 30 seconds. Please logoff immediately.")
+Message("The computer is too busy, I will now exit. For more information see the 'ExitIfTimeout' setting.",
+        "The computer is too busy, I will now exit. For more information see the 'ExitIfTimeout' setting.")
+
+###############
+# Logfile header:
+Message("LogHeader","
+Date:                       !Date! !Time!
+Script:                     !ScriptTitle!
+MyDefrag version:           !MyDefragVersion!
+Commandline:                !Commandline!
+Working directory:          !WorkingDirectory!
+")
+
+###############
+# Logfile footer:
+Message("LogFooter","
+
+###############################################################################
+Finished:                   !Date! !Time!
+Total running time:         !RunTime!
+")
+
+###############
+# Logfile "before" statistics:
+Message("LogBefore","
+###############################################################################
+Processing volume:    !MountPoint!
+###############################################################################
+
+Total disk space:     !VolumeSize! bytes (!VolumeSizeG! GigaBytes)
+Volume type:          !VolumeType!
+
+Before:
+  Unfragmented items: !FILES202N! bytes !FILES200N! items
+  Fragmented items:   !FILES212N! bytes !FILES210N! items
+  Gaps:               !GAP10N! bytes !GAP00N! gaps
+  Average gap:        !GAP13N! bytes
+  Median gap:         !GAP14N! bytes
+  Biggest gap:        !GAP15N! bytes
+  Average end-begin distance: !AverageBeginEndDistance! clusters
+")
+
+###############
+# Logfile "after" statistics:
+Message("LogAfter","
+After:
+  Unfragmented items: !FILES202N! bytes !FILES200N! items
+  Fragmented items:   !FILES212N! bytes !FILES210N! items
+  Gaps:               !GAP10N! bytes !GAP00N! gaps
+  Average gap:        !GAP13N! bytes
+  Median gap:         !GAP14N! bytes
+  Biggest gap:        !GAP15N! bytes
+  Average end-begin distance: !AverageBeginEndDistance! clusters
+
+
+These items could not be moved:
+Fragments   Bytes             Clusters     Name
+----------- ----------------- -----------  ------------------------
+!UnmovablesList!
+----------- ----------------- -----------  ------------------------
+!UnmovablesTotalFragments! !UnmovablesTotalBytes! !UnmovablesTotalClusters!  Total
+
+
+These items are fragmented:
+Fragments   Bytes             Clusters     Name
+----------- ----------------- -----------  ------------------------
+!FragmentedList!
+----------- ----------------- -----------  ------------------------
+!FragmentedTotalFragments! !FragmentedTotalBytes! !FragmentedTotalClusters!  Total
+
+
+The 25 largest items on disk:
+Fragments   Bytes             Clusters     Name
+----------- ----------------- -----------  ------------------------
+!LargestItemsList!
+----------- ----------------- -----------  ------------------------
+!LargestItemsTotalFragments! !LargestItemsTotalBytes! !LargestItemsTotalClusters!  Total
+
+
+")
+
+###############
+# Logfile statistics for AnalyzeOnly script:
+Message("LogAnalyzeOnly","
+###############################################################################
+Analyzing volume:   !MountPoint!
+###############################################################################
+
+Total disk space:   !VolumeSize! bytes (!VolumeSizeG! GigaBytes)
+Volume type:        !VolumeType!
+
+Unfragmented items: !FILES202N! bytes !FILES200N! items
+Fragmented items:   !FILES212N! bytes !FILES210N! items
+Gaps:               !GAP10N! bytes !GAP00N! gaps
+Average gap:        !GAP13N! bytes
+Median gap:         !GAP14N! bytes
+Biggest gap:        !GAP15N! bytes
+Average end-begin distance: !AverageBeginEndDistance! clusters
+
+
+These items are fragmented:
+Fragments   Bytes             Clusters     Name
+----------- ----------------- -----------  ------------------------
+!FragmentedList!
+----------- ----------------- -----------  ------------------------
+!FragmentedTotalFragments! !FragmentedTotalBytes! !FragmentedTotalClusters!  Total
+
+
+The 25 largest items on disk:
+Fragments   Bytes             Clusters     Name
+----------- ----------------- -----------  ------------------------
+!LargestItemsList!
+----------- ----------------- -----------  ------------------------
+!LargestItemsTotalFragments! !LargestItemsTotalBytes! !LargestItemsTotalClusters!  Total
+
+
+")
+
+###############
+# Text for the statistics window:
+SetStatisticsWindowText("
+Total disk space:   !VolumeSize! bytes !VolumeSizeG! GigaBytes
+Unfragmented items: !FILES202N! bytes !FILES200N! items
+Fragmented items:   !FILES212N! bytes !FILES210N! items
+Gaps:               !GAP10N! bytes !GAP00N! gaps
+Average gap:        !GAP13N! bytes
+Median gap:         !GAP14N! bytes
+Biggest gap:        !GAP15N! bytes
+
+Zone number:        !ZoneNumber!
+Unfragmented items: !ZONE202N! bytes !ZONE200N! items
+Fragmented items:   !ZONE212N! bytes !ZONE210N! items
+")
+
+###############################################################################
+# Title and description for System Disk Daily script.
+Message("System Disk Daily","System Disk Daily")
+
+Message("System Disk Daily description","
+Fast defragment and optimize the selected disk(s). This script is designed for
+every day use on the system disk (the C: disk). It moves a minimum of data on the
+harddisk and finishes very quickly, but will not defragment extremely large files
+and will not fill all the gaps on the disk.
+
+The script will first place the MFT and the directories at 30% into the data on
+the disk. It will then defragment the files and fast-fill the gaps (consolidate free
+space), ordering the files into the following zones starting at the beginning of 
+the disk: the files used when booting, files used by the most used programs, regular
+files, and the Blobs. Between the zones it creates gaps for temporary files.
+")
+
+###############
+# Title and description for System Disk Weekly script.
+Message("System Disk Weekly","System Disk Weekly")
+
+Message("System Disk Weekly description","
+Defragment and optimize the selected disk(s). This script is designed for
+the system disk (the C: disk), and is a compromise between the Daily and 
+Monthly scripts. It will more thoroughly defragment files and fill gaps than
+the Daily script, but will not sort files like the Monthly script.
+
+The script will first place the MFT and the directories at 30% into the data on
+the disk. It will then defragment the files and fill all the gaps (consolidate free
+space), ordering the files into the following zones starting at the beginning of
+the disk: the files used when booting, files used by the most used programs,
+regular files, and the Blobs. Between the zones it creates gaps for temporary
+files.
+")
+
+###############
+# Title and description for System Disk Monthly script.
+Message("System Disk Monthly","System Disk Monthly")
+
+Message("System Disk Monthly description","
+Thoroughly defragment and optimize the selected disk(s). This script is designed
+for occasional use on the system disk (the C: disk), for example once per month.
+It will sort all the files by their full path, and will therefore take a long time
+to finish.
+
+The script will first place the MFT and the directories at 30% into the data on
+the disk. It will then defragment and sort all the files by their full path, ordering
+the files into the following zones starting at the beginning of the disk: the files
+used when booting, files used by the most used programs, regular files, and the
+Blobs. Between the zones it creates gaps for temporary files.
+")
+
+###############
+# Title and description for Data Disk Daily script.
+Message("Data Disk Daily","Data Disk Daily")
+
+Message("Data Disk Daily description","
+Fast defragment and optimize the selected disk(s). This script is designed for
+every day use on data disks (all disks except the C: disk). It moves a minimum
+of data on the harddisk and finishes very quickly, but will not defragment 
+extremely large files and will not fill all the gaps on the disk.
+
+The script will place the MFT and the directories at the beginning of the disk,
+followed by a gap, and then it will defragment all the files and fast-fill all
+the gaps (consolidate empty space).
+")
+
+###############
+# Title and description for Data Disk Weekly script.
+Message("Data Disk Weekly","Data Disk Weekly")
+
+Message("Data Disk Weekly description","
+Defragment and optimize the selected disk(s). This script is designed for
+data disks (all disks except the C: disk), and is a compromise between the
+Daily and Monthly scripts. It will more thoroughly defragment files and fill
+gaps than the Daily script, but will not sort files like the Monthly script.
+
+The script will place the MFT and the directories at the beginning of the disk,
+followed by a gap, and then it will defragment all the files and fill all the
+gaps (consolidate empty space).
+")
+
+###############
+# Title and description for Data Disk Monthly script.
+Message("Data Disk Monthly","Data Disk Monthly")
+
+Message("Data Disk Monthly description","
+Thoroughly defragment and optimize the selected disk(s). This script is designed
+for occasional use, for example once per month. It will sort all the files by
+their full path, and will therefore take a long time to finish.
+
+The script will place the MFT and the directories at the beginning of the disk,
+followed by a gap, and then it will sort all the files by their full path. This
+will also defragment all the files and fill all the gaps (consolidate empty space).
+")
+
+###############
+# Title and description for Analyze Only script.
+Message("Analyze only","Analyze only")
+
+Message("Analyze only description","
+Analyze the selected disk(s). The script will write a report to the
+'MyDefrag.log' file, and will automatically pause between disks
+so you can view and interpret the diskmap.
+")
+
+###############
+# Title and description for Consolidate free space script.
+Message("Consolidate free space","Consolidate free space")
+
+Message("Consolidate free space description","
+Move files and directories to the beginning of the disk(s).
+This can be useful on very full disks, to make room for manouvering big files.
+The script will move everything to the beginning of the disk, beginning with files
+at the end of the disk. It will fragment files to create parts that exactly fill
+gaps.
+")
+
+###############
+# Title and description for Defragment only script.
+Message("Defragment only","Defragment only")
+
+Message("Defragment only description","
+Defragment all the files and directories on the selected disk(s).
+The script will first defragment files for which it can
+find a large enough gap, and then slowly defragment files that are bigger than
+the largest gap by shuffling data.
+
+Are you comparing with another defragmenter? Use this script. MyDefrag uses
+wrap-around fragmentation, a concept unique to MyDefrag. The DefragmentOnly
+script will turn this setting off and is the only script that is more or less
+compatible with other defragmenters. For more information see the
+'IgnoreWrapAroundFragmentation' setting in the MyDefrag manual.
+")
+
+###############
+# Title and description for Flash memory disks script.
+Message("Flash memory disks","Flash memory disks")
+
+Message("Flash memory disks description","
+Defragment and consolidate free space on the selected disk(s).
+This script is specially designed for Flash and SSD disks.
+It will defragment all the fragmented files and make the free space
+as large as possible by moving all files to the beginning of the disk.
+
+Flash memory has a limited number of erase-write cycles. The script is specially
+designed to move as little data as possible, but still uses up some of those
+cycles. My advise is to use some discretion and not run this script every day,
+but only occasionally, for example once per month.
+")

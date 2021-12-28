@@ -1,0 +1,36 @@
+# Script: ZoneWhenStarted
+RunProgram("..\Commands\WriteDateTime.bat")
+
+!include "..\Zone\ZoneDoCurrentClear.MyDc"!
+!include "..\Display\DisplaySetZone.MyDc"!
+
+SetVariable(ZoneStepDescription,		"!ZoneStepDescriptionZoneStart!")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+SetVariable(ZoneTypeSelectCurrent,		"!ZoneTypeSelect!")
+
+SetVariable(ZoneStepDescription, "ZONE!ColonWord! !ZoneNoDisplay! (!ZoneNoCurrent!, !ZoneNoCurrentAdjust!) !ZoneLabel! !ZoneDescription! ")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+# Xinclude "..\Zone\ZoneStatisticsReportGet.MyDc"X
+SetVariable(ZoneStatisticsReport,		"!ZoneStepDescription!") // ZoneStart
+
+!include "..\Display\BannerSet.MyDc"!
+!include "..\Display\BannerLog.MyDc"!
+
+# LOGGING:
+#dgh@Z#  Appendlogfile("!LogFileName!",			"Zone !ZoneNumber! (!ZoneNoCurrent! + !ZoneNoCurrentAdjust!) of !ZoneCount!.")
+#dgh@Z#  Appendlogfile("!LogFileName!",			"Zone !ZoneCurrentDescription!:")
+
+# RunProgram("copy","!LogFileName!","+","DateTimeLast.txt","!LogFileName!","/y","/v")
+# #dgh@Z#  Appendlogfile("!LogFileName!", "***DATE TEST*** Time: !Date! !Time!")
+# !Date! !Time! 
+# SetVariable(ZoneListByLine, "!ZoneListByLine! Zone: !ZoneNoCurrent! !DATETIME! !RunTime! !ZoneLabel! !ZoneDescription!")
+# Xinclude "..\Display\DisplaySetDateTimeCurrent.MyDc"X
+# SetVariable(ZoneListByLine, "!ZoneListByLine! Zone: !ZoneNoCurrent! Xinclude "..\Commands\DateTimeLastLong.txt"X !RunTime! !ZoneLabel! !ZoneDescription!")
+
+
+# Add zone to list of zones:
+SetVariable(ZoneListByLine, "!ZoneListByLine!
+Zone: !ZoneNoDisplay! (!ZoneNoCurrent!, !ZoneNoCurrentAdjust!) !DateNow! !TimeNow! !RunTimeNow! !ZoneLabel! !ZoneDescription!")
+!include "..\Display\DisplaySetWindowText.MyDc"!

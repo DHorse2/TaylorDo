@@ -1,0 +1,62 @@
+SetVariable(ZoneStepDescription,"Calculating Gap for MFT and DIR.")
+!include "..\Display\BannerDescriptionSet.MyDc"!
+
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+SetVariable(MftReport, "!MftReport!MftLocation: !MftLocation! !DateNow! !TimeNow! !RunTimeNow!")
+# SetVariable(MftSize, !MftSize!)
+SetVariable(MftReport, "!MftReport!MftSize: !MftSize!
+")
+
+SetVariable(MftGapSlack, MftLocation - VolumeUsedTotal)
+SetVariable(MftReport, "!MftReport!MftGapSlack: !MftGapSlack!
+")
+
+SetVariable(MftGapSlackPerUsed, MftGapSlack / VolumeFreeAdj)
+SetVariable(MftReport, "!MftReport!MftGapSlackPerUsed: !MftGapSlackPerUsed!
+")
+
+SetVariable(MftReport, "!MftReport!VolumeUsed !BeforeWord!!ColonWord! !VolumeUsedTotal!
+")
+SetVariable(VolumeUsedTotal, MftLocation)
+SetVariable(MftReport, "!MftReport!VolumeUsed !AtWord! !LocationWordCaps!!ColonWord! !VolumeUsedTotal!
+")
+
+SetVariable(VolumeFreePerUsed, VolumeFreePerUsed + (MftGapSlack / VolumeFree))
+SetVariable(MftReport, "!MftReport!VolumeFreePerUsed: !VolumeFreePerUsed!
+")
+
+/* ------------------------- */
+#  MFT
+/* Mft Method: MakeGap(MftLocation, DoNotVacate) */ 
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsMft.MyDc"!
+  
+/* ------------------------- */
+# DIR
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsDir.MyDc"!
+
+/* ------------------------- */
+/* Mft Method: MFT GAP HERE. */
+/* For fixed zone locations */
+SetVariable(LogBlock, "!MftReport!
+Mft Zone: !MftZone! 
+Location: !MftLocation! 
+  MftGap: !MftGapSize! !DateNow! !TimeNow! !RunTimeNow!
+")
+#dgh@Z#  Writelogfile("!LogFileName! Volume !VolumenName! MftReport", , '!LogBlock!')
+
+/* MakeGap(MftGap, DoNotVacate) */
+  
+/* ------------------------- */
+# PageHiberDump
+
+# You cannot move Pagefile or Hiberfil generally speaking.
+# This might work in safe mode with preparation.
+# Zone PageHiberDump.
+# Possibly a Gap should be vacated so there is a space available upon recreation of the files.
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsPageHiberDump.MyDc"!
+#dgh@Z#  Appendlogfile("!LogFileName!","!MftReport!")
+
+/* ------------------------- */

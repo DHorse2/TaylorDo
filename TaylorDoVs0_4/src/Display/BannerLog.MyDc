@@ -1,0 +1,4 @@
+# Script: BannerLog
+
+#dgh@Z#  Appendlogfile("!LogFileName!", "!Heading!")
+

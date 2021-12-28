@@ -1,0 +1,22 @@
+# MyDefrag v4.0 script: Development Volume Yearly defrag
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (FOSS) 2019
+# based on MyDefrag distribution.
+
+Title('Development Volume Yearly')
+Description("Development Volume Yearly description")
+
+/* Development Volume Yearly */
+SetVariable(RunDescription,"!DevWordCaps! !DevWordCaps! !YearlyWord!")
+SetVariable(RunStepDescription,"!RunDescription!")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Yearly: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesYear!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
+
+/* Dev */
+!include "..\Defrag\DefragVolumeDev.MyDc"!

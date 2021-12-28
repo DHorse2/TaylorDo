@@ -1,0 +1,52 @@
+﻿Source: 
+documentation.help
+
+For all sorts of programming and software documentation, APIs, and help information
+
+https://documentation.help/
+
+https://documentation.help/MyDefrag/Manual-Scripts.html
+
+Commandline
+The MyDefrag script interpreter ("c:\Program Files\MyDefrag v4.3.1\MyDefrag.exe") accepts the following commandline parameters. The parameters can also be used with scripts, for example "Weekly.MyD -v C:".
+
+c:\Program Files\MyDefrag v4.3.1\MyDefrag.exe 
+
+Parameter 	    	Description
+[-r] FILENAME 	    	Run a MyDefrag script.
+
+    The interpreter will look for the FILENAME in various directories. For more information see the *  RunScript command.
+    The "-r" is optional if the filename matches "*.MyD". 
+
+For example:
+MyDefrag.exe -r Weekly.MyD
+[-m] NAME=VALUE 	    	Set a macro.
+
+    See the *  Macros for more information.
+    The DOS commandline has a maximum length, depending on the Windows version, and this puts a cap on the number of commandline macros you can define. MyDefrag itself has no limits to the size, the number, or the content of macros.
+    The "-m" is optional, but should be used to prevent clashes with FILENAME and VOLUME. 
+
+For example:
+MyDefrag.exe -m SELECT=All
+[-v] VOLUME 	    	The volumes to be processed.
+
+    Wildcards "*" and "?" can be used to select a set of volumes.
+    Default is to process all volumes.
+    This only works if your script uses the *  CommandlineVolumes volumeboolean.
+    The "-v" is optional, but should be used to prevent clashes with FILENAME and macros. 
+
+For example:
+MyDefrag.exe -v C: -v D:
+Weekly -v F:
+-d N 	    	Select a debug level. This will control the messages that are written to the debug logfile. The number N is a value from 0 to 6:
+0 = Fatal errors.
+1 = same as 0 plus warning messages and basic information messages.
+2 = same as 1 plus scripting and volume analyasis information messages.
+3 = same as 5 plus scripting high-detail information messages.
+4 = same as 2 plus moving items information messages.
+5 = same as 4 plus moving items high-detail information messages.
+6 = same as 5 plus volume analysis high-detail information messages.
+For example:
+MyDefrag.exe -d 3
+Also see: the *  Debug setting.
+Note: The debug logfile is highly technical. See the *  #dgh@Z#  Writelogfile and *  #dgh@Z#  Appendlogfile script commands to create a logfile more suitable for users. 

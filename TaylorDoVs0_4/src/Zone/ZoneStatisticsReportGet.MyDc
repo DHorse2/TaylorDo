@@ -1,0 +1,56 @@
+# Script: ZoneStatisticsReportGet
+SetVariable(ZoneKeyCurr, "!LogFileName! !ZoneCurrentDescription!")
+
+# Footer:
+SetVariable(ZoneStatisticsReport1, "----------------------------------------------------------
+ZONE!ColonWord! !ZoneNoDisplay! (!ZoneNoCurrent!, !ZoneNoCurrentAdjust!) !ZoneLabel! !ZoneDescription! ")
+#
+# Xinclude "..\Commands\DateTimeLastLong.txt"X
+#
+# What a mess this word based vs is. Try a phrase based version ToDo
+SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
+------------------
+   !SizeWord!!ColonWord!  
+   ------------------------
+                Files!ColonWord! !ZoneSizeCurrent! (!ZoneSizePerCurrent!%)
+                  Gap!ColonWord! !ZoneGapActualCurrent! (!ZoneGapActualPerCurrent!%)
+                Total!ColonWord! !ZoneSizeActualCurrent! (!ZoneEndActualPerCurrent!%)
+
+        !FilesWordCaps!!SlashWord!!FoldersWordCaps!!ColonWord! !ZoneFilesFolders! (!ZoneFilesFoldersPer!%) 
+            !FragmentsWordCaps!!ColonWord! !ZoneFragments! (!ZoneFragmentsPer!%) 
+
+   !LocationWordCaps!!ColonWord!
+   ------------------------
+           !ZoneWordCaps! !StartWord!!ColonWord! !ZoneBeginCurrent! (!ZoneBeginPerCurrent!%)
+            !FilesWordCaps! !EndWord!!ColonWord! !ZoneEndCurrent!
+             !ZoneWordCaps! !EndWord!!ColonWord! !ZoneEndActualCurrent! (!ZoneEndActualPerCurrent!%)
+      
+   !GapWordCaps! !SettingsWord!!ColonWord!
+   ------------------------
+         !GapWordCaps! !RequestedWord!!ColonWord! !ZoneGapSizePer!%
+       !VolumeWordCaps! !RoundingWord!!ColonWord! !ZoneVolRoundUpPer!%
+            !ActualWord! !GapWordCaps!!ColonWord! !ZoneGapActualPerCurrent!% (!ZoneGapActualCurrent!)
+                 
+               !TheWordCaps! !DesiredWord! !MinWord! !GapWordCaps! !SizeWord!!PeriodWord! (GapRequested)!ColonWord! !ZoneGapRequestedCurrent!  (!LocWordCaps!) !ZoneGapRequestedLocCurrent!
+              !MustWordCaps! !BeWord! !HalfWord! !TheWord! !ZoneWordCaps! !SizeWord!!PeriodWord! (GapAdjusted)!ColonWord! !ZoneGapAdjustedCurrent!  (---) !ZoneGapAdjustedLocCurrent!
+               !AlignWord! !ToWord! !TheWord! !VolumeWordCaps! !EvenlyWord!!PeriodWord! (GapRounded)!ColonWord! !ZoneGapRoundedCurrent!  (---) !ZoneGapRoundedLocCurrent!
+          !TheWordCaps! !RemainingWord! !SpaceWord! !AvailableWord!!PeriodWord! (GapAvailable)!ColonWord! !ZoneGapAvailableCurrent!  (---) !ZoneGapAvailableLocCurrent!
+      !TheWordCaps! !LowerWord! !OfWord! !AdjustedWord! !AndWord! !AvailableWord!!PeriodWord! (GapCurrent)!ColonWord! !ZoneGapCurrent!  (---) !ZoneGapLocCurrent!
+    (GapCurrent) !AfterWord! !AnyWord! !CodeWord! !YouWord! !InsertedWord!!PeriodWord! (GapUsed)!ColonWord! !ZoneGapUsedCurrent!  (---) !ZoneGapUsedLocCurrent!
+     
+   !FreeWordCapsCaps! !SpaceWord! !AfterWord! !ZoneWordCaps!!ColonWord!
+   ------------------------
+              !TotalWord! !RequestedWord!!ColonWord! !VolumeFreeRequested! (!VolumeFreeRequestedPer!%)
+                   !TotalWord! !UsedWord!!ColonWord! !VolumeFreeUsed! (!VolumeFreeUsedPer!%)
+         !VolumeWordCaps! !UsedWord! !ByWord! !ZonesWordCaps!!ColonWord! !VolumeZoneUsed! (!VolumeZoneUsedPer!%)
+
+!DirectoryWordCaps! !AndWord! !FilesWordCaps! !SelectWord!!ColonWord!
+----------------------------------------------------------
+")
+#
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+
+SetVariable(ZoneStatisticsReport, "!ZoneStatisticsReport1! !DateNow! !TimeNow! !RunTimeNow! !ZoneStatisticsReport2!")
+
+# #dgh@Z#  Writelogfile("!LogFileName! Volume !VolumenName! Zone !ZoneNoCurrent! !ZoneCurrentDescription!", "!ZoneStatisticsReport!")
+# #dgh@Z#  Appendlogfile("!LogFileName!", "!ZoneStatisticsReport!")

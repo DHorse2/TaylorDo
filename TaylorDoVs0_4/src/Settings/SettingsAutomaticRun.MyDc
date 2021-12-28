@@ -1,0 +1,23 @@
+# Script: 
+#
+# Do not show the window in automatic mode
+WindowSize(invisible) 
+#
+# Automatically exit when the script has finished. This script is designed to
+   be run via the task scheduler, so it must exit automatically.
+WhenFinished(exit)
+
+# If another instance of MyDefrag is already running then exit.
+# Normally this is (ask).
+# Warning. Do not run multiple scripts concurrently on any volume.
+# We are going to exit so as to not hammer any run started by the admin/user.
+OtherInstances(exit)
+
+# Normal seems to work okay too.
+ProcessPriority(Background) // will fail, use Low?
+
+# This shouldn't matter in automatic mode
+ExitIfTimeout(900) // 15 minutes
+
+# Don't make it artifically run slowly if resources exist
+Slowdown(100)

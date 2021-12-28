@@ -1,0 +1,5 @@
+# Script: ZoneDo ZoneTypeSelectUnallocated
+# Unallocated. all files not alreeady placed into a zone select
+# Unallocated start.
+!include "..\FileSelectCategory\SelUnallocated.MyDs"!
+# Unallocated end.

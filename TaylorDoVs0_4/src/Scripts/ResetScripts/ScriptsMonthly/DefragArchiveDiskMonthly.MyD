@@ -1,0 +1,21 @@
+# MyDefrag v4.0 script: Archive Volume Monthly defrag
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (OpenSource) 2019
+# based on MyDefrag distribution.
+
+/* Archive Volume Yearly*/
+SetVariable(RunDescription,"Archive Vol Monthly")
+SetVariable(RunStepDescription,"Archive Vol Yearly")
+!include "..\..\Display\DisplaySetRun.MyDc"!
+
+!include "..\..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Monthly: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesMonth!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
+
+/* Note: The Dev Volume handler works fairly well but... */
+/* Adjust the Archive MFT Percentage high around 40 or 45. */
+
+!include "..\..\Defrag\DefragVolumeArchive.MyDc"!

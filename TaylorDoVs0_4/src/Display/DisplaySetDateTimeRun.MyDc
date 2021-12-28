@@ -1,0 +1,7 @@
+# Script: DisplaySetDateTimeRun
+
+SetVariable(RunStartDate,				"!Date!")
+SetVariable(RunStartTime,				"!Time!")
+SetVariable(RunDateTime,				"!RunStartDate! !RunStartTime!")
+# Xinclude "..\Display\BannerSet.MyDc"X
+/* pause(1) */

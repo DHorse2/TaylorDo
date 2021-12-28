@@ -1,0 +1,65 @@
+# Fixed Zone Position Handling
+# Literal number: 
+# SetVariable(Temp, RoundUp( (ZoneBegin * ZoneFixedToggle * (0-1)), (ZoneLocationCurrent * ZoneFixedToggle) ) 
+# Percentage of disk: 
+# XXX SetVariable(Temp, RoundUp(ZoneBegin * ZoneFixedToggle * (0-1), ZoneLocationCurrent * ZoneFixedToggle * VolumeSize))
+# Gap 
+/* XXXXXXXXXXXXXXXXXXXXXXX MakeGap(Temp, DoNotVacate) // will move if toggle is on (1). xxx method Mft */
+
+REPORT
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+# STRUCTURED REPORT
+/* ---------------------------------------------------------- */
+	/* ---------------------------------------------------------- */
+	# SERVER
+	/* ---------------------------------------------------------- */
+	# VOLUME TYPE
+
+		/* ---------------------------------------------------------- */
+		# Os
+		
+		# Boot, 			"Boot 
+		# ProgramHints,		"ProgramHints
+		# Programs,			"Programs
+
+		# placement of MFT should depend on zone sizes
+		# Mft,				"MFT
+		# Dir,				"DIR
+		
+		/* ---------------------------------------------------------- */
+		# Standard Zones:
+
+		# DevToDo, 			"DevToDo
+		# IdeScripts, 		"IdeScripts
+		# LinksCorp, 		"LinksCorp
+		# People, 			"People
+		# Shares, 			"Shares
+		# SystemOtherData, 	"SystemOtherData
+		# Reference, 		"Reference
+		
+		/* ---------------------------------------------------------- */
+		# Other
+
+		# Blobs, 		"Blobs
+		# ArchivesBu, 		"ArchivesBu
+		# Regular, 			"Regular
+	
+	/* ---------------------------------------------------------- */
+	# DISK
+		# FOLDERS
+		# FILES
+		# BLOBS
+		# ARCHIVEBU
+	/* ---------------------------------------------------------- */
+	# DEFRAG
+		# FRAGMENTS
+		# GAPS
+		# HEAD MOVEMENT
+	
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+# SUMMARY
+
+/* ---------------------------------------------------------- */
+# DETAIL

@@ -1,0 +1,12 @@
+# Script: SettingsSysWindowSize
+#
+# restore      Make the size and position of the MyDefrag window the same as the last time the program was run with this option. 
+# minimized      Minimized. MyDefrag is only visible in the taskbar. 
+# maximized      Maximized, using the entire screen. 
+# invisible      Hide the MyDefrag window. 
+# fixed      Change the size of the MyDefrag window to 600x400. 
+#
+WindowSize(restore)
+#
+!include "..\Settings\SettingsYours\SettingsYoursSysWindowSize.MyDc"!
+#

@@ -1,0 +1,22 @@
+# MyDefrag v4.0 script: System Volume Yearly defrag
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (FOSS) 2019
+# based on MyDefrag distribution.
+
+Title('System Volume Yearly')
+Description("System Volume Yearly description")
+
+/* System Volume Yearly */
+SetVariable(RunDescription,"!SysWordCaps! !VolWord! !YearlyWord!")
+SetVariable(RunStepDescription,"!RunDescription!")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Yearly: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesYear!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
+
+/* Sys */
+!include "..\Defrag\DefragVolumeSys.MyDc"!

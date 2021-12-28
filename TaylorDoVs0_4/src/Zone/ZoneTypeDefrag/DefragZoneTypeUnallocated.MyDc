@@ -1,0 +1,26 @@
+# Script: DefragZoneTypeUnallocated
+/* ------------------------- */
+/* Zone 99 (currently 21) Unallocated (All) Directories and Files */
+
+SetVariable(ZoneLabel, "!ZoneLabelUnallocated!")
+SetVariable(ZoneDescription, "!ZoneDescriptionUnallocated!")
+SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpUnallocated!")
+SetVariable(ZoneGapSize, "!ZoneGapSizeUnallocated!")
+
+SetVariable(ZoneTypeSelect,'
+Zone 99 Unallocated (All) Directories and Files:
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectUnallocated.MyDc"!
+')
+
+# Note: This should be all files and folders
+# not already included in any zone.
+# This is files unallocated to a zone.
+# The error zone, unknown, system99, zone99.
+
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectUnallocated.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* ------------------------- */

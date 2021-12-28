@@ -1,0 +1,12 @@
+# Script: ZoneDo ZoneTypeSelectArchivesBu
+# ArchivesBu start.
+( ( 
+# ArchivesBu
+!include "..\FileSelectCategory\SelArchives.MyDs"!
+# Bu Backups
+or
+!include "..\FileSelectCategory\SelBackups.MyDs"!
+)
+and not(FileName("ReferenceMarker.MyDx"))
+)
+# ArchivesBu end.
