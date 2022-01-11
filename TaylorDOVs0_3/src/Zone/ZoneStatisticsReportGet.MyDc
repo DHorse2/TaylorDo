@@ -10,11 +10,11 @@ ZONE!ColonWord! !ZoneNoDisplay! (!ZoneNoCurrent!, !ZoneNoCurrentAdjust!) !ZoneLa
 # What a mess this word based vs is. Try a phrase based version ToDo
 SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
 ------------------
-   !SizeWord!!ColonWord!  
+   !SizeWordCaps!!ColonWord!  
    ------------------------
-                Files!ColonWord! !ZoneSizeCurrent! (!ZoneSizePerCurrent!%)
-                  Gap!ColonWord! !ZoneGapActualCurrent! (!ZoneGapActualPerCurrent!%)
-                Total!ColonWord! !ZoneSizeActualCurrent! (!ZoneEndActualPerCurrent!%)
+                !FilesWordCaps!!ColonWord! !ZoneSizeCurrent! (!ZoneSizePerCurrent!%)
+                  !GapWordCaps!!ColonWord! !ZoneGapActualCurrent! (!ZoneGapActualPerCurrent!%)
+                !TotalWordCaps!!ColonWord! !ZoneSizeActualCurrent! (!ZoneEndActualPerCurrent!%)
 
         !FilesWordCaps!!SlashWord!!FoldersWordCaps!!ColonWord! !ZoneFilesFolders! (!ZoneFilesFoldersPer!%) 
             !FragmentsWordCaps!!ColonWord! !ZoneFragments! (!ZoneFragmentsPer!%) 

@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeData.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Data Disk Daily
-"DefragDataDiskDaily.MyD"
+START /wait "" "DefragDataDiskDaily.MyD"
 @Echo ------------------------------------------------------
 @Echo . end of DataDaily Defrag Data Disk Daily
 @TIMEOUT /T 1 /NOBREAK

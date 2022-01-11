@@ -4,8 +4,10 @@
 
 SetVariable(ZoneLabel,			"!ZoneLabelDevToDo!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionDevToDo!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeDevToDo!")
 SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpDevToDo!")
 SetVariable(ZoneGapSize,			"!ZoneGapSizeDevToDo!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 Development and ToDo:

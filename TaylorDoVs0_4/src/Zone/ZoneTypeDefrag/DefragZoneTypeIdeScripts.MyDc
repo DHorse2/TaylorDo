@@ -4,8 +4,10 @@
 
 SetVariable(ZoneLabel,			"!ZoneLabelIdeScripts!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionIdeScripts!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeIdeScripts!")
 SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpIdeScripts!")
 SetVariable(ZoneGapSize,			"!ZoneGapSizeIdeScripts!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 IDE and Scripts:

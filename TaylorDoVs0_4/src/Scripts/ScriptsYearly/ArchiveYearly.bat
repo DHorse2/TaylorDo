@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeArchive.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Archive Disk Yearly
-"DefragArchiveDiskYearly.MyD"
+START /wait "" "DefragArchiveDiskYearly.MyD"
 @Echo ------------------------------------------------------
 @Echo . end of ArchiveYearly
 @TIMEOUT /T 1 /NOBREAK

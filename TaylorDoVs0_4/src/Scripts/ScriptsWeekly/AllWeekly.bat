@@ -6,21 +6,24 @@
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Weekly Disk(s) 
-cd ..
 @Echo . System Disks
-"DefragSystemDiskWeekly.MyD"
+cd
+call "SysWeekly.bat"
+@cd ScriptsWeekly
 @Echo ------------------------------------------------------
 @Echo . Dev Disks
-"DefragDevDiskWeekly.MyD"
+cd
+call "DevWeekly.bat"
+@cd ScriptsWeekly
 @Echo ------------------------------------------------------
 @Echo . Data Disks
-"DefragDataDiskWeekly.MyD"
+cd
+call "DataWeekly.bat"
+@cd ScriptsWeekly
 @Echo ------------------------------------------------------
 @Echo . Archive Disks
-"DefragArchiveDiskWeekly.MyD"
+cd
+call "ArchiveWeekly.bat"
 @Echo ------------------------------------------------------
-@Echo . end of Defrag Weekly Disk(s)
-@TIMEOUT /T 1 /NOBREAK
-@Echo ------------------------------------------------------
-@Echo . end of AllWeekly Defrag All Disk(s) Weekly
+@Echo . end of All Monthly Defrag All Disk(s) Weekly
 @TIMEOUT /T 1 /NOBREAK

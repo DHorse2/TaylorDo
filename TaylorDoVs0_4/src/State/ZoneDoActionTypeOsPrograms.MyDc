@@ -1,3 +1,4 @@
 # File Action - Type Os Programs Data - Regular - MoveUpToZone.
-!include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!
+!include "..\ActionVerbs\ZoneDoActionSortByCreationDate.MyDc"!
+# Xinclude "..\ActionVerbs\ZoneDoActionSortByImportSequenceSkip.MyDc"X
 	

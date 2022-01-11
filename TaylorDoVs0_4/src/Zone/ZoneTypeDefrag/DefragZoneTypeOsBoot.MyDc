@@ -4,8 +4,10 @@
 	!include "..\Display\DisplayColorsZoneDark.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelBoot!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionBoot!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizeBoot!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpBoot!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeBoot!")
+	SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionTypeOsBootFixed.MyDc"!')
 
 	SetVariable(ZoneTypeSelect,'
 Boot:
@@ -26,8 +28,8 @@ and not(
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 	
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!
@@ -43,6 +45,7 @@ and not(
 # Zone 2 Boot Data (Variable and other).
 	!include "..\Display\DisplayColorsZoneLight.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelBootData!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizeBootData!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionBootData!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpBootData!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeBootData!")
@@ -65,8 +68,8 @@ not(
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 	
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

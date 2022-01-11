@@ -4,8 +4,10 @@
 	!include "..\Display\DisplayColorsZoneDark.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelProgramHints!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramHints!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizeProgramHints!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramHints!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeProgramHints!")
+	SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionTypeOsProgramHintsFixed.MyDc"!')
 
 	SetVariable(ZoneTypeSelect,		'
 Program Hints:
@@ -25,8 +27,8 @@ and not(
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 	
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!
@@ -43,6 +45,7 @@ and not(
 	!include "..\Display\DisplayColorsZoneLight.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelProgramHintsData!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramHintsData!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizeProgramHintsData!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramHints!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeProgramHints!")
 
@@ -62,8 +65,8 @@ and not(
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

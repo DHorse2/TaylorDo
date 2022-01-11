@@ -24,10 +24,11 @@ Analyzing Volume.
 VolumeSelect
 	(
 	!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!
-	 # or CommandlineVolumes()
-	 )
-	 and Writable(yes) 
-	 and Mounted(yes)
+	# or CommandlineVolumes()
+	)
+	and Writable(yes) 
+	and Mounted(yes)
+	and Remote(no)
 /* ------------------------- */
 VolumeActions
 /* ------------------------- */
@@ -113,8 +114,8 @@ SetVariable(ZoneStepDescription,	"!AnalyzeWordCaps!")
 /* ------------------------- */
 /* ------------------------- */
 /* 13 (99) Zone 21 Unallocated (All) Directories and Files */
-!include "..\Display\DisplayColorsZoneLight.MyDc"!
-!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
+!include "..\Display\DisplayColorsZoneDark.MyDc"!
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeUnallocated.MyDc"!
 /* ------------------------- */
 /* Volume End */
 !include "..\Volume\VolumeWhenFinished.MyDc"!

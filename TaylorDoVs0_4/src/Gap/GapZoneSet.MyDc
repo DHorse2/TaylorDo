@@ -3,6 +3,7 @@
 # Gap Calculation Methods:
 
 /* 1) Anything you need to add first. */
+	SetVariable(GapData, '')
 /* empty */
 
 /* ------------------------- */
@@ -11,6 +12,15 @@
 
 		/* ------------------------- */
 		# GAP CALCULATION METHOD (CURRENTLY STANDARD)
+		# 20211229 Note: Zones should optionally be given
+		# a set size. This is more rational.
+		#
+		# This is resistent to large temporary files 
+		# appearing and disappearing from one run to the next.
+		# It is more rational for the user to assign space
+		# to their zone.
+		# 
+		# So do not override the resulting generated gap.
 
 		!include "..\Gap\GapCalcMethod.MyDc"!
 
@@ -18,27 +28,47 @@
 
 	SetVariable(GapRequestedLoc, ZoneEnd + GapRequested)
 
-	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap requested: !GapRequested! at !GapRequestedLoc!")
+	SetVariable(GapData, '!GapData! 
+	!GapWordCaps! !RequestedWord!!ColonWord! !GapRequested! at !GapRequestedLoc!')
 
 /* ------------------------- */
 /* 3) SMALL ZONE ADJUSTMENT. */
-/* Gab cant be larger than half the Zone Size. */
+/* Gab cant be larger than twice the Zone Size. */
+# I don't think the user should ever be overruled.
+# This solves tiny zones having big gaps.
+#	SetVariable(GapAdjusted, Minimum(GapRequested, ZoneSize * 2 ) )
 
-	SetVariable(GapAdjusted, Minimum(GapRequested, ZoneSize * 2 ) )
-	
+# Minimum Zone Size. Allows large temporary files to be present or missing by using a set Zone Size to determine the minimum gap.
+# So you only use a fixed zone size in this specific case and the size is known.
+# It can be zero and any negaitive result will be ignored.
+
+	SetVariable(GapAdjusted, Maximum(GapRequested, ZoneSizeMin - ZoneSize ) )
+
+# The pointer to the disk location of the gap end.	
 	SetVariable(GapAdjustedLoc, ZoneEnd + GapAdjusted)
 
-	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap adjusted: !GapAdjusted! at !GapAdjustedLoc!")
+	SetVariable(GapData, '!GapData! 
+	!ZoneWordCaps! !SizeWordCaps!!ColonWord! !ZoneSize!')
+
+	SetVariable(GapData, '!GapData! 
+	!MinimumWordCaps! !SizeWordCaps!!ColonWord! !ZoneSizeMin!')
+
+	SetVariable(GapData, '!GapData! 
+	!GapWordCaps! !AdjustedWord!!ColonWord! !GapAdjusted! at !GapAdjustedLoc!')
 
 /* ------------------------- */
 /* 4) VOLUME ROUND UP: to round Volume even numbers to prevent constant zone moves. */
 # Gap Adjustments.
+# Note the CalcStd use VolumeFreeAdj which would be more consistent.
+# 20211229 Change VolumeSize to VolumeFreeAdj.
+# Any given rounding factor would be smaller.
 
-	SetVariable(GapRoundedLoc, RoundUp(GapAdjustedLoc, ZoneVolRoundUp * VolumeSize) )
+	SetVariable(GapRoundedLoc, RoundUp(GapAdjustedLoc, ZoneVolRoundUp * VolumeFreeAdj ) )
 	
 	SetVariable(GapRounded, GapRoundedLoc - ZoneEnd)
 
-	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap rounded: !GapRounded! at !GapRoundedLoc!")
+	SetVariable(GapData, '!GapData! 
+	!GapWordCaps! !RoundedWord!!ColonWord! !GapRounded! at !GapRoundedLoc!')
 
 /* ------------------------- */
 # BYPASS THIS.
@@ -48,8 +78,12 @@
 	/* X) OVERFLOW: Adjust for previous zone overflow. */
 		# Zone Overflow.
 		# SetVariable(GapAdjusted, GapRounded + VolumeFreeRequested - VolumeFreeUsed)
-			SetVariable(LogBlock, 			"  Gap adjusted: !GapAdjusted! (VolumeFreeRequested # !VolumeFreeRequested! 			        # VolumeFreeUsed !				# VolumeFreeUsed!)")
-			# #dgh@Z#  Appendlogfile("!LogFileName!", '!LogBlock!')
+			
+	SetVariable(GapData, '!GapData! 
+	!GapWordCaps! !AdjustedWord!!ColonWord! !GapAdjusted! 
+	VolumeFreeRequested!ColonWord! !VolumeFreeRequested!
+	VolumeFreeUsed!ColonWord! !VolumeFreeUsed!
+	')
 
 /* ------------------------- */
 /* 5) END OF VOLUME: Adjust for total remaining volume space available. */
@@ -59,7 +93,8 @@
 	
 	SetVariable(GapAvailable, GapAvailableLoc - ZoneEnd)
 
-	#dgh@Z#  Appendlogfile("!LogFileName!", "  Gap adjusted: !GapAvailable! at !GapAvailableLoc!")
+	SetVariable(GapData, '!GapData! 
+	!GapWordCaps! !AdjustedWord!!ColonWord! !GapAvailable! at !GapAvailableLoc!')
 
 /* ------------------------- */
 # CURRENT gap to use.

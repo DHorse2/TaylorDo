@@ -1,0 +1,4773 @@
+﻿Any Vol Monthly Full ||Vol: Name("G:") - Any ||Zone: ArchivesBu ||Step: Processing finished, reporting. ||Zone: 21.000000 (14.000000,7.000000) of 21.000000  ||Server: VolThisPc -  started on 2021-12-14 22:14:56 ||VolumeUsed: -277728456704.005000 of 1,000,203,087,872
+----------------------------------------------------------
+Zones Processed: 
+----------------------------------------------------------
+Volume 0.000000 started.
+
+Zone: 1.000000 (1.000000, 0.000000) 0.000000 22.000000 0.000000 Boot Boot
+Zone: 2.000000 (1.000000, 1.000000) 0.000000 22.000000 0.000000 BootData BootData
+Zone: 3.000000 (1.000000, 2.000000) 0.000000 22.000000 0.000000 ProgramHints ProgramHints
+Zone: 4.000000 (1.000000, 3.000000) 0.000000 22.000000 0.000000 ProgramHintsData ProgramHintsData
+Zone: 5.000000 (1.000000, 4.000000) 0.000000 22.000000 0.000000 Programs Programs
+     s-( size 47891517.264957 / actual gap 958450.396679 / act size 48849967.661636) 
+     z [begin 0.000000 /  zone end 47891517.264957 / act end 48849967.661636]
+     g < used 958450.396679 / gap unused 16705902.589498 / round up 0.020000>
+
+     s-( size 0.000000 / actual gap 934590.571526 / act size 934590.571526) 
+     z [begin 47915377.090110 /  zone end 47915377.090110 / act end 48849967.661636]
+     g < used 934590.571526 / gap unused 16705841.574602 / round up 0.020000>
+
+Zone: 6.000000 (1.000000, 5.000000) 0.000000 5.000000 7.000000 ProgramsWindows !ZoneLabelProgramsWidows!
+     s-( size 590050.055189 / actual gap 4294947.111072 / act size 4884997.166261) 
+     z [begin 48849967.261538 /  zone end 49440017.316728 / act end 53734964.427799]
+     g < used 4294947.111072 / gap unused 15771251.403173 / round up 0.020000>
+
+     s-( size 0.000000 / actual gap 4294947.111072 / act size 4294947.111072) 
+     z [begin 49440017.316728 /  zone end 49440017.316728 / act end 53734964.427800]
+     g < used 4294947.111072 / gap unused 15771251.403173 / round up 0.020000>
+
+Zone: 7.000000 (1.000000, 6.000000) 0.000000 5.000000 7.000000 ProgramsData ProgramsData
+     s-( size 198599.486203 / actual gap 4686397.820093 / act size 4884997.306295) 
+     z [begin 53734963.887668 /  zone end 53933563.373871 / act end 58619961.193963]
+     g < used 4686397.820093 / gap unused 11476304.832233 / round up 0.020000>
+
+     s-( size 0.000000 / actual gap 4686397.820093 / act size 4686397.820093) 
+     z [begin 53933563.373871 /  zone end 53933563.373871 / act end 58619961.193964]
+     g < used 4686397.820093 / gap unused 11476304.832233 / round up 0.020000>
+
+Zone: 8.000000 (2.000000, 6.000000) 0.000000 5.000000 7.000000 IdeScripts IdeScripts
+     s-( size 2347347.082784 / actual gap 2537650.363546 / act size 4884997.446330) 
+     z [begin 58619960.513797 /  zone end 60967307.596581 / act end 63504957.960127]
+     g < used 2537650.363546 / gap unused 6789907.692306 / round up 0.010000>
+
+     s-( size 0.000000 / actual gap 95151.980464 / act size 95151.980464) 
+     z [begin 60967307.596581 /  zone end 60967307.596581 / act end 61062459.577045]
+     g < used 95151.980464 / gap unused 6789907.692306 / round up 0.010000>
+
+Zone: 9.000000 (3.000000, 6.000000) 0.000000 9.000000 10.000000 DevToDo DevToDo
+     s-( size 3917587.442247 / actual gap 967410.074100 / act size 4884997.516347) 
+     z [begin 61062458.826862 /  zone end 64980046.269109 / act end 65947456.343209]
+     g < used 967410.074100 / gap unused 6694756.462026 / round up 0.010000>
+
+     s-( size 0.000000 / actual gap 967397.070926 / act size 967397.070926) 
+     z [begin 64980059.272283 /  zone end 64980059.272283 / act end 65947456.343209]
+     g < used 967397.070926 / gap unused 6694741.458363 / round up 0.010000>
+
+Zone: 10.000000 (4.000000, 6.000000) 0.000000 14.000000 15.000000 MFT MFT - Master File Table
+     s-( size 588969.791453 / actual gap 632280.290305 / act size 1221250.081758) 
+     z [begin 65947455.452991 /  zone end 66536425.244444 / act end 67168705.534749]
+     g < used 632280.290305 / gap unused 5727345.277654 / round up 0.005000>
+
+     s-( size 0.000000 / actual gap 570263.149402 / act size 570263.149402) 
+     z [begin 66598442.385348 /  zone end 66598442.385348 / act end 67168705.534750]
+     g < used 570263.149402 / gap unused 5665328.136751 / round up 0.005000>
+
+Zone: 11.000000 (4.000000, 7.000000) 0.000000 14.000000 16.000000 DIR Directories.
+     s-( size 95741.374359 / actual gap 5095065.912575 / act size 5190807.286934) 
+     z [begin 67168704.609524 /  zone end 67264445.983883 / act end 72359511.896458]
+     g < used 5095065.912575 / gap unused 5095065.912575 / round up 0.030000>
+
+     s-( size 0.000000 / actual gap 5095065.912575 / act size 5095065.912575) 
+     z [begin 67264445.983883 /  zone end 67264445.983883 / act end 72359511.896458]
+     g < used 5095065.912575 / gap unused 5095065.912575 / round up 0.030000>
+
+Zone: 12.000000 (5.000000, 7.000000) 0.000000 16.000000 18.000000 PageHiberDump PageHiberDump
+     s-( size 238.058120 / actual gap 1.000243 / act size 239.058363) 
+     z [begin 72359510.896215 /  zone end 72359748.954335 / act end 72359749.954578]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.010000>
+
+     s-( size 0.000000 / actual gap -237.057877 / act size -237.057877) 
+     z [begin 72359748.954335 /  zone end 72359748.954335 / act end 72359511.896458]
+     g < used -237.057877 / gap unused -237.057877 / round up 0.010000>
+
+Zone: 13.000000 (6.000000, 7.000000) 0.000000 16.000000 18.000000 LinksCorp LinksCorp
+     s-( size 1285105.746520 / actual gap 1.000243 / act size 1285106.746763) 
+     z [begin 72359510.896215 /  zone end 73644616.642735 / act end 73644617.642978]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.010000>
+
+     s-( size 0.000000 / actual gap -74739.246888 / act size -74739.246888) 
+     z [begin 73644616.642735 /  zone end 73644616.642735 / act end 73569877.395847]
+     g < used -74739.246888 / gap unused -74739.246888 / round up 0.010000>
+
+Zone: 14.000000 (7.000000, 7.000000) 0.000000 19.000000 21.000000 People People
+     s-( size 5886321.090110 / actual gap 1.000243 / act size 5886322.090353) 
+     z [begin 73569876.395604 /  zone end 79456197.485714 / act end 79456198.485957]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.020000>
+
+     s-( size 0.000000 / actual gap -173.042248 / act size -173.042248) 
+     z [begin 79456197.485714 /  zone end 79456197.485714 / act end 79456024.443466]
+     g < used -173.042248 / gap unused -173.042248 / round up 0.020000>
+
+Zone: 15.000000 (8.000000, 7.000000) 0.000000 21.000000 22.000000 Games Games
+     s-( size 5247.281074 / actual gap 1.000243 / act size 5248.281317) 
+     z [begin 79456023.443223 /  zone end 79461270.724298 / act end 79461271.724540]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.010000>
+
+     s-( size 0.000000 / actual gap -5246.280832 / act size -5246.280832) 
+     z [begin 79461270.724298 /  zone end 79461270.724298 / act end 79456024.443466]
+     g < used -5246.280832 / gap unused -5246.280832 / round up 0.010000>
+
+Zone: 16.000000 (9.000000, 7.000000) 0.000000 21.000000 22.000000 Shares Shares
+     s-( size 7851629.901832 / actual gap 1.000243 / act size 7851630.902074) 
+     z [begin 79456023.443223 /  zone end 87307653.345055 / act end 87307654.345297]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.010000>
+
+     s-( size 0.000000 / actual gap -14479.535044 / act size -14479.535044) 
+     z [begin 87307653.345055 /  zone end 87307653.345055 / act end 87293173.810011]
+     g < used -14479.535044 / gap unused -14479.535044 / round up 0.010000>
+
+Zone: 17.000000 (10.000000, 7.000000) 0.000000 22.000000 23.000000 SystemOtherData SystemOtherData
+     s-( size 9123731.473504 / actual gap 1.000243 / act size 9123732.473747) 
+     z [begin 87293172.809768 /  zone end 96416904.283272 / act end 96416905.283515]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.010000>
+
+     s-( size 0.000000 / actual gap -13895.392431 / act size -13895.392431) 
+     z [begin 96416904.283272 /  zone end 96416904.283272 / act end 96403008.890841]
+     g < used -13895.392431 / gap unused -13895.392431 / round up 0.010000>
+
+Zone: 18.000000 (11.000000, 7.000000) 0.000000 23.000000 24.000000 Reference Reference
+     s-( size 208878.995849 / actual gap 1.000243 / act size 208879.996092) 
+     z [begin 96403007.890598 /  zone end 96611886.886447 / act end 96611887.886690]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.020000>
+
+     s-( size 0.000000 / actual gap -208877.995606 / act size -208877.995606) 
+     z [begin 96611886.886447 /  zone end 96611886.886447 / act end 96403008.890841]
+     g < used -208877.995606 / gap unused -208877.995606 / round up 0.020000>
+
+Zone: 19.000000 (12.000000, 7.000000) 0.000000 23.000000 25.000000 Blobs Blobs
+     s-( size 41777109.489621 / actual gap 1.000243 / act size 41777110.489864) 
+     z [begin 96403007.890598 /  zone end 138180117.380220 / act end 138180118.380462]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.020000>
+
+     s-( size 0.000000 / actual gap -1596446.757510 / act size -1596446.757510) 
+     z [begin 138195468.127961 /  zone end 138195468.127961 / act end 136599021.370451]
+     g < used -1596446.757510 / gap unused -1596446.757510 / round up 0.020000>
+
+Zone: 20.000000 (13.000000, 7.000000) 0.000000 17.000000 42.000000 ArchivesBu ArchivesBu
+     s-( size 70571623.400244 / actual gap 1.000243 / act size 70571624.400487) 
+     z [begin 136599020.370208 /  zone end 207170643.770452 / act end 207170644.770695]
+     g < used 1.000243 / gap unused 1.000243 / round up 0.020000>
+
+     s-( size 0.000000 / actual gap -67821356.948475 / act size -67821356.948475) 
+     z [begin 207170643.770452 /  zone end 207170643.770452 / act end 139349286.821977]
+     g < used -67821356.948475 / gap unused -67821356.948475 / round up 0.020000>
+
+Zone: 21.000000 (14.000000, 7.000000) 0.000000 2.000000 52.000000 ArchivesBu ArchivesBu
+----------------------------------------------------------
+Zone Processing Step:
+1.000000 Zone started.
+2.000000 ZONE: 21.000000 (14.000000, 7.000000) ArchivesBu ArchivesBu 
+3.000000 Selecting Files.
+4.000000 Processing finished, reporting.
+    
+----------------------------------------------------------
+----------------------------------------------------------
+CURRENT ZONE:
+ZONE: 21.000000 (14.000000, 7.000000) ArchivesBu ArchivesBu 
+----------------------------------------------------------
+----------------------------------------------------------
+----------------------------------------------------------
+VOLUME REPORT: 0.000000 
+----------------------------------------------------------
+----------------------------------------------------------
+VOLUME SUMMARY: 0.000000 
+Volume mountpoint:          G:
+Volume label:               0.000000
+Volume name:                \\?\Volume{00065c8e-0000-0000-0000-100000000000}
+Volume type:                NTFS
+----------------------------------------------------------
+          Volume Size:       1,000,203,087,872 (         931.5117 gigabytes)
+          Volume Used:         931,603,406,848 (         867.6233 gigabytes)
+          Volume Free:          68,599,681,024 (          63.8884 gigabytes)
+         
+     Volume Used Calc:       30006092636.160000 (16752058.858120)
+      Volume Free Adj:       63894720307.865135
+
+   Unfragmented Items:               2,284,978
+     Fragmented Items:                   2,796
+
+    Unfragmented Data:         844,102,979,584 bytes
+      Fragmented Data:          87,479,574,528 bytes
+
+             All Gaps:                   1,045
+             All gaps:          68,620,517,376 bytes
+          Average gap:              65,662,976 bytes
+           Median gap:                  20,480 bytes
+          Biggest gap:           3,168,587,776 bytes
+
+             MFT Zone:       Dev 
+             Location:       30006092636.160000 
+                 Size:                       0 
+            Gap slack:       30006092636.160000
+----------------------------------------------------------
+
+----------------------------------------------------------
+----------------------------------------------------------
+RUN DETAILS for: 0.000000 
+----------------------------------------------------------
+Script Directory: G:\Dev\MdmDefrag\TaylorDOVs0_3\src\Scripts
+Command Line: "C:\Program Files\MyDefrag v4.3.1\MyDefrag.exe" -r "G:\Dev\MdmDefrag\TaylorDOVs0_3\src\Scripts\DefragAnyDisk.MyD" 
+Script Title: DefragAnyDisk
+Process ID: 13596
+Action: # File Action - All - Full -  SortByCreationDate
+# File Action - ZoneDoActionSortByCreationDateFull
+	SortByCreationDate(Ascending)
+	
+
+Mode: Full
+Requested Volume: Name("G:")
+----------------------------------------------------------
+----------------------------------------------------------
+VOLUME DETAILS: 0.000000 
+    Volume mountpoint:          G:
+    Volume name:                \\?\Volume{00065c8e-0000-0000-0000-100000000000}
+    Volume type:                NTFS
+    Bytes per cluster:                      4,096 bytes
+    Average end-begin distance:      136,042.5967 clusters
+                                           0.0557% of volume size
+
+    Divisor:    (1.000000)
+    Curr:       (4095.000000) 
+----------------------------------------------------------
+LARGE and UNMOVABLES:
+
+    UnmovablesTotalBytes:	                0
+FragmentedTotalFragments:	      9,682
+
+The 25 largest items from the LargestItemsList:
+          3    34,359,738,368   8,388,608  G:\ReadyBoost.sfcache
+         98    20,648,240,128   5,041,075  G:\Mdm Support ToolsVs20210119.zip
+          2     9,361,336,060   2,285,483  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20210816\DCIM\OpenCamera\VID_20210603_144314.mp4
+          1     9,361,336,060   2,285,483  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20211210\DCIM\OpenCamera\VID_20210603_144314.mp4
+          1     8,478,814,332   2,070,024  G:\z Bu\RavenPc\Recovery\Customizations\usmt.ppkg
+          2     7,596,167,893   1,854,534  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20211210\DCIM\Video\VID_20210804_113051.mp4
+          2     7,596,167,893   1,854,534  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20210816\DCIM\Video\VID_20210804_113051.mp4
+          1     6,671,104,967   1,628,688  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20201029\DCIM\QuickVideoRecorder\QVR_2020_10_23_16_55_32.mp4
+         20     5,122,294,798   1,250,561  G:\MdmSt\Vs\DsVs3.zip
+          1     5,052,019,612   1,233,404  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20210816\DCIM\OpenCamera\VID_20210729_091246.mp4
+          1     5,052,019,612   1,233,404  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20211210\DCIM\OpenCamera\VID_20210729_091246.mp4
+          1     4,693,426,176   1,145,856  G:\Os\Linux\Debian\DebianVs9_9_0_i386\Qubes-R4.0.1-x86_64\Qubes-R4.0.1-x86_64.iso
+          1     4,687,521,792   1,144,415  G:\Os\Linux\Debian\DebianVs9_9_0_i386\debian-9.9.0-i386-DVD-2.iso
+          1     4,685,533,184   1,143,929  G:\Os\Linux\Debian\DebianVs9_9_0_i386\debian-9.9.0-i386-DVD-3.iso
+          1     4,338,640,017   1,059,239  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20210118\DCIM\OpenCamera\VID_20201224_105451.mp4
+          1     4,338,640,017   1,059,239  G:\z Bu\DghSamsungS10Vs20210507_Import\DCIM\OpenCamera\VID_20201224_105451.mp4
+          1     4,294,665,511   1,048,503  G:\Import\Devices\Dgh GalaxyS10e\DghS10eBu20201029\DCIM\Camera\20200219_085328.mp4
+          1     4,214,297,261   1,028,882  G:\MultimediaShare\MediaShare\songs1.rar
+          1     3,821,487,104     932,981  G:\z Bu\2015Dgh\Mdm20100921\Outlook\w ITToolbox.pst
+          1     3,758,096,384     917,504  G:\Os\Linux\Debian\DebianVs9_9_0_i386\debian-9.9.0-i386-DVD-1.iso
+          1     3,575,850,048     873,011  G:\Downloads\Unconfirmed 992657.crdownload
+          1     3,569,426,432     871,442  G:\z Bu\david_horsman@hotmail.com.ost
+          1     3,295,110,209     804,471  G:\z Bu\DghSamsungS10Vs20210507_Import\DCIM\OpenCamera\VID_20210220_164112.mp4
+          1     3,246,056,633     792,495  G:\z Bu\DghSamsungS10Vs20210507_Import\DCIM\OpenCamera\VID_20210211_125816.mp4
+          1     3,191,027,424     779,060  G:\MultimediaShare\Import\Video\Zeitgeist Moving Forward.avi
+
+----------------------------------------------------------
+FRAGMENTS AND GAPS:
+----------------------------------------------------------
+  Fragments:     -----------------
+Unfragged Items:         2,284,978
+  Fragged Items:             2,796
+ Unfragged Data:   844,102,979,584 bytes
+Fragmented Data:    87,479,574,528 bytes
+
+----------------------------------------------------------
+GAPS:
+----------------------------------------------------------
+ Gaps Stats:     -----------------
+            All:             1,045
+            All:    68,620,517,376 bytes
+        Average:        65,662,976 bytes
+         Median:            20,480 bytes
+        Biggest:     3,168,587,776 bytes
+   ----------------------------------------------------------
+   Gap Counts:         Count      Percentage of all
+                ----------------- -----------------
+      Small:                1,013           96.9378%
+        Big:                   32            3.0622%
+                ----------------- -----------------
+        All:                1,045          100.0000
+   ----------------------------------------------------------
+   By Size:         Bytes         Gigabytes         Percentage of all
+                ----------------- ----------------- -----------------
+        Small:         35,360,768            0.0329            0.0515%
+          Big:     68,585,156,608           63.8749           99.9485%
+                ----------------- ----------------- -----------------
+          All:     68,620,517,376           63.9078          100.0000%
+
+      Average:         65,662,976            0.0612            0.0957%
+       Median:             20,480            0.0000            0.0000%
+      Biggest:      3,168,587,776            2.9510            4.6176%
+----------------------------------------------------------
+----------------------------------------------------------
+FILE STATISTICS:
+----------------------------------------------------------
+Files / Folders:
+              Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files           1,999,933             1,212         2,001,145
+   Folders           285,045             1,584           286,629
+   ------- ----------------- ----------------- -----------------
+   All             2,284,978             2,796         2,287,774
+----------------------------------------------------------
+Percentage:   Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files             87.4183%           0.0530%          87.4713%
+   Folders           12.4595%           0.0692%          12.5287%
+   ------- ----------------- ----------------- -----------------
+   All               99.8778%           0.1222%         100.0000%
+----------------------------------------------------------
+OCCUPIED SIZE on disk:
+----------------------------------------------------------
+Bytes:        Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files     843,587,846,144    87,434,096,640   931,021,942,784
+   Folders       515,133,440        45,477,888       560,611,328
+   ------- ----------------- ----------------- -----------------
+   All       844,102,979,584    87,479,574,528   931,582,554,112
+----------------------------------------------------------
+Gigabytes:    Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files            785.6524           81.4293          867.0818
+   Folders            0.4798            0.0424            0.5221
+   ------- ----------------- ----------------- -----------------
+   All              786.1322           81.4717          867.6039
+----------------------------------------------------------
+Percentage:   Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files             90.5543%           9.3855%          99.9398%
+   Folders            0.0553%           0.0049%           0.0602%
+   ------- ----------------- ----------------- -----------------
+   All               90.6096%           9.3904%         100.0000%
+----------------------------------------------------------
+USED SIZE:
+----------------------------------------------------------
+Bytes:        Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files     840,813,322,329    87,615,659,972   928,428,982,301
+   Folders       515,067,904        45,477,888       560,545,792
+   ------- ----------------- ----------------- -----------------
+   All       841,328,390,233    87,661,137,860   928,989,528,093
+----------------------------------------------------------
+Gigabytes:    Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files            783.0684           81.5984          864.6669
+   Folders            0.4797            0.0424            0.5220
+   ------- ----------------- ----------------- -----------------
+   All              783.5481           81.6408          865.1889
+----------------------------------------------------------
+Percentage:   Unfragmented       Fragmented            All
+   ------- ----------------- ----------------- -----------------
+   Files             90.5084%           9.4313%          99.9397%
+   Folders            0.0554%           0.0049%           0.0603%
+   ------- ----------------- ----------------- -----------------
+   All               90.5638%           9.4362%         100.0000%
+----------------------------------------------------------
+Volume Detailed Statistics end.
+----------------------------------------------------------
+
+----------------------------------------------------------
+----------------------------------------------------------
+Zone Detailed Report:
+----------------------------------------------------------
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 1.000000 (1.000000, 0.000000) Boot Boot 
+3.000000 Selecting Files.
+4.000000 Processing finished, reporting.
+
+---------------------------
+
+Boot:
+# Script: ZoneDo ZoneTypeSelectOsBoot
+# Boot start.
+ImportListFromBootOptimize()
+# Boot end.
+
+and not(
+	# Script: ZoneDo ZoneTypeSelectOsDataDynamic
+# Os Data Dynamic start.
+(
+# Os Data Dynamic start.
+(
+  FileName("*.dat*")
+  or FileName("*.db*")
+  or FileName("*.edb*")
+  or FileName("*.log*")
+  or FileName("DataStore.edb")
+)
+# Os Data Dynamic end.
+
+  or 
+# Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+# Os Data Dynamic
+)
+# Os Data Dynamic end.
+
+	)
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 2.000000 (1.000000, 1.000000) BootData BootData 
+3.000000 Selecting Files.
+4.000000 Processing finished, reporting.
+
+---------------------------
+
+Boot Data:
+# Script: ZoneDo ZoneTypeSelectOsBoot
+# Boot start.
+ImportListFromBootOptimize()
+# Boot end.
+
+not(
+    # Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+)
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 3.000000 (1.000000, 2.000000) ProgramHints ProgramHints 
+3.000000 Selecting Files.
+4.000000 Processing finished, reporting.
+
+---------------------------
+
+Program Hints:
+# Script: ZoneDo ZoneTypeSelectOsProgramHints
+# ProgramHints start.
+ImportListFromProgramHints("*.pf")
+# ProgramHints end.
+
+and not(
+	# Script: ZoneDo ZoneTypeSelectOsDataDynamic
+# Os Data Dynamic start.
+(
+# Os Data Dynamic start.
+(
+  FileName("*.dat*")
+  or FileName("*.db*")
+  or FileName("*.edb*")
+  or FileName("*.log*")
+  or FileName("DataStore.edb")
+)
+# Os Data Dynamic end.
+
+  or 
+# Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+# Os Data Dynamic
+)
+# Os Data Dynamic end.
+
+	)
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 4.000000 (1.000000, 3.000000) ProgramHintsData ProgramHintsData 
+3.000000 Selecting Files.
+4.000000 Processing finished, reporting.
+
+---------------------------
+
+Program Hints Data:
+# Script: ZoneDo ZoneTypeSelectOsProgramHints
+# ProgramHints start.
+ImportListFromProgramHints("*.pf")
+# ProgramHints end.
+
+and not(
+	# Script: ZoneDo ZoneTypeSelectOsDataDynamic
+# Os Data Dynamic start.
+(
+# Os Data Dynamic start.
+(
+  FileName("*.dat*")
+  or FileName("*.db*")
+  or FileName("*.edb*")
+  or FileName("*.log*")
+  or FileName("DataStore.edb")
+)
+# Os Data Dynamic end.
+
+  or 
+# Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+# Os Data Dynamic
+)
+# Os Data Dynamic end.
+	)
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 5.000000 (1.000000, 4.000000) Programs Programs  0.000000 23.000000 0.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 47891517.264957 (19.607594%)
+                  Gap: 958450.396679 (0.392406%)
+                Total: 48849967.661636 (20.000000%)
+
+        Files/Folders:           203,142 (0.008873%) 
+            Fragments:                51 (1.824034%) 
+
+   Location:
+   ------------------------
+           Zone start: 0.000000 (0.000000%)
+            Files end: 47891517.264957
+             Zone end: 48849967.661636 (20.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 1.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 0.392406% (958450.396679)
+                 
+               The desired min Gap Size. (GapRequested): 156031.063023  (Loc) 48047548.327980
+              Must be half the Zone Size. (GapAdjusted): 156031.063023  (---) 48047548.327980
+               Align to the Volume evenyly. (GapRounded): 958450.396679  (---) 48849967.661636
+          The remaining Space available. (GapAvailable): 16705902.589498  (---) 64597419.854455
+      The lower of adjusted & available. (GapCurrent): 958450.396679  (---) 48849967.661636
+    (GapCurrent) after any code you inserted. (GapUsed): 958450.396679  (---) 48849967.661636
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 638947203.078651 (0.063882%)
+                   Total Used: 3924854374.399994 (5.721389%)
+         Volume Used by Zones: 3924854374.399994 (0.392406%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 5.000000 (1.000000, 4.000000) Programs Programs  0.000000 5.000000 7.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: 934590.571526 (0.382637%)
+                Total: 934590.571526 (20.000000%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 47915377.090110 (0.004791%)
+            Files end: 47915377.090110
+             Zone end: 48849967.661636 (20.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 1.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 0.382637% (934590.571526)
+                 
+               The desired min Gap Size. (GapRequested): 156031.063023  (Loc) 48071408.153133
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 47915377.090110
+               Align to the Volume evenyly. (GapRounded): 934590.571526  (---) 48849967.661636
+          The remaining Space available. (GapAvailable): 16705841.574602  (---) 64621218.664712
+      The lower of adjusted & available. (GapCurrent): 934590.571526  (---) 48849967.661636
+    (GapCurrent) after any code you inserted. (GapUsed): 934590.571526  (---) 48849967.661636
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 1277894406.157302 (0.127763%)
+                   Total Used: 7752002764.799988 (11.300563%)
+         Volume Used by Zones: 3827148390.399994 (0.382637%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 5.000000 (1.000000, 4.000000) Programs Programs 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Programs:
+# Script: ZoneDo ZoneTypeSelectOsPrograms
+# Programs start.
+# Mark: 1
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# Mark: 2
+# Programs
+and (
+# Mark: 3
+# SystemDir start.
+(
+  DirectoryName("Boot*")
+  or DirectoryName("Device*")
+  or DirectoryName("DevSupport*")
+  or DirectoryName("Program*")
+  or DirectoryName("Security*")
+  or DirectoryName("SendTo*")
+  or DirectoryName("Sw*")
+  or DirectoryName("System*")
+  or DirectoryName("Toolbars")
+  or DirectoryName("Windows*")
+)
+# SystemDir end.
+
+# Mark: 4
+# Programs
+)
+# Programs end.
+
+and not(
+	# Script: ZoneDo ZoneTypeSelectOsDataDynamic
+# Os Data Dynamic start.
+(
+# Os Data Dynamic start.
+(
+  FileName("*.dat*")
+  or FileName("*.db*")
+  or FileName("*.edb*")
+  or FileName("*.log*")
+  or FileName("DataStore.edb")
+)
+# Os Data Dynamic end.
+
+  or 
+# Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+# Os Data Dynamic
+)
+# Os Data Dynamic end.
+
+	or 
+	DirectoryName("Windows*")
+	)
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 6.000000 (1.000000, 5.000000) ProgramsWindows !ZoneLabelProgramsWidows!  0.000000 5.000000 7.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 590050.055189 (0.241576%)
+                  Gap: 4294947.111072 (1.758424%)
+                Total: 4884997.166261 (22.000000%)
+
+        Files/Folders:            17,879 (0.000743%) 
+            Fragments:                 3 (0.108225%) 
+
+   Location:
+   ------------------------
+           Zone start: 48849967.261538 (0.004884%)
+            Files end: 49440017.316728
+             Zone end: 53734964.427800 (22.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 1.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 1.758424% (4294947.111072)
+                 
+               The desired min Gap Size. (GapRequested): 156031.063023  (Loc) 49596048.379751
+              Must be half the Zone Size. (GapAdjusted): 156031.063023  (---) 49596048.379751
+               Align to the Volume evenyly. (GapRounded): 4294947.111072  (---) 53734964.427800
+          The remaining Space available. (GapAvailable): 15771251.403173  (---) 65211268.719901
+      The lower of adjusted & available. (GapCurrent): 4294947.111072  (---) 53734964.427800
+    (GapCurrent) after any code you inserted. (GapUsed): 4294947.111072  (---) 53734964.427800
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 1916841609.235953 (0.191645%)
+                   Total Used: 25339811184.639984 (36.939373%)
+         Volume Used by Zones: 17587808419.839996 (1.758424%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 6.000000 (1.000000, 5.000000) ProgramsWindows !ZoneLabelProgramsWidows!  0.000000 5.000000 7.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: 4294947.111072 (1.758424%)
+                Total: 4294947.111072 (22.000000%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 49440017.316728 (0.004943%)
+            Files end: 49440017.316728
+             Zone end: 53734964.427800 (22.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 1.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 1.758424% (4294947.111072)
+                 
+               The desired min Gap Size. (GapRequested): 156031.063023  (Loc) 49596048.379751
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 49440017.316728
+               Align to the Volume evenyly. (GapRounded): 4294947.111072  (---) 53734964.427800
+          The remaining Space available. (GapAvailable): 15771251.403173  (---) 65211268.719901
+      The lower of adjusted & available. (GapCurrent): 4294947.111072  (---) 53734964.427800
+    (GapCurrent) after any code you inserted. (GapUsed): 4294947.111072  (---) 53734964.427800
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 2555788812.314604 (0.255527%)
+                   Total Used: 42927619604.479980 (62.578184%)
+         Volume Used by Zones: 17587808419.839996 (1.758424%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 6.000000 (1.000000, 5.000000) ProgramsWindows !ZoneLabelProgramsWidows! 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Programs Windows folder:
+# Script: ZoneDo ZoneTypeSelectOsPrograms
+# Programs start.
+# Mark: 1
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# Mark: 2
+# Programs
+and (
+# Mark: 3
+# SystemDir start.
+(
+  DirectoryName("Boot*")
+  or DirectoryName("Device*")
+  or DirectoryName("DevSupport*")
+  or DirectoryName("Program*")
+  or DirectoryName("Security*")
+  or DirectoryName("SendTo*")
+  or DirectoryName("Sw*")
+  or DirectoryName("System*")
+  or DirectoryName("Toolbars")
+  or DirectoryName("Windows*")
+)
+# SystemDir end.
+
+# Mark: 4
+# Programs
+)
+# Programs end.
+
+and not(
+	# Script: ZoneDo ZoneTypeSelectOsDataDynamic
+# Os Data Dynamic start.
+(
+# Os Data Dynamic start.
+(
+  FileName("*.dat*")
+  or FileName("*.db*")
+  or FileName("*.edb*")
+  or FileName("*.log*")
+  or FileName("DataStore.edb")
+)
+# Os Data Dynamic end.
+
+  or 
+# Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+# Os Data Dynamic
+)
+# Os Data Dynamic end.
+
+)
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 7.000000 (1.000000, 6.000000) ProgramsData ProgramsData  0.000000 5.000000 7.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 198599.486203 (0.081310%)
+                  Gap: 4686397.820093 (1.918690%)
+                Total: 4884997.306295 (24.000000%)
+
+        Files/Folders:             1,844 (0.000044%) 
+            Fragments:                 1 (0.036114%) 
+
+   Location:
+   ------------------------
+           Zone start: 53734963.887668 (0.005372%)
+            Files end: 53933563.373871
+             Zone end: 58619961.193963 (24.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 1.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 1.918690% (4686397.820093)
+                 
+               The desired min Gap Size. (GapRequested): 156031.063023  (Loc) 54089594.436893
+              Must be half the Zone Size. (GapAdjusted): 156031.063023  (---) 54089594.436893
+               Align to the Volume evenyly. (GapRounded): 4686397.820093  (---) 58619961.193963
+          The remaining Space available. (GapAvailable): 11476304.832233  (---) 65409868.206104
+      The lower of adjusted & available. (GapCurrent): 4686397.820093  (---) 58619961.193963
+    (GapCurrent) after any code you inserted. (GapUsed): 4686397.820093  (---) 58619961.193963
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 3194736015.393255 (0.319409%)
+                   Total Used: 62118418677.759979 (90.553771%)
+         Volume Used by Zones: 19190799073.279999 (1.918690%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 7.000000 (1.000000, 6.000000) ProgramsData ProgramsData  0.000000 5.000000 7.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: 4686397.820093 (1.918690%)
+                Total: 4686397.820093 (24.000000%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 53933563.373871 (0.005392%)
+            Files end: 53933563.373871
+             Zone end: 58619961.193963 (24.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 1.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 1.918690% (4686397.820093)
+                 
+               The desired min Gap Size. (GapRequested): 156031.063023  (Loc) 54089594.436893
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 53933563.373871
+               Align to the Volume evenyly. (GapRounded): 4686397.820093  (---) 58619961.193963
+          The remaining Space available. (GapAvailable): 11476304.832233  (---) 65409868.206104
+      The lower of adjusted & available. (GapCurrent): 4686397.820093  (---) 58619961.193963
+    (GapCurrent) after any code you inserted. (GapUsed): 4686397.820093  (---) 58619961.193963
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 3833683218.471906 (0.383290%)
+                   Total Used: 81309217751.039978 (118.529358%)
+         Volume Used by Zones: 19190799073.279999 (1.918690%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 7.000000 (1.000000, 6.000000) ProgramsData ProgramsData 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+# Program Data:
+# Script: ZoneDo ZoneTypeSelectOsPrograms
+# Programs start.
+# Mark: 1
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# Mark: 2
+# Programs
+and (
+# Mark: 3
+# SystemDir start.
+(
+  DirectoryName("Boot*")
+  or DirectoryName("Device*")
+  or DirectoryName("DevSupport*")
+  or DirectoryName("Program*")
+  or DirectoryName("Security*")
+  or DirectoryName("SendTo*")
+  or DirectoryName("Sw*")
+  or DirectoryName("System*")
+  or DirectoryName("Toolbars")
+  or DirectoryName("Windows*")
+)
+# SystemDir end.
+
+# Mark: 4
+# Programs
+)
+# Programs end.
+
+not(
+# Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+)
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 8.000000 (2.000000, 6.000000) IdeScripts IdeScripts  0.000000 6.000000 8.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 2347347.082784 (0.961043%)
+                  Gap: 2537650.363546 (1.038957%)
+                Total: 4884997.446330 (26.000000%)
+
+        Files/Folders:           262,465 (0.011452%) 
+            Fragments:                28 (1.011561%) 
+
+   Location:
+   ------------------------
+           Zone start: 58619960.513797 (0.005861%)
+            Files end: 60967307.596581
+             Zone end: 63504957.960127 (26.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 1.038957% (2537650.363546)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 61747462.911696
+              Must be half the Zone Size. (GapAdjusted): 780155.315114  (---) 61747462.911696
+               Align to the Volume evenyly. (GapRounded): 2537650.363546  (---) 63504957.960127
+          The remaining Space available. (GapAvailable): 6789907.692306  (---) 67757215.288888
+      The lower of adjusted & available. (GapCurrent): 2537650.363546  (---) 63504957.960127
+    (GapCurrent) after any code you inserted. (GapUsed): 2537650.363546  (---) 63504957.960127
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 7028419233.865164 (0.702699%)
+                   Total Used: 91700895989.759949 (133.677935%)
+         Volume Used by Zones: 10391678238.719971 (1.038957%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 8.000000 (2.000000, 6.000000) IdeScripts IdeScripts  0.000000 9.000000 10.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: 95151.980464 (0.038957%)
+                Total: 95151.980464 (25.000000%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 60967307.596581 (0.006095%)
+            Files end: 60967307.596581
+             Zone end: 61062459.577045 (25.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.038957% (95151.980464)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 61747462.911696
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 60967307.596581
+               Align to the Volume evenyly. (GapRounded): 95151.980464  (---) 61062459.577045
+          The remaining Space available. (GapAvailable): 6789907.692306  (---) 67757215.288888
+      The lower of adjusted & available. (GapCurrent): 95151.980464  (---) 61062459.577045
+    (GapCurrent) after any code you inserted. (GapUsed): 95151.980464  (---) 61062459.577045
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 10223155249.258421 (1.022108%)
+                   Total Used: 92090543349.759949 (134.245948%)
+         Volume Used by Zones: 389647360.000000 (0.038957%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 8.000000 (2.000000, 6.000000) IdeScripts IdeScripts 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+IDE and Scripts:
+# Script: ZoneDo ZoneTypeSelectIdeScripts
+# IdeScripts start.
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# IdeScripts
+and ( 
+# Ide start.
+(
+    DirectoryName("Ide*")
+    or DirectoryName("Java*")
+    or DirectoryName("Os")
+)
+# Ide end.
+
+# IdeScripts
+or  
+# Scripts start.
+(
+  DirectoryName("*Script*")
+)
+# Scripts end.
+
+# IdeScripts
+)
+# IdeScripts end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 9.000000 (3.000000, 6.000000) DevToDo DevToDo  0.000000 9.000000 11.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 3917587.442247 (1.603926%)
+                  Gap: 967410.074100 (0.396074%)
+                Total: 4884997.516347 (27.000000%)
+
+        Files/Folders:           256,494 (0.011190%) 
+            Fragments:             2,001 (0.072939%) 
+
+   Location:
+   ------------------------
+           Zone start: 61062458.826862 (0.006105%)
+            Files end: 64980046.269109
+             Zone end: 65947456.343209 (27.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.396074% (967410.074100)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 65760201.584223
+              Must be half the Zone Size. (GapAdjusted): 780155.315114  (---) 65760201.584223
+               Align to the Volume evenyly. (GapRounded): 967410.074100  (---) 65947456.343209
+          The remaining Space available. (GapAvailable): 6694756.462026  (---) 71674802.731134
+      The lower of adjusted & available. (GapCurrent): 967410.074100  (---) 65947456.343209
+    (GapCurrent) after any code you inserted. (GapUsed): 967410.074100  (---) 65947456.343209
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 13417891264.651678 (1.341517%)
+                   Total Used: 96052087603.199890 (140.020930%)
+         Volume Used by Zones: 3961544253.439941 (0.396074%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 9.000000 (3.000000, 6.000000) DevToDo DevToDo  0.000000 13.000000 15.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: 967397.070926 (0.396069%)
+                Total: 967397.070926 (27.000000%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 64980059.272283 (0.006497%)
+            Files end: 64980059.272283
+             Zone end: 65947456.343209 (27.000000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.396069% (967397.070926)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 65760214.587398
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 64980059.272283
+               Align to the Volume evenyly. (GapRounded): 967397.070926  (---) 65947456.343209
+          The remaining Space available. (GapAvailable): 6694741.458363  (---) 71674800.730646
+      The lower of adjusted & available. (GapCurrent): 967397.070926  (---) 65947456.343209
+    (GapCurrent) after any code you inserted. (GapUsed): 967397.070926  (---) 65947456.343209
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 16612627280.044935 (1.660925%)
+                   Total Used: 100013578608.639830 (147.005566%)
+         Volume Used by Zones: 3961491005.439941 (0.396069%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 9.000000 (3.000000, 6.000000) DevToDo DevToDo 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Development and ToDo:
+# Script: ZoneDo ZoneTypeSelectDevToDo
+# DevToDo start.
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# DevToDo
+and ( 
+# Dev start.
+(
+  DirectoryName("*Dev") 
+  or DirectoryName("Dev *") 
+  or DirectoryName("*Development*") 
+  or DirectoryName("DsVs*") 
+  or DirectoryName("Srt*") 
+)
+# Dev end.
+
+# DevToDo
+or 
+# ToDo start.
+(
+  DirectoryName("*ToDo*")
+)
+# ToDo end.
+
+# DevToDo
+)
+# DevToDo end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 10.000000 (4.000000, 6.000000) MFT MFT - Master File Table  0.000000 14.000000 15.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 588969.791453 (0.241134%)
+                  Gap: 632280.290305 (0.258866%)
+                Total: 1221250.081758 (27.500000%)
+
+        Files/Folders:                30 (0.001311%) 
+            Fragments:                 5 (0.674764%) 
+
+   Location:
+   ------------------------
+           Zone start: 65947455.452991 (0.006593%)
+            Files end: 66536425.244444
+             Zone end: 67168705.534750 (27.500000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 0.500000%
+       Volume rounding: 0.500000%
+            Actual Gap: 0.258866% (632280.290305)
+                 
+               The desired min Gap Size. (GapRequested): 78015.531511  (Loc) 66614440.775956
+              Must be half the Zone Size. (GapAdjusted): 78015.531511  (---) 66614440.775956
+               Align to the Volume evenyly. (GapRounded): 632280.290305  (---) 67168705.534750
+          The remaining Space available. (GapAvailable): 5727345.277654  (---) 72263770.522099
+      The lower of adjusted & available. (GapCurrent): 632280.290305  (---) 67168705.534750
+    (GapCurrent) after any code you inserted. (GapUsed): 632280.290305  (---) 67168705.534750
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 16932100881.584261 (1.692866%)
+                   Total Used: 102602766397.439820 (150.811300%)
+         Volume Used by Zones: 2589187788.799988 (0.258866%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 10.000000 (4.000000, 6.000000) MFT MFT - Master File Table  0.000000 14.000000 16.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: 570263.149402 (0.233475%)
+                Total: 570263.149402 (27.500000%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 66598442.385348 (0.006658%)
+            Files end: 66598442.385348
+             Zone end: 67168705.534750 (27.500000%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 0.500000%
+       Volume rounding: 0.500000%
+            Actual Gap: 0.233475% (570263.149402)
+                 
+               The desired min Gap Size. (GapRequested): 78015.531511  (Loc) 66676457.916859
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 66598442.385348
+               Align to the Volume evenyly. (GapRounded): 570263.149402  (---) 67168705.534750
+          The remaining Space available. (GapAvailable): 5665328.136751  (---) 72263770.522099
+      The lower of adjusted & available. (GapCurrent): 570263.149402  (---) 67168705.534750
+    (GapCurrent) after any code you inserted. (GapUsed): 570263.149402  (---) 67168705.534750
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 17251574483.123589 (1.724807%)
+                   Total Used: 104937993994.239810 (154.242857%)
+         Volume Used by Zones: 2335227596.799988 (0.233475%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 10.000000 (4.000000, 6.000000) MFT MFT - Master File Table 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+MFT Master File Table:
+# Script: ZoneDo ZoneTypeSelectOsMFT
+# MFT start.
+SelectNtfsSystemFiles(yes)
+# MFT end.
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 11.000000 (4.000000, 7.000000) DIR Directories.  0.000000 15.000000 17.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 95741.374359 (0.039198%)
+                  Gap: 5095065.912575 (2.086006%)
+                Total: 5190807.286934 (29.625204%)
+
+        Files/Folders:           189,857 (0.008261%) 
+            Fragments:               608 (82.608696%) 
+
+   Location:
+   ------------------------
+           Zone start: 67168704.609524 (0.006716%)
+            Files end: 67264445.983883
+             Zone end: 72359511.896458 (29.625204%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 0.500000%
+       Volume rounding: 3.000000%
+            Actual Gap: 2.086006% (5095065.912575)
+                 
+               The desired min Gap Size. (GapRequested): 78015.531511  (Loc) 67342461.515394
+              Must be half the Zone Size. (GapAdjusted): 78015.531511  (---) 67342461.515394
+               Align to the Volume evenyly. (GapRounded): 6010505.508571  (---) 73274951.492454
+          The remaining Space available. (GapAvailable): 5095065.912575  (---) 72359511.896458
+      The lower of adjusted & available. (GapCurrent): 5095065.912575  (---) 72359511.896458
+    (GapCurrent) after any code you inserted. (GapUsed): 5095065.912575  (---) 72359511.896458
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 17571048084.662914 (1.756748%)
+                   Total Used: 125802288906.234800 (184.910190%)
+         Volume Used by Zones: 20864294911.994995 (2.086006%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 11.000000 (4.000000, 7.000000) DIR Directories.  0.000000 16.000000 18.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: 5095065.912575 (2.086006%)
+                Total: 5095065.912575 (29.625204%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 67264445.983883 (0.006725%)
+            Files end: 67264445.983883
+             Zone end: 72359511.896458 (29.625204%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 0.500000%
+       Volume rounding: 3.000000%
+            Actual Gap: 2.086006% (5095065.912575)
+                 
+               The desired min Gap Size. (GapRequested): 78015.531511  (Loc) 67342461.515394
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 67264445.983883
+               Align to the Volume evenyly. (GapRounded): 6010505.508571  (---) 73274951.492454
+          The remaining Space available. (GapAvailable): 5095065.912575  (---) 72359511.896458
+      The lower of adjusted & available. (GapCurrent): 5095065.912575  (---) 72359511.896458
+    (GapCurrent) after any code you inserted. (GapUsed): 5095065.912575  (---) 72359511.896458
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 17890521686.202240 (1.788689%)
+                   Total Used: 146666583818.229800 (215.577524%)
+         Volume Used by Zones: 20864294911.994995 (2.086006%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 11.000000 (4.000000, 7.000000) DIR Directories. 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Directories:
+# Script: ZoneDo ZoneTypeSelectOsDIR
+# DIR start.
+Directory(yes)
+# DIR end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 12.000000 (5.000000, 7.000000) PageHiberDump PageHiberDump  0.000000 16.000000 18.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 238.058120 (0.000097%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 239.058363 (29.625301%)
+
+        Files/Folders:               187 (0.008174%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 72359510.896215 (0.007234%)
+            Files end: 72359748.954335
+             Zone end: 72359749.954578 (29.625301%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 0.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 0.000000  (Loc) 72359748.954335
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 72359748.954335
+               Align to the Volume evenyly. (GapRounded): 915202.538120  (---) 73274951.492454
+          The remaining Space available. (GapAvailable): 1.000243  (---) 72359749.954578
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 72359749.954578
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 72359749.954578
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 17890521686.202240 (1.788689%)
+                   Total Used: 146666587914.224790 (215.577530%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 12.000000 (5.000000, 7.000000) PageHiberDump PageHiberDump  0.000000 16.000000 18.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -237.057877 (-0.000097%)
+                Total: -237.057877 (29.625204%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 72359748.954335 (0.007235%)
+            Files end: 72359748.954335
+             Zone end: 72359511.896458 (29.625204%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 0.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: -0.000097% (-237.057877)
+                 
+               The desired min Gap Size. (GapRequested): 0.000000  (Loc) 72359748.954335
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 72359748.954335
+               Align to the Volume evenyly. (GapRounded): 915202.538120  (---) 73274951.492454
+          The remaining Space available. (GapAvailable): -237.057877  (---) 72359511.896458
+      The lower of adjusted & available. (GapCurrent): -237.057877  (---) 72359511.896458
+    (GapCurrent) after any code you inserted. (GapUsed): -237.057877  (---) 72359511.896458
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 17890521686.202240 (1.788689%)
+                   Total Used: 146665617162.219790 (215.576103%)
+         Volume Used by Zones: -970752.005005 (-0.000097%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 12.000000 (5.000000, 7.000000) PageHiberDump PageHiberDump 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Program Page, Hiber and Dump files:
+# Script: ZoneDo ZoneTypeSelectOsPageHiberDump
+# PageHiberDump start.
+(
+# Os PageHiberDump start.
+(
+  FileName("DataStore.edb")
+  or FileName("DUMP*.*")
+  or FileName("Hiberfil.sys")
+  or FileName("MEMORY.DMP")
+  or FileName("Pagefile.sys")
+)
+# Os PageHiberDump end.
+
+)
+# PageHiberDump end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 13.000000 (6.000000, 7.000000) LinksCorp LinksCorp  0.000000 17.000000 19.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 1285105.746520 (0.526144%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 1285106.746763 (30.151348%)
+
+        Files/Folders:           106,886 (0.004633%) 
+            Fragments:                 1 (0.781250%) 
+
+   Location:
+   ------------------------
+           Zone start: 72359510.896215 (0.007234%)
+            Files end: 73644616.642735
+             Zone end: 73644617.642978 (30.151348%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 74424771.957849
+              Must be half the Zone Size. (GapAdjusted): 780155.315114  (---) 74424771.957849
+               Align to the Volume evenyly. (GapRounded): 2072833.232801  (---) 75717449.875536
+          The remaining Space available. (GapAvailable): 1.000243  (---) 73644617.642978
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 73644617.642978
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 73644617.642978
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 21085257701.595497 (2.108098%)
+                   Total Used: 146665621258.214780 (215.576109%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 13.000000 (6.000000, 7.000000) LinksCorp LinksCorp  0.000000 19.000000 21.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -74739.246888 (-0.030600%)
+                Total: -74739.246888 (30.120748%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 73644616.642735 (0.007363%)
+            Files end: 73644616.642735
+             Zone end: 73569877.395847 (30.120748%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: -0.030600% (-74739.246888)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 74424771.957849
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 73644616.642735
+               Align to the Volume evenyly. (GapRounded): 2072833.232801  (---) 75717449.875536
+          The remaining Space available. (GapAvailable): -74739.246888  (---) 73569877.395847
+      The lower of adjusted & available. (GapCurrent): -74739.246888  (---) 73569877.395847
+    (GapCurrent) after any code you inserted. (GapUsed): -74739.246888  (---) 73569877.395847
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 24279993716.988754 (2.427506%)
+                   Total Used: 146359564042.209780 (215.126251%)
+         Volume Used by Zones: -306057216.005005 (-0.030600%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 13.000000 (6.000000, 7.000000) LinksCorp LinksCorp 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Links and Corporate:
+# Script: ZoneDo ZoneTypeSelectLinksCorp
+# LinksCorp start.
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# LinksCorp
+and ( 
+# Corp start.
+(
+    DirectoryName("*Corp*") or
+    DirectoryName("*Mdm*")
+)
+# Corp end.
+
+# LinksCorp
+or 
+# Links start.
+(
+    DirectoryName("*Favorites*") or
+    DirectoryName("*Job*") or
+    DirectoryName("*Links*")
+)
+# Links end.
+
+# LinksCorp
+or 
+# Support start.
+(
+  DirectoryName("*Logs*") or
+  DirectoryName("*Support*") or
+  DirectoryName("*Maintenance*")
+)
+# Support end.
+
+# LinksCorp
+)
+# LinksCorp end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 14.000000 (7.000000, 7.000000) People People  0.000000 20.000000 21.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 5886321.090110 (2.409959%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 5886322.090353 (32.530707%)
+
+        Files/Folders:            31,288 (0.001355%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 73569876.395604 (0.007355%)
+            Files end: 79456197.485714
+             Zone end: 79456198.485957 (32.530707%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 80236352.800829
+              Must be half the Zone Size. (GapAdjusted): 780155.315114  (---) 80236352.800829
+               Align to the Volume evenyly. (GapRounded): 3588747.539067  (---) 83044945.024781
+          The remaining Space available. (GapAvailable): 1.000243  (---) 79456198.485957
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 79456198.485957
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 79456198.485957
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 27474729732.382011 (2.746915%)
+                   Total Used: 146359568138.204770 (215.126257%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 14.000000 (7.000000, 7.000000) People People  0.000000 21.000000 22.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -173.042248 (-0.000071%)
+                Total: -173.042248 (32.530635%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 79456197.485714 (0.007944%)
+            Files end: 79456197.485714
+             Zone end: 79456024.443466 (32.530635%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: -0.000071% (-173.042248)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 80236352.800829
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 79456197.485714
+               Align to the Volume evenyly. (GapRounded): 3588747.539067  (---) 83044945.024781
+          The remaining Space available. (GapAvailable): -173.042248  (---) 79456024.443466
+      The lower of adjusted & available. (GapCurrent): -173.042248  (---) 79456024.443466
+    (GapCurrent) after any code you inserted. (GapUsed): -173.042248  (---) 79456024.443466
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 30669465747.775269 (3.066324%)
+                   Total Used: 146358859530.199770 (215.125216%)
+         Volume Used by Zones: -708608.005005 (-0.000071%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 14.000000 (7.000000, 7.000000) People People 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+# People and Users:
+# Script: ZoneDo ZoneTypeSelectPeople
+# People start.
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# People
+and (
+# People start.
+(
+  DirectoryName("*Capture*")
+  or DirectoryName("*Document*")
+  or DirectoryName("*Download*")
+  or DirectoryName("*Kids*")
+  or DirectoryName("Mail*")
+  or DirectoryName("*Mail")
+  or DirectoryName("My*")
+  or DirectoryName("*Person*")
+  or DirectoryName("Private*")
+  or DirectoryName("Users")
+  
+  # Individual People HERE:
+  or DirectoryName("Dgh*")
+)
+# People end.
+
+# People
+)
+# People end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 15.000000 (8.000000, 7.000000) Games Games  0.000000 21.000000 22.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 5247.281074 (0.002148%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 5248.281317 (32.532784%)
+
+        Files/Folders:               466 (0.020369%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 79456023.443223 (0.007944%)
+            Files end: 79461270.724298
+             Zone end: 79461271.724541 (32.532784%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 80241426.039412
+              Must be half the Zone Size. (GapAdjusted): 10494.562149  (---) 79471765.286447
+               Align to the Volume evenyly. (GapRounded): 1141175.917402  (---) 80602446.641700
+          The remaining Space available. (GapAvailable): 1.000243  (---) 79461271.724541
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 79461271.724541
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 79461271.724541
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 33864201763.168526 (3.385733%)
+                   Total Used: 146358863626.194760 (215.125222%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 15.000000 (8.000000, 7.000000) Games Games  0.000000 21.000000 22.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -5246.280832 (-0.002148%)
+                Total: -5246.280832 (32.530635%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 79461270.724298 (0.007945%)
+            Files end: 79461270.724298
+             Zone end: 79456024.443466 (32.530635%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: -0.002148% (-5246.280832)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 80241426.039412
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 79461270.724298
+               Align to the Volume evenyly. (GapRounded): 1141175.917402  (---) 80602446.641700
+          The remaining Space available. (GapAvailable): -5246.280832  (---) 79456024.443466
+      The lower of adjusted & available. (GapCurrent): -5246.280832  (---) 79456024.443466
+    (GapCurrent) after any code you inserted. (GapUsed): -5246.280832  (---) 79456024.443466
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 37058937778.561783 (3.705141%)
+                   Total Used: 146337380106.189760 (215.093644%)
+         Volume Used by Zones: -21483520.005005 (-0.002148%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 15.000000 (8.000000, 7.000000) Games Games 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Games:
+# Script: ZoneDo ZoneTypeSelectGames
+# Games start.
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# People
+and (
+# Games start.
+(
+  DirectoryName("Game*")
+  or DirectoryName("Epic*")
+  or DirectoryName("*XBox*")
+  or DirectoryName("*PS2*")
+)
+# Games end.
+
+# People
+)
+# People end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 16.000000 (9.000000, 7.000000) Shares Shares  0.000000 21.000000 23.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 7851629.901832 (3.214590%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 7851630.902074 (35.745225%)
+
+        Files/Folders:            13,959 (0.000568%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 79456023.443223 (0.007944%)
+            Files end: 87307653.345055
+             Zone end: 87307654.345298 (35.745225%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 88087808.660169
+              Must be half the Zone Size. (GapAdjusted): 780155.315114  (---) 88087808.660169
+               Align to the Volume evenyly. (GapRounded): 3064786.828972  (---) 90372440.174027
+          The remaining Space available. (GapAvailable): 1.000243  (---) 87307654.345298
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 87307654.345298
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 87307654.345298
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 40253673793.955040 (4.024550%)
+                   Total Used: 146337384202.184750 (215.093650%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 16.000000 (9.000000, 7.000000) Shares Shares  0.000000 22.000000 23.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -14479.535044 (-0.005928%)
+                Total: -14479.535044 (35.739296%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 87307653.345055 (0.008729%)
+            Files end: 87307653.345055
+             Zone end: 87293173.810011 (35.739296%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: -0.005928% (-14479.535044)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 88087808.660169
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 87307653.345055
+               Align to the Volume evenyly. (GapRounded): 622288.445890  (---) 87929941.790945
+          The remaining Space available. (GapAvailable): -14479.535044  (---) 87293173.810011
+      The lower of adjusted & available. (GapCurrent): -14479.535044  (---) 87293173.810011
+    (GapCurrent) after any code you inserted. (GapUsed): -14479.535044  (---) 87293173.810011
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 43448409809.348297 (4.343959%)
+                   Total Used: 146278090506.179750 (215.006498%)
+         Volume Used by Zones: -59293696.005005 (-0.005928%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 16.000000 (9.000000, 7.000000) Shares Shares 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Shares:
+# Script: ZoneDo ZoneTypeSelectShares
+# Shares start.
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# Shares
+and (
+# Share start.
+(
+  DirectoryName("*Common*")
+  or DirectoryName("Media*")
+  or DirectoryName("Multimedia*")
+  or DirectoryName("*Public*")
+  or DirectoryName("*Share*")
+)
+# Share end.
+
+# Shares
+or 
+# Family start.
+(
+    DirectoryName("*Family*")
+)
+# Family end.
+
+# Shares
+)
+# Shares end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 17.000000 (10.000000, 7.000000) SystemOtherData SystemOtherData  0.000000 22.000000 24.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 9123731.473504 (3.735409%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 9123732.473747 (39.474706%)
+
+        Files/Folders:             8,030 (0.000350%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 87293172.809768 (0.008728%)
+            Files end: 96416904.283272
+             Zone end: 96416905.283515 (39.474706%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 97197059.598387
+              Must be half the Zone Size. (GapAdjusted): 780155.315114  (---) 97197059.598387
+               Align to the Volume evenyly. (GapRounded): 1283031.040000  (---) 97699935.323272
+          The remaining Space available. (GapAvailable): 1.000243  (---) 96416905.283515
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 96416905.283515
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 96416905.283515
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 46643145824.741554 (4.663368%)
+                   Total Used: 146278094602.174740 (215.006504%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 17.000000 (10.000000, 7.000000) SystemOtherData SystemOtherData  0.000000 23.000000 24.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -13895.392431 (-0.005689%)
+                Total: -13895.392431 (39.469016%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 96416904.283272 (0.009640%)
+            Files end: 96416904.283272
+             Zone end: 96403008.890841 (39.469016%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 1.000000%
+            Actual Gap: -0.005689% (-13895.392431)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 97197059.598387
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 96416904.283272
+               Align to the Volume evenyly. (GapRounded): 1283031.040000  (---) 97699935.323272
+          The remaining Space available. (GapAvailable): -13895.392431  (---) 96403008.890841
+      The lower of adjusted & available. (GapCurrent): -13895.392431  (---) 96403008.890841
+    (GapCurrent) after any code you inserted. (GapUsed): -13895.392431  (---) 96403008.890841
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 49837881840.134811 (4.982776%)
+                   Total Used: 146221192970.169740 (214.922867%)
+         Volume Used by Zones: -56901632.005005 (-0.005689%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 17.000000 (10.000000, 7.000000) SystemOtherData SystemOtherData 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+System Other Data:
+# Script: ZoneDo ZoneTypeSelectSystemOtherData
+# SystemOtherData start.
+# NotBlobsArchivesBu start.
+# NOT!
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+or 
+FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# SystemOtherData
+and ( 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+ 
+# SystemOtherData
+or  
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+# SystemOtherData
+)
+# SystemOtherData end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 18.000000 (11.000000, 7.000000) Reference Reference  0.000000 23.000000 25.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 208878.995849 (0.085519%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 208879.996092 (39.554535%)
+
+        Files/Folders:             6,508 (0.000262%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 96403007.890598 (0.009638%)
+            Files end: 96611886.886447
+             Zone end: 96611887.886690 (39.554535%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 10.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 1560310.630229  (Loc) 98172197.516676
+              Must be half the Zone Size. (GapAdjusted): 417757.991697  (---) 97029644.878144
+               Align to the Volume evenyly. (GapRounded): 1088048.436825  (---) 97699935.323272
+          The remaining Space available. (GapAvailable): 1.000243  (---) 96611887.886690
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 96611887.886690
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 96611887.886690
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 56227353870.921326 (5.621594%)
+                   Total Used: 146221197066.164730 (214.925616%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 18.000000 (11.000000, 7.000000) Reference Reference  0.000000 23.000000 25.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -208877.995606 (-0.085518%)
+                Total: -208877.995606 (39.469016%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 96611886.886447 (0.009659%)
+            Files end: 96611886.886447
+             Zone end: 96403008.890841 (39.469016%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 10.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: -0.085518% (-208877.995606)
+                 
+               The desired min Gap Size. (GapRequested): 1560310.630229  (Loc) 98172197.516676
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 96611886.886447
+               Align to the Volume evenyly. (GapRounded): 1088048.436825  (---) 97699935.323272
+          The remaining Space available. (GapAvailable): -208877.995606  (---) 96403008.890841
+      The lower of adjusted & available. (GapCurrent): -208877.995606  (---) 96403008.890841
+    (GapCurrent) after any code you inserted. (GapUsed): -208877.995606  (---) 96403008.890841
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 62616825901.707840 (6.260411%)
+                   Total Used: 145365841674.159730 (213.668358%)
+         Volume Used by Zones: -855355392.005005 (-0.085518%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 18.000000 (11.000000, 7.000000) Reference Reference 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+# Reference:
+# Script: ZoneDo ZoneTypeSelectReference
+# Reference start.
+# Xinclude "..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"X
+# NotBlobsArchivesBu start.
+(not (
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+# NotBlobsArchivesBu
+or 
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+# The following has to be ignored in the reference zone:
+# or 
+# FileName("ReferenceMarker.MyDx")
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+#
+# Reference
+and (
+# Reference start.
+(
+  DirectoryName("World*") or
+  DirectoryName("Education*") or
+  DirectoryName("Entertainment*") or
+  DirectoryName("Food*") or
+  DirectoryName("Geography*") or
+  DirectoryName("Help*") or
+  DirectoryName("Humo*") or
+  DirectoryName("Internet*") or
+  DirectoryName("Legal*") or
+  DirectoryName("Linquistics*") or
+  DirectoryName("Media*") or
+  DirectoryName("Multimedia*") or
+  DirectoryName("Reference*") or
+  DirectoryName("Sales*") or
+  DirectoryName("Science*") or
+  DirectoryName("Social*") or
+  DirectoryName("Technology*")
+  or FileName("ReferenceMarker.MyDx")
+)
+# Reference end.
+
+# Reference
+)
+# Reference end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 19.000000 (12.000000, 7.000000) Blobs Blobs  0.000000 23.000000 25.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 41777109.489621 (17.104253%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 41777110.489864 (56.573269%)
+
+        Files/Folders:             7,482 (0.000306%) 
+            Fragments:                 3 (1.265823%) 
+
+   Location:
+   ------------------------
+           Zone start: 96403007.890598 (0.009638%)
+            Files end: 138180117.380220
+             Zone end: 138180118.380463 (56.573269%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 10.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 1560310.630229  (Loc) 139740428.010448
+              Must be half the Zone Size. (GapAdjusted): 1560310.630229  (---) 139740428.010448
+               Align to the Volume evenyly. (GapRounded): 3484788.838525  (---) 141664906.218745
+          The remaining Space available. (GapAvailable): 1.000243  (---) 138180118.380463
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 138180118.380463
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 138180118.380463
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 69006297932.494354 (6.899229%)
+                   Total Used: 145365845770.154720 (213.668364%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 19.000000 (12.000000, 7.000000) Blobs Blobs  0.000000 17.000000 42.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -1596446.757510 (-0.653612%)
+                Total: -1596446.757510 (55.925941%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 138195468.127961 (0.013817%)
+            Files end: 138195468.127961
+             Zone end: 136599021.370451 (55.925941%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 10.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: -0.653612% (-1596446.757510)
+                 
+               The desired min Gap Size. (GapRequested): 1560310.630229  (Loc) 139755778.758190
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 138195468.127961
+               Align to the Volume evenyly. (GapRounded): 3469438.090784  (---) 141664906.218745
+          The remaining Space available. (GapAvailable): -1596446.757510  (---) 136599021.370451
+      The lower of adjusted & available. (GapCurrent): -1596446.757510  (---) 136599021.370451
+    (GapCurrent) after any code you inserted. (GapUsed): -1596446.757510  (---) 136599021.370451
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 75395769963.280869 (7.538046%)
+                   Total Used: 138828396298.149720 (373.320735%)
+         Volume Used by Zones: -6537449472.005005 (-0.653612%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 19.000000 (12.000000, 7.000000) Blobs Blobs 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Blobs:
+# Script: ZoneDo ZoneTypeSelectBlobs
+# Blobs start.
+(
+# NotBlobsArchivesBu start.
+(not (
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# NotBlobsArchivesBu
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+# NotBlobsArchivesBu
+) )
+# NotBlobsArchivesBu end.
+
+# Blobs
+and ( 
+# Blobs start.
+(
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+# Databases start.
+(
+  FileName("*.crypt*")
+  or FileName("*.db*")
+  or FileName("*.rdb*")
+  or FileName("*.dc*")
+  or FileName("*.dict*")
+  or FileName("*.?db*")
+  or FileName("*.?rdb*")
+  or FileName("*.md*")
+  or FileName("*.myd")
+  or FileName("*.ndf")
+  or FileName("*.ns?")
+  or FileName("*.pab")
+  or FileName("*.pst")
+  or FileName("*.sd?*")
+  or FileName("*.sq**")
+  or FileName("*.tmd")
+  or FileName("*.tps")
+  or FileName("*.tr*")
+)
+# Databases end.
+
+    # BlobsAndExceptions
+    or 
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.
+
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.
+
+# Blobs
+) and (
+  Size(BlobFileSize,0)
+  or (
+    FileName("*.arj")
+    or FileName("*.bup")
+    or FileName("*.bz2")
+    or FileName("*.chm")
+    or FileName("*.dvr-ms")
+    or FileName("*.gz")
+    or FileName("*.ifo")
+    or FileName("*.lzh")
+    or FileName("*.pdf")
+    or FileName("*.rpm")
+    or FileName("*.wmv")
+    or FileName("*.vob")
+    or FileName("*.z")
+  ) 
+)
+# Blobs end.
+
+) 
+# Blobs
+and not(FileName("ReferenceMarker.MyDx"))
+)
+# NotBlobsArchivesBu
+# Blobs end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+ZONE: 20.000000 (13.000000, 7.000000) ArchivesBu ArchivesBu  0.000000 21.000000 47.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 70571623.400244 (28.893212%)
+                  Gap: 1.000243 (0.000000%)
+                Total: 70571624.400487 (84.819153%)
+
+        Files/Folders:         1,122,625 (0.000044%) 
+            Fragments:                95 (6.854257%) 
+
+   Location:
+   ------------------------
+           Zone start: 136599020.370208 (0.013657%)
+            Files end: 207170643.770452
+             Zone end: 207170644.770695 (84.819153%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: 0.000000% (1.000243)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 207950799.085566
+              Must be half the Zone Size. (GapAdjusted): 780155.315114  (---) 207950799.085566
+               Align to the Volume evenyly. (GapRounded): 2884217.174584  (---) 210054860.945035
+          The remaining Space available. (GapAvailable): 1.000243  (---) 207170644.770695
+      The lower of adjusted & available. (GapCurrent): 1.000243  (---) 207170644.770695
+    (GapCurrent) after any code you inserted. (GapUsed): 1.000243  (---) 207170644.770695
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 78590505978.674133 (7.857455%)
+                   Total Used: 138828400394.144710 (373.320746%)
+         Volume Used by Zones: 4095.994995 (0.000000%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+ZONE: 20.000000 (13.000000, 7.000000) ArchivesBu ArchivesBu  0.000000 2.000000 52.000000 Statistics Report:
+------------------
+   Size:  
+   ------------------------
+                Files: 0.000000 (0.000000%)
+                  Gap: -67821356.948475 (-27.767206%)
+                Total: -67821356.948475 (57.051946%)
+
+        Files/Folders:                 0 (0.000000%) 
+            Fragments:                 0 (0.000000%) 
+
+   Location:
+   ------------------------
+           Zone start: 207170643.770452 (0.020713%)
+            Files end: 207170643.770452
+             Zone end: 139349286.821977 (57.051946%)
+      
+   Gap Settings:
+   ------------------------
+         Gap requested: 5.000000%
+       Volume rounding: 2.000000%
+            Actual Gap: -27.767206% (-67821356.948475)
+                 
+               The desired min Gap Size. (GapRequested): 780155.315114  (Loc) 207950799.085566
+              Must be half the Zone Size. (GapAdjusted): 0.000000  (---) 207170643.770452
+               Align to the Volume evenyly. (GapRounded): 2884217.174584  (---) 210054860.945035
+          The remaining Space available. (GapAvailable): -67821356.948475  (---) 139349286.821977
+      The lower of adjusted & available. (GapCurrent): -67821356.948475  (---) 139349286.821977
+    (GapCurrent) after any code you inserted. (GapUsed): -67821356.948475  (---) 139349286.821977
+     
+   Free Space after Zone:
+   ------------------------
+              Total requested: 81785241994.067383 (8.176864%)
+                   Total Used: -138900056309.860290 (-373.513435%)
+         Volume Used by Zones: -277728456704.005000 (-27.767206%)
+
+Directory & Files Select:
+----------------------------------------------------------
+
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 20.000000 (13.000000, 7.000000) ArchivesBu ArchivesBu 
+3.000000 Selecting Files.
+4.000000 Calculating Gap.
+5.000000 File Actions started.
+6.000000 File Actions completed.
+7.000000 Processing Gap.
+8.000000 Calculating Gap.
+9.000000 File Actions started.
+10.000000 File Actions completed.
+11.000000 Processing Gap.
+12.000000 Processing finished, reporting.
+
+---------------------------
+
+Archives and Backups:
+# Script: ZoneDo ZoneTypeSelectArchivesBu
+# ArchivesBu start.
+( ( 
+# ArchivesBu
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# Bu Backups
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+)
+and not(FileName("ReferenceMarker.MyDx"))
+)
+# ArchivesBu end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------
+1.000000 Zone started.
+2.000000 ZONE: 21.000000 (14.000000, 7.000000) ArchivesBu ArchivesBu 
+3.000000 Selecting Files.
+4.000000 Processing finished, reporting.
+
+---------------------------
+
+Archives and Backups:
+# Script: ZoneDo ZoneTypeSelectArchivesBu
+# ArchivesBu start.
+( ( 
+# ArchivesBu
+# Archives start.
+(
+  DirectoryName("*Archive*")
+  or DirectoryName("*History*")
+  or DirectoryName("*Old")
+  or DirectoryName("* Old *")
+  or DirectoryName("Old *")
+
+  or FileName("*.7z")
+  or FileName("*.cab")
+  or FileName("*.iso")
+  or FileName("*.msi")
+  or FileName("*.old")
+  or FileName("*.rar")
+  or FileName("*.tar")
+  or FileName("*.zip")
+  or
+# WinSysLow start.
+(
+  # Bad idea. This pushed lots of programs and data to archive.
+  # DirectoryName("$*")
+  # or DirectoryName("0*")
+  # or DirectoryName("1*")
+  # or DirectoryName("2*")
+  # or DirectoryName("3*")
+  # or DirectoryName("4*")
+  # or DirectoryName("5*")
+  # or DirectoryName("6*")
+  # or DirectoryName("7*")
+  # or DirectoryName("8*")
+  # or DirectoryName("9*")
+  # or 
+  DirectoryName("dllcache")
+  or DirectoryName("Downloaded Installations")
+  or DirectoryName("Ehome")
+  or DirectoryName("Fonts")
+  or DirectoryName("Help")
+  or DirectoryName("I386")
+  or DirectoryName("ie?updates")
+  or DirectoryName("Installer")
+  or DirectoryName("Installshield Installation Information")
+  or DirectoryName("IME")
+  or DirectoryName("*RECYCLE*")
+  or DirectoryName("ServicePackFiles")
+  or DirectoryName("SoftwareDistribution")
+  or DirectoryName("Speech")
+  or DirectoryName("Symbols")
+  or DirectoryName("System Volume Information")
+  or DirectoryName("windows.old")
+)
+# WinSysLow end.
+
+  # Archives
+)
+# Archives end.
+
+# Bu Backups
+or
+# Backups start.
+(
+  DirectoryName("*Backup*")
+  or DirectoryName("*Bu")
+  or DirectoryName("* Bu *")
+  or DirectoryName("Bu *")
+
+  or FileName("*.bak")
+  or FileName("* - Copy*")
+)
+# Backups end.
+
+)
+and not(FileName("ReferenceMarker.MyDx"))
+)
+# ArchivesBu end.
+
+               
+---------------------------
+----------------------------------------------------------
+End of Zone.
+----------------------------------------------------------
+
+----------------------------------------------------------

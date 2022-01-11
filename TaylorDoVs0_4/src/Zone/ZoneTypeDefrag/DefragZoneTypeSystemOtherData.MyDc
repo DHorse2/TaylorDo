@@ -1,10 +1,12 @@
 # Script: DefragZoneTypeSystemOtherData
 /* ------------------------- */
 /* Zone SystemOtherData System Other and Data */
-SetVariable(ZoneLabel,		"!ZoneLabelSystemOtherData!")
-SetVariable(ZoneDescription,	"!ZoneDescriptionSystemOtherData!")
-SetVariable(ZoneVolRoundUp,		"!ZoneVolRoundUpSystemOtherData!")
-SetVariable(ZoneGapSize,		"!ZoneGapSizeSystemOtherData!")
+SetVariable(ZoneLabel,			"!ZoneLabelSystemOtherData!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionSystemOtherData!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeSystemOtherData!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpSystemOtherData!")
+SetVariable(ZoneGapSize,			"!ZoneGapSizeSystemOtherData!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 System Other Data:

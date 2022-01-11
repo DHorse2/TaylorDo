@@ -1,7 +1,7 @@
 @Echo off
 @Echo .
 @Echo ------------------------------------------------------
-@Echo - Command: DevMontly Defrag Dev Disk Monthly
+@Echo - Command: Dev Monthly Defrag Dev Disk Monthly
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeDev.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Dev Disk Monthly
-"DefragDevDiskMonthly.MyD"
+START /wait "" "DefragDevDiskMonthly.MyD"
 @Echo ------------------------------------------------------
-@Echo . end of DevMontly Defrag Dev Disk Monthly
+@Echo . end of Dev Monthly Defrag Dev Disk Monthly
 @TIMEOUT /T 1 /NOBREAK

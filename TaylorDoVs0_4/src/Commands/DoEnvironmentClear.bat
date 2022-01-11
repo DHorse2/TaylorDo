@@ -1,23 +1,19 @@
 @Echo off
-@Echo .
+@Echo . 
 @Echo ------------------------------------------------------
-@Echo - Command: AllMontly Defrag All Disk(s) Monthly
+@Echo - Command: DoEnvironmentClear
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
-@Echo . starting Defrag Monthly Disk(s) 
-cd ..
-@Echo . System Disks
-"DefragSystemDiskMonthly.MyD"
+call "..\Commands\DoSortFast.bat"
+@Echo . 
 @Echo ------------------------------------------------------
-@Echo . Dev Disks
-"DefragDevDiskMonthly.MyD"
-@Echo ------------------------------------------------------
-@Echo . Data Disks
-"DefragDataDiskMonthly.MyD"
-@Echo ------------------------------------------------------
-@Echo . Archive Disks
-"DefragArchiveDiskMonthly.MyD"
-@Echo ------------------------------------------------------
-@Echo . end of AllMontly Defrag All Disk(s) Monthly
 @TIMEOUT /T 1 /NOBREAK
+@Echo ------------------------------------------------------
+call "..\Commands\DoGapNoVacate.bat"
+@Echo . 
+@Echo ------------------------------------------------------
+@Echo . 
+@Echo - End of DoEnvironmentClear -----------------
+@TIMEOUT /T 1 /NOBREAK
+pause()

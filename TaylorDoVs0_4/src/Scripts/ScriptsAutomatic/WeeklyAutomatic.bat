@@ -6,17 +6,9 @@
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Weekly Disk(s) Automatic
+cd ..
 call "..\Commands\DoDefragAutomaticOn.bat"
-"DefragSystemDiskWeekly.MyD"
-@Echo ------------------------------------------------------
-call "..\Commands\DoDefragAutomaticOn.bat"
-"DefragDevDiskWeekly.MyD"
-@Echo ------------------------------------------------------
-call "..\Commands\DoDefragAutomaticOn.bat"
-"DefragDataDiskWeekly.MyD"
-@Echo ------------------------------------------------------
-call "..\Commands\DoDefragAutomaticOn.bat"
-"DefragArchiveDiskWeekly.MyD"
+call "\ScriptsWeekly\AllWeekly.bat"
 @Echo ------------------------------------------------------
 @Echo . end of WeeklyAutomatic Defrag Weekly Disk(s) Automatic
 @TIMEOUT /T 1 /NOBREAK

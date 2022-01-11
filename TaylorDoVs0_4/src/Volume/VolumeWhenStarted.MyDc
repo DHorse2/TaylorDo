@@ -1,7 +1,13 @@
 # Script: VolumeWhenStarted
-
+#
+# The adjusted volume free is proportional to the volume used space.
+# This keeps the zones sized relative to each other.
+# A 25% full disk will only utilize 25% of the disk free space.
+# Round up blocks are sized using this value now.
+#
 SetVariable(VolumeFreeAdj, (VolumeFree * (VolumeUsed / VolumeSize)))
-
+#
+# This keeps your MFT location from being insanely low on the disk.
 SetVariable(MftLocation, RoundUp(VolumeUsed * MftPerDev, VolumeSize * VolumeRoundUpLarge)) 
 
 SetVariable(ZoneStatisticsReport, "")

@@ -25,6 +25,11 @@ SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
             !FilesWordCaps! !EndWord!!ColonWord! !ZoneEndCurrent!
              !ZoneWordCaps! !EndWord!!ColonWord! !ZoneEndActualCurrent! (!ZoneEndActualPerCurrent!%)
       
+   !SelectionWordCaps!!CriteriaWordCaps!!ColonWord!
+   ------------------------
+   !ZoneCommand! 
+   !ModeWordCaps!!ColonWord! !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"!
+      
    !GapWordCaps! !SettingsWord!!ColonWord!
    ------------------------
          !GapWordCaps! !RequestedWord!!ColonWord! !ZoneGapSizePer!%

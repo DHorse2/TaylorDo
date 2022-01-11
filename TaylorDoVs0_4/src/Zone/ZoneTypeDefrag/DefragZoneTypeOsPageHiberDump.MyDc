@@ -8,8 +8,10 @@
 
 	SetVariable(ZoneLabel, 			"!ZoneLabelPageHiberDump!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionPageHiberDump!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizePageHiberDump!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpPageHiberDump!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizePageHiberDump!")
+	SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionTypeOsPageHiberDump.MyDc"!')
 
 	SetVariable(ZoneTypeSelect,	'
 Program Page, Hiber and Dump files:
@@ -23,8 +25,8 @@ Program Page, Hiber and Dump files:
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

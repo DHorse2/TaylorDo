@@ -30,3 +30,5 @@ Zone Detailed Report:
 SetStatisticsWindowText('!StatisticsWindowText!')
 
 Writelogfile("MyDefrag.TaylorDoLog",	'!StatisticsWindowText!')
+
+Writelogfile("!RunId!.TaylorDoLog",	'!StatisticsWindowText!')

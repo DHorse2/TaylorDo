@@ -4,7 +4,7 @@
 # based on MyDefrag distribution.
 
 !include "..\Display\DisplaySetDateTimeRun.MyDc"!
-SetVariable(RunId,		"C:\MyDefragLogs\!RunDescription! !RunDateTime!")
+SetVariable(RunId,		"!RunDescription! !RunDateTime!")
 SetVariable(Heading,	"Initializing...")
 #dgh@Z#  Writelogfile("!RunId!", "!ZoneStatisticsData!")
 
@@ -32,7 +32,7 @@ WindowSize(minimized)
 
 # Processes:
 	# This Process
-SetVariable(RunProcessID,ProcessID)
+SetVariable(RunProcessID,	ProcessID)
 
 	# Kill other instances
 	# Kill other MyDefrag Instances.

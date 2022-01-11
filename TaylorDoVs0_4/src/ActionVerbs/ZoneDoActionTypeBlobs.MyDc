@@ -1,2 +1,2 @@
-# File Action - Blobs - Full -  SortByCreationDate
-!include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!
+# File Action - All - Regular -  SortByNewestDate.
+	MoveUpToZone()

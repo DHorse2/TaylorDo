@@ -12,6 +12,11 @@ Action: !include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
 Mode: !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"!
 Requested Volume: !include "..\ActionVerbs\VolumeTypeSelect.MyDc"!
 ----------------------------------------------------------
+!DescriptionWordCaps! !Description! 
+!StartedWordCaps!: !Date! !Time!!PeriodWord!
+!ScriptWordCaps!: !ScriptTitle!!PeriodWord!
+!ScriptWordCaps! !DirectoryWordCaps!: !ScriptDir!!PeriodWord!
+!LogWordCaps! !FileWordCaps!: !LogFileName!!PeriodWord!
 ----------------------------------------------------------
 VOLUME DETAILS: !VolumeLabel! !VolumeDescription!
     Volume mountpoint:          !MountPoint!

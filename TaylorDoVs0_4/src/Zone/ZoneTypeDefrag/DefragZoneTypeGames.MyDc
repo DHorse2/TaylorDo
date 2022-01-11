@@ -1,10 +1,12 @@
 # Script: DefragZoneTypeGames
 /* ------------------------- */
 /* Zone Games */
-SetVariable(ZoneLabel, "!ZoneLabelGames!")
-SetVariable(ZoneDescription, "!ZoneDescriptionGames!")
-SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpGames!")
-SetVariable(ZoneGapSize, "!ZoneGapSizeGames!")
+SetVariable(ZoneLabel,			 "!ZoneLabelGames!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionGames!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeGames!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpGames!")
+SetVariable(ZoneGapSize,			 "!ZoneGapSizeGames!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 Games:

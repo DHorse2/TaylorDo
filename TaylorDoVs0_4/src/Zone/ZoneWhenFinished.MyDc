@@ -3,10 +3,10 @@
 # Add the zone to the zone details log:
 # This is temporarily disable until logging is fixed
 # It is performed during file action to preserve the correct (original) calculations.
-# Xinclude "..\Zone\ZoneStatisticsAdd.MyDc"X
+# Xinclude "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"X
 
 # Add the Select and ZoneSteps to the Zone
-!include "..\Zone\ZoneStatisticsAddDetails.MyDc"!
+!include "..\Zone\ZoneStatisticsDetailZoneAppend.MyDc"!
 
 #dgh@Z#  Writelogfile("!ZoneKeyCurr! part1", "!ZoneStatisticsReport1!")
 #dgh@Z#  Writelogfile("!ZoneKeyCurr! part2", "!ZoneStatisticsReport2!")

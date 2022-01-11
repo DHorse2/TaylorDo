@@ -13,3 +13,5 @@ SetVariable(MftZone, "!SharesWordCaps!")
 !include "..\Settings\SettingsYours\SettingsYoursArchive.MyDc"!
 
 !include "..\Defrag\DefragAnyComplexVolume.MyDc"!
+
+Writelogfile("Defrag Archive Volume.TaylorDoLog",	'!StatisticsWindowText!')

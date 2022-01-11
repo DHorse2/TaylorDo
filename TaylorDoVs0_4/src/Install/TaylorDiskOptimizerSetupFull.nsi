@@ -16,7 +16,7 @@
 !include LogicLib.nsh
 !include WinVer.nsh
 !include x64.nsh
-
+;Xinclude "EnvVarUpdate.nsh"
 ;--------------- Application -----------------
 !define PRODUCT_NAME "Taylor Disk Optimizer"
     ; X.X.X.0 - Patch
@@ -24,7 +24,7 @@
     ; 3.1 Refactor into directories
     ; 3.2 Installer, Refactor ZoneType & Display 
     ; 3.3 ActionVerbs, Fast (Daily) & Regular Optimize
-!define PRODUCT_VERSION "3.3.1.0"
+!define PRODUCT_VERSION "4.0.1.0"
 !define PRODUCT_PUBLISHER "David G Horsman"
 InstType "Full" IT_FULL
 ; InstType "Minimal" IT_MIN
@@ -33,8 +33,10 @@ InstType "Custom" IT_CUSTOM
 Var /GLOBAL ProductAppName 
 Var /GLOBAL ProductAppVersion 
 Var /GLOBAL ProductAppPublisher 
+Var /GLOBAL ProductAppInstallDir
 Icon "G:\Dev\MdmDefrag\TaylorDoVs0_2\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
 ; Icon "G:\Dev\MdmDefrag\TaylorDoVs0_2\Resources\Icons\MdmControl.ico"
+var /GLOBAL ProductAppInstallDirRegKey
 
 SetCompressor lzma
  
@@ -42,37 +44,39 @@ SetCompressor lzma
 ;--------------- Main -----------------
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 Caption "Matt Taylor Disk Optimizer"
+
 InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
     ; InstallDir "$PROGRAMFILES\MyDefrag"
-    ; InstallDir "$PROGRAMFILES\TaylorDo"
+    ; InstallDirTaylorDo "$PROGRAMFILES\TaylorDo"
 
 ; Get installation folder from registry if available
-InstallDirRegKey HKCU "Software\${PRODUCT_NAME}" "Install_Dir"
+InstallDirRegKey HKLM "Software\${PRODUCT_NAME}" "Install_Dir"
+    ; InstallDirRegKey HKCU "Software\${PRODUCT_NAME}" "Install_Dir"
     ; ?InstallDirRegKey HKCU "Software\${PRODUCT_NAME}" ""
 
 Var /GLOBAL InstallDirTaylorDo
-Var /GLOBAL InstallDirFull
-
+; Var /GLOBAL InstallDirFull
 ; var /GLOBAL SetOutPath
-; var /GLOBAL InstallDir
 ; var /GLOBAL $InstallDirTaylorDo
-; var /GLOBAL $InstallDirFull
 
 OutFile "TaylorDoSetup.exe"
-    ; OutFile "TaylorDiskOptimizerSetup.exe"
 
 RequestExecutionLevel Admin
 ShowInstDetails show
 Unicode True
 
 ; ///////////////////////////////////////////////////////
-;--------------- User Interface -----------------
+;--------------- MUI - User Interface -----------------
 ; ///////////////////////////////////////////////////////
+;--------------- Dependencies -----------------
 ; !include "UserManagement.nsh"
 ; MUI 1.67 compatible ------
 !include "MUI.nsh"
- 
+!include nsDialogs.nsh
+    ; !include mui2.nsh; ToDo look into this version.
+
 ;--------------------------------
+; Settings.
 ; MUI Settings
     ; !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
     ; !define MUI_ICON "${NSISDIR}\Resources\Icons\MdmControl.ico"
@@ -82,48 +86,115 @@ Unicode True
 !define MUI_ICON "..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
 !define MUI_UNICON "..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
 
+;--------------------------------
+; Abort
+    ; !define MUI_ABORTWARNING
+        ; !define MUI_ABORTWARNING_TEXT text
+        ; !define MUI_ABORTWARNING_CANCEL_DEFAULT
+    ; !define MUI_UNABORTWARNING
+        ; !define MUI_UNABORTWARNING_TEXT text
+        ; !define MUI_UNABORTWARNING_CANCEL_DEFAULT
+
 ; ///////////////////////////////////////////////////////
 ; Install 
 ;--------------------------------
-;Interface Configuration
+; Interface Configuration
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "..\MattTaylorAndNumenta\1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky.bmp"
+!define MUI_HEADERIMAGE_BITMAP_NOSTRETCH "..\MattTaylorAndNumenta\1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky.bmp"
 !define MUI_ABORTWARNING
+    ; !define MUI_BGCOLOR 
+    ; !define MUI_TEXTCOLOR 
 
 ;--------------------------------
+; Fininsh Page
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\Install\MyDefrag Run Zone 6 Small.bmp"
 
-    ; Welcome page
+;--------------------------------
+; Welcome page
 !define MUI_WELCOMEPAGE_TITLE "Welcome to the Taylor Disk Optimizer ${PRODUCT_VERSION} Setup Wizard"
+
 !define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the installation of the TaylorDo (Taylor Disk Optimizer) ${PRODUCT_VERSION}, the next generation of the Windows disk optimization and defragmentation.$\r$\n$\r$\nTaylorDo works out of the box and tuned for the home user.$\r$\n$\r$\nBut it is designed for network system administration, is highly customizable and easy to change.$\r$\n$\r$\n$_CLICK"
 
 !insertmacro MUI_PAGE_WELCOME
 
 ;--------------------------------
+; License page
+    ; !define MUI_LICENSEPAGE_BGCOLOR 
+
 !insertmacro MUI_PAGE_LICENSE "..\License.txt"
 
 ;--------------------------------
-!insertmacro MUI_PAGE_COMPONENTS
+; Components / Install Sections:
+;--------------------------------
+    ; !define MUI_COMPONENTSPAGE_TEXT_TOP text ; Text to display on the top of the page.
+    ; !define MUI_COMPONENTSPAGE_CHECKBITMAP 
+    ; !define MUI_COMPONENTSPAGE_TEXT_COMPLIST "xxx" ; Text to display on next to the components list.
+    ; !define MUI_COMPONENTSPAGE_TEXT_INSTTYPE "text" ; Text to display on next to the installation type combo box.
+    ; !define MUI_COMPONENTSPAGE_TEXT_DESCRIPTION_TITLE text" ; Text to display on the of the top of the description box.
+    ; !define MUI_COMPONENTSPAGE_TEXT_DESCRIPTION_INFO text" ; Text to display inside the description box when no section is selected.
+
+    !insertmacro MUI_PAGE_COMPONENTS
+
+    ;--------------------------------
+    ; Directory Selection page
+
+    ; ToDo add a custom page for paths, all users, etc.
+    Page custom DirectoriesPage 
+
+    !define MUI_DIRECTORYPAGE_VARIABLE $InstallDirTaylorDo ; Variable to store the selected folder. Default: $INSTDIR
+
+    !define MUI_DIRECTORYPAGE_TEXT_TOP "Installation Directory for TaylorDo"
+    !define MUI_TEXT_DIRECTORY_TITLE "Destination Folder for TaylorDo"
+    !define MUI_TEXT_DIRECTORY_SUBTITLE "Click Install to install to the default folder or click Browse to choose another"
+        ; !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "xxx" ; Text to display on the destination folder frame.
+        ; !define MUI_DIRECTORYPAGE_VERIFYONLEAVE ; Does not disable the Next button when a folder is invalid but allows you to use GetInstDirError in the leave function to handle an invalid folder.
+
+    !insertmacro MUI_PAGE_DIRECTORY
+
+    ;--------------------------------
+    ; Start Menu Component Page
+    Var /GLOBAL StartMenuFolder ; Define variable to hold start menu folder
+
+    ; Page --------------
+    !define MUI_STARTMENUPAGE_DEFAULTFOLDER "${PRODUCT_PUBLISHER}\${PRODUCT_NAME}" ; Set default start menu folder
+
+    ; !define MUI_STARTMENUPAGE_TEXT_TOP text ; Text to display on the top of the page.
+    ; !define MUI_STARTMENUPAGE_TEXT_CHECKBOX text; Text to display next to the checkbox to disable the Start Menu folder creation.
+    ; !define MUI_STARTMENUPAGE_NODISABLE ; Do not display the checkbox to disable the creation of Start Menu shortcuts.
+    
+    ; Registry Key ---------------- Start Menu Folder
+    !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
+    !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${PRODUCT_NAME}" 
+    !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "StartMenuFolder"
+
+    !insertmacro MUI_PAGE_STARTMENU Application     $StartMenuFolder    
+
 
 ;--------------------------------
-!define MUI_DIRECTORYPAGE_TEXT_TOP $(mydirtoptext)
-!define MUI_TEXT_DIRECTORY_TITLE "Destination Folder"
-!define MUI_TEXT_DIRECTORY_SUBTITLE "Click Install to install to the default folder or click Browse to choose another"
-!insertmacro MUI_PAGE_DIRECTORY
+; Installation
+    ; !define MUI_INSTFILESPAGE_COLORS (foreground color: RRGGBB hexadecimal) (background color: RRGGBB hexadecimal)
+    ; !define MUI_INSTFILESPAGE_PROGRESSBAR colored
+
 !insertmacro MUI_PAGE_INSTFILES
+
+;--------------------------------
+; Finish
+!define MUI_FINISHPAGE_NOAUTOCLOSE
+    ; !define MUI_FINISHPAGE_TITLE title ; Title to display on the top of the page.
+    ; !define MUI_FINISHPAGE_TITLE_3LINES ; Extra space for the title area.
+    ; !define MUI_FINISHPAGE_TEXT text ; Text to display on the page.
+    ; !define MUI_FINISHPAGE_TEXT_LARGE ; Extra space for the text area (if using checkboxes).
+    ; !define MUI_FINISHPAGE_BUTTON text ; Text to display on the Finish button.
+
+    ; !define MUI_FINISHPAGE_TEXT_REBOOT text ; Text to display on the finish page when asking for a system reboot. More...
+    ; !define MUI_FINISHPAGE_RUN exe_file ; Application which the user can select to run using a checkbox. You don't need to put quotes around the filename when it contains spaces. More...
+    ; !define MUI_FINISHPAGE_LINK link_text ; Text for a link on the which the user can click to view a website or file. More...
+    ; !define MUI_FINISHPAGE_SHOWREADME file/url ; File or website which the user can select to view using a checkbox. You don't need to put quotes around the filename when it contains spaces. More...
+
 !insertmacro MUI_PAGE_FINISH
 
-;--------------------------------
-Var StartMenuFolder ; Define variable to hold start menu folder
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "${PRODUCT_PUBLISHER}\${PRODUCT_NAME}" ; Set default start menu folder
-; Page --------------
-!insertmacro MUI_PAGE_STARTMENU Application     $StartMenuFolder    
-; Registry Key ---------------- Start Menu Folder
-!define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
-!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${PRODUCT_NAME}" 
-!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "StartMenuFolder"
-
 ; ///////////////////////////////////////////////////////
+; Un/Installation log page
 ; Uninstall
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -132,7 +203,9 @@ Var StartMenuFolder ; Define variable to hold start menu folder
 !insertmacro MUI_UNPAGE_DIRECTORY
 
 !insertmacro MUI_UNPAGE_INSTFILES
+
 !insertmacro MUI_UNPAGE_FINISH
+!define MUI_UNFINISHPAGE_NOAUTOCLOSE
   
 ;--------------------------------
 ; Languages
@@ -140,7 +213,7 @@ Var StartMenuFolder ; Define variable to hold start menu folder
  
 ;--------------------------------
 ; Reserve files
-!insertmacro MUI_RESERVEFILE_INSTALLOPTIONS
+; !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS ; !error: MUI_RESERVEFILE_INSTALLOPTIONS is no longer supported as InstallOptions is no longer used by MUI2. Instead, use "ReserveFile /plugin InstallOptions.dll". It is also recommended to upgrade to nsDialogs.
 ; !insertmacro MUI_RESERVEFILE_LANGDLL
 
 ; MUI end ------
@@ -150,128 +223,199 @@ Var StartMenuFolder ; Define variable to hold start menu folder
 ; ///////////////////////////////////////////////////////
 VIProductVersion "${PRODUCT_VERSION}"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "${PRODUCT_NAME}"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "An advanced automatic disk optimization library dedicated to Matt Taylor"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "An advanced automatic disk optimization library dedicated to Matt Taylor. Added Autorun, Scheduler and All options."
 VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "dba MacroDM (David G Horsman)"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "InternalName" "MdmDefrag"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" "none"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© 2015, 2020, 2021 David G Horsman"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© 2015, 2020, 2021, 2022 David G Horsman"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "TaylorDo Application using My Defrag Vs4.3.1"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "3.0"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "4.0.1"
 
 ; ///////////////////////////////////////////////////////
 ; ///////////////// SECTIONS ////////////////////////////
 ; ///////////////// Section SETTINGS ////////////////////
-; InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
+
 Section -SETTINGS
     SectionInstType ${IT_FULL} ${IT_CUSTOM}
     SetOverwrite ifnewer
     StrCpy $ProductAppName "My Defrag"
     StrCpy $ProductAppVersion "4.3.1"
     StrCpy $ProductAppPublisher "J.C. Kessels"
+
+    ; ProductAppInstallDirRegKey (existing) ToDo
+    ; InstallDirRegKey (existing)
+
+    ; Default InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
     ${If} ${RunningX64}
         SetOutPath "$PROGRAMFILES32"
     ${Else}
         SetOutPath "$PROGRAMFILES"
     ${EndIf} 
-    ;       InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
-    StrCpy $InstallDirTaylorDo "Scripts\TaylorDo"
-    StrCpy $InstallDirFull $INSTDIR"\"$InstallDirTaylorDo
-SectionEnd
- 
 
-; These are the programs that are needed by the Matt Taylor Disk Optimizer Suite.
+    StrCpy $ProductAppInstallDir "$OUTDIR\MyDefrag v4.3.1"
+    StrCpy $InstallDirTaylorDo "$OUTDIR\TaylorDo"
+SectionEnd
+
+; ///////////////////////////////////////////////////////
+; ///////////////// Section Directorires ///////////////////
+
+Section "Directory Section" DirInstall
+    
+    ; InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
+    StrCpy $ProductAppInstallDir "$OUTDIR\MyDefrag v4.3.1"
+    StrCpy $InstallDirTaylorDo "$OUTDIR\TaylorDo"
+
+    ; Setx MyDefragDir $ProductAppInstallDir
+    ; Setx MyTaylorDoDir $InstallDirTaylorDo
+SectionEnd
 
 ; ///////////////////////////////////////////////////////
 ; ///////////////// Section My Defrag ///////////////////
+
 Section "MyDefrag Section" MyDefrag
     SectionInstType ${IT_FULL} ${IT_CUSTOM}
     SetShellVarContext all
 ; Check if it exists.
-    IfFileExists '$INSTDIR\MyDefrag v4.3.1\MyDefrag.exe' +2 0
+    ; registry load
+    IfFileExists '$ProductAppInstallDir\MyDefrag.exe' +2 0
         Goto myDefragInstall
         Goto myDefragExists
 myDefragExists:
     ; Display message program exists.
     ; Do I want an uninstall/reinstall / repair?
     ; Command here.
-Goto myDefragEnd
+
+myDefragExistsCancel:
+    Goto myDefragEnd
+
+myDefragExistsContinue:
+    ; registry load
 ;
 ;--------------------------------
 myDefragInstall:
-    SetOutPath $INSTDIR
+    SetOutPath $MyDefragDir
     SetOverwrite ifnewer
-  ;
+
 ; \MyDefragVs4_3_1
     MessageBox MB_YESNO "Installing MyDefrag is required. Okay?" /SD IDYES IDNO myDefragEnd
         File "..\Download\MyDefrag-v4.3.1.exe"
-        ExecWait '..\Download\MyDefrag-v4.3.1.exe'
+    ExecWait '..\Download\MyDefrag-v4.3.1.exe /silent /dir="$ProductAppInstallDir" /LOG "$ProductAppInstallDir\MyDefrag.InstallLog" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo"'
         ; /DIR="x:\dirname"
         ; /SILENT
         ; /VERYSILENT (Hidden)
         ; /LOG "MyDefragInstallLog"
-; check for error?
-    Goto myDefragEnd
-myDefragEnd:
+        ; /LANG="???" ToDo
 
+    ; check for error?
+        ; Goto myDefragEnd
+    DetailPrint "Files Updated"
+
+    ;--------------- Registry -----------------
+    ; Get installation folder from registry if available
+    ; InstallDirRegKey HKLM "Software\$MyDefragDir" "Install_Dir"
+
+    ; Write the installation path into the registry
+    WriteRegStr HKLM "Software\$MyDefragDir" "Install_Dir" "$ProductAppInstallDir"
+  
+    ; Write the uninstall keys for Windows
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayName" "$StartMenuFolder (remove only)"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayIcon" "$ProductAppInstallDir\Unins000.exe"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "UninstallString" '"$ProductAppInstallDir\unins000.exe"'
+
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoModify" 1
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 0
+    ; WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 1
+
+    DetailPrint "Registry Updated"
+;--------------------------------
+myDefragEnd:
+    DetailPrint "MyDefrag finished"
+;--------------------------------
 SectionEnd
 
 ; ///////////////////////////////////////////////////////
 ; ///////////////// Section Matt Taylor Libraries ///////
+
 Section "Matt Taylor Libraries" TaylorLibraries
     SectionInstType ${IT_FULL} ${IT_CUSTOM}
     SetShellVarContext all
-    ; Initialization
-        ; CreateDirectory $INSTDIR\backup
-        ; CopyFiles $INSTDIR\*.log $INSTDIR\backup
-
-    ; $OUTDIR 
-        SetOutPath $InstallDirFull
-        ; SetOutPath $INSTDIR\Scripts\TaylorDo
+    SetOutPath $InstallDirTaylorDo
 
     ;--------------- Check if it exists ----------------- IT'S THE $ SIGN #2
+    ; Load path from registry (see top)
+
     IfFileExists '$OUTDIR\$$ Readme.txt' +2 0
-        Goto taylorDefragInstall
-        Goto taylorDefragExists
+        Goto taylorDoInstall
+        Goto taylorDoExists
     ;
-    taylorDefragExists:
-        ; Display message program exists.
-        ; Do I want an uninstall/reinstall / repair?
-        ; Command here.
-    Goto taylorDefragEnd
+taylorDoExists:
+    ; Display message program exists.
+    MessageBox MB_YESNO "TaylorDo already exists! Do you wish to continue?" /SD IDYES IDNO taylorDoExistsCancel
+    ; Goto taylorDoEnd
+
+taylorDoExistsCancel:
+    ; Goto taylorDoEnd
+
+taylorDoExistsContinue:
+
+    ; Backup existing files.
+    ; CreateDirectory $InstallDirTaylorDo\backup
+    ; CopyFiles $InstallDirTaylorDo\*.log $InstallDirTaylorDo\backup
+
+    ; MessageBox MB_YESNO "Do you want to repair the existing install?" /SD IDYES IDNO taylorDoExistsReplace
+    ; Goto taylorDoExistsReplace
     ;
+taylorDoExistsRepair:
+    ; Goto taylorDoEnd
+
+taylorDoExistsReplace:
+
+;--------------------------------
+taylorDoInstall:
     ;--------------------------------
-    taylorDefragInstall:
-    ;--------------------------------
-    ;
+    ; Initialization
     ;--------------- Copy Files -----------------
-        CreateDirectory $InstallDirFull
-        ; File ..\*.*
-        File /r ..\*.*
-    ;-------- Repair MyDefrag Install
 
-        CopyFiles /SILENT '$INSTDIR\MyDefrag v4.3.1\Scripts\*.MyD' '$INSTDIR\MyDefrag v4.3.1\Example Scripts\'
-        ; ExecWait 'copy "$INSTDIR\\MyDefrag v4.3.1\Scripts\*.MyD" "$INSTDIR\MyDefrag v4.3.1\Example Scripts\" /Y'
-        Delete '$INSTDIR\MyDefrag v4.3.1\Scripts\*.MyD'
+    CreateDirectory $InstallDirTaylorDo
+    File /r ..\*.* 
+    ; /x '..\Download\TaylorDoSetup.exe' '..\Download\*.zip'
 
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AnalyzeOnly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticDaily.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticMonthly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\AutomaticWeekly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+    ; Exclude the previous installer and zip files if they exist.
+    Delete '$InstallDirTaylorDo\src\Download\TaylorDoSetup.exe' 
+    ; ToDo can nsis zip at the same time?
+    Delete '$InstallDirTaylorDo\src\Download\*.zip'
 
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\ConsolidateFreeSpace.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskDaily.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskMonthly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DataDiskWeekly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+    DetailPrint "Files Updated"
 
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\DefragmentOnly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\FlashMemoryDisks.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\LogTest.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\Settings.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+    ;-------- Repair MyDefrag Install -----------------
+    ; Move all supplied scripts to "Example Scripts" and delete them.
 
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskDaily.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskMonthly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
-        ; Move '$INSTDIR\MyDefrag v4.3.1\Scripts\SystemDiskWeekly.MyD' '$INSTDIR\MyDefrag v4.3.1\ScriptsSaved\'
+    ; ToDo If MyDefrag or TaylorDo exists.
+    CopyFiles /SILENT '$ProductAppInstallDir\Scripts\*.MyD' '$ProductAppInstallDir\Example Scripts\'
+    ; ExecWait 'copy "$ProductAppInstallDir\Scripts\*.MyD" "$ProductAppInstallDir\Example Scripts\" /Y'
+    Delete '$ProductAppInstallDir\Scripts\*.MyD'
+
+    ; Move '$ProductAppInstallDir\Scripts\
+    ; Move '$ProductAppInstallDir\Scripts\AnalyzeOnly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDirScripts\AutomaticDaily.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\AutomaticMonthly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\AutomaticWeekly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+
+    ; Move '$ProductAppInstallDir\Scripts\ConsolidateFreeSpace.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\DataDiskDaily.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\DataDiskMonthly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\DataDiskWeekly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+
+    ; Move '$ProductAppInstallDir\Scripts\DefragmentOnly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\FlashMemoryDisks.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\LogTest.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\Settings.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+
+    ; Move '$ProductAppInstallDir\Scripts\SystemDiskDaily.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\SystemDiskMonthly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+    ; Move '$ProductAppInstallDir\Scripts\SystemDiskWeekly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
+
+    DetailPrint "MyDefrag Scripts Updated"
 
     ; ///////////////////////////////////////////////////////
     ;--------------------------------
@@ -282,42 +426,113 @@ Section "Matt Taylor Libraries" TaylorLibraries
     ; TODO TaylorDo Pointers to MyDefrag
 
     ; ///////////////////////////////////////////////////////
-    ;--------------- Registry -----------------
-      ; Get installation folder from registry if available
-      ;InstallDirRegKey HKCU "Software\${PRODUCT_NAME}" "Install_Dir"
-
-      ; Write the installation path into the registry
-      WriteRegStr HKLM "Software\${PRODUCT_NAME}" "Install_Dir" "$INSTDIR"
-  
-      ; Write the uninstall keys for Windows
-      WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayName" "$StartMenuFolder (remove only)"
-      WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayIcon" "$INSTDIR\Uninstall.exe"
-      WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "UninstallString" '"$INSTDIR\uninstall.exe"'
-      WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoModify" 1
-      WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 0
-        ; WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 1
-      WriteUninstaller "$INSTDIR\uninstall.exe"
-
-    ;--------------- end of regristry keys -----------------
-    ;
-    ;--------------------------------
     ; Uninstall
     ;--------------------------------
-    WriteUninstaller $INSTDIR\uninstaller.exe
+    ; This looks wrong! ToDo. MyDefrag writes it's own uninstaller!
+    WriteUninstaller $ProductAppInstallDir\uninstaller.exe
+
+    DetailPrint "Uninstall Updated"
+    
+    ; ///////////////////////////////////////////////////////
+    ;--------------- Environment -----------------
+    ; Check for write access
+    ; Set to HKCU
+    EnVar::SetHKCU
+    DetailPrint "EnVar::SetHKCU"
+    ; Check for write access
+    EnVar::Check "NULL" "NULL"
+    Pop $0
+    DetailPrint "EnVar::Check write access HKCU returned=|$0|"
+
+    ; Set to HKLM
+    EnVar::SetHKLM
+    ; Check for write access
+    EnVar::Check "NULL" "NULL"
+    Pop $0
+    DetailPrint "EnVar::Check write access HKLM returned=|$0|"
 
     ;--------------------------------
-    taylorDefragEnd:
+    ; Add a MyDefragDir
+    EnVar::AddValue "MyDefragDir" "$ProductAppInstallDir"
+    Pop $0
+    DetailPrint "MyDefragDir HKLM EnVar::AddValue returned=|$0|"
+
+    ; Add a TaylorDoDir
+    EnVar::AddValue "TaylorDoDir" "$InstallDirTaylorDo"
+    Pop $0
+    DetailPrint "TaylorDoDir HKLM EnVar::AddValue returned=|$0|"
+
+    ; Add the publisher
+    EnVar::AddValue "TaylorDoPublisher" "${PRODUCT_PUBLISHER}"
+    Pop $0
+    DetailPrint "TaylorDoPublisher HKLM EnVar::AddValue returned=|$0|"
+
+    ; Add the product name
+    EnVar::AddValue "TaylorDoProduct" ${PRODUCT_NAME}"
+    Pop $0
+    DetailPrint "TaylorDoProduct HKLM EnVar::AddValue returned=|$0|"
+
+    ;--------------------------------
+    ; Set back to HKCU
+    EnVar::SetHKCU
+    DetailPrint "EnVar::SetHKCU"
+ 
+    ; Add a MyDefragDir
+    EnVar::AddValue "MyDefragDir" "$ProductAppInstallDir"
+    Pop $0
+    DetailPrint "MyDefragDir HKCU EnVar::AddValue returned=|$0|"
+
+    ; Add a TaylorDoDir
+    EnVar::AddValue "TaylorDoDir" "$InstallDirTaylorDo"
+    Pop $0
+    DetailPrint "TaylorDoDir HKCU EnVar::AddValue returned=|$0|"
+  
+    ; Add the publisher
+    EnVar::AddValue "TaylorDoPublisher" "${PRODUCT_PUBLISHER}"
+    Pop $0
+    DetailPrint "TaylorDoPublisher HKLM EnVar::AddValue returned=|$0|"
+
+    ; Add the product name
+    EnVar::AddValue "TaylorDoProduct" ${PRODUCT_NAME}"
+    Pop $0
+    DetailPrint "TaylorDoProduct HKLM EnVar::AddValue returned=|$0|"
+
+    DetailPrint "Environment Updated"
+    ; ///////////////////////////////////////////////////////
+    ;--------------- Registry -----------------
+
+    ; Get installation folder from registry if available
+    ; InstallDirRegKey HKLM "Software\${PRODUCT_NAME}" "Install_Dir"
+
+    ; Write the installation path into the registry
+    WriteRegStr HKLM "Software\${PRODUCT_NAME}" "Install_Dir" "$InstallDirTaylorDo"
+  
+    ; Write the uninstall keys for Windows
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayName" "$StartMenuFolder (remove only)"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayIcon" "$InstallDirTaylorDo\Uninstall.exe"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "UninstallString" '"$InstallDirTaylorDo\uninstall.exe"'
+
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoModify" 1
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 0
+    ; WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 1
+
+    DetailPrint "Registry Updated"
+    ;--------------- end of regristry keys -----------------
+    ;
+    taylorDoEnd:
+    DetailPrint "TaylorDo finished"
     ;--------------- end of INSTALL Matt Taylor Libraries -----------------
 SectionEnd
 
 ; ///////////////////////////////////////////////////////
+; ///////////////////// Startmenu ///////////////////////
 Section "TalyorDo Startmenu" TaylorStartMenu
     ;--------------------------------
     ; TODO Start Menu
     ; $INSTDIR\?\?
 
     ;--------------- CREATE SHORT CUTS -----------------
-MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to create start-menu shortcuts for ${MUI_PRODUCT}?" IDNO NoShortcuts
+MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to create start-menu shortcuts for ${MUI_PRODUCT}?" /SD IDYES IDNO NoShortcuts
 
     ; Var /GLOBAL StartMenuFolder 
     StrCpy $StartMenuFolder "${PRODUCT_NAME}"
@@ -346,21 +561,22 @@ MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to create start-menu shortcuts 
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
 
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$InstallDirFull\Commands"'
-    ; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Commands"'
+    
+    ; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Commands"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsByDrive"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptsByDrive"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptsAutomatic"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptsAutomatic"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Daily.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptDaily"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Daily.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptDaily"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptWeekly"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptWeekly"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Monthly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptMonthly"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Monthly.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptMonthly"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Yearly.lnk" '$SYSDIR\explorer.exe -root, "$INSTDIR\MyDefrag v4.3.1\Scripts\ScriptYearly"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Yearly.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptYearly"'
 
-    ; CopyFiles /SILENT '$SMPROGRAMS\$StartMenuFolder\*.lnk' '$INSTDIR\MyDefrag v4.3.1\Scripts\'
+    ; CopyFiles /SILENT '$SMPROGRAMS\$StartMenuFolder\*.lnk' '$ProductAppInstallDir\Scripts\'
 
     ; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Run NSIS Example Application 1.lnk" "$SYSDIR\javaw.exe" "NSISExampleApplication1"
 
@@ -369,20 +585,22 @@ MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to create start-menu shortcuts 
     ; Uninstall
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall Example Application 1.lnk" "$INSTDIR\Uninstall.exe"
 
+    DetailPrint "Shortcuts Updated"
     ;--------------- end of shortcuts -----------------
     NoShortcuts:
 
 SectionEnd
 
-    ;--------------- Task Manager -----------------
+; ///////////////////////////////////////////////////////
+; ////////////// Scheduler Task Manager //////////////
 Section "TalyorDo Task Manager" TaylorTaskMgr
-MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to disable (required) the Windows defragger?" IDNO NoTaskDisable
+MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to disable (required) the Windows defragger?" /SD IDYES IDNO NoTaskDisable
 
 ; ToDo
 
     NoTaskDisable:
 
-MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to schedule regular optimiations by ${MUI_PRODUCT}?" IDNO NoTaskSchedule
+MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to schedule regular optimiations by ${MUI_PRODUCT}?" /SD IDYES IDNO NoTaskSchedule
 
 
 ; ToDo
@@ -395,8 +613,10 @@ SectionEnd
 ; ///////////////////////////////////////////////////////
 ;---------------- Descriptions ----------------
 ;Language strings
-LangString DESC_MyDefrag ${LANG_ENGLISH} "Required executable libraries."
-LangString DESC_TaylorLibraries ${LANG_ENGLISH} "Required script libraries."
+LangString DESC_MyDefrag ${LANG_ENGLISH} "Required executable libraries. MyDefrag is freeware and a powerful script based defragmentation utility."
+LangString DESC_TaylorLibraries ${LANG_ENGLISH} "Required script libraries. This adds the 500 TaylorDo components used in building the standard and custom runs."
+LangString DESC_TaylorStartMenu ${LANG_ENGLISH} "You can add TaylorDo to the Start Menus. You can then selectively choose and set up optimization runs and observe their progress."
+LangString DESC_TaylorTaskMgr ${LANG_ENGLISH} "This updates the Windows Task Scheduler. This will disable Windows Defrag and add optimal weekly, monthly and yearly TaylorDo runs in it's place. This can be turned on and off afterwards."
 
 ;Assign language strings to sections
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
@@ -412,10 +632,10 @@ LangString DESC_TaylorLibraries ${LANG_ENGLISH} "Required script libraries."
 
 Section Uninstall
     SectionInstType ${IT_FULL} ${IT_CUSTOM}
-    SetShellVarContext all
+    SetShellVarContext all ; ToDo add a prompt if the install is for all users.
 
   ;ADD YOUR OWN FILES HERE...
-unTaylorDefrag:
+untaylorDo:
 
     Delete "$INSTDIR\Uninstall.exe"
 
@@ -428,14 +648,13 @@ unTaylorDefrag:
 
 unMyDefrag:
 ; Check if it exists.
-    IfFileExists '$INSTDIR\MyDefrag v4.3.1\MyDefrag.exe' +2 0
+    IfFileExists '$ProductAppInstallDir\MyDefrag.exe' +2 0
         Goto unMyDefragEnd
         Goto unMyDefragExists
 
 unMyDefragExists:
     ExecWait '$INSTDIR\unins000.exe'
-;Goto unMyDefragEnd
-unMyDefragEnd:
+;Goto unMyDefragEndunMyDefragEnd:
 
 SectionEnd
 
@@ -452,6 +671,9 @@ SectionEnd
     ; RMDir /r "$SMPROGRAMS\$R0"
   ; Pop $R0
 ; noshortcuts:
+
+; ///////////////////////////////////////////////////////
+; /////////////////// Functions /////////////////////////
 ; ///////////////////////////////////////////////////////
 ; Source: Scheduled Tasks https://nsis.sourceforge.io/Scheduled_Tasks
 ; Author: First: brainsucker, This: 
@@ -461,5 +683,29 @@ SectionEnd
 ; 
 ; (c) Justin Dearing <zippy1981@gmail.com>, 2006
 ; (c) brainsucker, 2002
+; depreciated
  
- 
+     
+; ///////////////////////////////////////////////////////
+; Source: Create custom page... https://stackoverflow.com/questions/61386839/create-custom-page-with-nsis
+; Author: Anders
+
+Function DirectoriesPageCreate
+
+    !insertmacro MUI_HEADER_TEXT "TITLE" "SUBTITLE"
+
+    nsDialogs::Create 1018
+    Pop $0
+    ${If} $0 == error
+        Abort
+    ${EndIf}
+
+    ${NSD_CreateLabel} 0 0 100% 12u "Hello, welcome to nsDialogs!"
+    Pop $0
+
+    ${NSD_CreateText} 0 13u 100% -13u "Type something here..."
+    Pop $0
+
+    nsDialogs::Show
+
+FunctionEnd

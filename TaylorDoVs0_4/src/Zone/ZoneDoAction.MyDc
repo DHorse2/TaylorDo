@@ -4,8 +4,8 @@
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 	
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

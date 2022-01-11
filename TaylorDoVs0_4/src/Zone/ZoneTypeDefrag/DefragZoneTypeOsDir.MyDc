@@ -1,9 +1,11 @@
 # Script: DefragZoneTypeOsDir
 /* ------------------------- */
-SetVariable(ZoneLabel,				"DIR") // "5"
+SetVariable(ZoneLabel,			"DIR") // "5"
 SetVariable(ZoneDescription, 		"Directories.")
+SetVariable(ZoneSizeMin,			"!ZoneSizeDir!")
 SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpDir!")
 SetVariable(ZoneGapSize, 			"!ZoneGapSizeDir!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionTypeOsDir.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 Directories:
@@ -17,8 +19,8 @@ Directories:
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

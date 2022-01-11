@@ -13,3 +13,5 @@ SetVariable(MftZone,			 "Regular")
 !include "..\Settings\SettingsYours\SettingsYoursSys.MyDc"!
 
 !include "..\Defrag\DefragAnyComplexVolume.MyDc"!
+
+Writelogfile("Defrag System Volume.TaylorDoLog",	'!StatisticsWindowText!')

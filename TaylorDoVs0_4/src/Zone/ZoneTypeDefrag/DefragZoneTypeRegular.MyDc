@@ -3,8 +3,10 @@
 /* Zone Regular */
 SetVariable(ZoneLabel, 			"!ZoneLabelRegular!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionRegular!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeRegular!")
 SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpRegular!")
 SetVariable(ZoneGapSize, 			"!ZoneGapSizeRegular!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 Regular:

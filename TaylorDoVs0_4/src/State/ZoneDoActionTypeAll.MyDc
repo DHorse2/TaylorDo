@@ -1,2 +1,8 @@
-# File Action - All - Full -  SortByCreationDate
-!include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!
+# File Action - All - Regular -  SortByName.
+!include "..\ActionVerbs\ZoneDoActionSortByCreationDate.MyDc"!
+# SortByName(Ascending SkipBlock(SkipBlockFiles, SkipBlockBytes))
+# Xinclude "..\ActionVerbs\ZoneDoActionSortByName.MyDc"X
+# Xinclude "..\ActionVerbs\ZoneDoActionSortByImportSequence.MyDc"X
+# Xinclude "..\ActionVerbs\ZoneDoActionSortByImportSequenceSkip.MyDc"X
+# change to Skip 20211109
+# change to Create Date 20211128	

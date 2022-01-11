@@ -2,10 +2,13 @@
 /* ------------------------- */
 /* Zone 99 (currently 21) Unallocated (All) Directories and Files */
 
-SetVariable(ZoneLabel, "!ZoneLabelUnallocated!")
-SetVariable(ZoneDescription, "!ZoneDescriptionUnallocated!")
-SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpUnallocated!")
-SetVariable(ZoneGapSize, "!ZoneGapSizeUnallocated!")
+SetVariable(ZoneLabel,			"!ZoneLabelUnallocated!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionUnallocated!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeUnallocated!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpUnallocated!")
+SetVariable(ZoneGapSize,			"!ZoneGapSizeUnallocated!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
+# ToDo chnange to alphabetic.
 
 SetVariable(ZoneTypeSelect,'
 Zone 99 Unallocated (All) Directories and Files:

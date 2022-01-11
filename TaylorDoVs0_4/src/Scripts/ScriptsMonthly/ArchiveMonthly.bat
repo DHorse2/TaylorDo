@@ -1,7 +1,7 @@
 @Echo off
 @Echo .
 @Echo ------------------------------------------------------
-@Echo - Command: ArchiveMontly Defrag Archive Disk Monthly
+@Echo - Command: Archive Monthly Defrag Archive Disk Monthly
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeArchive.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Archive Disk Monthly
-"DefragArchiveDiskMonthly.MyD"
+START /wait "" "DefragArchiveDiskMonthly.MyD"
 @Echo ------------------------------------------------------
-@Echo . end of ArchiveMontly Defrag Archive Disk Monthly
+@Echo . end of Archive Monthly Defrag Archive Disk Monthly
 @TIMEOUT /T 1 /NOBREAK

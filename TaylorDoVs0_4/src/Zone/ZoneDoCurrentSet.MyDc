@@ -1,5 +1,8 @@
 # Script: ZoneDoCurrentSet
 
+# SetVariable(ZoneTypeSelectCurrent, 		"")
+# SetVariable(ZoneCommand,					"")
+
 # Cluster, Sector, Block adjust for display.
 	# Bytes per cluster is volume specific.
 

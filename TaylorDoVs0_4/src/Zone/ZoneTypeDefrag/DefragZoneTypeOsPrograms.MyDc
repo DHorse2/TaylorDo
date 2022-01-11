@@ -4,8 +4,10 @@
 	!include "..\Display\DisplayColorsZoneDark.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelPrograms!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionPrograms!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizePrograms!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpPrograms!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizePrograms!")
+	SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionTypeOsProgramsFixed.MyDc"!')
 
 	SetVariable(ZoneTypeSelect,		'
 Programs:
@@ -29,8 +31,8 @@ and not(
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 	
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!
@@ -48,6 +50,7 @@ and not(
 	!include "..\Display\DisplayColorsZoneLight.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelProgramsWindows!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramsWindows!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizeProgramsWindows!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramsWindows!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeProgramsWindows!")
 	SetVariable(ZoneTypeSelect,'
@@ -68,8 +71,8 @@ and not(
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 	
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!
@@ -86,6 +89,7 @@ and not(
 	!include "..\Display\DisplayColorsZoneDark.MyDc"!
 	SetVariable(ZoneLabel, 			"!ZoneLabelProgramsData!")
 	SetVariable(ZoneDescription, 		"!ZoneDescriptionProgramsData!")
+	SetVariable(ZoneSizeMin,			"!ZoneSizeProgramsData!")
 	SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpProgramsData!")
 	SetVariable(ZoneGapSize, 			"!ZoneGapSizeProgramsData!")
 	SetVariable(ZoneTypeSelect,'
@@ -106,8 +110,8 @@ not(
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

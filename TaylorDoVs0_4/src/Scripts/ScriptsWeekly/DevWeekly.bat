@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeDev.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Dev Disk Weekly
-"DefragDevDiskWeekly.MyD"
+START /wait "" "DefragDevDiskWeekly.MyD"
 @Echo ------------------------------------------------------
 @Echo . end of DevWeekly Defrag Dev Disk Weekly
 @TIMEOUT /T 1 /NOBREAK

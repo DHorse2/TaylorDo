@@ -3,8 +3,10 @@
 /* Zone LinksCorp Links and Corp */
 SetVariable(ZoneLabel,			"!ZoneLabelLinksCorp!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionLinksCorp!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeLinksCorp!")
 SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpLinksCorp!")
 SetVariable(ZoneGapSize,			"!ZoneGapSizeLinksCorp!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 Links and Corporate:

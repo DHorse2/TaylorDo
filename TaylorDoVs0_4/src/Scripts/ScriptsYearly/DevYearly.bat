@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeDev.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Dev Disk Yearly
-"DefragDevDiskYearly.MyD"
+START /wait "" "DefragDevDiskYearly.MyD"
 @Echo ------------------------------------------------------
 @Echo . end of DevYearly
 @TIMEOUT /T 1 /NOBREAK

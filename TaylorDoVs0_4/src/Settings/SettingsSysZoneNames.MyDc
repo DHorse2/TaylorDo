@@ -40,75 +40,101 @@
 
 /* NOTE: For Volume specifice settings you would have to copy these */
 /* next two sections and use them in the SettingsYours\SettingsYours for each Volume. */
+#
 /* You would need a copy of these two to use in a Reset function between Volumes. */
 /* ------------------------- */
+# Gaps:
 /* Your Zone Gap consumption of free space is as a percentage. */
 /* Clearly this can not exceed 100%. Keep it under 99%. */
 /* ------------------------- */
-
+# Gap Rules:
+# Working Free Space is times Volume Used Space percent.
+# IE. A disk 25% full has 75% free space.
+# The zones will use up 25% of the total free space.
+#
+# Set the Working Gap Size to the Zone Gap Size.
+# Actual Gap is a multiple of Zone Volume Roundup.
 /* ------------------------- */
 # Os Programs.
 # Boot.
 SetVariable(ZoneLabelBoot, 					"Boot")
 SetVariable(ZoneDescriptionBoot, 				"!ZoneLabelBoot!")
-SetVariable(ZoneVolRoundUpBoot, 				"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeBoot, 					"!ZoneGapSizeTiny!")
-
+SetVariable(ZoneSizeBoot,						"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpBoot, 				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeBoot, 					"!ZoneGapSizeTiny!") // 0.005
+# t 0.015, r 0.01, s 0.005
 # Boot Data.
 SetVariable(ZoneLabelBootData, 				"BootData")
 SetVariable(ZoneDescriptionBootData, 			"!ZoneLabelBootData!")
-SetVariable(ZoneVolRoundUpBootData, 			"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeBootData, 				"!ZoneGapSizeTiny!")
-
+SetVariable(ZoneSizeBootData,					"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpBootData, 			"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeBootData, 				"!ZoneGapSizeTiny!") // 0.005
+# t 0.03, 0.02, s 0.01
 # Program Hints.
 SetVariable(ZoneLabelProgramHints,			"ProgramHints")
 SetVariable(ZoneDescriptionProgramHints, 		"!ZoneLabelProgramHints!")
-SetVariable(ZoneVolRoundUpProgramHints,			"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeProgramHints,	 		"!ZoneGapSizeTiny!")
+SetVariable(ZoneSizeProgramHints,				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpProgramHints,			"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeProgramHints,	 		"!ZoneGapSizeTiny!") // 0.005
+# t 0.045, 0.03, s 0.015
 
 # Program Hints Data.
 SetVariable(ZoneLabelProgramHintsData,		"ProgramHintsData")
 SetVariable(ZoneDescriptionProgramHintsData, 	"!ZoneLabelProgramHintsData!")
-SetVariable(ZoneVolRoundUpProgramHintsData,		"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeProgramHintsData, 		"!ZoneGapSizeTiny!")
+SetVariable(ZoneSizeProgramHintsData,			"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpProgramHintsData,		"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeProgramHintsData, 		"!ZoneGapSizeTiny!") // 0.005
+# t 0.06, 0.04, s 0.02
 
 # Programs. Program Files. (X86, 64)
 SetVariable(ZoneLabelPrograms,				"Programs")
 SetVariable(ZoneDescriptionPrograms, 			"!ZoneLabelPrograms!")
-SetVariable(ZoneVolRoundUpPrograms, 			"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizePrograms, 				"!ZoneGapSizeSmall!")
+SetVariable(ZoneSizePrograms,					"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpPrograms, 			"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizePrograms, 				"!ZoneGapSizeSmall!") // 0.01
+# t 0.09, 0.06, s 0.03
 
 # Programs Windows.
 SetVariable(ZoneLabelProgramsWindows,		"ProgramsWindows")
 SetVariable(ZoneDescriptionProgramsWindows, 	"!ZoneLabelProgramsWidows!")
-SetVariable(ZoneVolRoundUpProgramsWindows, 		"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizeProgramsWindows, 		"!ZoneGapSizeSmall!")
+SetVariable(ZoneSizeProgramsWindows,			"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpProgramsWindows, 		"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizeProgramsWindows, 		"!ZoneGapSizeSmall!") // 0.01
+# t 0.12, 0.08, s 0.04
 
 # Programs Data
 SetVariable(ZoneLabelProgramsData,			"ProgramsData")
 SetVariable(ZoneDescriptionProgramsData, 		"!ZoneLabelProgramsData!")
-SetVariable(ZoneVolRoundUpProgramsData, 		"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizeProgramsData, 			"!ZoneGapSizeSmall!")
+SetVariable(ZoneSizeProgramsData,				"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpProgramsData, 		"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizeProgramsData, 			"!ZoneGapSizeSmall!") // 0.01
+# t 0.15, 0.1, s 0.05
 
 # System Files - Pagefile, Hiberfile, Dumpfile, Memory.dmp etc.
 SetVariable(ZoneLabelPageHiberDump,			"PageHiberDump")
 SetVariable(ZoneDescriptionPageHiberDump, 		"!ZoneLabelPageHiberDump!")
-SetVariable(ZoneVolRoundUpPageHiberDump,		"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizePageHiberDump, 			"!ZoneGapSizeTiny")
+SetVariable(ZoneSizePageHiberDump,				"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpPageHiberDump,		"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizePageHiberDump, 			"!ZoneGapSizeTiny") // 0.005
+# t 0.165, 0.11, s 0.055
 
 /* ------------------------- */
 # Os Mft & Directories.
 # MFT
 SetVariable(ZoneLabelMft,					"MFT")
 SetVariable(ZoneDescriptionMft, 				"!ZoneLabelMft!")
-SetVariable(ZoneVolRoundUpMft,					"!VolumeRoundUpTiny!")
-SetVariable(ZoneGapSizeMft, 					"!ZoneGapSizeTiny!")
+SetVariable(ZoneSizeMft,						"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpMft,					"!VolumeRoundUpTiny!") // 0.005
+SetVariable(ZoneGapSizeMft, 					"!ZoneGapSizeTiny!") // 0.005
+# t 0.175, 0.115, s 0.06
 
 # Dir Directories (not files)
 SetVariable(ZoneLabelDir,					"DIR")
 SetVariable(ZoneDescriptionDir, 				"!ZoneLabelDir!")
-SetVariable(ZoneVolRoundUpDir,		 			"!VolumeRoundUpLarge!")
-SetVariable(ZoneGapSizeDir,		 				"!ZoneGapSizeTiny!")
+SetVariable(ZoneSizeDir,						"!VolumeRoundUpLarge!") // 0.03
+SetVariable(ZoneVolRoundUpDir,		 			"!VolumeRoundUpLarge!") // 0.03
+SetVariable(ZoneGapSizeDir,		 				"!ZoneGapSizeTiny!") // 0.005
+# t 0.21, 0.145, s 0.065
 
 /* ------------------------- */
 # Standard Zones.
@@ -117,73 +143,96 @@ SetVariable(ZoneGapSizeDir,		 				"!ZoneGapSizeTiny!")
 # This can be changed to your mission critical categories
 SetVariable(ZoneLabelIdeScripts, 			"IdeScripts")
 SetVariable(ZoneDescriptionIdeScripts, 			"!ZoneLabelIdeScripts!")
-SetVariable(ZoneVolRoundUpIdeScripts, 			"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeIdeScripts, 				"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeIdeScripts,		 			"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpIdeScripts, 			"!VolumeRoundUpSmall!") // 0.01
+ SetVariable(ZoneGapSizeIdeScripts, 			"!ZoneGapSizeMedium!") // 0.05
+# t 0.225, 0.155, s 0.115
 
 # Dir Development
 # This can be changed to your mission critical categories
 # ToDo
 SetVariable(ZoneLabelDevToDo, 				"DevToDo")
 SetVariable(ZoneDescriptionDevToDo, 			"!ZoneLabelDevToDo!")
-SetVariable(ZoneVolRoundUpDevToDo, 				"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeDevToDo, 				"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeDevToDo,	 				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpDevToDo, 				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeDevToDo, 				"!ZoneGapSizeMedium!") // 0.05
+# t 0.285, 0.165, s 0.165
 
 # Corporate. Accounting, services and so on.
 SetVariable(ZoneLabelLinksCorp, 			"LinksCorp")
 SetVariable(ZoneDescriptionLinksCorp, 			"!ZoneLabelLinksCorp!")
-SetVariable(ZoneVolRoundUpLinksCorp, 			"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeLinksCorp, 				"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeLinksCorp,		 			"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpLinksCorp, 			"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeLinksCorp, 				"!ZoneGapSizeMedium!") // 0.05
+# t 0.3, 0.175, s 0.215
 
 # People and (Winodows) User data.
 SetVariable(ZoneLabelPeople, 				"People")
 SetVariable(ZoneDescriptionPeople, 				"!ZoneLabelPeople!")
-SetVariable(ZoneVolRoundUpPeople, 				"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizePeople, 					"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizePeople,		 				"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpPeople, 				"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizePeople, 					"!ZoneGapSizeMedium!") // 0.05
+# t 0.37, 0.195, s 0.265
 
 # Games. 
 # Gammers should move this to above the MFT
 SetVariable(ZoneLabelGames, 				"Games")
 SetVariable(ZoneDescriptionGames, 				"!ZoneLabelGames!")
-SetVariable(ZoneVolRoundUpGames, 				"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeGames, 					"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeGames,		 				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpGames, 				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeGames, 					"!ZoneGapSizeMedium!") // 0.05
+# t 0.43, 0.205, s 0.315
 
 # Shares. IE Music, Art, Video, Podcast and so on.
 SetVariable(ZoneLabelShares, 				"Shares")
 SetVariable(ZoneDescriptionShares, 				"!ZoneLabelShares!")
-SetVariable(ZoneVolRoundUpShares, 				"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeShares, 					"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeShares, 					"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpShares, 				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeShares, 					"!ZoneGapSizeMedium!") // 0.05
+# t 0.49, 0.215, s 0.365
 
 # System Other Data.
 SetVariable(ZoneLabelSystemOtherData, 		"SystemOtherData")
 SetVariable(ZoneDescriptionSystemOtherData, 	"!ZoneLabelSystemOtherData!")
-SetVariable(ZoneVolRoundUpSystemOtherData, 		"!VolumeRoundUpSmall!")
-SetVariable(ZoneGapSizeSystemOtherData, 		"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeOtherData,					"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpSystemOtherData, 		"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneGapSizeSystemOtherData, 		"!ZoneGapSizeMedium!") // 0.05
+##############################
+# t 0.55, 0.185, s 0.415
 
 # Reference, knowledge base, documentation.
 SetVariable(ZoneLabelReference, 			"Reference")
 SetVariable(ZoneDescriptionReference, 			"!ZoneLabelReference!")
-SetVariable(ZoneVolRoundUpReference, 			"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizeReference, 				"!VolumeRoundUpBlogBu!")
+SetVariable(ZoneSizeReference,					"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpReference, 			"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizeReference, 				"!VolumeRoundUpBlogBu!") // 0.10
+# t 0.67, 0.195, s 0.515
 
 # Regular Data - Low priorty stuff
 SetVariable(ZoneLabelRegular, 				"Regular")
 SetVariable(ZoneDescriptionRegular, 			"!ZoneLabelRegular!")
-SetVariable(ZoneVolRoundUpRegular, 				"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizeRegular, 				"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeRegular,					"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpRegular, 				"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizeRegular, 				"!ZoneGapSizeMedium!") // 0.05
+# t 0.74, 0.205, s 0.565
 
 /* ------------------------- */
 # Common.
 # Blobs. Large files.
 SetVariable(ZoneLabelBlobs, 				"Blobs")
 SetVariable(ZoneDescriptionBlobs, 			"!ZoneLabelBlobs!")
-SetVariable(ZoneVolRoundUpBlobs, 				"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizeBlobs, 					"!VolumeRoundUpBlogBu!")
+SetVariable(ZoneSizeBlobs,						"!VolumeRoundUpBlogBu!") // 0.10
+SetVariable(ZoneVolRoundUpBlobs, 				"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizeBlobs, 					"!VolumeRoundUpBlogBu!") // 0.10
+# t 0.86, 0.225, s 0.665
 
 # Archives
 SetVariable(ZoneLabelArchivesBu, 			"ArchivesBu")
 SetVariable(ZoneDescriptionArchivesBu, 			"!ZoneLabelArchivesBu!")
-SetVariable(ZoneVolRoundUpArchivesBu, 			"!VolumeRoundUpMedium!")
-SetVariable(ZoneGapSizeArchivesBu, 				"!ZoneGapSizeMedium!")
+SetVariable(ZoneSizeArchivesBu,					"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneVolRoundUpArchivesBu, 			"!VolumeRoundUpMedium!") // 0.02
+SetVariable(ZoneGapSizeArchivesBu, 				"!ZoneGapSizeMedium!") // 0.05
+# t 0.93, 0.225, s 0.715
 
 /* ------------------------- */
 # Unallocated.
@@ -196,16 +245,22 @@ SetVariable(ZoneGapSizeArchivesBu, 				"!ZoneGapSizeMedium!")
 # Unallocated
 SetVariable(ZoneLabelUnallocated, 			"Unallocated")
 SetVariable(ZoneDescriptionUnallocated, 		"!ZoneLabelUnallocated!")
-SetVariable(ZoneVolRoundUpUnallocated, 			"!VolumeRoundUpTiny!")
-SetVariable(ZoneGapSizeUnallocated, 			"!ZoneGapSizeTiny!")
+SetVariable(ZoneSizeUnallocated,				"!VolumeRoundUpSmall!") // 0.01
+SetVariable(ZoneVolRoundUpUnallocated, 			"!VolumeRoundUpTiny!") // 0.005
+SetVariable(ZoneGapSizeUnallocated, 			"!ZoneGapSizeTiny!") // 0.005
+# t 0.94, 0.23, s 0.72
 
 /* ------------------------- */
 /* ------------------------- */
 # VOLUME MFT Location.
 /* The Volume Location of the MFT as a percentage of the Volume. */
 		
-		SetVariable(MftVolumeRoundUp, 		"!VolumeRoundUpLarge!")
-		SetVariable(MftVolumeGapSize, 		"!ZoneGapSizeTiny!")
+		SetVariable(ZoneSizeDir,			"!VolumeRoundUpSmall!") // 0.01
+		SetVariable(MftVolumeRoundUp, 		"!VolumeRoundUpLarge!") // 0.03
+		SetVariable(MftVolumeGapSize, 		"!ZoneGapSizeTiny!") // 0.005 ToDo
+# Which one is used? ToDo
+# DUPLICATE HERE: ignore it.
+# t 0.775, 0.235, s 0.725
 		
 		# MFT CALCULATION METHODS.
 			# STANDARD Method.

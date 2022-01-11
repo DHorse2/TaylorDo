@@ -2,11 +2,13 @@
 /* ------------------------- */
 /* Mft Method: MakeGap(MftLocation, DoNotVacate) */ 
   
-SetVariable(ZoneLabel,				"MFT") // "4" 
+SetVariable(ZoneLabel,			"MFT") // "4" 
 SetVariable(ZoneDescription, 		"MFT - Master File Table")
 /* and some other special NTFS files. */
+SetVariable(ZoneSizeMin,			"!ZoneSizeMft!")
 SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpMft!")
 SetVariable(ZoneGapSize, 			"!ZoneGapSizeMft!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionTypeOsMft.MyDc"!')
 
 SetVariable(ZoneTypeSelect,			'
 MFT Master File Table:
@@ -21,8 +23,8 @@ MFT Master File Table:
 	FileActions
 
 		!include "..\Gap\GapZoneCalc.MyDc"!
- 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
-		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
 
 		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

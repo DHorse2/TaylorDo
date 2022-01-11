@@ -2,10 +2,12 @@
 /* ------------------------- */
 /* Zone ArchivesBu (All) Archives and Backups*/
 
-SetVariable(ZoneLabel, "!ZoneLabelArchivesBu!")
-SetVariable(ZoneDescription, "!ZoneDescriptionArchivesBu!")
-SetVariable(ZoneVolRoundUp, "!ZoneVolRoundUpArchivesBu!")
-SetVariable(ZoneGapSize, "!ZoneGapSizeArchivesBu!")
+SetVariable(ZoneLabel,			 "!ZoneLabelArchivesBu!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionArchivesBu!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeArchivesBu!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpArchivesBu!")
+SetVariable(ZoneGapSize,			 "!ZoneGapSizeArchivesBu!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 Archives and Backups:

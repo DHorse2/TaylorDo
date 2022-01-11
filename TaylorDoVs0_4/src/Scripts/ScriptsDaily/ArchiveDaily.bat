@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeArchive.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Archive Disk Daily
-"DefragArchiveDiskDaily.MyD"
+START /wait "" "DefragArchiveDiskDaily.MyD"
 @Echo ------------------------------------------------------
 @Echo . end of ArchiveDaily Defrag Archive Disk Daily
 @TIMEOUT /T 1 /NOBREAK

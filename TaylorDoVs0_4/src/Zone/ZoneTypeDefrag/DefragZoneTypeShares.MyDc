@@ -3,8 +3,10 @@
 /* Zone Shares */
 SetVariable(ZoneLabel,			"!ZoneLabelShares!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionShares!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeShares!")
 SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpShares!")
-SetVariable(ZoneGapSize,			 "!ZoneGapSizeShares!")
+SetVariable(ZoneGapSize,			"!ZoneGapSizeShares!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 Shares:

@@ -6,21 +6,24 @@
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Yearly Disk(s) 
-cd ..
 @Echo . System Disks
-call
+cd
+ "SysYearly.bat"
+@cd ScriptsYearly
 @Echo ------------------------------------------------------
 @Echo . Dev Disks
-"DefragDevDiskYearly.MyD"
+cd
+call "DevYearly.bat"
+@cd ScriptsYearly
 @Echo ------------------------------------------------------
 @Echo . Data Disks
-"DefragDataDiskYearly.MyD"
+cd
+call "DataYearly.bat"
+@cd ScriptsYearly
 @Echo ------------------------------------------------------
 @Echo . Archive Disks
-"DefragArchiveDiskYearly.MyD"
+cd
+call "ArchiveYearly.bat"
 @Echo ------------------------------------------------------
-@Echo . end of Defrag Yearly Disk(s)
-@TIMEOUT /T 1 /NOBREAK
-@Echo ------------------------------------------------------
-@Echo . end of AllYearly Defrag All Disk(s) Yearly
+@Echo . end of All Monthly Defrag All Disk(s) Yearly
 @TIMEOUT /T 1 /NOBREAK

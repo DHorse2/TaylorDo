@@ -1,2 +1,4 @@
 # File Action - Type Os Dir - Regular -  SortByName.
-!include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!
+# File Action - SortByName BY 10
+# SortByName(Ascending SkipBlock(SkipBlockFiles,(SkipBlockBytes / 10)))
+SortByCreationDate(Ascending SkipBlock(SkipBlockFiles,(SkipBlockBytes / 10)))

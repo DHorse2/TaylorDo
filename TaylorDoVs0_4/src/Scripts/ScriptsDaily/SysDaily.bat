@@ -19,7 +19,7 @@ call "..\Commands\DoVolumeSys.bat"
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo . starting Defrag System Disk Daily
-"DefragSystemDiskDaily.MyD"
+START /wait "" "DefragSystemDiskDaily.MyD"
 @Echo ------------------------------------------------------
 @Echo . end of SysDaily Defrag System Disk Daily
 @TIMEOUT /T 1 /NOBREAK

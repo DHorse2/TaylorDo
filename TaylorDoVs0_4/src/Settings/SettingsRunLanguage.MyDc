@@ -143,7 +143,10 @@ SetVariable(CategoryWordCaps,					"Category")
 SetVariable(ClustersWordCaps,					"Clusters")
 SetVariable(CodeWord,							"code")
 SetVariable(CountsWord,							"Counts")
+SetVariable(CriteriaWordCaps,					"Criteria")
 
+SetVariable(DescriptionWord,					"description")
+SetVariable(DescriptionWordCaps,				"Description")
 SetVariable(DesiredWord,						"desired")
 SetVariable(DirectoryWord,						"directory")
 SetVariable(DirectoryWordCaps,					"Directory")
@@ -176,7 +179,10 @@ SetVariable(HalfWord,							"half")
 
 SetVariable(InitializingWordCaps,				"Initializing")
 SetVariable(InsertedWord,						"inserted")
+SetVariable(ItWord,								"it")
+
 SetVariable(ItemsWord,							"items")
+SetVariable(ItemsWordCaps,						"Items")
 
 SetVariable(LocationWordCaps,					"Location")
 SetVariable(LocWordCaps,						"Loc")
@@ -188,6 +194,9 @@ SetVariable(LowerWord,							"lower")
 
 SetVariable(MegabytesWordCaps,					"Megabytes")
 SetVariable(MinWord,							"min")
+
+SetVariable(ModeWord,							"mode")
+SetVariable(ModeWordCaps,						"Mode")
 
 SetVariable(MustWord,							"must")
 SetVariable(MustWordCaps,						"Must")
@@ -209,14 +218,25 @@ SetVariable(RunWord,							"run")
 SetVariable(RunWordCaps,						"Run")
 
 /* ------------------------- */
- // caps:
+SetVariable(ScriptWord,							"script")
+SetVariable(ScriptWordCaps,						"Script")
+
 SetVariable(SeeksWord,							"Seeks")
-SetVariable(SelectWord,							"Select")
+
+SetVariable(SelectWord,							"select")
+SetVariable(SelectWordCaps,						"Select")
+SetVariable(SelectionWordCaps,					"Selection")
+
 SetVariable(SettingsWord,						"Settings")
-SetVariable(SizeWord,							"Size")
+
+SetVariable(SizeWord,							"size")
+SetVariable(SizeWordCaps,						"Size")
+
 SetVariable(SortWord,							"Sort")
 SetVariable(SortingWord,						"Sorting")
+
 SetVariable(SpaceWord,							"Space")
+
 SetVariable(StartWord,							"start")
 SetVariable(StartWordCaps,						"Start")
 SetVariable(StartedWord,						"Started")

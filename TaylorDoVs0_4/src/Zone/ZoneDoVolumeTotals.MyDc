@@ -1,28 +1,45 @@
 # Script: ZoneDoVolumeTotals
 
+SetVariable(VolumeData,				'')
+
 /* Current total space used (by Zones and Gaps) */
 
-SetVariable(VolumeZoneUsed, GapUsed)
-#dgh@Z#  Appendlogfile("!LogFileName!", "VolumeUsed: !VolumeZoneUsed! of !VolumeSize!")
+SetVariable(VolumeZoneUsed,			GapUsed)
+
+SetVariable(VolumeData,				'!VolumeData!
+VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
+
 /* Percentage */
-SetVariable(VolumeZoneUsedPer, VolumeZoneUsed / VolumeSize * 100)
-#dgh@Z#  Appendlogfile("!LogFileName!", "VolumeZoneUsedPer: !VolumeZoneUsedPer!")
+SetVariable(VolumeZoneUsedPer,		VolumeZoneUsed / VolumeSize * 100)
+
+SetVariable(VolumeData,				'!VolumeData!
+VolumeZoneUsedPer: !VolumeZoneUsedPer!')
 
 /* Current total of free space requested */
 
-SetVariable(VolumeFreeRequested, VolumeFreeRequested + GapRequested)
-#dgh@Z#  Appendlogfile("!LogFileName!", "VolumeFreeRequested: !VolumeFreeRequested!")
+SetVariable(VolumeFreeRequested,	VolumeFreeRequested + GapRequested)
+
+SetVariable(VolumeData,				'!VolumeData!
+VolumeFreeRequested: !VolumeFreeRequested!')
+
 /* Percent. */
 SetVariable(VolumeFreeRequestedPer, VolumeFreeRequested / VolumeSize * 100)
-#dgh@Z#  Appendlogfile("!LogFileName!", "VolumeFreeRequested: !VolumeFreeRequested!")
+
+SetVariable(VolumeData,				'!VolumeData!
+VolumeFreeRequested: !VolumeFreeRequested!')
 
 /* Current total of free space used */
 
-SetVariable(VolumeFreeUsed, VolumeFreeUsed + GapActual)
-#dgh@Z#  Appendlogfile("!LogFileName!", "VolumeFreeUsed: !ZoneFreeUsed!")
+SetVariable(VolumeFreeUsed,			VolumeFreeUsed + GapActual)
+
+SetVariable(VolumeData,				'!VolumeData!
+VolumeFreeUsed: !ZoneFreeUsed!')
+
 /* Percent */
-SetVariable(VolumeFreeUsedPer, VolumeFreeUsed  / VolumeFree * 100)
-#dgh@Z#  Appendlogfile("!LogFileName!", "VolumeFreePerUsed: !VolumeFreePerUsed!%")
+SetVariable(VolumeFreeUsedPer,		VolumeFreeUsed  / VolumeFree * 100)
+
+SetVariable(VolumeData,				'!VolumeData!
+VolumeFreePerUsed: !VolumeFreePerUsed!%')
 
 # DEBUG EXAMPLE: Debugging. Use of DebugMessage to troubleshoot Gap Calculation.
 /* SetVariable(DebugMessage, "GAP:Req !GapRequested!Rnd !GapRounded!Adj !GapAdjusted!Ava !GapAvailable!Cur !GapCurrent!Act !GapActual!") */

@@ -3,8 +3,10 @@
 /* Zone People */
 SetVariable(ZoneLabel,			"!ZoneLabelPeople!")
 SetVariable(ZoneDescription,		"!ZoneDescriptionPeople!")
+SetVariable(ZoneSizeMin,			"!ZoneSizePeople!")
 SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpPeople!")
 SetVariable(ZoneGapSize,			"!ZoneGapSizePeople!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
 
 SetVariable(ZoneTypeSelect,'
 # People and Users:

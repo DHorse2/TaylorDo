@@ -17,10 +17,9 @@ call "..\Commands\DoDefragFull.bat"
 call "..\Commands\DoVolumeData.bat"
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK
-
 @Echo ------------------------------------------------------
 @Echo . starting Defrag Data Disk Yearly
-"DefragDataDiskYearly.MyD"
+START /wait "" "DefragDataDiskYearly.MyD"
 @Echo ------------------------------------------------------
 @Echo . end of DataYearly
 @TIMEOUT /T 1 /NOBREAK
