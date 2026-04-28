@@ -1,0 +1,12 @@
+# Script: ZoneDo ZoneTypeSelectSystemOtherData
+# SystemOtherData start.
+!include "..\..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
+# SystemOtherData
+and ( 
+!include "..\..\FileSelectCategory\SelData.MyDs"! 
+# SystemOtherData
+or  
+!include "..\..\FileSelectCategory\SelDatabases.MyDs"!
+# SystemOtherData
+)
+# SystemOtherData end.

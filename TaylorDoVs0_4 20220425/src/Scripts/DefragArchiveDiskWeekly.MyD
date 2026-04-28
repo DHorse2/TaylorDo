@@ -1,0 +1,24 @@
+# MyDefrag v4.0 script: Archive Volume Weekly defrag
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (OpenSource) 2019
+# based on MyDefrag distribution.
+
+Title('Archive Volume Weekly')
+Description("Archive Volume Weekly description")
+
+/* Archive Volume Weekly */
+SetVariable(RunDescription,"Archive Vol Weekly")
+SetVariable(RunStepDescription,"Archive Vol Weekly")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Weekly: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesWeek!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesWeek!")
+
+/* Note: The Dev Volume handler works fairly well but... */
+/* Adjust the Archive MFT Percentage high around 40 or 45. */
+
+!include "..\Defrag\DefragVolumeArchive.MyDc"!

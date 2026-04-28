@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>DirectoryName</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileBoolean-DirectoryName"></A><h2>FileBoolean - DirectoryName</h2></P>
+Select all the directories that have a name which matches the
+  STRING, and in these selected directories select all files and all subdirectories.
+  The string may contain wildcard characters "*" (zero or more characters)
+  or "?" (a single character).
+  <p>
+
+  <ul>
+  <li> This boolean is similar to the <a href="FileBoolean-DirectoryPath.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>DirectoryPath</b></a>
+    boolean, but is somewhat faster because it only looks at directory names, not their
+    full paths.
+  <li> The STRING should not contains slashes or backslashes. It is compared
+    with the name of all the directories, and directory names do not contain slashes or
+    backslashes.
+  <li> The function looks at all the hard link filenames of items (an item may
+    have 2 or more names, totally different and even in different directories, but
+    all referring to the same data).
+    The logfile will show whatever name happens to be first, so it may appear as
+    if the function has selected some wrong items.
+    The function does not follow soft links.
+  </ul><p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>DirectoryName(<a href="Scripts-STRING.html">STRING</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;everything&nbsp;in&nbsp;the&nbsp;"Program&nbsp;Files"&nbsp;directory.<br />
+&nbsp;&nbsp;DirectoryName("Program&nbsp;Files")<br />
+FileActions<br />
+&nbsp;&nbsp;....<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="FileBoolean-DirectoryPath.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>DirectoryPath</b></a><br><a href="FileBoolean-FileName.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileName</b></a><br><a href="FileBoolean-FullPath.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FullPath</b></a><br><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

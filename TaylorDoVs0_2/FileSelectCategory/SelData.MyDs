@@ -1,0 +1,15 @@
+# Data start.
+(
+  DirectoryName("Data*")
+  or DirectoryName("Device*")
+  or DirectoryName("Export*")
+  or DirectoryName("Import*")
+  or DirectoryName("Log*")
+  or DirectoryName("*Log")
+  or DirectoryName("Maintenance*")
+  or DirectoryName("Rec*")
+  or DirectoryName("Sales*")
+  or DirectoryName("Search*")
+  or DirectoryName("User*")
+)
+# Data end.

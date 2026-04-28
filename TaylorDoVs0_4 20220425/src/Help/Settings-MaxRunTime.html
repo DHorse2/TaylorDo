@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>MaxRunTime</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-MaxRunTime"></A><h2>Settings - MaxRunTime</h2></P>
+Run until a maximum DATETIME. When the time expires MyDefrag will stop
+  processing and jump to the next MaxRunTime, or to the end of the block in which
+  the MaxRunTime occurs, whichever comes first.<p>
+  <p>
+
+  <ul>
+  <li> If MaxRunTime() is placed inside a FileActions-FileEnd then it will jump
+    to the next MaxRunTime() or to the FileEnd, whichever comes first. For example:
+    <center>
+    <table bgcolor="#EEEEEE" width="80%">
+    <tr>
+      <td><pre>  FileSelect
+    ....
+  FileActions
+    ....
+    MaxRunTime(1 hour)       /* From here until next MaxRunTime(). */
+    ....
+    MaxRunTime(1 hour)       /* From here until FileEnd. */
+    ....
+  FileEnd</pre>
+        </td>
+      </tr>
+    </table>
+    </center>
+  <li> If MaxRunTime() is placed inside a VolumeActions-VolumeEnd then it will jump
+    to the next MaxRunTime() at the same level (ignoring MaxRunTime() inside
+    FileActions-FileEnd), or to the VolumeEnd, whichever comes first. For example:
+    <center>
+    <table bgcolor="#EEEEEE" width="80%">
+    <tr>
+      <td><pre>  VolumeSelect
+    ....
+  VolumeActions
+    ....
+    MaxRunTime(1 hour)       /* From here until next MaxRunTime(). */
+    ....
+    FileSelect
+      ....
+    FileActions
+      ....                /* MaxRunTime's in here are independent. */
+    FileEnd
+    ....
+    MaxRunTime(1 hour)       /* From here until VolumeEnd. */
+    ....
+  VolumeEnd</pre>
+        </td>
+      </tr>
+    </table>
+    </center>
+  <li> If MaxRunTime() is placed outside a VolumeActions-VolumeEnd then it will jump
+    to the next outside MaxRunTime(), and if there is none then to the end of the
+    script. For example:
+    <center>
+    <table bgcolor="#EEEEEE" width="80%">
+    <tr>
+      <td><pre>  MaxRunTime(1 hour)         /* From here until end of the script. */
+  ...
+  VolumeSelect
+    ....
+  VolumeActions
+    ....                  /* MaxRunTime's in here are independent. */
+  VolumeEnd
+  ...</pre>
+        </td>
+      </tr>
+    </table>
+    </center>
+  </ul>
+
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>MaxRunTime(<a href="Scripts-DATETIME.html">DATETIME</a>)</code></td></tr></table></center><p>
+<h3>Parameters</h3>
+<center><table bgcolor="#EEEEEE" width="80%">
+<tr>
+  <td> The date/time until when MyDefrag is allowed to run. When the time expires
+    MyDefrag will stop execution and jump to the end of the block.
+    If the parameter is empty then MyDefrag will run until completion..
+    </td>
+  </tr>
+</tr></table></center><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>MaxRunTime(1&nbsp;hour)</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

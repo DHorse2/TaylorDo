@@ -1,0 +1,35 @@
+# Script: DefragZoneGroupOs
+# Defrag Zones Os
+	/* System Zones */
+
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! Os Zones started: !Date! !Time!")
+SetVariable(ZoneStepDescription,"System Zones.")
+#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+#dgh@Z#  Appendlogfile("!LogFileName!", "System Disk optimized layout for boot and executables. !DateNow! !TimeNow! !RunTimeNow!")
+/* Dgh 20190618 */
+/* ------------------------- */
+/* Defrag the Pagefile.sys on the next boot. */
+!include "..\Settings\SettingsYours\SettingsYoursSysPagedfrg.MyDc"!
+/* ------------------------- */
+#dgh@Z#  Appendlogfile("!LogFileName!", "Place files at the beginning of the disk: !DateNow! !TimeNow! !RunTimeNow!")
+
+	MakeGap(0)
+/* ------------------------- */
+# Zone Boot Fixed and Data 
+# Os Group Zone 1 & 2
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsBoot.MyDc"!
+
+/* ------------------------- */
+# Zone ProgramHints Fixed and Data
+# Os Group Zone 3 & 4
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsProgramHints.MyDc"!
+
+/* ------------------------- */
+# Zone Programs Fixed size but not windows..
+# Os Group Zone 5d Fixed, 6l Fixed Windows, 7l Fixed Data
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsPrograms.MyDc"!
+
+/* ------------------------- */
+SetVariable(ZoneStepDescription,"System Zones completed.")
+!include "..\Display\DisplaySetZoneStep.MyDc"!

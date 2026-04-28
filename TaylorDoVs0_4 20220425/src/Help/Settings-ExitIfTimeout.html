@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ExitIfTimeout</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-ExitIfTimeout"></A><h2>Settings - ExitIfTimeout</h2></P>
+This setting is the number of seconds that MyDefrag will wait for
+  getting an internal lock on data in memory that is shared between threads.
+  If the timeout is reached then MyDefrag will automatically exit.
+
+  <ul>
+  <li> The timeout usually happens when the display thread is getting little or
+    no processing time from Windows (because the computer is busy with something
+    else), but can also happen at other points inside MyDefrag.
+  <li> Default is 120 seconds.
+  <li> The timeout is deactivated when NUMBER is zero.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>ExitIfTimeout(<a href="Scripts-NUMBER.html">NUMBER</a>)</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

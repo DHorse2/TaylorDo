@@ -1,0 +1,9 @@
+# Os Data Dynamic start.
+(
+  FileName("*.dat*")
+  or FileName("*.db*")
+  or FileName("*.edb*")
+  or FileName("*.log*")
+  or FileName("DataStore.edb")
+)
+# Os Data Dynamic end.

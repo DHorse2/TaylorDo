@@ -1,0 +1,17 @@
+/* ------------------------- */
+# Script: ZoneDoHeader
+
+!include "..\Zone\ZoneWhenStarted.MyDc"!
+
+SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileSelect!")
+!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+# your stuff HERE (X)... pre file select code.
+
+/* --------------------------------- */
+	FileSelect
+
+		# your stuff can't really go here (errors.)
+		# maybe for some reason I don't know of...
+	
+		# Actions next...

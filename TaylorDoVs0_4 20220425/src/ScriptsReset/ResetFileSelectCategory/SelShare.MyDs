@@ -1,0 +1,9 @@
+# Share start.
+(
+  DirectoryName("*Common*")
+  or DirectoryName("Media*")
+  or DirectoryName("Multimedia*")
+  or DirectoryName("*Public*")
+  or DirectoryName("*Share*")
+)
+# Share end.

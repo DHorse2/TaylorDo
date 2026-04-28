@@ -1,0 +1,41 @@
+@echo off
+@@Rem Seamonkey’s quick date batch (MMDDYYYY format)
+@@Rem Set ups %date variable
+@@Rem First parses month, day, and year into mm , dd, yyyy formats and then combines to be MMDDYYYY
+
+@FOR /F "TOKENS=1* DELIMS= " %%A IN ('DATE /T') DO SET CDATE=%%B
+@FOR /F "TOKENS=1,2 eol=/ DELIMS=/ " %%A IN ('DATE /T') DO SET mm=%%B
+@FOR /F "TOKENS=1,2 DELIMS=/ eol=/" %%A IN ('echo %CDATE%') DO SET dd=%%B
+@FOR /F "TOKENS=2,3 DELIMS=/ " %%A IN ('echo %CDATE%') DO SET yyyy=%%B
+@SET mydateX=%yyyy%%mm%%dd%
+Echo %mydateX%
+
+@Rem See Windows Batch File (.bat) to get current date in MMDDYYYY format:
+@Echo on
+@For /f "tokens=1-3 delims=/-" %%a in ('DATE /T') do (set mydate=%%a-%%b-%%c)
+@For /f "tokens=1 delims=/ " %%a in ('%mydate%') do (set mydate=%%a)
+@Rem For /f "tokens=2-4 delims=/-" %%a in ('DATE /T') do (set mydate=%%c-%%a-%%b)
+
+@For /f "tokens=1-3 delims=/:" %%a in ('TIME /T') do (set mytime=%%a%%b%%c)
+@Rem If you prefer the time in 24 hour/military format, you can replace the second FOR line with this:
+@Rem For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set mytime=%%a%%b)
+Echo %mydate%_%mytime%
+
+
+@Rem Get the datetime in a format that can go in a filename.
+@Rem set _my_datetime=%date%_%time%
+@Rem set _my_datetime=%_my_datetime: =_%
+@Rem set _my_datetime=%_my_datetime::=%
+@Rem set _my_datetime=%_my_datetime:/=_%
+@Rem set _my_datetime=%_my_datetime:.=_%
+@Rem Echo %_my_datetime% > DateTimeThis.txtd
+@Rem Now use the timestamp by in a new ZIP file name.
+@Rem "d:\Program Files\7-Zip\7z.exe" a -r Code_%_my_datetime%.zip Code
+
+@Rem DATE /T > .\DateThis.txt
+@Rem TIME /T > .\TimeThis.txt
+@Rem ; Type DateThis.Txt > DateTimeThis.txt
+@Rem ; Type TimeThis.Txt >> DateTimeThis.txt
+@Rem COPY DateThis.Txt /A + TimeThis.Txt /A DateTimeThis.txt /A /Y
+@Rem TYPE DateTimeThis.txt
+

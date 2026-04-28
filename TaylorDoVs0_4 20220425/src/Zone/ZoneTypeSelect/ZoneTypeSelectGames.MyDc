@@ -1,0 +1,9 @@
+# Script: ZoneDo ZoneTypeSelectGames
+# Games start.
+!include "..\FileSelectCategory\SelNotBlobsArchivesBu.MyDs"!
+# People
+and (
+!include "..\FileSelectCategory\SelGames.MyDs"!
+# People
+)
+# People end.

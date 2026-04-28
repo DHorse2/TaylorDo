@@ -1,0 +1,47 @@
+# Script: DefragZoneTypeIncludes
+
+/* ------------------------- */
+	Label("!VolumeLabel!") or Name("!VolumeLabel!")
+/* ------------------------- */
+
+# (Multi) ZONE GROUPS.
+
+!include "..\Defrag\DefragZoneGroupMftDir.MyDc"!
+	# ZONES.
+
+	!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsDir.MyDc"!
+
+	!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsMft.MyDc"!
+
+	!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsPageHiberDump.MyDc"!
+
+!include "..\Defrag\DefragZoneGroupOs.MyDc"!
+	# ZONES.
+
+	!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsBoot.MyDc"!
+
+	!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOsProgramHints.MyDc"!
+
+	!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeOSPrograms.MyDc"!
+
+# ZONE TYPES.
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeArchivesBu.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeDevToDo.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeGames.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeIdeScripts.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeLinksCorp.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypePeople.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeReference.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeShares.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeBlobs.MyDc"!
+
+!include "..\Zone\ZoneTypeDefrag\DefragZoneTypeSystemOtherData.MyDc"!

@@ -1,0 +1,57 @@
+﻿SettingsYoursRunZoneStepDescriptionsNotes
+
+#  -------------------------
+# BANNER DEFINITION
+#  SetVariable(Heading, "Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! || !ZoneStepDescription! ||!VolumeNamePrefix! - !ServerNameFull! - !ScriptTitle! on !Date! !Time! !RunTimeNow!")
+
+# How to build them: (documentation)
+
+#  -------------------------
+/* The titlebar is organized in these areas: */
+
+/* SwProductVs. */
+/* Volume description. */
+/* Zone description. */
+/* File Processing Step (here.) */
+/* Server and Script names. */
+/* Run Date, Time and Elapsed (Bug) */
+
+/* Shown in the Title / Banner / App Heading */
+
+#  -------------------------
+#  Here is how is one pattern not used:
+#  SetVariable(Heading, "|")
+#  SetVariable(Heading, "!Heading! !Vol! !VolumeStepDescription!")
+#  SetVariable(Heading, "!Heading! !Zone! !ZoneStepDescription!")
+#  SetVariable(Heading, "!Heading! !ZoneStepDescription!")
+#  SetVariable(Heading, "!Heading!  ||!VolumeNamePrefix! - !ServerNameFull! - !ScriptTitle!")
+#  SetVariable(Heading, " !on! !Date! !Time! !RunTimeNow!")
+#  SetVariable(Heading, "!Heading!|") // spacers.
+
+#  -------------------------
+#  A typical banner field list:
+# Appearing in Title('Vol: !
+# VolumeCurrent
+# ! Zone: !
+# ZoneCurrentDescription
+# ! !
+# ZoneCurrent
+# ! of !
+# ZoneCount
+# ! || Free: Vol: !
+# VolumeFreePerUsed
+# !% Zone: !
+# ZoneFreePerUsed
+# !% || Script: !
+# ScriptTitle
+# ! System: !
+# VolumeNamePrefix
+# ! !
+# ServerNameFull
+# ! !
+# Date
+# ! !
+# Time
+# ! !
+# RunTimeNow
+# !')

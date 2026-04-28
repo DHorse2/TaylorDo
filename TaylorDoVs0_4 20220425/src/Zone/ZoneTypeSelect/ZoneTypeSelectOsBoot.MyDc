@@ -1,0 +1,4 @@
+# Script: ZoneDo ZoneTypeSelectOsBoot
+# Boot start.
+ImportListFromBootOptimize()
+# Boot end.

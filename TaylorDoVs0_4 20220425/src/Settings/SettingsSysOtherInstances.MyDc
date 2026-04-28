@@ -1,0 +1,11 @@
+# OtherInstances
+# 
+# ask      Ask the user what to do. The user will be presented with a pop-up window with "exit", "continue", and "kill the other" buttons. The screensaver version of MyDefrag cannot popup the window and this selection will behave the same as "kill".  
+# allow      MyDefrag will continue. 
+# exit      MyDefrag will exit. 
+# kill      MyDefrag will try to kill the other instance. 
+#
+OtherInstances(ask)
+#
+!include "..\Settings\SettingsYours\SettingsYoursSysOtherInstances.MyDc"!
+#

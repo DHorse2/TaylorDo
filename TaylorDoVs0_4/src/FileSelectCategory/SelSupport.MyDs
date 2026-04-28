@@ -1,0 +1,7 @@
+# Support start.
+(
+  DirectoryName("*Logs*") or
+  DirectoryName("*Support*") or
+  DirectoryName("*Maintenance*")
+)
+# Support end.

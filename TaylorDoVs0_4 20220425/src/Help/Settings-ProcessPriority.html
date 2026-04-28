@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ProcessPriority</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-ProcessPriority"></A><h2>Settings - ProcessPriority</h2></P>
+This setting controls the CPU and the resource (I/O) priority of MyDefrag.
+
+  <ul>
+  <li> You can see the CPU priority of a program in the Task Manager. Click right
+    on a program, then Set Priority.
+  </ul>
+
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>ProcessPriority(ARGUMENT)</code></td></tr></table></center><p>where ARGUMENT is one of the following:
+  <table border=1>
+  <tr>
+    <td>High</td>
+    <td>High CPU priority. It is not advised to use this for MyDefrag, because it will use nearly
+      all available CPU time.</td>
+    </tr>
+  <tr>
+    <td>AboveNormal</td>
+    <td>CPU priority above the Normal and below the High priorities</td>
+    </tr>
+  <tr>
+    <td>Normal</td>
+    <td>The standard CPU priority of all Windows programs. This is the default for MyDefrag.</td>
+    </tr>
+  <tr>
+    <td>BelowNormal</td>
+    <td>CPU priority below the Normal and above the Low priorities.</td>
+    </tr>
+  <tr>
+    <td>Low</td>
+    <td>Low CPU priority. With this setting MyDefrag will only run when the system is idle.
+      This is the default for the MyDefrag screensaver (Windows automatically runs all
+      screensavers in this priority class).</td>
+    </tr>
+  <tr>
+    <td>Background</td>
+    <td>Background processing priority. This setting will lower the resource (I/O) scheduling
+      priority and the CPU priority to "Low". The result of this setting is that
+      other programs will get faster access to the disks.
+      This setting is not supported on Windows 2000/2003/XP.</td>
+    </tr>
+  </table>
+  <p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>ProcessPriority(Normal)</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Settings-Slowdown.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Slowdown</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

@@ -1,0 +1,231 @@
+[Main]
+670=Abilitato
+620=Descrizione|Data e ora|Provenienza
+621=
+600=Archivio
+601=
+681=Clicca qui per visitare il sito Web
+610=Archivio
+611=
+640=Testo|Immagini|Testo Formattato|Tutti i Formati|URL
+641=
+650=Collezioni
+651=
+630=Testo|Immagini|Testo Formattato|Tutti i Formati|URL
+631=
+300=&Visualizza
+301=
+310=&Informazioni
+311=
+320=Accessori
+321=
+330=Calendario
+331=
+340=Screensaver
+341=
+350=&Esci
+351=
+10=&File
+11=
+20=&Salva
+21=Salva il contenuto dell'archivio su disco
+30=Stam&pa
+31=Stampa il testo corrente
+40=&Esci
+41=Chiude il programma
+50=&Modifica
+51=
+60=&Trova
+61=Trova il testo
+70=Tro&va successivo
+71=Trova l'occorrenza successiva
+80=&Pulisci tutto
+81=Svuota il contenuto dell'archivio
+90=&Opzioni
+91=Configura il programma
+100=&Svuota clipboard 
+101=Elimina il contenuto della clipboard
+110=&Visualizza
+111=
+120=&Testo
+121=
+130=&Immagini
+131=
+140=Testo &Formattato
+141=
+150=Tutti i For&mati
+151=
+160=&URL
+161=
+170=&Archivio
+171=
+180=&Collezioni
+181=
+190=&Finestra
+191=
+; This needs to be a <TAB>
+200=&Nascondi	Esc
+201=Nasconde l'applicazione
+210=Man&tieni visibile
+211=Mantiene il programma sempre visibile
+220=S&trumenti
+221=
+230=&Attiva
+231=Attiva la cattura della clipboard
+240=Copia l'&ora negli appunti
+241=Copia l'ora corrente negli appunti
+250=Auto&incolla
+251=Incolla automaticamente il testo dopo 3-4 secondi 
+260=&Aiuto
+261=
+270=Indice
+271=
+280=&Visita il nostro sito Web...
+281=
+290=&Informazioni
+291=
+360=Icone &grandi
+361=
+370=Icone &piccole 
+371=
+380=Cambia collezione
+381=
+390=Nuova collezione...
+391=
+460=Stampa
+461=
+470=Cancella 
+471=
+480=Cancella archivio
+481=
+490=Lancia URL
+491=
+500=Autoincolla
+501=
+510=Modifica in un programma esterno
+511=Salva e carica in un programma esterno
+520=Accessori
+521=
+530=Elimina caratteri
+531=
+540=Attiva screensaver
+541=
+550=Unisci dall'alto al basso
+551=Unisce tutti gli oggetti e li copia negli appunti
+560=Unisci dal basso in alto
+561=Unisce tutti gli oggetti e li copia negli appunti
+570=Cambia descrizione
+571=
+580=Copia nell'archivio
+581=
+590=Cambia l'ordine degli oggetti
+591=
+400=Ann&ulla
+401=
+410=&Taglia
+411=
+420=&Copia
+421=
+430=&Incolla
+431=
+440=Selezion&a tutto
+441=
+450=Copia come testo &semplice
+451=
+
+[Configuration]
+130=Configurazione
+200=Generale
+201=
+140=Scelta rapida per la finestra &principale
+141=Combinazione di tasti per la finestra principale
+150=Scelta rapida per il menu &archivio
+151=Combinazione di tasti per il menu archivio
+70=&Avvia con Windows
+71=Avvia il programma in automatico
+80=&Salva il contenuto tra le sessioni
+81=Salva i testi tra le sessioni di Windows
+171=Combinazione di tasti per la finestra principale
+211=Combinazione di tasti per il menu archivio
+190=Avanzate
+191=
+160=Usa questo carattere
+161=
+50=&Salvataggio automatico
+51=Salva automaticamente
+120="X" nasconde la finestra principale
+121=Cliccando sulla "X" si nasconde la finestra principale
+100=Salva oggetti Metafile
+101=Deseleziona per ignorare oggetti Metafile
+90=Salva oggetti Bitmap
+91=Deseleziona per ignorare oggetti Bitmap
+110=Usa eliminazione "intelligente" dei caratteri
+111=Deseleziona per usare un carattere a scelta
+41=
+60=Ignora immagini da applicazioni problematiche
+61=Ignora immagini da applicazioni che possono causare errori
+10=&OK
+11=
+20=&Annulla
+21=
+30=Aiuto
+31=
+
+[About]
+11=Vai alla homepage 
+31= Scrivi agli autori 
+21=
+41= Scrivi agli autori 
+61=
+50=&OK
+51=
+
+[Print]
+10=&Titolo
+11=
+20=&Annulla
+21=
+30=Stam&pa
+31=
+41=
+
+[Upgrade]
+20=Clicca qui per il nostro sito Web
+21=
+10=La funzione che state cercando di usare non è ancora implementata. Contatta il nostro sito per una versione aggiornata di YC III.
+11=
+30=&OK
+31=
+
+[Messages]
+1=Questa collezione esiste già
+2=Hai raggiunto il limite degli oggetti per un archivio
+3=Hai raggiunto il limite degli oggetti per un archivio di URL
+4=Opzioni di avvio
+5=Errore nell'apertura del file
+6=Errore nella copia dalla sorgente alla destinazione
+8=Nome della nuova collezione
+9=Il programma è già attivo, controlla la system tray
+10=Disabilita archiviazione?
+11=Verificare...
+12=Svuota archivio
+13=Svuota collezione
+14=Nuovo nome (senza includere il percorso)
+15=Svuota il set di archivi
+16=Svuota il set delle collezioni
+
+[Individual]
+1=Abilitato
+2=Disabilitato
+3=Oggetti
+4=Nessun oggetto
+5=Svuota collezione
+6=Svuota archivio
+
+
+
+
+
+
+
+

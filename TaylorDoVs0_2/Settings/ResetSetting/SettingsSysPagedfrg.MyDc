@@ -1,0 +1,5 @@
+# PagedFrg - Page Defrag.
+
+/* Defrag the Pagefile.sys on the next boot. */
+
+RunProgram("..\..\Pagedfrg.exe","-o")

@@ -1,0 +1,1184 @@
+# See the 'MyDefrag.log' file for information intended for endusers. This is the debug
+# logfile. The contents is highly technical and not documented. See the 'Debug' setting
+# or the '-d' commandline option to control the level of information in this file.
+#
+Version: MyDefrag v4.3.1 for X64
+Date: 2021/11/16 02:53:56
+Windows version: v6.2 build 9200 
+Commandline: "C:\Program Files\MyDefrag v4.3.1\MyDefrag.exe" -r "G:\Dev\MdmDefrag\TaylorDOVs0_2\ScriptsYearly\DefragDevDiskYearly.MyD" 
+Working Directory: G:\Dev\MdmDefrag\TaylorDOVs0_2\ScriptsYearly
+Userid: david
+InstallPath = C:\Program Files\MyDefrag v4.3.1\
+02:53:56 Lexical error in script 'G:\Dev\MdmDefrag\TaylorDOVs0_2\ScriptsYearly\DefragDevDiskYearly.MyD' at line 1169 column 1.
+
+Unkown symbol.
+02:53:56 Script:
+  1. # MyDefrag v4.0 script: Development Volume Yearly defrag
+  2. #
+  3. # This script is part of the standard Mdm Volume configuration
+  4. # Author: David G. Horsman (DBA MacroDM) (FOSS) 2019
+  5. # based on MyDefrag distribution.
+  6. 
+  7. /* Development Volume Yearly*/
+  8. SetVariable(RunStepDescription,"Dev Vol Yearly")
+  9. # Script: DisplaySetRun
+ 10. 
+ 11. SetVariable(RunStepDescription,			"!RunStepDescription! - DefragDevDiskYearly")
+ 12. SetVariable(SeverStepDescription,		"")
+ 13. SetVariable(VolumeStepDescription,		"")
+ 14. SetVariable(ZoneStepDescription,		"")
+ 15. SetVariable(FileStepDescription,		"")
+ 16. 
+ 17. SetVariable(VolumeStatisticsDetail, 	"")
+ 18. 
+ 19. SetVariable(ZoneListByLine, 			"Run start.")
+ 20. SetVariable(ZoneStepByLine, 			"")
+ 21. 
+ 22. # Script: BannerSet
+ 23. 
+ 24. # Script: DisplaySetDateTimeRun
+ 25. 
+ 26. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
+ 27. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+ 28. /* pause(1) */
+ 29. 
+ 30. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
+ 31. 
+ 32. Title('!Heading!')
+ 33. /* pause(1) */
+ 34. 
+ 35. /* NOTE: Can't round or truncate to integer precision. */
+ 36. 
+ 37. pause(2)
+ 38. 
+ 39. # This script is part of the standard  disk configuration
+ 40. # Author: David G. Horsman (DBA MacroDM) (C) 2019
+ 41. # based on MyDefrag distribution.
+ 42. 
+ 43. SetVariable(Heading,"Initializing...")
+ 44. 
+ 45. ProcessPriority(Normal)
+ 46. /* ProcessPriority(Normal) */
+ 47. 
+ 48. 
+ 49. ExitIfTimeout(300) // 5 minutes (for old systems), default 120.
+ 50. /* ExitIfTimeout(300) // 5 minutes (for old systems), default 120. */
+ 51. 
+ 52. 
+ 53. 
+ 54. WindowSize(minimized) 
+ 55. DiskmapFlip(no)
+ 56. 
+ 57. # Script: DisplayColors
+ 58. # MyDefrag color palette.
+ 59. 
+ 60. # RGB Color pallets. (Red,Green,Blue).
+ 61. 
+ 62. # Basics:
+ 63. 
+ 64. # Red			255,	0,		0)			// Red
+ 65. # Green			0,		255,	0)			// Green
+ 66. # Blue			0,		0,		255)		// Blue
+ 67. # Shades:
+ 68. 
+ 69. /* (White was left unused for the administrator to highlight things.) */
+ 70. # White 		255,	255,	255)		// White
+ 71. # Black			0,		0,		0)			// Black
+ 72. # Grey 			240,	240,	240)		// Grey
+ 73. 
+ 74. # Bright colors and shades:
+ 75. 
+ 76. # Purple 		170,	89,		221)		// Purple
+ 77. # Magenta		255, 	5, 		255)		// Magenta (pinkish)
+ 78. 
+ 79. # Pure Yellow 	255,	255,	0)			// Pure yellow
+ 80. # Yellow 		229, 	229, 	0)			// Yellow
+ 81. # Light Yellow 	255,	255,	224)		// Light Yellow
+ 82. # Neon Yellow	237,	240,	11)			// Neon Yellow	
+ 83. 
+ 84. # Pure Red 		255, 	0, 		0)			// Red
+ 85. # Red 			204, 	92, 	92)			// Red
+ 86. # Light red		255,	115,	115)		// Light red
+ 87. # Orange		255, 	165, 	0)			// Orange
+ 88. 
+ 89. # Pure Green	0, 		255, 	0)			// Pure Green (Lime)
+ 90. # Green			0,		128,	0)			// Green
+ 91. # Light Green	144,	228, 	144)		// Light Green
+ 92. # Pale Green	152, 	251, 	152)		// Pale Green
+ 93. 
+ 94. # Dark blue		20,		87,		229)		// Dark blue
+ 95. # Light Blue	175,	198,	247)		// Light Blue
+ 96. # Bright Blue	0, 		223, 	255)		// Bright Blue
+ 97. # Light sky blue 135, 	206, 	250)		// Light sky blue
+ 98. # Deep sky blue	0, 		191, 	255)		// Deep sky blue
+ 99. 
+100. # Black			0,		0,		0)
+101. # Grey			240,	240,	240)
+102. 
+103. # Window Colors
+104. SetColor(Empty,										240,  	240, 	240)	// Grey
+105. # ???
+106. SetColor(Allocated,									45, 	72, 	128)	// Black
+107. 
+108. # Busy Colours
+109. SetColor(BusyRead,									255,	54,		154)	// Neon
+110. SetColor(BusyWrite,									212, 	0, 		106)	// Red Pinkish
+111. 
+112. #File Colors
+113. SetFileColor(All,									0,		0,		0)		// Black
+114. SetFileColor(Movable,								20,		87,		229)	// Dark blue
+115. 
+116. # Processed
+117. SetFileColor(Processed and not(Fragmented),			0, 		191, 	255)	// Deep sky blue
+118. SetFileColor(Processed and Fragmented,				170,	89,		221)	// Purple
+119. 
+120. # Fragmented and NotMovable
+121. SetFileColor(Fragmented,							229, 	229, 	0)		// Yellow
+122. SetFileColor(not(Movable),							255, 	165, 	0)		// Orange
+123. 
+124. # Light Green and Yellow
+125. SetFileColor(Selected,								152,	251, 	152)	// Light Green
+126. SetFileColor(Selected and Fragmented,				237,	240,	11)		// Neon Yellow 
+127. SetFileColor(Selected and not(Movable),				255,	115,	115)	// Light red
+128. 
+129. /* empty */
+130. 
+131. 
+132. 
+133. # Processes:
+134. 	# This Process
+135. 	SetVariable(RunProcessID,ProcessID)
+136. 
+137. 	# Kill other instances
+138. 	/* Kill other MyDefrag Instances. */
+139. 	/* Oops! This commits suicide. */
+140. 	/* 	RunProgram("..\..\pskill.exe", "-t MyDefrag.exe") */
+141. 	/* Pause(10) */
+142. 	
+143. 	/* If another instance of MyDefrag is already running then exit. */
+144. 	/* Oops again. I don't know if this cause the hidden instance */
+145. 	/* to hang around after the run. */
+146. 	/* Warning: <alt><Run><Exit> seems to hide the instance not end it. */
+147. 	/* The task mananager may be needed. This is under investigation. */
+148. 
+149. 	# OtherInstances
+150. 	
+151. OtherInstances(exit)
+152. 
+153. # OtherInstances
+154. 	
+155. # OtherInstances(exit)
+156. 
+157. 
+158. 
+159. 	# StatusBar
+160. 	StatusBar(Status Path MouseOver)
+161. 	# Script: DisplayStatusBar
+162. # OtherInstances
+163. 	
+164. # OtherInstances(exit)
+165. 
+166. 	
+167. 	# Power management
+168. 	/* SetScreenPowerSaver(off) */
+169. 	# Power management
+170. 
+171. 	/* SetScreenPowerSaver(off) */
+172. 
+173. 	# Power management
+174. 
+175. 	/* SetScreenPowerSaver(off) */
+176. 
+177. 
+178. 
+179. 
+180. /* ---------------------------------------------------------- */
+181. # Script Directory Location:
+182. SetVariable(ScriptDir,"..\..\")
+183. 
+184. /* SetVariable(ScriptDir,"..\..\") */
+185. /* SetVariable(ScriptDir,"G:\Dev\MdmDefrag\TaylorDOVs0_2\ScriptsYearly") */
+186. /* SetVariable(ScriptDir,"E:\Ide\MyDefrag\MyDefrag\MdmScriptMyDefragVs4_3_1\") */
+187. 
+188. 
+189. 
+190. /* ---------------------------------------------------------- */
+191. # DISPLAY - What text is displayed in Titlebar, data fields and reports.
+192. 
+193. 
+194. /* The variable FileStepDescription get set to */
+195. /* the messages below according to the Zone File */
+196. /* step the defrag is on. */
+197. 
+198. /* The titlebar is organized in these areas: */
+199. 
+200. /* SwProductVs. */
+201. /* Volume description. */
+202. /* Zone description. */
+203. /* File Processing Step (here.) */
+204. /* Server and Script names. */
+205. /* Run Date, Time and Elapsed (Bug) */
+206. 
+207. /* Shown in the Title / Banner / App Heading */
+208. 
+209. SetVariable(SeverStepDescription,	"")
+210. SetVariable(VolumeStepDescription,	"")
+211. SetVariable(ZoneStepDescription,	"")
+212. SetVariable(FileStepDescription,	"")
+213. SetVariable(RunStepDescription,		"")
+214. 
+215. # Display fields you can set for your personal tastes / needs:
+216. 
+217. /* ---------------------------------------------------------- */
+218. # ZONE. Process One Zone (the steps and messages displayed. */
+219. 
+220. SetVariable(FileStepDescriptionZoneStart, 			"Zone started.")
+221. 
+222. /* "Your Zone Pre (before)Processing." */
+223. SetVariable(FileStepDescriptionYourZonePre, 		"!FileStepDescriptionZoneStart!") 		
+224. 
+225. SetVariable(FileStepDescriptionFileSelect,			"Selecting Files.")
+226. 
+227. /* "Your Pre Sort File Actions." */
+228. SetVariable(FileStepDescriptionYourFileActionsPre, 	"!FileStepDescriptionFileSelect!")
+229. 
+230. SetVariable(FileStepDescriptionFileActionStart, 	"File Actions started.")
+231. 
+232. /* "Your Post Sort File Actions." */
+233. SetVariable(FileStepDescriptionYourFileActionsPost, "!FileStepDescriptionFileActionStart!")
+234. 
+235. SetVariable(FileStepDescriptionFileActionEnd, 		"File Actions completed.")
+236. 
+237. /* "Your Zone Post (after) Processing." */
+238. SetVariable(FileStepDescriptionYourZonePost, 		"!FileStepDescriptionFileActionEnd!") 		
+239. 
+240. SetVariable(FileStepDescriptionFileActionGap, 		"Calculating Gap.")
+241. 
+242. SetVariable(FileStepDescriptionZoneEnd, 			"Zone finished.")
+243. 
+244. /* Pattern: SetVariable(FileStepDescriptionXXX, 	"FileStepDescriptionXXX") */
+245. 
+246. /* Note: If you add custom script code in the PRE and POST areas then at that */
+247. /* time you fill in the messages above as appropriate. */
+248. 
+249. /* empty */
+250. 
+251. /* ---------------------------------------------------------- */
+252. # Regarding Volume Names/Labels
+253. 
+254. /* FYI. The Volume names / drive letters need to be correct for your system. */
+255. /* It is repeated here for infomation about fields used above. */
+256. /* Set your values in "SettingsYours\SettingsYoursVolumeNames.MyDc" */
+257. 
+258. 	/* SetVariable(VolumeSys,"!VolumeNamePrefix!Sys") */
+259. 	/* SetVariable(VolumeDev,"!VolumeNamePrefix!Dev") */
+260. 	/* SetVariable(VolumeData,"!VolumeNamePrefix!Data") */
+261. 	/* SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive") */
+262. 
+263. 	/*		or just */
+264. 			
+265. 	/* SetVariable(VolumeSys,"C:") */
+266. 	/* SetVariable(VolumeDev,"E:") */
+267. 
+268. /* ---------------------------------------------------------- */
+269. 
+270. # BANNER DEFINITION
+271. /* SetVariable(Heading, "Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! || !FileStepDescription! ||!VolumeNamePrefix! - !ServerNameFull! - DefragDevDiskYearly on 2021-11-16 02:53:56 0:00:01") */
+272. 
+273. # How to build them: (documentation)
+274. 
+275. /* Here is how is one pattern not used: */
+276. /* SetVariable(Heading, "|") */
+277. /* SetVariable(Heading, "!Heading! Vol: !VolumeStepDescription!") */
+278. /* SetVariable(Heading, "!Heading! Zone: !ZoneStepDescription!") */
+279. /* SetVariable(Heading, "!Heading! !FileStepDescription!") */
+280. /* SetVariable(Heading, "!Heading!  ||!VolumeNamePrefix! - !ServerNameFull! - DefragDevDiskYearly") */
+281. /* SetVariable(Heading, " on 2021-11-16 02:53:56 0:00:01") */
+282. /* SetVariable(Heading, "!Heading!|") // spacers. */
+283. 
+284. /* A typical banner field list: */
+285. # Appearing in Title('Vol: !
+286. # VolumeCurrent
+287. # ! Zone: !
+288. # ZoneCurrentDescription
+289. # ! !
+290. # ZoneCurrent
+291. # ! of !
+292. # ZoneCount
+293. # ! || Free: Vol: !
+294. # VolumeFreePerUsed
+295. # !% Zone: !
+296. # ZoneFreePerUsed
+297. # !% || Script: !
+298. # ScriptTitle
+299. # ! System: !
+300. # VolumeNamePrefix
+301. # ! !
+302. # ServerNameFull
+303. # ! !
+304. # Date
+305. # ! !
+306. # Time
+307. # ! !
+308. # RunTime
+309. # !')
+310. /* . */
+311. 
+312. 
+313. /* Progress Display */
+314. SetVariable(ZoneListByLine, 	"Volume start.")
+315. SetVariable(ZoneStepByLine, 	"")
+316. 
+317. /* There is 6 digit decimal precision so by using */
+318. /* 1Mb the full number is displayed in a much more */
+319. /* readable form. */
+320. 
+321. SetVariable(DisplayUnitDivisor, 	1000000) // 1MB.
+322. 
+323. /* ---------------------------------------------------------- */
+324. # SERVER INFORMATION
+325. 
+326. 	/* ServerName (IE. Computer name or number.) not used. */
+327. 	/* System99 */
+328. 		# SetVariable(ServerName,"Pc15")
+329. 
+330. 		# Server Names
+331. 
+332. # ???
+333. 
+334. # IMPORTANT: ServerName NAME: 
+335. 
+336. 	# SetVariable(ServerName,"PcAny")
+337. 
+338. # IMPORTANT: ServerName NAME: 
+339. 
+340. 	# SetVariable(ServerName,"PcAny")
+341.     /* System99 */
+342. # SET
+343. SetVariable(ServerName,"RavenPc")
+344. 
+345. 
+346. 	
+347. 	/* Descriptive Information so maybe */
+348. 	/* VolumeNamePrefix (IE. Person or company initials) not used. */
+349. 	/* "Xyz" */
+350. 		# SetVariable(VolumeNamePrefix,"Mdm")
+351. 
+352. 		# VolumeNamePrefix
+353. 
+354. /* Descriptive Information so maybe */
+355. /* VolumeNamePrefix (IE. Person or company initials) not used. */
+356. /* "Xyz" */
+357. 	SetVariable(VolumeNamePrefix,"VolThis")
+358. 
+359. 	
+360. /* Descriptive Information so maybe */
+361. /* VolumeNamePrefix (IE. Person or company initials) not used. */
+362. /* "Xyz" */
+363. 	SetVariable(VolumeNamePrefix,"Vol")
+364. 
+365. /* Server name full is usually the server and computer combined. not used. */
+366. 	SetVariable(ServerNameFull,"!VolumeNamePrefix!!ServerName!")
+367. 
+368. 
+369. 	/* Server name full is usually the server and computer combined. not used. */
+370. 
+371. 		SetVariable(ServerNameFull,"!VolumeNamePrefix!!ServerName!")
+372. 	
+373. 	# Script: DisplaySetServer
+374. # RunStepDescription
+375. # (Volume)
+376. SetVariable(SeverStepDescription, 	"!ServerNameFull!")
+377. SetVariable(VolumeStepDescription, 	"")
+378. SetVariable(ZoneStepDescription, 	"")
+379. SetVariable(FileStepDescription, 	"")
+380. # Script: BannerSet
+381. 
+382. # Script: DisplaySetDateTimeRun
+383. 
+384. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
+385. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+386. /* pause(1) */
+387. 
+388. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
+389. 
+390. Title('!Heading!')
+391. /* pause(1) */
+392. 
+393. /* NOTE: Can't round or truncate to integer precision. */
+394. 
+395. /* pause(2) */
+396. 
+397. /* ---------------------------------------------------------- */
+398. # VOLUMES
+399. /* ---------------------------------------------------------- */
+400. 
+401. 	# Volume Do Current Clear
+402. 
+403. /* ---------------------------------------------------------- */
+404. # Current Values.
+405. 	SetVariable(VolumeLabel, "NotSet")
+406. 	SetVariable(VolumeDescription, "")
+407. 
+408. 	SetVariable(VolumeCount, 0)
+409. 	SetVariable(VolumeNoCurrent, 0)
+410. 	SetVariable(VolumeNoAdjCurrent, 0)
+411.   	SetVariable(VolumeCurrentAjust, 0) // not used
+412. 
+413. /* ---------------------------------------------------------- */
+414. # OS Disk Usage.
+415. 
+416. /* Percentage of disk used by OS */
+417. 
+418. 	SetVariable(OsPer, 0.18)
+419. 
+420. 	     SetVariable(ZoneCountOs, 5)
+421. 
+422.        SetVariable(ZoneCountType, 0) // not used
+423.       SetVariable(ZoneCountVolume, ZoneCountOs + ZoneCountType)
+424. 
+425. 	    SetVariable(ZoneCountSys, 2)
+426. 	    SetVariable(ZoneCountDev, 7)
+427. 
+428. 	   SetVariable(ZoneCountData, 0)
+429. 	SetVariable(ZoneCountArchive, 0)
+430. 	
+431. 	/* SetVariable(GapCalc, VolumeFreeAdj * ZoneAdjRoundUp) */
+432. 
+433. /* ---------------------------------------------------------- */
+434. # Volume Totals
+435. 	# USED:
+436. 	/* Current total volume space used */
+437. 	SetVariable(VolumeZoneUsed, 			0)
+438. 	/* percentage */
+439. 	SetVariable(VolumeZoneUsedPer, 			0)
+440. 
+441. 	# FREE:
+442. 	/* Current total of free space used */
+443. 	SetVariable(VolumeFreeRequested, 		0)
+444. 	/* percentage */
+445. 	SetVariable(VolumeFreeRequestedPer, 	0)
+446. 
+447. 	/* Current total of free space used */
+448. 	SetVariable(VolumeFreeUsed, 			0)
+449. 	/* percentage */
+450. 	SetVariable(VolumeFreeUsedPer, 			0)
+451. 	
+452. /* ---------------------------------------------------------- */
+453. # Volume Free Space Proportional Used Space vs Volume Size.
+454. 	/* We only want to use a ratio of the free space relative to the volume. */
+455. 	/* We could just use percentages of the total free space as well. */
+456. 
+457. 	/* SetVariable(VolumeFreeAdj, 		1) */
+458. 	
+459. 	SetVariable(VolumeFreeAdj,				(VolumeFree * (VolumeUsed / VolumeSize)))
+460. 
+461. /* ---------------------------------------------------------- */
+462. # ZONES
+463. 
+464. 	SetVariable(ZoneNoCurrent, 0)
+465. 	SetVariable(ZoneNoCurrentAdjust, 0)
+466. 	SetVariable(ZoneNoCurrentAdjust, 0)
+467. 
+468. 	# Script: ZoneDoCurrentClear
+469. 
+470. SetVariable(ZoneTypeSelectCurrent, 		"")
+471. 
+472. SetVariable(ZoneBeginCurrent, 			0)
+473. SetVariable(ZoneBeginPerCurrent, 		0)
+474. SetVariable(ZoneEndCurrent, 			0)
+475. SetVariable(ZoneEndPerCurrent, 			0)
+476. 
+477. SetVariable(ZoneSizeCurrent,			0)
+478. SetVariable(ZoneSizePerCurrent,			0)
+479. 
+480. SetVariable(ZoneGapRequestedCurrent,	0)
+481. SetVariable(ZoneGapRoundedCurrent, 		0)
+482. SetVariable(ZoneGapAdjustedCurrent, 	0)
+483. SetVariable(ZoneGapAvailableCurrent, 	0)
+484. SetVariable(ZoneGapCurrent,				0)
+485. SetVariable(ZoneGapUsedCurrent, 		0)
+486. 
+487. SetVariable(ZoneGapActualCurrent, 		0)
+488. SetVariable(ZoneGapActualPerCurrent, 	0)
+489. 
+490. SetVariable(ZoneSizeActual, 			0)
+491. SetVariable(ZoneSizeActualCurrent,		0)
+492. 
+493. SetVariable(ZoneEndActual, 				0)
+494. SetVariable(ZoneEndActualCurrent,		0)			
+495. SetVariable(ZoneSizeActualPerCurrent, 	0)
+496.       
+497. SetVariable(ZoneFilesFolders,			0)
+498. SetVariable(ZoneFilesFoldersPer,		0) 
+499. 
+500. SetVariable(ZoneFragments,				0)
+501. SetVariable(ZoneFragmentsPer,			0) 
+502. 		
+503. SetVariable(ZoneEndActualCurrent, 		0)
+504. SetVariable(ZoneEndActualPerCurrent, 	0)
+505. 
+506. # Gap Calculation Methodology:
+507. 	# Requested
+508. 	SetVariable(GapRequested, 			0) 
+509. 	SetVariable(GapRequestedStd, 		0) 
+510. 	SetVariable(GapRequestedMft, 		0) 
+511. 	SetVariable(GapRequestedOs, 		0) 
+512. 	SetVariable(GapRequestedOriginal, 	0) 
+513. 	
+514. 	# Gap Adjustments
+515. 	SetVariable(GapRounded, 			0)
+516. 	# SetVariable(GapAdjusted, 			0)
+517. 	SetVariable(GapAvailable, 			0)
+518. 	SetVariable(GapCurrent, 			0)
+519. 	SetVariable(GapActual, 				0)
+520. 	SetVariable(GapUsed, 				0)
+521. 	
+522. 	# Gap Adjustments
+523. 	SetVariable(GapRoundedLoc, 			0)
+524. 	# SetVariable(GapAdjustedLoc, 		0)
+525. 	SetVariable(GapAvailableLoc, 		0)
+526. 	SetVariable(GapCurrentLoc, 			0)
+527. 	SetVariable(GapActualLoc,			0)
+528. 	SetVariable(GapUsedLoc,				0)
+529. 	
+530. 	# Space usage
+531. 	SetVariable(ZoneFreePerRequested, 	0)
+532. 	SetVariable(ZoneFreePerUsed, 		0)
+533. 
+534. # Gap Size & Rounding
+535. 	SetVariable(ZoneGapSizePer, 		0)
+536. 	SetVariable(ZoneVolRoundUpPer, 		0)
+537. 	
+538. 	# Free Space
+539. 	SetVariable(ZoneFreeUsedPer, 		0)
+540. 	SetVariable(ZoneFreeRequestedPer, 	0)
+541. 
+542. 
+543. 	SetVariable(ZoneLabel, "Volume")
+544. 	SetVariable(ZoneDescription, "Analysis...")
+545. 	# Script: BannerSet
+546. 
+547. # Script: DisplaySetDateTimeRun
+548. 
+549. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
+550. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+551. /* pause(1) */
+552. 
+553. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
+554. 
+555. Title('!Heading!')
+556. /* pause(1) */
+557. 
+558. /* NOTE: Can't round or truncate to integer precision. */
+559. 
+560. 
+561. 	
+562. 	  
+563. 	SetVariable(VolumeLabel, "NotSet")
+564. 	SetVariable(VolumeDescription, "")
+565. 
+566. 	SetVariable(FileStepDescription,"Initializing run...")
+567. 	# Script: BannerSet
+568. 
+569. # Script: DisplaySetDateTimeRun
+570. 
+571. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
+572. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+573. /* pause(1) */
+574. 
+575. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
+576. 
+577. Title('!Heading!')
+578. /* pause(1) */
+579. 
+580. /* NOTE: Can't round or truncate to integer precision. */
+581. 
+582. 
+583. /* ---------------------------------------------------------- */
+584. # VOLUME TYPES
+585. 
+586. 	/* Volumes */
+587. 	/* . */
+588. 	/* Only those were fully implemented: */
+589. 	/* Sys */
+590. 	/* Dev */
+591. 	/* . */
+592. 	/* Common types of volumes: */
+593. 	/* Data */
+594. 	/* Archive */
+595. 	/* . */
+596. 	/* Other historical volumes: */
+597. 	/* Test */
+598. 	/* Live */
+599. 	/* Server */
+600. 	/* Client */
+601. 	/* SysUtils */
+602. 	/* . */
+603. 
+604. # IMPORTANT: VOLUME NAME: SET YOUR:
+605. 	/* VOLUME NAMES IN SettingsYours\SettingsYoursVolumeNames.MyDc */
+606. 	/* 		or    			*/
+607. 	/* VOLUME NAME (one only for override) in SettingsYours\SettingsYoursVolume.MyDc */
+608. 	/* 		or here also 	*/
+609. 	SetVariable(VolumeSys,"!VolumeNamePrefix!Sys")
+610. 	SetVariable(VolumeDev,"!VolumeNamePrefix!Dev")
+611. 
+612. 	/* SetVariable(VolumeSys,"C:") */
+613. 	/* SetVariable(VolumeDev,"E:") */
+614. 
+615. 	/* These are for dedicated disks. */
+616. 	/* So it means JUST Data or JUST Archives. */
+617. 
+618. 	SetVariable(VolumeData,"!VolumeNamePrefix!Data")
+619. 	SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive")
+620. 	
+621. 	# IMPORTANT: VOLUME NAME: 
+622. 
+623. 	# SetVariable(VolumeSys,"!VolumeNamePrefix!Sys")
+624. 	# SetVariable(VolumeDev,"!VolumeNamePrefix!Dev")
+625. 	# SetVariable(VolumeData,"!VolumeNamePrefix!Data")
+626. 	# SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive")
+627. 
+628. 	#    or this:
+629. 	
+630. 	
+631. 	SetVariable(VolumeSys,"C:")
+632. 	SetVariable(VolumeDev,"C:")
+633. 	SetVariable(VolumeData,"C:")
+634. 	SetVariable(VolumeArchive,"C:")
+635. 
+636. 
+637. # SET
+638. # SetVariable(VolumeSys,"C:")
+639. 
+640. 
+641. 
+642. /* ---------------------------------------------------------- */
+643. # OS Disk Usage.
+644. /* Percentage of disk used by OS */
+645. 
+646. 	SetVariable(OsPer, 0.18)
+647. 
+648. 	     SetVariable(ZoneCountOs, 5)
+649. 
+650.        SetVariable(ZoneCountType, 0) // not used
+651.       SetVariable(ZoneCountVolume, ZoneCountOs + ZoneCountType)
+652. 
+653. 	    SetVariable(ZoneCountSys, 2)
+654. 	    SetVariable(ZoneCountDev, 7)
+655. 
+656. 	   SetVariable(ZoneCountData, 0)
+657. 	SetVariable(ZoneCountArchive, 0)
+658. 	
+659. 	/* SetVariable(GapCalc, VolumeFreeAdj * ZoneAdjRoundUp) */
+660. 
+661. /* ---------------------------------------------------------- */
+662. # ZONE TYPES. 
+663. /* ---------------------------------------------------------- */
+664. 	/* Type Labels, Descriptions, Gaps and Rounding. */
+665. 	/* Load the Zone Definitions */
+666. 	/* These are file categories basically */
+667. 	/* and are maintained in a single file */
+668. 	/* for ease of maintenance. Here: */
+669. 	
+670. 	/* ---------------------------------------------------------- */
+671. # ROUNDING factors:
+672. 
+673. /* HERE if you want to tweak how type the Gaps are if growth is slow. */
+674. /* HERE if your DISK IS VERY FULL */
+675. /* This is where you can tweak growth rounding if the Volume gets really full. */
+676. /* You don't have to use these, you can use actual percentages in the Zone section. */
+677. 
+678. /* Note: Volume and Gap Sizes are paired to a degree and */
+679. /* set relative to each other. */
+680. 	
+681. 	      SetVariable(VolumeRoundUpNone, 	1) // ??? 1? s/b 0?
+682. 	      SetVariable(VolumeRoundUpTiny, 	0.005)
+683. 	     SetVariable(VolumeRoundUpSmall, 	0.01)
+684. 	    SetVariable(VolumeRoundUpMedium, 	0.02)
+685. 	     SetVariable(VolumeRoundUpLarge, 	0.03)
+686. 	SetVariable(VolumeRoundUpExtraLarge, 	0.05)
+687. 	
+688. 	    SetVariable(VolumeRoundUpBlogBu, 	0.10)
+689. 	
+690. 	      SetVariable(ZoneGapSizeNone, 		0)
+691. 	      SetVariable(ZoneGapSizeTiny, 		0.005)
+692. 	     SetVariable(ZoneGapSizeSmall, 		0.01)
+693. 	    SetVariable(ZoneGapSizeMedium, 		0.05)
+694. 	     SetVariable(ZoneGapSizeLarge, 		0.10)
+695. 	SetVariable(ZoneGapSizeExtraLarge, 		0.15)
+696. 		
+697. 	    SetVariable(ZoneGapSizeBlobBu, 		0.10)
+698. 
+699. /* ---------------------------------------------------------- */
+700. # ZONE SETTINGS:
+701. /* ---------------------------------------------------------- */
+702. /* These are the Zone Names */
+703. /* Regular is at the end but otherwise */
+704. /* this is in the order they appear on disk */
+705. 
+706. # Os Programs.
+707. SetVariable(ZoneLabelBoot, 					"Boot")
+708. SetVariable(ZoneLabelBootData, 				"BootData")
+709. SetVariable(ZoneLabelProgramHints,			"ProgramHints")
+710. SetVariable(ZoneLabelProgramHintsData,		"ProgramHintsData")
+711. SetVariable(ZoneLabelPrograms,				"Programs")
+712. SetVariable(ZoneLabelProgramsWindows,		"ProgramsWindows")
+713. SetVariable(ZoneLabelProgramsData,			"ProgramsData")
+714. # Moved to after Mft & Dir.
+715. SetVariable(ZoneLabelPageHiberDump,			"PageHiberDump")
+716. 
+717. # Os Mft & Directories.
+718. SetVariable(ZoneLabelMft,					"MFT")
+719. SetVariable(ZoneLabelDir,					"DIR")
+720. 
+721. # Standard Zones.
+722. SetVariable(ZoneLabelIdeScripts, 			"IdeScripts")
+723. SetVariable(ZoneLabelDevToDo, 				"DevToDo")
+724. SetVariable(ZoneLabelLinksCorp, 			"LinksCorp")
+725. SetVariable(ZoneLabelPeople, 				"People")
+726. # MFT.
+727. # DIR.
+728. # Games. 
+729. SetVariable(ZoneLabelGames, 				"Games")
+730. SetVariable(ZoneLabelShares, 				"Shares")
+731. SetVariable(ZoneLabelSystemOtherData, 		"SystemOtherData")
+732. SetVariable(ZoneLabelReference, 			"Reference")
+733. 
+734. 
+735. # Sys.
+736. # People.
+737. # OS, Mft, Dir.
+738. # Games.
+739. SetVariable(ZoneLabelRegular, 				"Regular")
+740. 
+741. # Common.
+742. SetVariable(ZoneLabelBlobs, 			"Blobs")
+743. SetVariable(ZoneLabelArchivesBu, 			"ArchivesBu")
+744. 
+745. /* ---------------------------------------------------------- */
+746. /* Use however you like */
+747. 
+748. # Os Programs.
+749. SetVariable(ZoneDescriptionBoot, 				"!ZoneLabelBoot!")
+750. SetVariable(ZoneDescriptionBootData, 			"!ZoneLabelBootData!")
+751. SetVariable(ZoneDescriptionProgramHints, 		"!ZoneLabelProgramHints!")
+752. SetVariable(ZoneDescriptionProgramHintsData, 	"!ZoneLabelProgramHintsData!")
+753. SetVariable(ZoneDescriptionPrograms, 			"!ZoneLabelPrograms!")
+754. SetVariable(ZoneDescriptionProgramsWindows, 	"!ZoneLabelProgramsWidows!")
+755. SetVariable(ZoneDescriptionProgramsData, 		"!ZoneLabelProgramsData!")
+756. SetVariable(ZoneDescriptionPageHiberDump, 		"!ZoneLabelPageHiberDump!")
+757. 
+758. # Os Mft & Directories.
+759. SetVariable(ZoneDescriptionMft, 				"!ZoneLabelMft!")
+760. SetVariable(ZoneDescriptionDir, 				"!ZoneLabelDir!")
+761. 
+762. # Standard Zones:
+763. SetVariable(ZoneDescriptionIdeScripts, 			"!ZoneLabelIdeScripts!")
+764. SetVariable(ZoneDescriptionDevToDo, 			"!ZoneLabelDevToDo!")
+765. SetVariable(ZoneDescriptionLinksCorp, 			"!ZoneLabelLinksCorp!")
+766. SetVariable(ZoneDescriptionPeople, 				"!ZoneLabelPeople!")
+767. # MFT.
+768. # DIR.
+769. # Games. 
+770. SetVariable(ZoneDescriptionGames, 				"!ZoneLabelGames!")
+771. SetVariable(ZoneDescriptionShares, 				"!ZoneLabelShares!")
+772. SetVariable(ZoneDescriptionSystemOtherData, 	"!ZoneLabelSystemOtherData!")
+773. SetVariable(ZoneDescriptionReference, 			"!ZoneLabelReference!")
+774. 
+775. # Sys.
+776. # People.
+777. # OS, Mft, Dir.
+778. SetVariable(ZoneDescriptionRegular, 			"!ZoneLabelRegular!")
+779. 
+780. SetVariable(ZoneDescriptionBlobs, 			"!ZoneLabelBlobs!")
+781. SetVariable(ZoneDescriptionArchivesBu, 			"!ZoneLabelArchivesBu!")
+782. 
+783. /* ---------------------------------------------------------- */
+784. /* This rounds up to even locations on the volume to keep */
+785. /* the location of data relatively stable during fluctuation. */
+786. 
+787. /* NOTE: For Volume specifice settings you would have to copy these */
+788. /* next two sections and use them in the SettingsYours\SettingsYours for each Volume. */
+789. /* You would need a copy of these two to use in a Reset function between Volumes. */
+790. 
+791. # Os Programs.
+792. SetVariable(ZoneVolRoundUpBoot, 			"!VolumeRoundUpSmall!")
+793. SetVariable(ZoneVolRoundUpProgramHints, 	"!VolumeRoundUpSmall!")
+794. SetVariable(ZoneVolRoundUpPrograms, 		"!VolumeRoundUpMedium!")
+795. SetVariable(ZoneVolRoundUpPageHiberDump,	"!VolumeRoundUpSmall!")
+796. 
+797. # Os Mft & Directories.
+798. SetVariable(ZoneVolRoundUpMft,				"!VolumeRoundUpTiny!")
+799. SetVariable(ZoneVolRoundUpDir,		 		"!VolumeRoundUpLarge!")
+800. 
+801. # Standard Zones.
+802. SetVariable(ZoneVolRoundUpIdeScripts, 		"!VolumeRoundUpSmall!")
+803. SetVariable(ZoneVolRoundUpDevToDo, 			"!VolumeRoundUpSmall!")
+804. SetVariable(ZoneVolRoundUpLinksCorp, 		"!VolumeRoundUpSmall!")
+805. SetVariable(ZoneVolRoundUpPeople, 			"!VolumeRoundUpMedium!")
+806. # MFT.
+807. # DIR.
+808. # Games. 
+809. # ToDo.............
+810. SetVariable(ZoneVolRoundUpGames, 			"!VolumeRoundUpSmall!")
+811. SetVariable(ZoneVolRoundUpShares, 			"!VolumeRoundUpSmall!")
+812. SetVariable(ZoneVolRoundUpSystemOtherData, 	"!VolumeRoundUpSmall!")
+813. SetVariable(ZoneVolRoundUpReference, 		"!VolumeRoundUpMedium!")
+814. 
+815. # Sys.
+816. # People.
+817. # OS, Mft, Dir.
+818. # Games.
+819. SetVariable(ZoneVolRoundUpRegular, 			"!VolumeRoundUpMedium!")
+820. 
+821. # Common.
+822. SetVariable(ZoneVolRoundUpBlobs, 		"!VolumeRoundUpMedium!")
+823. SetVariable(ZoneVolRoundUpArchivesBu, 		"!VolumeRoundUpTiny!")
+824. 
+825. /* ---------------------------------------------------------- */
+826. /* Your Zone Gap consumption of free space as a percentage. */
+827. /* Clearly this can not exceed 100%. Keep it under 99%. */
+828. 
+829. # Os Programs.
+830. SetVariable(ZoneGapSizeBoot, 				"!ZoneGapSizeTiny!")
+831. SetVariable(ZoneGapSizeProgramHints,	 	"!ZoneGapSizeTiny!")
+832. SetVariable(ZoneGapSizePrograms, 			"!ZoneGapSizeSmall!")
+833. SetVariable(ZoneGapSizePageHiberDump, 		"!ZoneGapSizeSmall!")
+834. 
+835. # Mft & Directories.
+836. SetVariable(ZoneGapSizeMft, 				"!ZoneGapSizeTiny!")
+837. SetVariable(ZoneGapSizeDir,		 			"!ZoneGapSizeTiny!")
+838. 
+839. # Standard Zones.
+840. SetVariable(ZoneGapSizeIdeScripts, 			"!ZoneGapSizeMedium!")
+841. SetVariable(ZoneGapSizeDevToDo, 			"!ZoneGapSizeMedium!")
+842. SetVariable(ZoneGapSizeLinksCorp, 			"!ZoneGapSizeMedium!")
+843. SetVariable(ZoneGapSizePeople, 				"!ZoneGapSizeMedium!")
+844. # MFT.
+845. # DIR.
+846. # Games. 
+847. # ToDo.............
+848. SetVariable(ZoneGapSizeGames, 				"!ZoneGapSizeMedium!")
+849. SetVariable(ZoneGapSizeShares, 				"!ZoneGapSizeMedium!")
+850. SetVariable(ZoneGapSizeSystemOtherData, 	"!ZoneGapSizeMedium!")
+851. SetVariable(ZoneGapSizeReference, 			"!ZoneGapSizeSmall!")
+852. 
+853. # Sys.
+854. # People.
+855. # OS, Mft, Dir.
+856. # Games.
+857. SetVariable(ZoneGapSizeRegular, 			"!ZoneGapSizeMedium!")
+858. 
+859. # Common.
+860. SetVariable(ZoneGapSizeBlobs, 			"!ZoneGapSizeMedium!")
+861. SetVariable(ZoneGapSizeArchivesBu, 			"!ZoneGapSizeTiny!")
+862. 
+863. /* ---------------------------------------------------------- */
+864. # ZONE CALCULATION METHODS:
+865. # OS ZONE SETTINGS:
+866. /* ---------------------------------------------------------- */
+867. 
+868. 	/* ---------------------------------------------------------- */
+869. 	# VOLUME MFT Location.
+870. 	/* The Volume Location of the MFT as a percentage of the Volume. */
+871. 		
+872. 		SetVariable(MftVolumeRoundUp, 		"!VolumeRoundUpLarge!")
+873. 		SetVariable(MftVolumeGapSize, 		"!ZoneGapSizeTiny!")
+874. 		
+875. 		# MFT CALCULATION METHODS.
+876. 			# STANDARD Method.
+877. 			/* IMPORTANT: Standard method currently in use. */
+878. 			/* IE: The others below are ignored but instructive. */
+879. 			/* None of the following settings are used, hence zero. */
+880. 			SetVariable(MftPer, 			0)
+881. 			SetVariable(MftLocation, 		0)
+882. 			
+883. 			# MFT Method.
+884. 			/* Place files at X% (MftPerSys) into the data on the Volume. */
+885. 			/* This is really tied the ratio of executables to data and blobs. */
+886. 			# SetVariable(MftPer, 				0.30)
+887. 			# SetVariable(MftLocation, 			1000000000)
+888. 			# SetVariable(MftGapSize, 			"!ZoneGapSizeLarge!")
+889. 		
+890. 			# FIXED Method.
+891. 			# SetVariable(MftLocation, 			1000000000) // (IE. Yours)
+892. 			# SetVariable(MftPer, 				MftLocation / VolumeSize)
+893. 			
+894. 			# ORIGINAL Method.
+895. 			/* DEPRECIATED, not in use. */
+896. 			/* Note: Orginally, The Gap between the MFT and Directories is fixed and tiny. */
+897. 			# SetVariable(MftPer, 				0.30)
+898. 		    # SetVariable(MftSize, 				0)
+899. 		
+900. 		# ROUNDING.	
+901. 		# SetVariable(MftLocation,				RoundUp(MftLocation, VolumeSize * MftVolumeRoundUp))
+902. 		
+903. 		# MFT ZONE.
+904. 		/* Zone Number (not used for locating MFT.) */
+905. 		SetVariable(MftZone, 					4) // Insert before this zone, info only.
+906. 		/* Zone 10 on the Dev Volume */
+907. 	
+908. 	/* ---------------------------------------------------------- */
+909. 	# VOLUME SPECIFIC MFT.
+910. 	/* Note: You may need to set Volume specific values for the MFT location, */
+911. 	/* On these volume types do not "push" the data above the MFT table? */
+912. 	/* You can use a standard gap instead. */
+913. 		
+914. 			/* The current Volume Type Mft Percentage */
+915. 		    # SetVariable(MftPer, 				0)
+916. 		    # SetVariable(MftSize, 				0)
+917. 		    # SetVariable(MftSizeDefault,		"                0)
+918. 		    # SetVariable(MftPerTypedDefault, 	"!MftPer!")
+919. 			# Volume Types:	
+920. 			#         SetVariable(MftPerSys, 	0.35)
+921. 			# 	    SetVariable(MftPerDev, 		0.10)
+922. 			# 	   SetVariable(MftPerData, 		0.35)
+923. 			# 	SetVariable(MftPerArchive, 		0.10)
+924. 	
+925. 	/* ---------------------------------------------------------- */
+926. 	# VOLUME DIR Location.
+927. 	/* The amount of Gap between Mft and Dir's, the Location of DIR. */
+928. 	
+929. 		/* Note: Orginally, The Gap between the MFT and Directories is fixed and tiny. */
+930. 	
+931. 		SetVariable(DirVolumeRoundUp, 			"!VolumeRoundUpLarge!")
+932. 		SetVariable(DirVolumeGapSize, 			"!ZoneGapSizeLarge!")
+933. 		
+934. /* ---------------------------------------------------------- */
+935. # SETTINGS YOURS
+936. /* empty */
+937. 
+938. /* ---------------------------------------------------------- */
+939. 
+940. /* ---------------------------------------------------------- */
+941. # STATISTICS
+942. /* ---------------------------------------------------------- */
+943. 
+944. /* Xinclude "..\..\StatisticsInitialization.MyDc"X ToDo */
+945. 
+946. 
+947. /* ---------------------------------------------------------- */
+948. # GAPS
+949. 	# TEST (FAILED!!!) NO BOOLEAN LOGIC AVAILABLE.
+950. 	SetVariable(FlagDoNotVacate, 0)
+951.  
+952. /* ---------------------------------------------------------- */
+953. # ZONE
+954. 	SetVariable(ZoneNoCurrent, 		0)
+955. 	SetVariable(ZoneNoCurrentAdjust, 	0) 
+956. 	SetVariable(ZoneNoCurrentAdjust,	0)
+957. 
+958. 	SetVariable(ZoneListByLine, 		"Volume started.
+959. ")
+960. 	SetVariable(ZoneStepByLine, 		"Initialize.
+961. ")
+962. 	SetVariable(ZoneStatisticsDetail, 	"")
+963. 
+964. /* ---------------------------------------------------------- */
+965. # ZONE FILE STEP (ACTIONS)
+966. 	/* Nothing to set here */
+967. 
+968. /* ---------------------------------------------------------- */
+969. # BLOB SIZE
+970. 
+971. 	# Size 10MB
+972. 	SetVariable(BlobFileSize, 10000000)
+973. 
+974. /* ---------------------------------------------------------- */
+975. # SKIP BLOCK
+976.  
+977. /* (important for run efficiency.) */
+978. /* FILES: */
+979. /* Day Files: 100 */
+980. /* Monthly: 500 */
+981. /* Yearly: 1M */
+982. 
+983. 	/* 100 Files - moved most blocks */
+984. 	 /* 10 Files - 20211105 (error - not done) */ 
+985. 	 /* 10 Files - (20211106) - Current */
+986. 	 /* 5 Files - (2021????) - */
+987. 	SetVariable(SkipBlockFilesDay, 10)
+988. 
+989. 	SetVariable(SkipBlockFilesMonth, 500)
+990. 	SetVariable(SkipBlockFilesYear, 1000000)
+991. 
+992. 	/* Current: */
+993. 	SetVariable(SkipBlockFiles,"!SkipBlockFilesMonth!")
+994. 
+995. /* BYTES: */
+996. /* Day Bytes: 50MB */
+997. /* Month Bytes: 500MB */
+998. /* Year Bytes: 5GB */
+999. 
+1000. 	 /* 50 MB Moved most existing blocks */
+1001. 	 /* 5 MB 20211105 (not done) */ 
+1002. 	 /* 1 MB 20211105 - Current */
+1003. 	SetVariable(SkipBlockBytesDay, 1000000)
+1004. 	/* SetVariable(SkipBlockBytesDay, 50000000) */
+1005. 
+1006. 	SetVariable(SkipBlockBytesMonth, 500000000)
+1007. 	SetVariable(SkipBlockBytesYear, 5000000000)
+1008. 
+1009. 	/* Current: */
+1010. 	SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
+1011. 
+1012. /* ---------------------------------------------------------- */
+1013. # ZONE LOCATION METHODS:
+1014. 
+1015. # No 1) Standard. You can ignore this section
+1016. 	/* Gaps between zones are a percentage of */
+1017. 	/* free space auto adjusted to pack the used */
+1018. 	/* space closely together and for performance. */
+1019. 	
+1020. 	/* The calculation will clear the Gap */
+1021. 	/* and RoundUp to the fixed value present */
+1022. 	
+1023. 	SetVariable(ZoneMethodStd, 1)
+1024. 
+1025. /* The following are NOT FULLY IMPLEMENTED OR TESTED */
+1026. # No 2) Mft. Relative to its location.
+1027. 	SetVariable(ZoneMethodMft, (0-1))
+1028. 
+1029. # No 3) Os. Percentages are AFTER OsMftDir Space Used.
+1030. 	SetVariable(ZoneMethodOs, (0-1))
+1031. 
+1032. # No 4) Orginal Mft/Os 1-5.
+1033. 	SetVariable(ZoneMethodOrginal, (0-1))
+1034. 
+1035. # No 5) FIXED ZONES if you used them.
+1036. 	
+1037. 	SetVariable(ZoneMethodFixed, (0-1))
+1038. 	SetVariable(ZoneMethodFixedPer, (0-1))
+1039. 
+1040. 	/* Not recommended */
+1041. 	/* However doing all calcs is informative regarding what */
+1042. 	/* Types of Volume data (Zones) exist. */
+1043. 	
+1044. 	/* Your FIXED calculation method, this can be: */
+1045. 	SetVariable(ZoneMethodFixedVariantPer, (0-1))
+1046. 	
+1047. 	/* 1) Percentage. */
+1048. 		/* So when it is 1 or On. */
+1049. 		/* Not great but easy to use. */
+1050. 		 
+1051. 	/* 2) Fixed volume location. */
+1052. 		/* When 0 or Off it is a volume location. */
+1053. 		/* You will have to change: */
+1054. 		/* file item xxxxxxxxx??? */
+1055. 	
+1056. 	/* FIXED VALUES: */
+1057. 		/* SetVariable(ZoneMethodFixed, 1) */
+1058. 	
+1059. 		# Setting the following to a percentage or number:
+1060. 		/* OS */
+1061. 	    SetVariable(ZoneOsBoot, 0) // 1
+1062. 	    SetVariable(ZoneOsProgramHints, 0) // 2
+1063. 	    SetVariable(ZoneOsPrograms, 0) // 3
+1064. 	    
+1065. 	    /* MFT */
+1066. 	    SetVariable(ZoneMft, 0) // Volume dependent
+1067. 	    SetVariable(ZoneMftDir, 0) // Volume dependent
+1068. 	
+1069. 		/* Volume Sys */
+1070. 	    # Os 3
+1071. 	    # Mft + 2
+1072. 	    SetVariable(ZoneSysRegular, 0) // 5
+1073. 	    SetVariable(ZoneDevSpaceHog, 0) // 6
+1074. 	
+1075. 		/* Volume Dev */
+1076. 	    # Os 3
+1077. 	    SetVariable(ZoneDevDevToDo, 0) // 4
+1078. 	    SetVariable(ZoneDevIdeScripts, 0) // 5
+1079. 	    SetVariable(ZoneDevLinksCorp, 0) // 6
+1080. 	    SetVariable(ZoneDevPeople, 0) // 7
+1081. 	    # Mft + 2
+1082. 	    SetVariable(ZoneDevShares, 0) // 10
+1083. 	    SetVariable(ZoneDevSystemOtherData, 0) // 11
+1084. 	    SetVariable(ZoneDevReference, 0) // 12
+1085. 	    SetVariable(ZoneDevBlobsArchives, 0) // 13
+1086. 	
+1087. 		/* Volume Archive not used currently */
+1088. 		/* Volume Data not used currently */
+1089. 
+1090. /* ---------------------------------------------------------- */
+1091. # LOGGING:
+1092. /* ---------------------------------------------------------- */
+1093. 
+1094. 	# Log File Name:
+1095. 	SetVariable(LogFileName,"Defrag !VolumeStepDescription! 2021-11-16_02:53:56")
+1096. 	SetVariable(LogFileZoneName,"Defrag !VolumeStepDescription! !ZoneStepDescription! 2021-11-16_02:53:56")
+1097. 	
+1098. 	#SetVariable(LogFileName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! 2021-11-16_02:53:56")
+1099. 	#SetVariable(LogFileZoneName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! !ZoneStepDescription! 2021-11-16_02:53:56")
+1100. 	/* SetVariable(LogFileName,"..\..\ScriptLogs\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
+1101. 	/* SetVariable(LogFileName,"!ScriptDir!Logs\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
+1102. 	/* SetVariable(LogFileName,"Defrag2021-11-16_02:53:56.txt") */
+1103. 	/* SetVariable(LogFileName,"$ z ScriptLogs\Defrag2021-11-16_02:53:56.txt") */
+1104. 	
+1105. 	SetVariable(VolumeStatisticsSummary, "Not ready")
+1106. 	SetVariable(VolumeStatisticsDetailed, "Not ready")
+1107. 
+1108. /* ---------------------------------------------------------- */
+1109. # OVERRIDES
+1110. /* ---------------------------------------------------------- */
+1111. 
+1112. 	# YOUR SETTINGS Volume overrides:
+1113. 	/* empty */
+1114. 
+1115. 
+1116. /* ---------------------------------------------------------- */
+1117. # Create Run Log:
+1118. 
+1119. /* Write the header to the logfile. */
+1120. 	# Script: BannerSet
+1121. 
+1122. # Script: DisplaySetDateTimeRun
+1123. 
+1124. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
+1125. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+1126. /* pause(1) */
+1127. 
+1128. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
+1129. 
+1130. Title('!Heading!')
+1131. /* pause(1) */
+1132. 
+1133. /* NOTE: Can't round or truncate to integer precision. */
+1134. 
+1135. 
+1136. 	WriteLogfile("!LogFileName!", "Log File: !LogFileName! Started.")
+1137. 	# Script: BannerLog
+1138. 
+1139. AppendLogfile("!LogFileName!", "!Heading!")
+1140. 
+1141. 
+1142. 	AppendLogfile("!LogFileName!", ".")
+1143. 
+1144. /* ---------------------------------------------------------- */
+1145. /* Script Information */
+1146. 	AppendLogfile("!LogFileName!", "!Description! Started: 2021-11-16 02:53:56")
+1147. 	AppendLogfile("!LogFileName!", ".")
+1148. 	AppendLogfile("!LogFileName!", "Script:")
+1149. 	AppendLogfile("!LogFileName!", "DefragDevDiskYearly")
+1150. 	AppendLogfile("!LogFileName!", ".")
+1151. 	AppendLogfile("!LogFileName!", "Script Directory:")
+1152. 	AppendLogfile("!LogFileName!", "!ScriptDir!")
+1153. 	AppendLogfile("!LogFileName!", ".")
+1154. 	AppendLogfile("!LogFileName!", "Log File:")
+1155. 	AppendLogfile("!LogFileName!", "!LogFileName!")
+1156. 	AppendLogfile("!LogFileName!", ".")
+1157. 
+1158. /* ---------------------------------------------------------- */
+1159. # Run Preprocessing Do Before.
+1160. /* empty */
+1161. 
+1162. 
+1163. 
+1164. /* SkipBlock Yearly: */
+1165. SetVariable(SkipBlockFiles,"!SkipBlockFilesYear!")
+1166. SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
+1167. 
+1168. /* Dev */
+1169. !include "..\..\DefragVolumeDev.MyDc"!

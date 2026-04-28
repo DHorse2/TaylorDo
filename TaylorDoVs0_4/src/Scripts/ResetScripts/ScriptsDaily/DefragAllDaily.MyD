@@ -1,0 +1,32 @@
+# MyDefrag v4.0 script: All Volume Daily
+#
+# This script is part of the standard Mdm Volume configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+/* All Volumes Daily */
+SetVariable(RunStepDescription,"All Vol Daily")
+!include "..\..\Display\DisplaySetRun.MyDc"!
+
+!include "..\..\Settings\SettingsRun.MyDc"!
+
+/* SkipBlock Daily: */
+SetVariable(SkipBlockFiles,"!SkipBlockFilesDay!")
+SetVariable(SkipBlockBytes,"!SkipBlockBytesDay!")
+
+SetVariable(RunStepDescription,"!Sys Vol Daily!")
+!include "..\..\Display\DisplaySetRun.MyDc"!
+!include "..\..\Defrag\DefragVolumeSys.MyDc"!
+
+SetVariable(RunStepDescription,"!Dev Vol Daily!")
+!include "..\..\Display\DisplaySetRun.MyDc"!
+!include "..\..\Defrag\DefragVolumeDev.MyDc"!
+
+SetVariable(RunStepDescription,"!Archive Vol Daily!")
+/* !include "..\..\Display\DisplaySetRun.MyDc"! */
+/* !include "..\..\Defrag\DefragVolumeArchive.MyDc"! */
+
+SetVariable(RunStepDescription,"!Data Vol Daily!")
+/* !include "..\..\Display\DisplaySetRun.MyDc"! */
+/* !include "..\..\Defrag\DefragVolumeData.MyDc"! */
+

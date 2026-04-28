@@ -1,0 +1,16 @@
+# Script: ZoneDoAction
+# Zone Do File Action - SortByName.
+
+	FileActions
+
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneStatisticsDisplay.MyDc"!
+		!include "..\Zone\ZoneStatisticsAdd.MyDc"!
+	
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+		!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
+
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!

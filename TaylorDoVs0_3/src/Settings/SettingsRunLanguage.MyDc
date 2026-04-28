@@ -1,0 +1,246 @@
+# Script: SettingsRunLanguage
+# This would be better phrase based.
+
+!include "..\Settings\SettingsRunZoneStepDescriptions.MyDc"!
+
+/* ------------------------- */
+# Field Defaults
+SetVariable(NotSetWord,							"NotSet")
+
+SetVariable(VolumeStartDescription, 			"Volume started.")
+SetVariable(ZoneStepDescriptionZoneStart, 		"!VolumeStartDescription!")
+
+SetVariable(ServerNameDefault,					"ThisPc")
+SetVariable(VolumeLabelDefault,					"!NotSet!")
+/* ------------------------- */
+# Words used in messages
+#
+# Process
+SetVariable(GapWord,							"gap")
+SetVariable(GapWordCaps,						"Gap")
+
+SetVariable(MountpointWord,						"mountpoint")
+
+SetVariable(StepWord,							"step")
+SetVariable(StepWordCaps,						"Step")
+
+SetVariable(ScriptWord,							"script")
+SetVariable(ScriptWordCaps,						"Script")
+
+SetVariable(VolWord,							"Vol")
+
+SetVariable(VolumeWord,							"volume")
+SetVariable(VolumeWordCaps,						"Volume")
+
+SetVariable(ZoneWord,							"zone")
+SetVariable(ZoneWordCaps,						"Zone")
+
+SetVariable(ZonesWord,							"zones")
+SetVariable(ZonesWordCaps,						"Zones")
+
+/* ------------------------- */
+# Date/Time
+SetVariable(DateWord,							"Date")
+SetVariable(ElapsedWord,						"Elapsed")
+SetVariable(TimeWord,							"Time")
+
+/* ------------------------- */
+# Punctuation
+SetVariable(AndWord,							"&")
+SetVariable(BackslashWord,						"\")
+SetVariable(ColonWord,							":")
+SetVariable(DashWord,							"-")
+SetVariable(DotDotDotWord,						"...")
+SetVariable(ExclamationWord,					"!")
+SetVariable(PercentSymbolWord,					"%")
+SetVariable(PeriodWord,							".")
+SetVariable(SemicolonWord,						";")
+SetVariable(SlashWord,							"/")
+
+/* ------------------------- */
+# Volume Modes
+SetVariable(ComplexWord,						"complex")
+SetVariable(ComplexWordCaps,					"Complex")
+
+SetVariable(FastWord,							"fast")
+SetVariable(FastWordCaps,						"Fast")
+
+SetVariable(FullWord,							"full")
+SetVariable(FullWordCaps,						"Full")
+
+SetVariable(RegularWord,						"regular")
+SetVariable(RegularWordCaps,					"Regular")
+
+
+/* ------------------------- */
+# Volume Periodic Temporal
+SetVariable(DailyWord,							"Daily")
+SetVariable(FirstWord,							"First")
+SetVariable(MonthlyWord,						"Monthly")
+SetVariable(WeeklyWord,							"Weekly")
+SetVariable(YearlyWord,							"Yearly")
+
+/* ------------------------- */
+# Volume and Zone Types
+SetVariable(AnyWord,							"any")
+SetVariable(AnyWordCaps,						"Any")
+
+SetVariable(ArchWord,							"arch")
+SetVariable(ArchWordCaps,						"Arch")
+
+SetVariable(ArchiveWord,						"archive")
+SetVariable(ArchiveWordCaps,					"Archive")
+
+SetVariable(ArchivesWord,						"archives")
+SetVariable(ArchivesWordCaps,					"Archives")
+
+SetVariable(BackupWord,							"backup")
+SetVariable(BackupWordCaps,						"Backup")
+
+SetVariable(DataWord,							"data")
+SetVariable(DataWordCaps,						"Data")
+
+SetVariable(DatabasesWord,						"databases")
+SetVariable(DatabasesWordCaps,					"Databases")
+
+SetVariable(DevWord,							"dev")
+SetVariable(DevWordCaps,						"Dev")
+
+SetVariable(DevelopmentWord,					"development")
+SetVariable(DevelopmentWordCaps,				"Development")
+
+SetVariable(ProgramsWord,						"programs")
+SetVariable(ProgramsWordCaps,					"Programs")
+
+SetVariable(RegularWord,						"regular")
+SetVariable(RegularWordCaps,					"Regular")
+
+SetVariable(SysWord,							"sys")
+SetVariable(SysWordCaps,						"Sys")
+
+SetVariable(SharesWord,							"shares")
+SetVariable(SharesWordCaps,						"Shares")
+
+/* ------------------------- */
+# Other
+SetVariable(ActualWord,							"Actual")
+SetVariable(AdjustedWord,						"adjusted")
+SetVariable(AfterWord,							"after")
+SetVariable(AlignWord,							"Align")
+SetVariable(AllWord,							"All")
+SetVariable(AnalyzeWordCaps,					"Analyze")
+SetVariable(AnalysisWordCaps,					"Analysis")
+SetVariable(AtWord,								"at")
+SetVariable(AvailableWord,						"available")
+
+SetVariable(BeWord,								"be")
+SetVariable(BeforeWord,							"before")
+SetVariable(ByWord,								"by")
+SetVariable(BytesWord,							"bytes")
+SetVariable(BytesWordCaps,						"Bytes")
+
+SetVariable(CategoryWordCaps,					"Category")
+SetVariable(ClustersWordCaps,					"Clusters")
+SetVariable(CodeWord,							"code")
+SetVariable(CountsWord,							"Counts")
+
+SetVariable(DesiredWord,						"desired")
+SetVariable(DirectoryWord,						"directory")
+SetVariable(DirectoryWordCaps,					"Directory")
+SetVariable(DoneWord,							"done")
+SetVariable(DoneWordCaps,						"Done")
+
+SetVariable(EndWord,							"end")
+SetVariable(EndWordCaps,						"End")
+SetVariable(EvenlyWord,							"evenyly")
+
+SetVariable(FinishedWord,						"finished")
+SetVariable(FinishedWordCaps,					"Finished")
+
+SetVariable(FileWord,							"file")
+SetVariable(FileWordCaps,						"File")
+
+SetVariable(FilesWord,							"files")
+SetVariable(FilesWordCaps,						"Files")
+
+SetVariable(FoldersWord,						"folders")
+SetVariable(FoldersWordCaps,					"Folders")
+
+SetVariable(FragmentedWordCaps,					"Fragmented")
+SetVariable(FragmentsWordCaps,					"Fragments")
+SetVariable(FreeWordCapsCaps,					"Free")
+
+SetVariable(GigabytesWordCaps,					"Gigabytes")
+
+SetVariable(HalfWord,							"half")
+
+SetVariable(InitializingWordCaps,				"Initializing")
+SetVariable(InsertedWord,						"inserted")
+SetVariable(ItemsWord,							"items")
+
+SetVariable(LocationWordCaps,					"Location")
+SetVariable(LocWordCaps,						"Loc")
+
+SetVariable(LogWord,							"log")
+SetVariable(LogWordCaps,						"Log")
+
+SetVariable(LowerWord,							"lower")
+
+SetVariable(MegabytesWordCaps,					"Megabytes")
+SetVariable(MinWord,							"min")
+
+SetVariable(MustWord,							"must")
+SetVariable(MustWordCaps,						"Must")
+
+SetVariable(NumberWord,							"number")
+
+SetVariable(OfWord,								"of")
+
+SetVariable(PendingWordCaps,					"Pending")
+SetVariable(PercentWordCaps,					"Percent")
+SetVariable(ProcessedWordCaps,					"Processed")
+SetVariable(ProcessingWordCaps,					"Processing")
+
+SetVariable(RemainingWord,						"remaining")
+SetVariable(RequestedWord,						"requested")
+SetVariable(RoundingWord,						"rounding")
+
+SetVariable(RunWord,							"run")
+SetVariable(RunWordCaps,						"Run")
+
+/* ------------------------- */
+ // caps:
+SetVariable(SeeksWord,							"Seeks")
+SetVariable(SelectWord,							"Select")
+SetVariable(SettingsWord,						"Settings")
+SetVariable(SizeWord,							"Size")
+SetVariable(SortWord,							"Sort")
+SetVariable(SortingWord,						"Sorting")
+SetVariable(SpaceWord,							"Space")
+SetVariable(StartWord,							"start")
+SetVariable(StartWordCaps,						"Start")
+SetVariable(StartedWord,						"Started")
+SetVariable(StartingWord,						"Starting")
+
+SetVariable(TheWord,							"the")
+SetVariable(TheWordCaps,						"The")
+SetVariable(ToWord,								"to")
+SetVariable(TotalWord,							"Total") // caps
+
+SetVariable(UnFragmentedWordCaps,					"Unfragmented") // caps
+SetVariable(UsedWord,							"Used") // caps
+
+SetVariable(YouWord,							"you")
+SetVariable(YouWordCaps,						"You")
+
+/* ------------------------- */
+# VOLUME REPORT
+# VOLUME SUMMARY
+# CURRENT ZONE
+# VOLUME DETAILS
+# LARGE and UNMOVABLES
+# GAPS
+
+/* ------------------------- */
+# Zone Processing Steps
+SetVariable(ZoneStepDescriptionInitializing,	"!InitializingWordCaps! !RunWord!!DotDotDotWord!")

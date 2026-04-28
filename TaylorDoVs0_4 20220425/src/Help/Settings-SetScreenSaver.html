@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SetScreenSaver</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-SetScreenSaver"></A><h2>Settings - SetScreenSaver</h2></P>
+Instruct Windows to turn the screensaver off, so the screensaver will not
+  start while MyDefrag is running, or re-activate the screensaver. This MyDefrag
+  setting will do nothing if no screensaver is configured in Windows.
+
+  <ul>
+  <li> This setting will not work on all computers. Windows does not have a reliable
+    method to block the screensaver.
+  <li> MyDefrag will do an automatic SetScreenSaver(reset) when it finishes, in case
+    there is only a SetScreenSaver(off) without the accompanying SetScreenSaver(reset).
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>SetScreenSaver(off)<br>SetScreenSaver(reset)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Turn&nbsp;screensaver&nbsp;off.<br />
+SetScreenSaver(off)<br />
+<br />
+....<br />
+<br />
+#&nbsp;Turn&nbsp;screensaver&nbsp;back&nbsp;on.<br />
+SetScreenSaver(reset)</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Settings-SetScreenPowerSaver.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SetScreenPowerSaver</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

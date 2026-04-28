@@ -1,0 +1,10 @@
+# Script: DisplaySetZoneStep
+# Increment
+SetVariable(ZoneStepNoCurrent, ZoneStepNoCurrent + 1)
+
+# Display this zone step
+SetVariable(ZoneStepByLine, '!ZoneStepByLine!!ZoneStepNoCurrent! !ZoneStepDescription!
+')
+
+!include "..\Display\BannerSet.MyDc"!
+!include "..\Display\DisplaySetWindowText.MyDc"!

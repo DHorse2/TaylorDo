@@ -1,0 +1,9 @@
+# Ignore everything in this directory
+*
+TaylorDoSetup.exe
+
+# Except this file
+!.gitignore
+!SystemInternals\*
+!YankeeClipperIIIVs1043\*
+!MwSnapVs30074\*

@@ -1,0 +1,7 @@
+# Power management
+# SetScreenPowerSaver(off)
+# SetScreenPowerSaver(reset) 
+# Not compatable with all vs of windows
+#
+	/* SetScreenPowerSaver(off) */
+#

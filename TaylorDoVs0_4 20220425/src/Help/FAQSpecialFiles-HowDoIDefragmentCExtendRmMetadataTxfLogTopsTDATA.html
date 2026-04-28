@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How do I defragment "C:\$Extend\$RmMetadata\$TxfLog\$Tops:$T:$DATA"?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Special files-How do I defragment "C:\$Extend\$RmMetadata\$TxfLog\$Tops:$T:$DATA"?"></A><h2>FAQ Special files - How do I defragment "C:\$Extend\$RmMetadata\$TxfLog\$Tops:$T:$DATA"?</h2></P>
+This is a special NTFS system file used by the Windows Transactional Resource
+  Manager. MyDefrag cannot move or defragment this file. It can be cleaned with the
+  fsutil command, see below. Do not try to delete this file by hand.
+
+  <ul>
+  <li> Use the following commandline to see information about the TOPS files:
+    <center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>fsutil resource info c:\</code></td></tr></table></center>
+  <li> The following commandline will instruct Windows to clean (not delete) the
+     TOPS file at the next reboot:
+    <center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>fsutil resource setautoreset true c:\</code></td></tr></table></center>
+  </ul>
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

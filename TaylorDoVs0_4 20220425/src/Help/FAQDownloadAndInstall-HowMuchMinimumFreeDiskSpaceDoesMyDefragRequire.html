@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How much minimum free disk space does MyDefrag require?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Download And Install-How much minimum free disk space does MyDefrag require?"></A><h2>FAQ Download And Install - How much minimum free disk space does MyDefrag require?</h2></P>
+MyDefrag does not require a minimum free disk space, but:
+  <ul>
+  <li> Windows reserves some space on NTFS disks for expansion of the MFT, default is
+    12.5% of the volume size.
+    This space is counted by Windows as free space because it can/will be used for
+    regular files when the rest of the volume is full. MyDefrag cannot move files
+    into this space, only out of (see <a href="VolumeActions-ReclaimNtfsReservedAreas.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>ReclaimNtfsReservedAreas</b></a>).
+  <li> On very full harddisks MyDefrag will take more time to shuffle files around,
+    and in some cases will have to throw the towel in the ring and leave some files
+    fragmented or not optimized.
+  <li> A file can only be defragmented if there is a gap on disk big enough to hold
+    the entire file, depending on the script that you have chosen.
+    There may be plenty of free space, but what is needed is a single big gap.
+  </ul><p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

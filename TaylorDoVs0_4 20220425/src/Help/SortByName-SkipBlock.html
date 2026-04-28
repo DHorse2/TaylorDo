@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SkipBlock</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="SortByName-SkipBlock"></A><h2>SortByName - SkipBlock</h2></P>
+This option will look for blocks of
+  items that are already sorted, and will skip those blocks. This is a huge timesaver
+  in cases where there has been only a small change in the zone, for
+  example a single file that was added or deleted. Without this option the SortBy*
+  fileaction would move all the items "above" the change. With this option it
+  will not move the already sorted items and only busy itself with whatever is
+  not sorted anymore.<p>
+
+  <ul>
+  <li> The first NUMBER argment is the minimum number of files in a block, for the block to
+    be skipped.
+  <li> The second NUMBER argument is the minimum number of bytes that a block
+    has to occupy for the block to be skipped.
+  <li> The two arguments are logically AND'ed, in words: the block must have
+    at least argument1 files AND at least argument2 bytes.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>SkipBlock(<a href="Scripts-NUMBER.html">NUMBER</a> , <a href="Scripts-NUMBER.html">NUMBER</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Sort&nbsp;the&nbsp;files&nbsp;by&nbsp;name,&nbsp;but&nbsp;skip&nbsp;blocks&nbsp;of&nbsp;files&nbsp;that&nbsp;are&nbsp;already&nbsp;sorted&nbsp;and<br />
+#&nbsp;contain&nbsp;at&nbsp;least&nbsp;10%&nbsp;of&nbsp;the&nbsp;files&nbsp;in&nbsp;the&nbsp;zone&nbsp;and&nbsp;at&nbsp;least&nbsp;10%&nbsp;of&nbsp;the&nbsp;size&nbsp;of<br />
+#&nbsp;the&nbsp;zone.<br />
+SortByName(Ascending&nbsp;SkipBlock(ZONE220N&nbsp;*&nbsp;0.10,ZONE222N&nbsp;*&nbsp;0.10))</code></td></tr></table></center><p>
+</BODY>
+</HTML>

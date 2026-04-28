@@ -1,0 +1,25 @@
+# MyDefrag v4.0 default script: Analyze only
+#
+# This script is part of the standard MyDefrag distribution.
+
+Title('Analyze only')
+Description("Analyze only description")            // See the "Settings.MyD" file.
+
+SetVariable(RunDescription,"Analyze only")
+
+WhenFinished(exit)
+RememberUnmovables(no)
+
+#dgh@Z#  Writelogfile("MyDefrag.log","!Commandline!")
+#dgh@Z#  Appendlogfile("MyDefrag.log","
+LogHeader
+")
+
+VolumeSelect
+  CommandlineVolumes()
+VolumeActions
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAnalyzeOnly")
+  Pause()
+VolumeEnd
+
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

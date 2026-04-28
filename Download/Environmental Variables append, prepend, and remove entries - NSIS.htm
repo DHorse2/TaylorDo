@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="verify-v1" content="WLF5Lq4UBvbQthz98kyOIQ+Vz9LDT92e8JyA6Iatsoc=" />
+        <title>Environmental Variables: append, prepend, and remove entries - NSIS</title>
+		<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Sd_LaNTG5rHB1Rp90ZWbGl6lDJtPmnyBiOlBFr8aQgslFb2Y97XB-QWACMSIDwVvsn2T2E2E1g3ntRol_h_2DZX5joW0Q12LyqaYuGkoyooSDF6v6_qP7twsMsIvdYBbqoxOVIUZ-P3BAOUd-jL4LQ" charset="UTF-8"></script><style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/mediawiki/skins/common/shared.css?303";
+			@import "/mediawiki/skins/nsis/main.css?303";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="?303" />
+		<!--[if lt IE 7]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		                
+		<script type="text/javascript" src="/mediawiki/skins/common/wikibits.js?303"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<link rel="alternate" type="application/rss+xml" title="NSIS Project News" href="https://sourceforge.net/export/rss2_projnews.php?group_id=22049&rss_fulltext=1" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75865490-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+  </head>
+  <body  class=" ltr">
+  <div id="header">
+    <div id="logo"><a href="/" title="Back to website"><img src="/mediawiki/skins/nsis/logo.gif" alt="NSIS logo"/></a></div>
+    <!-- <div id="logo-text">&nbsp;</div> -->
+  </div>
+<div id="mainWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="top"></a>
+	  	  <h1 class="firstHeading">Environmental Variables: append, prepend, and remove entries</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From NSIS Wiki</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table align="right">
+<tbody><tr>
+<td><small>Author: <a href="/mediawiki/index.php?title=User:Turnec2&amp;action=edit&amp;redlink=1" class="new" title="User:Turnec2 (page does not exist)">turnec2</a> (<a href="/mediawiki/index.php?title=User_talk:Turnec2&amp;action=edit&amp;redlink=1" class="new" title="User talk:Turnec2 (page does not exist)">talk</a>, <a href="/Special:Contributions/turnec2" title="Special:Contributions/turnec2">contrib</a>)</small>
+</td></tr></tbody></table>
+<p><br style="clear:both;" />
+</p><p><br />
+</p>
+<div style="background-color:#ff9999; color:#f00; border:2px solid #f00; padding:1em;"><font size="+1"><b>WARNING:</b> Strings longer than ${NSIS_MAX_STRLEN} will get truncated/corrupted. Do NOT use this function to update&#160;%PATH%, use the <a href="/EnVar_plug-in" title="EnVar plug-in">EnVar_plug-in</a> instead.</font></div>
+<p><br />
+</p>
+<div id="toc" class="toc"><div class="toctitle" lang="en" dir="ltr"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Warning"><span class="tocnumber">2.1</span> <span class="toctext">Warning</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Syntax"><span class="tocnumber">2.2</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Parameters"><span class="tocnumber">2.3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Examples"><span class="tocnumber">2.4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Installer_Examples"><span class="tocnumber">2.4.1</span> <span class="toctext">Installer Examples</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Uninstaller_Examples"><span class="tocnumber">2.4.2</span> <span class="toctext">Uninstaller Examples</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Function_Code"><span class="tocnumber">3</span> <span class="toctext">Function Code</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Description">Description</span></h2>
+<dl><dt>Function - EnvVarUpdate</dt></dl>
+<dl><dt>Version 1.1</dt></dl>
+<p>Append, prepend or remove a pathname or string from an environmental variable such as PATH, LIB, CLASSPATH, PATHEXT, or a variable of your own. The variable can be updated in either the "all users" section of the registry (HKLM) or the "current user" section (HKCU).
+</p><p>Duplicates entries, leading and trailing spaces around each entry, and duplicate semicolons are permanently removed from the contents of the variable before performing the requested operation.  This step prevents the corruption of the variable's contents (e.g., when removing a target pathname that
+is a subset of another pathname). 
+</p><p>The function can be called from an installer or uninstaller.  The "remove" subfunction
+is normally not required for installers; however, it might be useful for such things as removing
+pathnames associated with earlier revisions in the event that the user 
+has failed to run the uninstaller. 
+</p><p>The updated contents of the variable returned in ResultVar might be useful for displaying to the user, writing to a log file, or verification.
+</p>
+<dl><dt>Design</dt></dl>
+<ol><li>Read the contents of EnvVarName from RegLoc</li>
+<li>Remove duplicate semicolons and spaces around semicolons</li>
+<li>Remove all instances of the target path/string regardless of the operation because this not only eliminates duplicate entries, it also allows for the search order of the target entry to be changed from first to last and vice versa.</li>
+<li>If Action is "R" (remove), skip this step, or else prepend or append the target per the requested Action.</li>
+<li>Write the updated variable to RegLoc even if the Action is "R" or the target is not found because this allows for the elimination of duplicate semicolons, spaces around semicolons, spaces preceding the first entry, and spaces following the last entry.</li></ol>
+<h2><span class="mw-headline" id="Usage">Usage</span></h2>
+<h3><span class="mw-headline" id="Warning">Warning</span></h3>
+<p>If you are using StrFunc.nsh header file then include it with all required definitions before this header to avoid conflicts.
+</p><p><b>Warning this code will replace paths rather than append if the existing path exceeds the maximum string length in the NSIS build you are using. Some setup crash can also occurs.</b>
+</p><p>Default maximum string length is 1024, see <a href="/Special_Builds" title="Special Builds">Special_Builds</a> for a 8192 max length.
+</p><p>The following patch is suggested to foolproof this problem. It has a remaining problem in that if the path is initially empty it will not allow adding to it. This could be fixed by adding a test to only use this patch when $1 is PATH, but then long non-path environments could be trashed. 
+<a href="/Special:Contributions/129.130.40.208" title="Special:Contributions/129.130.40.208">129.130.40.208</a> 23:37, 29 June 2011 (UTC)
+</p>
+<pre class="nsis" style="font-family:monospace;">&gt; diff -c EnvVarUpdate.nsh /usr/share/nsis/Include/EnvVarUpdate-safe.nsh 
+*** EnvVarUpdate.nsh    <span style="">2011</span>-06-<span style="">28</span> <span style="">16</span>:<span style="">45</span>:<span style="">20.000000000</span> -0500
+--- /usr/share/nsis/Include/EnvVarUpdate-safe.nsh       <span style="">2011</span>-06-<span style="">29</span> <span style="">15</span>:<span style="">28</span>:<span style="">41.000000000</span> -0500
+***************
+*** <span style="">147</span>,<span style="">152</span> ****
+--- <span style="">147</span>,<span style="">172</span> ----
+  <span style="color: #666666; font-style: italic;">;;khc - here check if length is going to be greater then max string length</span>
+  <span style="color: #666666; font-style: italic;">;;      and abort if so - also abort if original path empty - may mean</span>
+  <span style="color: #666666; font-style: italic;">;;      it was too long as well- write message to say set it by hand </span>
++ 
++   <span style="color: #000099;">Push</span> <span style="color: #660000;">$6</span>
++   <span style="color: #000099;">Push</span> <span style="color: #660000;">$7</span>
++   <span style="color: #000099;">Push</span> <span style="color: #660000;">$8</span>
++   <span style="color: #000099;">StrLen</span> <span style="color: #660000;">$7</span> <span style="color: #660000;">$4</span>  
++   <span style="color: #000099;">StrLen</span> <span style="color: #660000;">$6</span> <span style="color: #660000;">$5</span>
++   <span style="color: #000099;">IntOp</span> <span style="color: #660000;">$8</span> <span style="color: #660000;">$6</span> + <span style="color: #660000;">$7</span>
++   <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$5</span> == <span style="color: #660066;">&quot;&quot;</span>
++   <span style="color: #660000;">$<span style="">&#123;</span>OrIf<span style="">&#125;</span> <span style="color: #660000;">$8</span> &gt;= $<span style="">&#123;</span>NSIS_MAX_STRLEN<span style="">&#125;</span></span>
++     <span style="color: #000099;">SetErrors</span>
++     <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;Current $1 length ($6) too long to modify in NSIS; set manually if needed&quot;</span>
++     <span style="color: #000099;">Pop</span> <span style="color: #660000;">$8</span>
++     <span style="color: #000099;">Pop</span> <span style="color: #660000;">$7</span>
++     <span style="color: #000099;">Pop</span> <span style="color: #660000;">$6</span>
++     <span style="color: #000099;">Goto</span> EnvVarUpdate_Restore_Vars
++   <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
++   <span style="color: #000099;">Pop</span> <span style="color: #660000;">$8</span>
++   <span style="color: #000099;">Pop</span> <span style="color: #660000;">$7</span>
++   <span style="color: #000099;">Pop</span> <span style="color: #660000;">$6</span>
++ <span style="color: #666666; font-style: italic;">;;khc </span>
+    <span style="color: #666666; font-style: italic;">; Make sure we've got some work to do</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$5</span> == <span style="color: #660066;">&quot;&quot;</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>AndIf<span style="">&#125;</span></span> <span style="color: #660000;">$2</span> == <span style="color: #660066;">&quot;R&quot;</span></pre> 
+<h3><span class="mw-headline" id="Syntax">Syntax</span></h3>
+<pre class="nsis" style="font-family:monospace;"> <span style="color: #660000;">$<span style="">&#123;</span>EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660066;">&quot;ResultVar&quot;</span> <span style="color: #660066;">&quot;EnvVarName&quot;</span> <span style="color: #660066;">&quot;Action&quot;</span> <span style="color: #660066;">&quot;RegLoc&quot;</span> <span style="color: #660066;">&quot;PathString&quot;</span></pre>
+<p>or
+</p>
+<pre class="nsis" style="font-family:monospace;"> <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;EnvVarName&quot;</span>
+ <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;Action&quot;</span>
+ <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;RegLoc&quot;</span>
+ <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;PathString&quot;</span>
+ <span style="color: #000099;">Call</span> EnvVarUpdate
+ <span style="color: #000099;">Pop</span>  <span style="color: #660066;">&quot;ResultVar&quot;</span></pre>
+<h3><span class="mw-headline" id="Parameters">Parameters</span></h3>
+<dl><dd><dl><dt>ResultVar</dt>
+<dd>Updated environmental variable returned by the function</dd></dl></dd></dl>
+<dl><dd><dl><dt>EnvVarName</dt>
+<dd>Environmental variable name such as "PATH", "LIB", or "MYVAR"</dd></dl></dd></dl>
+<dl><dd><dl><dt>Action</dt>
+<dd>"A" = Append</dd>
+<dd>"P" = Prepend</dd>
+<dd>"R" = Remove</dd></dl></dd></dl>
+<dl><dd><dl><dt>RegLoc</dt>
+<dd>"HKLM" = the "all users" section of the registry</dd>
+<dd>"HKCU" = the "current user" section</dd></dl></dd></dl>
+<dl><dd><dl><dt>PathString</dt>
+<dd>A pathname or string to add to or remove from the contents of EnvVarName (e.g., "C:\MyApp")</dd></dl></dd></dl>
+<h3><span class="mw-headline" id="Examples">Examples</span></h3>
+<h4><span class="mw-headline" id="Installer_Examples">Installer Examples</span></h4>
+<pre class="nsis" style="font-family:monospace;"><span style="color: #660000;">$<span style="">&#123;</span>EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;PATH&quot;</span> <span style="color: #660066;">&quot;A&quot;</span> <span style="color: #660066;">&quot;HKLM&quot;</span> <span style="color: #660066;">&quot;C:\Program Files\Windows Resource Kits\Tools&quot;</span> <span style="color: #666666; font-style: italic;">; Append  </span>
+<span style="color: #660000;">$<span style="">&#123;</span>EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;PATH&quot;</span> <span style="color: #660066;">&quot;P&quot;</span> <span style="color: #660066;">&quot;HKCU&quot;</span> <span style="color: #660066;">&quot;%WinDir%\System32&quot;</span>                            <span style="color: #666666; font-style: italic;">; Prepend     </span>
+<span style="color: #660000;">$<span style="">&#123;</span>EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;LIB&quot;</span>  <span style="color: #660066;">&quot;R&quot;</span> <span style="color: #660066;">&quot;HKLM&quot;</span> <span style="color: #660066;">&quot;C:\MyLib&quot;</span>                                     <span style="color: #666666; font-style: italic;">; Remove</span>
+<span style="color: #660000;">$<span style="">&#123;</span>EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;PATH&quot;</span> <span style="color: #660066;">&quot;R&quot;</span> <span style="color: #660066;">&quot;HKLM&quot;</span> <span style="color: #660066;">&quot;C:\Program Files\MyApp-v1.0&quot;</span>  <span style="color: #666666; font-style: italic;">; Remove path of old rev</span>
+<span style="color: #660000;">$<span style="">&#123;</span>EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;PATH&quot;</span> <span style="color: #660066;">&quot;A&quot;</span> <span style="color: #660066;">&quot;HKLM&quot;</span> <span style="color: #660066;">&quot;C:\Program Files\MyApp-v2.0&quot;</span>  <span style="color: #666666; font-style: italic;">; Append the new one</span></pre>
+<h4><span class="mw-headline" id="Uninstaller_Examples">Uninstaller Examples</span></h4>
+<pre class="nsis" style="font-family:monospace;"><span style="color: #660000;">$<span style="">&#123;</span>un.EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;LIB&quot;</span> <span style="color: #660066;">&quot;R&quot;</span> <span style="color: #660066;">&quot;HKLM&quot;</span> <span style="color: #660066;">&quot;C:\MyLib&quot;</span>          
+<span style="color: #660000;">$<span style="">&#123;</span>un.EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;PATH&quot;</span> <span style="color: #660066;">&quot;R&quot;</span> <span style="color: #660066;">&quot;HKLM&quot;</span> <span style="color: #660066;">&quot;C:\MyApp-v2.0&quot;</span>      <span style="color: #666666; font-style: italic;">; Remove path of latest rev </span>
+<span style="color: #660000;">$<span style="">&#123;</span>un.EnvVarUpdate<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;PATH&quot;</span> <span style="color: #660066;">&quot;A&quot;</span> <span style="color: #660066;">&quot;HKLM&quot;</span> <span style="color: #660066;">&quot;C:\MyApp-v1.0&quot;</span>      <span style="color: #666666; font-style: italic;">; Restore path of previous rev</span></pre>
+<h2><span class="mw-headline" id="Function_Code">Function Code</span></h2>
+<p>Download:<br />
+<a href="/mediawiki/images/a/ad/EnvVarUpdate.7z" style="text-decoration: none"><img src="/mediawiki/images/a/a0/Zip.gif" width="16" height="16" border="0" alt="" /> EnvVarUpdate.7z</a> (3 KB)
+</p>
+<pre class="nsis" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">/**
+ *  EnvVarUpdate.nsh
+ *   &#160;: Environmental Variables: append, prepend, and remove entries
+ *
+ *     WARNING: If you use StrFunc.nsh header then include it before this file
+ *              with all required definitions. This is to avoid conflicts
+ *
+ *  Usage:
+ *    ${EnvVarUpdate} &quot;ResultVar&quot; &quot;EnvVarName&quot; &quot;Action&quot; &quot;RegLoc&quot; &quot;PathString&quot;
+ *
+ *  Credits:
+ *  Version 1.0 
+ *  * Cal Turney (turnec2)
+ *  * Amir Szekely (KiCHiK) and e-circ for developing the forerunners of this
+ *    function: AddToPath, un.RemoveFromPath, AddToEnvVar, un.RemoveFromEnvVar,
+ *    WriteEnvStr, and un.DeleteEnvStr
+ *  * Diego Pedroso (deguix) for StrTok
+ *  * Kevin English (kenglish_hi) for StrContains
+ *  * Hendri Adriaens (Smile2Me), Diego Pedroso (deguix), and Dan Fuhry  
+ *    (dandaman32) for StrReplace
+ *
+ *  Version 1.1 (compatibility with StrFunc.nsh)
+ *  * techtonik
+ *
+ *  http://nsis.sourceforge.net/Environmental_Variables:_append%2C_prepend%2C_and_remove_entries
+ *
+ */</span>
+&#160;
+&#160;
+<span style="color: #000066; font-weight:bold;">!ifndef</span> ENVVARUPDATE_FUNCTION
+<span style="color: #000066; font-weight:bold;">!define</span> ENVVARUPDATE_FUNCTION
+<span style="color: #000066; font-weight:bold;">!verbose</span> <span style="color: #000099;">push</span>
+<span style="color: #000066; font-weight:bold;">!verbose</span> <span style="">3</span>
+<span style="color: #000066; font-weight:bold;">!include</span> <span style="color: #660066;">&quot;LogicLib.nsh&quot;</span>
+<span style="color: #000066; font-weight:bold;">!include</span> <span style="color: #660066;">&quot;WinMessages.NSH&quot;</span>
+<span style="color: #000066; font-weight:bold;">!include</span> <span style="color: #660066;">&quot;StrFunc.nsh&quot;</span>
+&#160;
+<span style="color: #666666; font-style: italic;">; ---- Fix for conflict if StrFunc.nsh is already includes in main file -----------------------</span>
+<span style="color: #000066; font-weight:bold;">!macro</span> _IncludeStrFunction StrFuncName
+  <span style="color: #000066; font-weight:bold;">!ifndef</span> <span style="color: #660000;">$<span style="">&#123;</span>StrFuncName<span style="">&#125;</span></span>_INCLUDED
+    <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>StrFuncName<span style="">&#125;</span><span style="">&#125;</span></span>
+  <span style="color: #000066; font-weight:bold;">!endif</span>
+  <span style="color: #000066; font-weight:bold;">!ifndef</span> Un<span style="color: #660000;">$<span style="">&#123;</span>StrFuncName<span style="">&#125;</span></span>_INCLUDED
+    <span style="color: #660000;">$<span style="">&#123;</span>Un$<span style="">&#123;</span>StrFuncName<span style="">&#125;</span><span style="">&#125;</span></span>
+  <span style="color: #000066; font-weight:bold;">!endif</span>
+  <span style="color: #000066; font-weight:bold;">!define</span> un.<span style="color: #660000;">$<span style="">&#123;</span>StrFuncName<span style="">&#125;</span></span> <span style="color: #660066;">&quot;${Un${StrFuncName}}&quot;</span>
+<span style="color: #000066; font-weight:bold;">!macroend</span>
+&#160;
+<span style="color: #000066; font-weight:bold;">!insertmacro</span> _IncludeStrFunction StrTok
+<span style="color: #000066; font-weight:bold;">!insertmacro</span> _IncludeStrFunction StrStr
+<span style="color: #000066; font-weight:bold;">!insertmacro</span> _IncludeStrFunction StrRep
+&#160;
+<span style="color: #666666; font-style: italic;">; ---------------------------------- Macro Definitions ----------------------------------------</span>
+<span style="color: #000066; font-weight:bold;">!macro</span> _EnvVarUpdateConstructor ResultVar EnvVarName Action Regloc PathString
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${EnvVarName}&quot;</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${Action}&quot;</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${RegLoc}&quot;</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${PathString}&quot;</span>
+    <span style="color: #000099;">Call</span> EnvVarUpdate
+  <span style="color: #000099;">Pop</span> <span style="color: #660066;">&quot;${ResultVar}&quot;</span>
+<span style="color: #000066; font-weight:bold;">!macroend</span>
+<span style="color: #000066; font-weight:bold;">!define</span> EnvVarUpdate <span style="color: #660066;">'!insertmacro &quot;_EnvVarUpdateConstructor&quot;'</span>
+&#160;
+<span style="color: #000066; font-weight:bold;">!macro</span> _unEnvVarUpdateConstructor ResultVar EnvVarName Action Regloc PathString
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${EnvVarName}&quot;</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${Action}&quot;</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${RegLoc}&quot;</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660066;">&quot;${PathString}&quot;</span>
+    <span style="color: #000099;">Call</span> un.EnvVarUpdate
+  <span style="color: #000099;">Pop</span> <span style="color: #660066;">&quot;${ResultVar}&quot;</span>
+<span style="color: #000066; font-weight:bold;">!macroend</span>
+<span style="color: #000066; font-weight:bold;">!define</span> un.EnvVarUpdate <span style="color: #660066;">'!insertmacro &quot;_unEnvVarUpdateConstructor&quot;'</span>
+<span style="color: #666666; font-style: italic;">; ---------------------------------- Macro Definitions end-------------------------------------</span>
+&#160;
+<span style="color: #666666; font-style: italic;">;----------------------------------- EnvVarUpdate start----------------------------------------</span>
+<span style="color: #000066; font-weight:bold;">!define</span> hklm_all_users     <span style="color: #660066;">'HKLM &quot;SYSTEM\CurrentControlSet\Control\Session Manager\Environment&quot;'</span>
+<span style="color: #000066; font-weight:bold;">!define</span> hkcu_current_user  <span style="color: #660066;">'HKCU &quot;Environment&quot;'</span>
+&#160;
+<span style="color: #000066; font-weight:bold;">!macro</span> EnvVarUpdate UN
+&#160;
+<span style="color: #000066;">Function</span> <span style="color: #660000;">$<span style="">&#123;</span>UN<span style="">&#125;</span></span>EnvVarUpdate
+&#160;
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$0</span>
+  <span style="color: #000099;">Exch</span> <span style="">4</span>
+  <span style="color: #000099;">Exch</span> <span style="color: #660000;">$1</span>
+  <span style="color: #000099;">Exch</span> <span style="">3</span>
+  <span style="color: #000099;">Exch</span> <span style="color: #660000;">$2</span>
+  <span style="color: #000099;">Exch</span> <span style="">2</span>
+  <span style="color: #000099;">Exch</span> <span style="color: #660000;">$3</span>
+  <span style="color: #000099;">Exch</span>
+  <span style="color: #000099;">Exch</span> <span style="color: #660000;">$4</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$5</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$6</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$7</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$8</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$9</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$R0</span>
+&#160;
+  <span style="color: #666666; font-style: italic;">/* After this point:
+  -------------------------
+     $0 = ResultVar     (returned)
+     $1 = EnvVarName    (input)
+     $2 = Action        (input)
+     $3 = RegLoc        (input)
+     $4 = PathString    (input)
+     $5 = Orig EnvVar   (read from registry)
+     $6 = Len of $0     (temp)
+     $7 = tempstr1      (temp)
+     $8 = Entry counter (temp)
+     $9 = tempstr2      (temp)
+     $R0 = tempChar     (temp)  */</span>
+&#160;
+  <span style="color: #666666; font-style: italic;">; Step 1:  Read contents of EnvVarName from RegLoc</span>
+  <span style="color: #666666; font-style: italic;">;</span>
+  <span style="color: #666666; font-style: italic;">; Check for empty EnvVarName</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$1</span> == <span style="color: #660066;">&quot;&quot;</span>
+    <span style="color: #000099;">SetErrors</span>
+    <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;ERROR: EnvVarName is blank&quot;</span>
+    <span style="color: #000099;">Goto</span> EnvVarUpdate_Restore_Vars
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #666666; font-style: italic;">; Check for valid Action</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span>    <span style="color: #660000;">$2</span>&#160;!= <span style="color: #660066;">&quot;A&quot;</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>AndIf<span style="">&#125;</span></span> <span style="color: #660000;">$2</span>&#160;!= <span style="color: #660066;">&quot;P&quot;</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>AndIf<span style="">&#125;</span></span> <span style="color: #660000;">$2</span>&#160;!= <span style="color: #660066;">&quot;R&quot;</span>
+    <span style="color: #000099;">SetErrors</span>
+    <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;ERROR: Invalid Action - must be A, P, or R&quot;</span>
+    <span style="color: #000099;">Goto</span> EnvVarUpdate_Restore_Vars
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$3</span> == <span style="color: #ff6600;">HKLM</span>
+    <span style="color: #000099;">ReadRegStr</span> <span style="color: #660000;">$5</span> <span style="color: #660000;">$<span style="">&#123;</span>hklm_all_users<span style="">&#125;</span></span> <span style="color: #660000;">$1</span>     <span style="color: #666666; font-style: italic;">; Get EnvVarName from all users into $5</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>ElseIf<span style="">&#125;</span></span> <span style="color: #660000;">$3</span> == <span style="color: #ff6600;">HKCU</span>
+    <span style="color: #000099;">ReadRegStr</span> <span style="color: #660000;">$5</span> <span style="color: #660000;">$<span style="">&#123;</span>hkcu_current_user<span style="">&#125;</span></span> <span style="color: #660000;">$1</span>  <span style="color: #666666; font-style: italic;">; Read EnvVarName from current user into $5</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>Else<span style="">&#125;</span></span>
+    <span style="color: #000099;">SetErrors</span>
+    <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">'ERROR: Action is [$3] but must be &quot;HKLM&quot; or HKCU&quot;'</span>
+    <span style="color: #000099;">Goto</span> EnvVarUpdate_Restore_Vars
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #666666; font-style: italic;">; Check for empty PathString</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$4</span> == <span style="color: #660066;">&quot;&quot;</span>
+    <span style="color: #000099;">SetErrors</span>
+    <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;ERROR: PathString is blank&quot;</span>
+    <span style="color: #000099;">Goto</span> EnvVarUpdate_Restore_Vars
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #666666; font-style: italic;">; Make sure we've got some work to do</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$5</span> == <span style="color: #660066;">&quot;&quot;</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>AndIf<span style="">&#125;</span></span> <span style="color: #660000;">$2</span> == <span style="color: #660066;">&quot;R&quot;</span>
+    <span style="color: #000099;">SetErrors</span>
+    <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;$1 is empty - Nothing to remove&quot;</span>
+    <span style="color: #000099;">Goto</span> EnvVarUpdate_Restore_Vars
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #666666; font-style: italic;">; Step 2: Scrub EnvVar</span>
+  <span style="color: #666666; font-style: italic;">;</span>
+  <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span> <span style="color: #660000;">$5</span>                             <span style="color: #666666; font-style: italic;">; Copy the contents to $0</span>
+  <span style="color: #666666; font-style: italic;">; Remove spaces around semicolons (NOTE: spaces before the 1st entry or</span>
+  <span style="color: #666666; font-style: italic;">; after the last one are not removed here but instead in Step 3)</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$0</span>&#160;!= <span style="color: #660066;">&quot;&quot;</span>                           <span style="color: #666666; font-style: italic;">; If EnvVar is not empty ...</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Do<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>UN<span style="">&#125;</span>StrStr<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;&#160;;&quot;</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> == <span style="color: #660066;">&quot;&quot;</span>
+        <span style="color: #660000;">$<span style="">&#123;</span>ExitDo<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>UN<span style="">&#125;</span>StrRep<span style="">&#125;</span></span> <span style="color: #660000;">$0</span>  <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;&#160;;&quot;</span> <span style="color: #660066;">&quot;;&quot;</span>         <span style="color: #666666; font-style: italic;">; Remove '&lt;space&gt;;'</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Loop<span style="">&#125;</span></span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Do<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>UN<span style="">&#125;</span>StrStr<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;; &quot;</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> == <span style="color: #660066;">&quot;&quot;</span>
+        <span style="color: #660000;">$<span style="">&#123;</span>ExitDo<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>UN<span style="">&#125;</span>StrRep<span style="">&#125;</span></span> <span style="color: #660000;">$0</span>  <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;; &quot;</span> <span style="color: #660066;">&quot;;&quot;</span>         <span style="color: #666666; font-style: italic;">; Remove ';&lt;space&gt;'</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Loop<span style="">&#125;</span></span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Do<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>UN<span style="">&#125;</span>StrStr<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;;;&quot;</span> 
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> == <span style="color: #660066;">&quot;&quot;</span>
+        <span style="color: #660000;">$<span style="">&#123;</span>ExitDo<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>UN<span style="">&#125;</span>StrRep<span style="">&#125;</span></span> <span style="color: #660000;">$0</span>  <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;;;&quot;</span> <span style="color: #660066;">&quot;;&quot;</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Loop<span style="">&#125;</span></span>
+&#160;
+    <span style="color: #666666; font-style: italic;">; Remove a leading or trailing semicolon from EnvVar</span>
+    <span style="color: #000099;">StrCpy</span>  <span style="color: #660000;">$7</span>  <span style="color: #660000;">$0</span> <span style="">1</span> <span style="">0</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> == <span style="color: #660066;">&quot;;&quot;</span>
+      <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span>  <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;&quot;</span> <span style="">1</span>                   <span style="color: #666666; font-style: italic;">; Change ';&lt;EnvVar&gt;' to '&lt;EnvVar&gt;'</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+    <span style="color: #000099;">StrLen</span> <span style="color: #660000;">$6</span> <span style="color: #660000;">$0</span>
+    <span style="color: #000099;">IntOp</span> <span style="color: #660000;">$6</span> <span style="color: #660000;">$6</span> - <span style="">1</span>
+    <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$7</span>  <span style="color: #660000;">$0</span> <span style="">1</span> <span style="color: #660000;">$6</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> == <span style="color: #660066;">&quot;;&quot;</span>
+     <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span>  <span style="color: #660000;">$0</span> <span style="color: #660000;">$6</span>                      <span style="color: #666666; font-style: italic;">; Change ';&lt;EnvVar&gt;' to '&lt;EnvVar&gt;'</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+    <span style="color: #666666; font-style: italic;">; DetailPrint &quot;Scrubbed $1: [$0]&quot;     &#160;; Uncomment to debug</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #666666; font-style: italic;">/* Step 3. Remove all instances of the target path/string (even if &quot;A&quot; or &quot;P&quot;)
+     $6 = bool flag (1 = found and removed PathString)
+     $7 = a string (e.g. path) delimited by semicolon(s)
+     $8 = entry counter starting at 0
+     $9 = copy of $0
+     $R0 = tempChar      */</span>
+&#160;
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$5</span>&#160;!= <span style="color: #660066;">&quot;&quot;</span>                           <span style="color: #666666; font-style: italic;">; If EnvVar is not empty ...</span>
+    <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$9</span> <span style="color: #660000;">$0</span>
+    <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span> <span style="color: #660066;">&quot;&quot;</span>
+    <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$8</span> <span style="">0</span>
+    <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$6</span> <span style="">0</span>
+&#160;
+    <span style="color: #660000;">$<span style="">&#123;</span>Do<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>$<span style="">&#123;</span>UN<span style="">&#125;</span>StrTok<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> <span style="color: #660000;">$9</span> <span style="color: #660066;">&quot;;&quot;</span> <span style="color: #660000;">$8</span> <span style="color: #660066;">&quot;0&quot;</span>      <span style="color: #666666; font-style: italic;">; $7 = next entry, $8 = entry counter</span>
+&#160;
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> == <span style="color: #660066;">&quot;&quot;</span>                       <span style="color: #666666; font-style: italic;">; If we've run out of entries,</span>
+        <span style="color: #660000;">$<span style="">&#123;</span>ExitDo<span style="">&#125;</span></span>                          <span style="color: #666666; font-style: italic;">;    were done</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>                             <span style="color: #666666; font-style: italic;">;</span>
+&#160;
+      <span style="color: #666666; font-style: italic;">; Remove leading and trailing spaces from this entry (critical step for Action=Remove)</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>Do<span style="">&#125;</span></span>
+        <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$R0</span>  <span style="color: #660000;">$7</span> <span style="">1</span>
+        <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$R0</span>&#160;!= <span style="color: #660066;">&quot; &quot;</span>
+          <span style="color: #660000;">$<span style="">&#123;</span>ExitDo<span style="">&#125;</span></span>
+        <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+        <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$7</span>   <span style="color: #660000;">$7</span> <span style="color: #660066;">&quot;&quot;</span> <span style="">1</span>                <span style="color: #666666; font-style: italic;">;  Remove leading space</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>Loop<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>Do<span style="">&#125;</span></span>
+        <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$R0</span>  <span style="color: #660000;">$7</span> <span style="">1</span> -<span style="">1</span>
+        <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$R0</span>&#160;!= <span style="color: #660066;">&quot; &quot;</span>
+          <span style="color: #660000;">$<span style="">&#123;</span>ExitDo<span style="">&#125;</span></span>
+        <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+        <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$7</span>   <span style="color: #660000;">$7</span> -<span style="">1</span>                  <span style="color: #666666; font-style: italic;">;  Remove trailing space</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>Loop<span style="">&#125;</span></span>
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$7</span> == <span style="color: #660000;">$4</span>                       <span style="color: #666666; font-style: italic;">; If string matches, remove it by not appending it</span>
+        <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$6</span> <span style="">1</span>                        <span style="color: #666666; font-style: italic;">; Set 'found' flag</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>ElseIf<span style="">&#125;</span></span> <span style="color: #660000;">$7</span>&#160;!= <span style="color: #660000;">$4</span>                   <span style="color: #666666; font-style: italic;">; If string does NOT match</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>AndIf<span style="">&#125;</span></span>  <span style="color: #660000;">$0</span> == <span style="color: #660066;">&quot;&quot;</span>                   <span style="color: #666666; font-style: italic;">;    and the 1st string being added to $0,</span>
+        <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span> <span style="color: #660000;">$7</span>                       <span style="color: #666666; font-style: italic;">;    copy it to $0 without a prepended semicolon</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>ElseIf<span style="">&#125;</span></span> <span style="color: #660000;">$7</span>&#160;!= <span style="color: #660000;">$4</span>                   <span style="color: #666666; font-style: italic;">; If string does NOT match</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>AndIf<span style="">&#125;</span></span>  <span style="color: #660000;">$0</span>&#160;!= <span style="color: #660066;">&quot;&quot;</span>                   <span style="color: #666666; font-style: italic;">;    and this is NOT the 1st string to be added to $0,</span>
+        <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span> <span style="color: #660000;">$0</span><span style="color: #666666; font-style: italic;">;$7                   &#160;;    append path to $0 with a prepended semicolon</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>                             <span style="color: #666666; font-style: italic;">;</span>
+&#160;
+      <span style="color: #000099;">IntOp</span> <span style="color: #660000;">$8</span> <span style="color: #660000;">$8</span> + <span style="">1</span>                      <span style="color: #666666; font-style: italic;">; Bump counter</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Loop<span style="">&#125;</span></span>                                <span style="color: #666666; font-style: italic;">; Check for duplicates until we run out of paths</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #666666; font-style: italic;">; Step 4:  Perform the requested Action</span>
+  <span style="color: #666666; font-style: italic;">;</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$2</span>&#160;!= <span style="color: #660066;">&quot;R&quot;</span>                          <span style="color: #666666; font-style: italic;">; If Append or Prepend</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$6</span> == <span style="">1</span>                          <span style="color: #666666; font-style: italic;">; And if we found the target</span>
+      <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;Target is already present in $1. It will be removed and&quot;</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+    <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> == <span style="color: #660066;">&quot;&quot;</span>                         <span style="color: #666666; font-style: italic;">; If EnvVar is (now) empty</span>
+      <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span> <span style="color: #660000;">$4</span>                         <span style="color: #666666; font-style: italic;">;   just copy PathString to EnvVar</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$6</span> == <span style="">0</span>                        <span style="color: #666666; font-style: italic;">; If found flag is either 0</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>OrIf<span style="">&#125;</span></span> <span style="color: #660000;">$6</span> == <span style="color: #660066;">&quot;&quot;</span>                     <span style="color: #666666; font-style: italic;">; or blank (if EnvVarName is empty)</span>
+        <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;$1 was empty and has been updated with the target&quot;</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+    <span style="color: #660000;">$<span style="">&#123;</span>ElseIf<span style="">&#125;</span></span> <span style="color: #660000;">$2</span> == <span style="color: #660066;">&quot;A&quot;</span>                    <span style="color: #666666; font-style: italic;">;  If Append (and EnvVar is not empty),</span>
+      <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span> <span style="color: #660000;">$0</span><span style="color: #666666; font-style: italic;">;$4                     &#160;;     append PathString</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$6</span> == <span style="">1</span>
+        <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;appended to $1&quot;</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>Else<span style="">&#125;</span></span>
+        <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;Target was appended to $1&quot;</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Else<span style="">&#125;</span></span>                                <span style="color: #666666; font-style: italic;">;  If Prepend (and EnvVar is not empty),</span>
+      <span style="color: #000099;">StrCpy</span> <span style="color: #660000;">$0</span> <span style="color: #660000;">$4</span><span style="color: #666666; font-style: italic;">;$0                     &#160;;     prepend PathString</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$6</span> == <span style="">1</span>
+        <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;prepended to $1&quot;</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>Else<span style="">&#125;</span></span>
+        <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;Target was prepended to $1&quot;</span>
+      <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+    <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+  <span style="color: #660000;">$<span style="">&#123;</span>Else<span style="">&#125;</span></span>                                  <span style="color: #666666; font-style: italic;">; If Action = Remove</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$6</span> == <span style="">1</span>                          <span style="color: #666666; font-style: italic;">;   and we found the target</span>
+      <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;Target was found and removed from $1&quot;</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>Else<span style="">&#125;</span></span>
+      <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;Target was NOT found in $1 (nothing to remove)&quot;</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+    <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$0</span> == <span style="color: #660066;">&quot;&quot;</span>
+      <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;$1 is now empty&quot;</span>
+    <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #666666; font-style: italic;">; Step 5:  Update the registry at RegLoc with the updated EnvVar and announce the change</span>
+  <span style="color: #666666; font-style: italic;">;</span>
+  <span style="color: #000099;">ClearErrors</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>If<span style="">&#125;</span></span> <span style="color: #660000;">$3</span>  == <span style="color: #ff6600;">HKLM</span>
+    <span style="color: #000099;">WriteRegExpandStr</span> <span style="color: #660000;">$<span style="">&#123;</span>hklm_all_users<span style="">&#125;</span></span> <span style="color: #660000;">$1</span> <span style="color: #660000;">$0</span>     <span style="color: #666666; font-style: italic;">; Write it in all users section</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>ElseIf<span style="">&#125;</span></span> <span style="color: #660000;">$3</span> == <span style="color: #ff6600;">HKCU</span>
+    <span style="color: #000099;">WriteRegExpandStr</span> <span style="color: #660000;">$<span style="">&#123;</span>hkcu_current_user<span style="">&#125;</span></span> <span style="color: #660000;">$1</span> <span style="color: #660000;">$0</span>  <span style="color: #666666; font-style: italic;">; Write it to current user section</span>
+  <span style="color: #660000;">$<span style="">&#123;</span>EndIf<span style="">&#125;</span></span>
+&#160;
+  <span style="color: #000099;">IfErrors</span> <span style="">0</span> +<span style="">4</span>
+    <span style="color: #000099;">MessageBox</span> <span style="color: #ff6600;">MB_OK</span>|MB_ICONEXCLAMATION <span style="color: #660066;">&quot;Could not write updated $1 to $3&quot;</span>
+    <span style="color: #000099;">DetailPrint</span> <span style="color: #660066;">&quot;Could not write updated $1 to $3&quot;</span>
+    <span style="color: #000099;">Goto</span> EnvVarUpdate_Restore_Vars
+&#160;
+  <span style="color: #666666; font-style: italic;">; &quot;Export&quot; our change</span>
+  <span style="color: #000099;">SendMessage</span> <span style="color: #660000;">$<span style="">&#123;</span>HWND_BROADCAST<span style="">&#125;</span> $<span style="">&#123;</span>WM_WININICHANGE<span style="">&#125;</span></span> <span style="">0</span> <span style="color: #660066;">&quot;STR:Environment&quot;</span> <span style="color: #ff6600;">/TIMEOUT</span>=<span style="">5000</span>
+&#160;
+  EnvVarUpdate_Restore_Vars:
+  <span style="color: #666666; font-style: italic;">;</span>
+  <span style="color: #666666; font-style: italic;">; Restore the user's variables and return ResultVar</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$R0</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$9</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$8</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$7</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$6</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$5</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$4</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$3</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$2</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$1</span>
+  <span style="color: #000099;">Push</span> <span style="color: #660000;">$0</span>  <span style="color: #666666; font-style: italic;">; Push my $0 (ResultVar)</span>
+  <span style="color: #000099;">Exch</span>
+  <span style="color: #000099;">Pop</span> <span style="color: #660000;">$0</span>   <span style="color: #666666; font-style: italic;">; Restore his $0</span>
+&#160;
+<span style="color: #000066;">FunctionEnd</span>
+&#160;
+<span style="color: #000066; font-weight:bold;">!macroend</span>   <span style="color: #666666; font-style: italic;">; EnvVarUpdate UN</span>
+<span style="color: #000066; font-weight:bold;">!insertmacro</span> EnvVarUpdate <span style="color: #660066;">&quot;&quot;</span>
+<span style="color: #000066; font-weight:bold;">!insertmacro</span> EnvVarUpdate <span style="color: #660066;">&quot;un.&quot;</span>
+<span style="color: #666666; font-style: italic;">;----------------------------------- EnvVarUpdate end----------------------------------------</span>
+&#160;
+<span style="color: #000066; font-weight:bold;">!verbose</span> <span style="color: #000099;">pop</span>
+<span style="color: #000066; font-weight:bold;">!endif</span></pre>
+
+<!-- 
+NewPP limit report
+Cached time: 20220104231530
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.129 seconds
+Real time usage: 0.145 seconds
+Preprocessor visited node count: 100/1000000
+Preprocessor generated node count: 234/1000000
+Post‐expand include size: 183/2097152 bytes
+Template argument size: 28/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 47685/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   16.845      1 Template:PageAuthor
+100.00%   16.845      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key n22049_wiki-wiki_:pcache:idhash:4281-0!canonical and timestamp 20220104231530 and revision id 25551
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="https://nsis.sourceforge.io/mediawiki/index.php?title=Environmental_Variables:_append,_prepend,_and_remove_entries&amp;oldid=25551">https://nsis.sourceforge.io/mediawiki/index.php?title=Environmental_Variables:_append,_prepend,_and_remove_entries&amp;oldid=25551</a>"</div>
+	    <div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/Category:Disk,_Path_%26_File_Functions" title="Category:Disk, Path &amp; File Functions">Disk, Path &amp; File Functions</a></li><li><a href="/Category:System_Related_Functions" title="Category:System Related Functions">System Related Functions</a></li></ul></div></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="/Environmental_Variables:_append,_prepend,_and_remove_entries">Page</a></li><li id="ca-talk"
+	       	       ><a href="/Talk:Environmental_Variables:_append,_prepend,_and_remove_entries">Comment</a></li><li id="ca-viewsource"
+	       	       ><a href="/mediawiki/index.php?title=Environmental_Variables:_append,_prepend,_and_remove_entries&amp;action=edit">View source</a></li><li id="ca-history"
+	       	       ><a href="/mediawiki/index.php?title=Environmental_Variables:_append,_prepend,_and_remove_entries&amp;action=history">History</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-personal">
+	  <h5>Personal tools</h5>
+	  <div class="pBody">
+	    <ul>
+				<li id="pt-createaccount"><a href="/mediawiki/index.php?title=Special:CreateAccount&amp;returnto=Environmental+Variables%3A+append%2C+prepend%2C+and+remove+entries">Create account</a></li>
+				<li id="pt-login"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=Environmental+Variables%3A+append%2C+prepend%2C+and+remove+entries">Log in</a></li>
+	    </ul>
+	  </div>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-WebsiteNavigation'>
+	  <h5>Website navigation</h5>
+	  <div class='pBody'>
+	    <ul><li id="n-mainpage"><a href="/Main_Page">Main Page</a></li><li id="n-news"><a href="/News">News</a></li><li id="n-features"><a href="/Features">Features</a><ul><li id="n-screenshots"><a href="/Screenshots">Screenshots</a></li><li id="n-NSIS2"><a href="/NSIS_2">NSIS 2</a></li><li id="n-license"><a href="/License">License</a></li></ul></li><li id="n-documentation"><a href="https://nsis.sourceforge.io/Docs">Documentation</a></li><li id="n-support"><a href="/Support">Support</a><ul><li id="n-community"><a href="/Community">Community</a></li><li id="n-FAQ"><a href="/FAQ">FAQ</a></li><li id="n-bugreports"><a href="/Bug_Reports">Bug Reports</a></li><li id="n-requests"><a href="/Requests">Requests</a></li></ul></li><li id="n-developercenter"><a href="/Developer_Center">Developer Center</a><ul><li id="n-plugins"><a href="/Category:Plugins">Plug-ins</a></li><li id="n-tutorials"><a href="/Category:Tutorials">Tutorials</a></li><li id="n-examples"><a href="/Category:Code_Examples">Examples</a></li></ul></li><li id="n-download"><a href="/Download">Download</a><ul><li id="n-specialbuilds"><a href="/Special_Builds">Special Builds</a></li><li id="n-developmentfiles"><a href="/Development_Files">Development Files</a></li></ul></li><li id="n-users"><a href="/Users">Users</a></li><li id="n-contact"><a href="/Contact">Contact</a></li><li id="n-Wiki-Information"><a href="/Wiki_Information">Wiki Information</a></li></ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div class="pBody">
+      <!-- Google CSE Search Box Begins  -->
+      <script>
+        (function() {
+          var cx = '013152803417979916569:ziywxtw6b6m';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:searchbox-only></gcse:searchbox-only>
+      <!-- Google CSE Search Box Ends -->
+	  </div>
+	</div>
+
+	<div class="portlet">
+	  <h5>donate</h5>
+	  <div class="pBody" style="text-align: center; padding: 3px">
+	    <a href="https://sourceforge.net/donate/index.php?group_id=22049"><img src="https://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" /> </a>
+	  </div>
+	</div>
+
+	<div class="portlet">
+	  <h5>ads</h5>
+	  <div class="pBody">
+	    <script type="text/javascript"><!--
+google_ad_client = "pub-6164632244757680";
+/* NSIS Wiki */
+google_ad_slot = "4219930685";
+google_ad_width = 120;
+google_ad_height = 240;
+	    //--></script>
+	    <script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+	  </div>
+	</div>
+
+	      </div><!-- end of the left (by default at least) column -->
+<!--      <div class="visualClear"></div> -->
+      <div id="footer">
+        <div id="f-poweredbyico"><a href="https://sourceforge.net/projects/nsis/"><img src="https://sflogo.sourceforge.net/sflogo.php?group_id=22049&type=1" border="0" alt="SourceForge.net" /></a>&nbsp;<a href="//www.mediawiki.org/"><img src="/mediawiki/resources/assets/poweredby_mediawiki_88x31.png" srcset="/mediawiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawiki/resources/assets/poweredby_mediawiki_176x62.png 2x" height="31" width="88" alt="Powered by MediaWiki" /></a></div>        <ul id="f-list">
+          <li id="f-lastmod"> This page was last edited on 10 March 2020, at 22:21.<br/></li>          <!--          <li id="f-about"><a href="/NSIS_Wiki:About" title="NSIS Wiki:About">About NSIS Wiki</a>     </li> -->
+          <li id="f-disclaimer"><a href="/NSIS_Wiki:General_disclaimer" title="NSIS Wiki:General disclaimer">Disclaimers</a>     </li>        </ul>
+      </div>
+    </div>
+    <script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":211});});</script>  </body>
+</html>

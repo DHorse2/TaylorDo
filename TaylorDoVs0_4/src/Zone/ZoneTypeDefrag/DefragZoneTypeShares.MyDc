@@ -1,0 +1,22 @@
+# Script: DefragZoneTypeShares
+/* ------------------------- */
+/* Zone Shares */
+SetVariable(ZoneLabel,			"!ZoneLabelShares!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionShares!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeShares!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpShares!")
+SetVariable(ZoneGapSize,			"!ZoneGapSizeShares!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
+
+SetVariable(ZoneTypeSelect,'
+Shares:
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectShares.MyDc"!
+')
+
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectShares.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* ------------------------- */

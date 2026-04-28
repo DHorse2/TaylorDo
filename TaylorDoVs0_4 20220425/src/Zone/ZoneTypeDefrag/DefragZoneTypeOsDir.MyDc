@@ -1,0 +1,42 @@
+# Script: DefragZoneTypeOsDir
+/* ------------------------- */
+SetVariable(ZoneLabel,			"DIR") // "5"
+SetVariable(ZoneDescription, 		"Directories.")
+SetVariable(ZoneSizeMin,			"!ZoneSizeDir!")
+SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpDir!")
+SetVariable(ZoneGapSize, 			"!ZoneGapSizeDir!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionTypeOsDir.MyDc"!')
+
+SetVariable(ZoneTypeSelect,'
+Directories:
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDIR.MyDc"!
+')
+
+	!include "..\Zone\ZoneNoIncrementAdjust.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectOsDIR.MyDc"!
+
+	FileActions
+
+		!include "..\Gap\GapZoneCalc.MyDc"!
+ 		!include "..\Zone\ZoneListStatisticsAppend.MyDc"!
+		!include "..\Zone\ZoneStatisticsDetailReportAppend.MyDc"!
+
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionStart!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+
+		!include "..\ActionVerbs\ZoneDoActionTypeOsDir.MyDc"!
+
+		SetVariable(ZoneStepDescription, "!ZoneStepDescriptionFileActionEnd!")
+		!include "..\Display\DisplaySetZoneStep.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* Mft Method: MFT GAP HERE. */
+/* For fixed zone locations */
+SetVariable(LogBlock, 'Mft Zone: !MftZone! 
+Location: !MftLocation! 
+ Mft Gap: !MftGapSize!
+ ')
+#dgh@Z#  Appendlogfile("!LogFileName!", '!LogBlock!')
+/* MakeGap(MftGap, DoNotVacate) */
+/* ------------------------- */

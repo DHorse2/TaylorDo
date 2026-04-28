@@ -1,0 +1,5 @@
+# Script: ZoneListStatisticsAppend
+	
+	SetVariable(ZoneListByLine, '!ZoneListByLine!
+!ZoneStatisticsData!
+')

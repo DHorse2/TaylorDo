@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>MyDefrag is very slow, what speed can I expect?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Using-MyDefrag is very slow, what speed can I expect?"></A><h2>FAQ Using - MyDefrag is very slow, what speed can I expect?</h2></P>
+Defragmentation and optimization can take a long time, you will have to
+  be patient. In the top of the window you will see the current MyDefrag activity
+  and normally the program will be moving files at a furious rate, dozens of
+  files per second. Big files will take more time, obviously.
+  <p>
+
+  <ul>
+  <li> If your computer becomes unresponsive while running MyDefrag (especially the
+    MyDefrag display) then try changing the <a href="Settings-Slowdown.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Slowdown</b></a>
+    and/or <a href="Settings-ProcessPriority.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>ProcessPriority</b></a> settings in your "Settings.MyD"
+    file to make MyDefrag use less resources.<br>
+    <b>Note:</b> It is normal for your computer to be unresponsive while the $MFT
+    is being moved. This is caused by something inside Windows itself, not MyDefrag.
+  <li> Try turning off your virusscanner. Some virusscanners get exited and scan all
+    the files that MyDefrag is moving, even though MyDefrag does not execute or change
+    the files.
+  <li> MyDefrag can use a lot of memory, depending on the number of files on disk. If
+    your computer is low on memory then it will start swapping and this will make
+    MyDefrag extremely slow, possibly even stop altogether with a "memory full" message.
+    Stop as many programs as possible to free up memory.
+  <li> Try a reboot. Sometimes the Microsoft defragmentation API can become mysteriously
+    slow and take a minute to move even a small file. I don't know why, but usually a
+    reboot helps.
+  <li> Cleanup old stuff from your harddisk. MyDefrag can move files more efficiently
+    if there is plenty of free space available.
+  <li> If you run the program again and there has been a small change in a sorted zone,
+    for example a single file that was added or deleted, then all the files "above" that
+    file have to be moved. This is very inefficient as compared to sorting an unsorted
+    zone. On the display it may look like a small white piece is worming it's way up
+    through the zone, if visible at all.
+  <li> Screensavers are run by Windows with the "idle" process priority. If you have
+    programs running in the background then they can make the MyDefrag screensaver
+    very slow.
+  </ul>
+
+  It is impossible to predict how much running time a script will take. It depends
+  on things such as the optimization you have selected, the speed of your harddisk,
+  how big the files are, how much data is on the disk, how the files are currently placed,
+  and more.
+  Assuming a harddisk speed of 40 megabytes per second, then reading 100
+  gigabytes of data will take 100000 / 40 = 2500 seconds (42 minutes).
+  But MyDefrag has to do a lot more than just read the data, it also has to write
+  the data, and update the MFT/FAT. And it may have to move data out of the way
+  before it can place an item were it want's it to be. MyDefrag will do
+  things as efficiently as possible, with as little data movement as possible,
+  but it will take a long time nonetheless. If you are concerned about speed
+  then use the Daily script. It will produce good results in a minimum
+  amount of time.<p>
+
+  <b>Tip:</b> For more information about what the program is doing you can activate
+    one of the Debug settings in your
+    "C:\Program Files\MyDefrag v4.3.1\Scripts\Settings.MyD"
+    file. MyDefrag will then write lot's of information to the
+    "C:\Program Files\MyDefrag v4.3.1\MyDefrag.debuglog" file.
+    Please note that writing the debug logfile takes time, so it will make MyDefrag
+    slower.
+
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

@@ -1,0 +1,8 @@
+
+/* Descriptive Information so maybe */
+/* VolumeNamePrefix (IE. Person or company initials) not used. */
+/* "Xyz" */
+	SetVariable(VolumeNamePrefix,"Vol")
+
+/* Server name full is usually the server and computer combined. not used. */
+	SetVariable(ServerNameFull,"!VolumeNamePrefix!!ServerName!")

@@ -1,0 +1,34 @@
+# Script: VolumeStatisticsSummaryDisplay
+
+SetVariable(VolumeStatisticsSummary, '----------------------------------------------------------
+VOLUME SUMMARY: !VolumeLabel! !VolumeDescription!
+Volume mountpoint:          !MountPoint!
+Volume label:               !VolumeLabel!
+Volume name:                !VolumeName!
+Volume type:                !VolumeType!
+----------------------------------------------------------
+          Volume Size:       !VolumeSize! (!VolumeSizeG! gigabytes)
+          Volume Used:       !VolumeUsed! (!VolumeUsedG! gigabytes)
+          Volume Free:       !VolumeFree! (!VolumeFreeG! gigabytes)
+         
+     Volume Used Calc:       !VolumeUsedTotal! (!VolumeUsedTotalTemp!)
+      Volume Free Adj:       !VolumeFreeAdj!
+
+   Unfragmented Items:       !FILES200N!
+     Fragmented Items:       !FILES210N!
+
+    Unfragmented Data:       !FILES202N! bytes
+      Fragmented Data:       !FILES212N! bytes
+
+             All Gaps:       !GAP00N!
+             All gaps:       !GAP10N! bytes
+          Average gap:       !GAP13N! bytes
+           Median gap:       !GAP14N! bytes
+          Biggest gap:       !GAP15N! bytes
+
+             MFT Zone:       !MftZone! 
+             Location:       !MftLocation! 
+                 Size:       !MftSize! 
+            Gap slack:       !MftGapSlack!
+----------------------------------------------------------
+') 

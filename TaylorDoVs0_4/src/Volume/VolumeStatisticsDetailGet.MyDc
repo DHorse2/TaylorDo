@@ -1,0 +1,9 @@
+# Script: VolumeStatisticsDetailGet
+
+!include "..\Volume\VolumeStatisticsSummaryGet.MyDc"!
+
+# No Calculations needed.
+
+# Set the display text:
+# This currently includes the summary within it.
+!include "..\Volume\VolumeStatisticsDetailDisplay.MyDc"!

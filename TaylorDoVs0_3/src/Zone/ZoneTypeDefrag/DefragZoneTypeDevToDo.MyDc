@@ -1,0 +1,21 @@
+# Script: DefragZoneTypeDevToDo
+/* ------------------------- */
+/* Zone DevToDo */
+
+SetVariable(ZoneLabel,			"!ZoneLabelDevToDo!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionDevToDo!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpDevToDo!")
+SetVariable(ZoneGapSize,			"!ZoneGapSizeDevToDo!")
+
+SetVariable(ZoneTypeSelect,'
+Development and ToDo:
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectDevToDo.MyDc"!
+')
+
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectDevToDo.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* ------------------------- */

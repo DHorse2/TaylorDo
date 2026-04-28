@@ -1,0 +1,29 @@
+# Script: ZoneDoVolumeTotals
+
+/* Current total space used (by Zones and Gaps) */
+
+SetVariable(VolumeZoneUsed, GapUsed)
+AppendLogfile("!LogFileName!", "VolumeUsed: !VolumeZoneUsed! of !VolumeSize!")
+/* Percentage */
+SetVariable(VolumeZoneUsedPer, VolumeZoneUsed / VolumeSize * 100)
+AppendLogfile("!LogFileName!", "VolumeZoneUsedPer: !VolumeZoneUsedPer!")
+
+/* Current total of free space requested */
+
+SetVariable(VolumeFreeRequested, VolumeFreeRequested + GapRequested)
+AppendLogfile("!LogFileName!", "VolumeFreeRequested: !VolumeFreeRequested!")
+/* Percent. */
+SetVariable(VolumeFreeRequestedPer, VolumeFreeRequested / VolumeSize * 100)
+AppendLogfile("!LogFileName!", "VolumeFreeRequested: !VolumeFreeRequested!")
+
+/* Current total of free space used */
+
+SetVariable(VolumeFreeUsed, VolumeFreeUsed + GapActual)
+AppendLogfile("!LogFileName!", "VolumeFreeUsed: !ZoneFreeUsed!")
+/* Percent */
+SetVariable(VolumeFreeUsedPer, VolumeFreeUsed  / VolumeFree * 100)
+AppendLogfile("!LogFileName!", "VolumeFreePerUsed: !VolumeFreePerUsed!%")
+
+# DEBUG EXAMPLE: Debugging. Use of DebugMessage to troubleshoot Gap Calculation.
+/* SetVariable(DebugMessage, "GAP:Req !GapRequested!Rnd !GapRounded!Adj !GapAdjusted!Ava !GapAvailable!Cur !GapCurrent!Act !GapActual!") */
+/* Xinclude "..\..\DebugDisplayPause.MyDc"X */

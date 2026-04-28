@@ -1,0 +1,23 @@
+# Script: DisplaySetRun
+
+SetVariable(RunStepDescription,			"!RunStepDescription! !DashWord! !ScriptTitle!")
+SetVariable(SeverStepDescription,		"")
+SetVariable(VolumeStepDescription,		"")
+SetVariable(ZoneStepDescription,		"")
+SetVariable(ZoneStepDescription,		"")
+
+SetVariable(RunStepSummary,			"!RunStepSummary! !DashWord! !ScriptTitle!")
+SetVariable(SeverStepSummary,		"")
+SetVariable(VolumeStepSummary,		"")
+SetVariable(ZoneStepSummary,		"")
+SetVariable(ZoneStepSummary,		"")
+
+SetVariable(VolumeLabel,			'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
+SetVariable(VolumeLabelSelect,		'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
+SetVariable(VolumeStatisticsDetail, 	"")
+
+SetVariable(ZoneListByLine, 			"!RunWord! !StartWord!!PeriodWord!")
+SetVariable(ZoneStepByLine, 			"")
+
+!include "..\Display\BannerSet.MyDc"!
+pause(2)

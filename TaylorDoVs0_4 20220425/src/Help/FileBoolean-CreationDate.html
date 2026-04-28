@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>CreationDate</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileBoolean-CreationDate"></A><h2>FileBoolean - CreationDate</h2></P>
+Select all the items that were created
+  between the minimum time (first parameter) and the maximum time (second parameter).
+  If the first parameter is empty then the minimum time is the beginning of time.
+  If the second parameter is empty then the maximum time is infinity.<p>
+  <ul>
+  <li> The creation date can be newer than the last-changed date, for example when
+    a file was downloaded, or unpacked from an archive (such as zip or arj).
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>CreationDate(<a href="Scripts-DATETIME.html">DATETIME</a> , <a href="Scripts-DATETIME.html">DATETIME</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;all&nbsp;the&nbsp;items&nbsp;that&nbsp;were&nbsp;created&nbsp;less&nbsp;than&nbsp;10&nbsp;days&nbsp;ago.<br />
+&nbsp;&nbsp;CreationDate(10&nbsp;days&nbsp;ago,now)<br />
+FileActions<br />
+&nbsp;&nbsp;....<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

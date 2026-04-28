@@ -1,0 +1,389 @@
+# Script: SettingsRun
+# This script is part of the standard  disk configuration
+# Author: David G. Horsman (DBA MacroDM) (C) 2019
+# based on MyDefrag distribution.
+
+!include "..\Display\DisplaySetDateTimeRun.MyDc"!
+SetVariable(RunId,		"C:\MyDefragLogs\!RunDescription! !RunDateTime!")
+SetVariable(Heading,	"Initializing...")
+#dgh@Z#  Writelogfile("!RunId!", "!ZoneStatisticsData!")
+
+!include "..\Settings\SettingsSysProcessPriority.MyDc"!
+!include "..\Settings\SettingsSysExitIfTimeout.MyDc"!
+
+WindowSize(minimized) 
+!include "..\Display\DisplayDiskmapFlip.MyDc"!
+!include "..\Display\DisplayColors.MyDc"!
+# Mark: 9
+
+# Processes:
+	# This Process
+SetVariable(RunProcessID,ProcessID)
+
+	# Kill other instances
+	/* Kill other MyDefrag Instances. */
+	/* Oops! This commits suicide. */
+	/* 	RunProgram("..\pskill.exe", "-t MyDefrag.exe") */
+	/* Pause(10) */
+	
+	/* If another instance of MyDefrag is already running then exit. */
+	/* Oops again. I don't know if this cause the hidden instance */
+	/* to hang around after the run. */
+	/* Warning: <alt><Run><Exit> seems to hide the instance not end it. */
+	/* The task mananager may be needed. This is under investigation. */
+
+!include "..\Settings\SettingsSysOtherInstances.MyDc"!
+
+	# Debug Default 
+	# Debug(4)
+!include "..\Settings\SettingsSysDebugLevel.MyDc"!
+	
+	# StatusBar
+
+StatusBar(Status Path MouseOver)
+!include "..\Display\DisplayStatusBar.MyDc"!
+	
+	# Power management
+	/* SetScreenPowerSaver(off) */
+
+!include "..\Settings\SettingsSysPowerSaver.MyDc"!
+
+	# Window State
+	/* WindowSize(restore) */
+
+!include "..\Settings\SettingsSysWindowSize.MyDc"!
+
+/* ------------------------- */
+# Script Directory Location:
+!include "..\Settings\SettingsSysScriptDirectoryLocation.MyDc"!
+
+/* ------------------------- */
+# DISPLAY - What text is displayed in Titlebar, data fields and reports.
+
+!include "..\Settings\SettingsRunZoneStepDescriptions.MyDc"!
+
+/* Progress Display */
+SetVariable(ZoneListByLine, 	"Volume start.")
+SetVariable(ZoneStepByLine, 	"")
+
+/* There is 6 digit decimal precision so by using */
+/* 1Mb the full number is displayed in a much more */
+/* readable form. */
+
+# Sector 512, Cluster/Phy sector 4096
+# ToDo Display shows Physical Sectors, not bytes or percent.
+# ToDo Reporting needs adjustment.
+
+# Use the map units.
+SetVariable(DisplayUnitDivisor, 	1) 
+// a guess -1. Much more readable but not using the same units as the map.
+# SetVariable(DisplayUnitDivisor, 	4097) 
+# SetVariable(DisplayUnitDivisor, 	2049) // a guess -1. (I checked later)
+# SetVariable(DisplayUnitDivisor, 	1000000) // 1MB.
+
+/* ------------------------- */
+# SERVER INFORMATION
+
+	/* ServerName (IE. Computer name or number.) not used. */
+	/* System99 */
+		SetVariable(ServerName,"ThisPc")
+
+		!include "..\Settings\SettingsSysServerNames.MyDc"!
+	
+	/* Descriptive Information so maybe */
+	/* VolumeNamePrefix (IE. Person or company initials) not used. */
+	/* "Xyz" */
+		SetVariable(VolumeNamePrefix,"ThisVolume")
+
+		!include "..\Settings\SettingsSysVolumeNamePrefix.MyDc"!
+
+	/* Server name full is usually the server and computer combined. not used. */
+
+		SetVariable(ServerNameFull,"!VolumeNamePrefix!!ServerName!")
+	
+	!include "..\Display\DisplaySetServer.MyDc"!
+
+/* ------------------------- */
+# VOLUMES
+/* ------------------------- */
+
+	!include "..\Volume\VolumeDoCurrentClear.MyDc"!
+	  
+	SetVariable(VolumeLabel,		"NotSet")
+	SetVariable(VolumeLabelSelect,	"NotSet")
+	SetVariable(VolumeDescription,	"")
+	SetVariable(VolumeUsedTotal,	0)
+	Title("")
+
+	SetVariable(ZoneStepDescription,"Initializing run...")
+	!include "..\Display\BannerSet.MyDc"!
+
+/* ------------------------- */
+# VOLUME TYPES
+
+	/* Volumes */
+	/* . */
+	/* Only those were fully implemented: */
+	/* Sys */
+	/* Dev */
+	/* . */
+	/* Common types of volumes: */
+	/* Data */
+	/* Archive */
+	/* . */
+	/* Other historical volumes: */
+	/* Test */
+	/* Live */
+	/* Server */
+	/* Client */
+	/* SysUtils */
+	/* . */
+
+# IMPORTANT: VOLUME NAME: SET YOUR:
+	/* VOLUME NAMES IN SettingsYours\SettingsYoursVolumeNames.MyDc */
+	/* 		or    			*/
+	/* VOLUME NAME (one only for override) in SettingsYours\SettingsYoursVolume.MyDc */
+	/* 		or here also 	*/
+	SetVariable(VolumeSys,"!VolumeNamePrefix!Sys")
+	SetVariable(VolumeDev,"!VolumeNamePrefix!Dev")
+
+	/* SetVariable(VolumeSys,"C:") */
+	/* SetVariable(VolumeDev,"E:") */
+
+	/* These are for dedicated disks. */
+	/* So it means JUST Data or JUST Archives. */
+
+	SetVariable(VolumeData,"!VolumeNamePrefix!Data")
+	SetVariable(VolumeArchive,"!VolumeNamePrefix!Archive")
+	
+	!include "..\Settings\SettingsYours\SettingsYoursSysVolumeNames.MyDc"!
+
+/* ------------------------- */
+# OS Disk Usage.
+/* Percentage of disk used by OS */
+
+	SetVariable(OsPer, 0.18)
+
+	     SetVariable(ZoneCountOs, 5)
+
+       SetVariable(ZoneCountType, 0) // not used
+      SetVariable(ZoneCountVolume, ZoneCountOs + ZoneCountType)
+
+	    SetVariable(ZoneCountSys, 2)
+	    SetVariable(ZoneCountDev, 7)
+
+	   SetVariable(ZoneCountData, 0)
+	SetVariable(ZoneCountArchive, 0)
+	
+	/* SetVariable(GapCalc, VolumeFreeAdj * ZoneAdjRoundUp) */
+
+/* ------------------------- */
+# ZONE TYPES. 
+/* ------------------------- */
+	/* Type Labels, Descriptions, Gaps and Rounding. */
+	/* Load the Zone Definitions */
+	/* These are file categories basically */
+	/* and are maintained in a single file */
+	/* for ease of maintenance. Here: */
+	
+	!include "..\Settings\SettingsSysZoneNames.MyDc"!
+
+/* ------------------------- */
+# GAPS
+	# TEST (FAILED!!!) NO BOOLEAN LOGIC AVAILABLE.
+	SetVariable(FlagDoNotVacate, 0)
+ 
+/* ------------------------- */
+# ZONE
+	SetVariable(ZoneNoCurrent, 			0)
+	SetVariable(ZoneNoCurrentAdjust, 	0) 
+	SetVariable(ZoneNoDisplay,			0) 
+
+	SetVariable(ZoneListByLine, 		"!VolumeWordCaps! !VolumeLabel! !StartedWord!!PeiordWord!
+")
+	SetVariable(ZoneStepByLine, 		"!InitializeWord!!PeiordWord!
+")
+	SetVariable(ZoneStatisticsDetail, 	"")
+
+/* ------------------------- */
+# ZONE FILE STEP (ACTIONS)
+	/* Nothing to set here */
+
+/* ------------------------- */
+# BLOB SIZE
+
+	# Size 10MB
+	SetVariable(BlobFileSize, 10000000)
+
+/* ------------------------- */
+# SKIP BLOCK
+ 
+/* (important for run efficiency.) */
+/* FILES: */
+/* Day Files:	10 */
+/* Weekly:		10 */
+/* Monthly:		500 */
+/* Yearly:		1M */
+
+	# 100 Files - moved most blocks 
+	#  10 Files - 20211105 (error - not done) 
+	# 10 Files - (20211106) - Current
+	SetVariable(SkipBlockFilesDay,		1)
+	# 5 Files - (20211201)
+	SetVariable(SkipBlockFilesWeek,		5)
+	# 100 - 10 20211201
+	SetVariable(SkipBlockFilesMonth,	10) // 500
+	SetVariable(SkipBlockFilesYear,		1000000)
+
+	/* Current: */
+	SetVariable(SkipBlockFiles,"!SkipBlockFilesMonth!")
+
+/* BYTES: */
+/* Day Bytes:	1MB */
+/* Week Bytes:	1MB */
+/* Month Bytes:	500MB */
+/* Year Bytes:	5GB */
+
+	 # 50 MB Moved most existing blocks 
+	 # 5 MB 20211105 (not done)
+	 # 1 MB 20211105 - Current
+	 # 100K - 20211201
+	SetVariable(SkipBlockBytesDay,		100000)
+	SetVariable(SkipBlockBytesWeek,		100000)
+	SetVariable(SkipBlockBytesMonth,	100000000)
+	#  500000000 0.5GB
+	SetVariable(SkipBlockBytesYear,		5000000000)
+
+	/* Current: */
+	SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
+
+/* ------------------------- */
+# ZONE LOCATION METHODS:
+
+# No 1) Standard. You can ignore this section
+	/* Gaps between zones are a percentage of */
+	/* free space auto adjusted to pack the used */
+	/* space closely together and for performance. */
+	
+	/* The calculation will clear the Gap */
+	/* and RoundUp to the fixed value present */
+	
+	SetVariable(ZoneMethodStd, 1)
+
+/* The following are NOT FULLY IMPLEMENTED OR TESTED */
+# No 2) Mft. Relative to its location.
+	SetVariable(ZoneMethodMft, (0-1))
+
+# No 3) Os. Percentages are AFTER OsMftDir Space Used.
+	SetVariable(ZoneMethodOs, (0-1))
+
+# No 4) Orginal Mft/Os 1-5.
+	SetVariable(ZoneMethodOrginal, (0-1))
+
+# No 5) FIXED ZONES if you used them.
+	
+	SetVariable(ZoneMethodFixed, (0-1))
+	SetVariable(ZoneMethodFixedPer, (0-1))
+
+	/* Not recommended */
+	/* However doing all calcs is informative regarding what */
+	/* Types of Volume data (Zones) exist. */
+	
+	/* Your FIXED calculation method, this can be: */
+	SetVariable(ZoneMethodFixedVariantPer, (0-1))
+	
+	/* 1) Percentage. */
+		/* So when it is 1 or On. */
+		/* Not great but easy to use. */
+		 
+	/* 2) Fixed volume location. */
+		/* When 0 or Off it is a volume location. */
+		/* You will have to change: */
+		/* file item xxxxxxxxx??? */
+	
+	/* FIXED VALUES: */
+		/* SetVariable(ZoneMethodFixed, 1) */
+	
+		# Setting the following to a percentage or number:
+		/* OS */
+	    SetVariable(ZoneOsBoot, 0) // 1
+	    SetVariable(ZoneOsProgramHints, 0) // 2
+	    SetVariable(ZoneOsPrograms, 0) // 3
+	    
+	    /* MFT */
+	    SetVariable(ZoneMft, 0) // Volume dependent
+	    SetVariable(ZoneMftDir, 0) // Volume dependent
+	
+		/* Volume Sys */
+	    # Os 3
+	    # Mft + 2
+	    SetVariable(ZoneSysRegular, 0) // 5
+	    SetVariable(ZoneDevSpaceHog, 0) // 6
+	
+		/* Volume Dev */
+	    # Os 3
+	    SetVariable(ZoneDevDevToDo, 0) // 4
+	    SetVariable(ZoneDevIdeScripts, 0) // 5
+	    SetVariable(ZoneDevLinksCorp, 0) // 6
+	    SetVariable(ZoneDevPeople, 0) // 7
+	    # Mft + 2
+	    SetVariable(ZoneDevShares, 0) // 10
+	    SetVariable(ZoneDevSystemOtherData, 0) // 11
+	    SetVariable(ZoneDevReference, 0) // 12
+	    SetVariable(ZoneDevBlobsArchives, 0) // 13
+	
+		/* Volume Archive not used currently */
+		/* Volume Data not used currently */
+
+/* ------------------------- */
+# LOGGING:
+/* ------------------------- */
+
+	# Log File Name:
+	SetVariable(LogFileName,"Defrag !VolumeStepDescription! !Date!_!Time!")
+	SetVariable(LogFileZoneName,"Defrag !VolumeStepDescription! !ZoneStepDescription! !Date!_!Time!")
+	
+	#SetVariable(LogFileName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! !Date!_!Time!")
+	#SetVariable(LogFileZoneName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! !ZoneStepDescription! !Date!_!Time!")
+	/* SetVariable(LogFileName,"..\ScriptsLogs\!MdmMyDefrag! !Date!_!Time!.log") */
+	/* SetVariable(LogFileName,"!ScriptDir!ScriptsLogs\!MdmMyDefrag! !Date!_!Time!.log") */
+	/* SetVariable(LogFileName,"Defrag!Date!_!Time!.txt") */
+	/* SetVariable(LogFileName,"$ z ScriptsLogs\Defrag!Date!_!Time!.txt") */
+	
+	SetVariable(VolumeStatisticsSummary, "Not ready")
+	SetVariable(VolumeStatisticsDetail, "Not ready")
+
+/* ------------------------- */
+# OVERRIDES
+/* ------------------------- */
+
+	# YOUR SETTINGS Volume overrides:
+	!include "..\Settings\SettingsYours\SettingsYoursRun.MyDc"!
+
+/* ------------------------- */
+# Create Run Log:
+
+/* Write the header to the logfile. */
+	!include "..\Display\BannerSet.MyDc"!
+
+	#dgh@Z#  Writelogfile("!LogFileName!", "Log File: !LogFileName! !StartedWord!!PeiordWord!")
+	!include "..\Display\BannerLog.MyDc"!
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+
+/* ------------------------- */
+/* Script Information */
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!Description! !StartedWord!!ColondWord! !Date! !Time!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptWordCaps!:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptTitle!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptWordCaps! Directory:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!ScriptDir!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "Log File:")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!LogFileName!")
+	#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+
+/* ------------------------- */
+# Run Preprocessing Do Before.
+!include "..\Settings\SettingsRu$ DoBefore.MyDc"!

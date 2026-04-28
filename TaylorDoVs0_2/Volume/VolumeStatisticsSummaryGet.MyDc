@@ -1,0 +1,17 @@
+# Script: VolumeStatisticsSummaryGet
+# Set Volume summary stats:
+
+# Cluster, Sector, Block adjust for display.
+# Bytes per cluster is volume specific.
+
+SetVariable(DisplayUnitDivisorCurrent,   DisplayUnitDivisor * BytesPerCluster -1)	
+
+SetVariable(VolumeSizeTemp, VolumeSize / DisplayUnitDivisorCurrent)
+SetVariable(VolumeUsedTemp, VolumeUsed / DisplayUnitDivisorCurrent)
+SetVariable(VolumeFreeTemp, VolumeFree / DisplayUnitDivisorCurrent)
+
+SetVariable(VolumeUsedTotalTemp, VolumeFree / DisplayUnitDivisorCurrent)
+SetVariable(VolumeFreeTemp, VolumeFree / DisplayUnitDivisorCurrent)
+
+# Set the display text:
+!include "..\..\Volume\VolumeStatisticsSummaryDisplay.MyDc"!

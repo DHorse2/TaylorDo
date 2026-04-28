@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Macros</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Scripts-Macros"></A><h2>Scripts - Macros</h2></P>
+Macros are constants that contain a string. They are defined
+  outside MyDefrag and can be used to pass anything into a script. MyDefrag will
+  load a script from disk into memory, look in the script for strings enclosed in
+  exclamation marks and replace them (including the exclamation marks) with the value
+  of the macro, and will then execute the script. Macros can therefore
+  contain literal script code, and anything else such as strings or numbers.<p>
+
+  There are 2 ways to define macros for MyDefrag. The first is with the
+  "-m" commandline parameter, see the "Commandline" chapter on the
+  <a href="Manual-Scripts.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Scripts</b></a> manual page. The second way is with the
+  Windows environment settings. All environment settings are automatically
+  loaded by MyDefrag as a macro. Environment strings can be manipulated with the
+  Windows "set" command (enter "set" in a Command Prompt window) or via "Control Panel ->
+  System -> Advanced -> Environment Variables". Enviroment strings are commonly
+  used to define permanent MyDefrag macros used by many scripts, the "-m"
+  commandline option is more useful for macros that need to be changed per script.
+
+  <ul>
+  <li> Unknown or undefined macros will not be replaced and will usually generate a
+    syntax error. This is by design, so you will get a warning when you forget
+    to start a script with a macro.
+  <li> Macros may be nested, that is, the value of a macro may contain another
+    macro.
+  <li> There are no limits to the size, the number, or the content of macros.
+  <li> Macros that are specified with the "-m" commandline parameter will overrule
+    (replace) the environment macros.
+  <li> It is possible to define a variable (see <a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a>)
+    with the same name as a macro. Please note that macros are replaced immediately
+    after loading a script and before the script is executed, so defining a variable
+    will not alter the behavior of the macro.
+  </ul>
+  <p>
+  <p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;This&nbsp;commandline&nbsp;defines&nbsp;a&nbsp;macro&nbsp;called&nbsp;"WHENFINISHED":<br />
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyDefrag.exe&nbsp;-m&nbsp;"WHENFINISHED=exit"<br />
+<br />
+#&nbsp;The&nbsp;macro&nbsp;is&nbsp;used&nbsp;in&nbsp;a&nbsp;script&nbsp;by&nbsp;enclosing&nbsp;it's&nbsp;name&nbsp;with&nbsp;exclamation&nbsp;marks:<br />
+WhenFinished(!WHENFINISHED!)</code></td></tr></table></center><p><h2>The "!include PATH!" macro</h2>
+MyDefrag can use (include) the contents of another file as if it is part of the
+script. When MyDefrag encounters "!include PATH!" in a script then it will replace
+it (including the exclamation marks) by the contents of the file specified
+by PATH. The PATH is handled exactly the same as the parameter of the
+<a href="Settings-RunScript.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>RunScript</b></a> command.
+
+<p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;The&nbsp;"snippet.txt"&nbsp;file&nbsp;contains&nbsp;a&nbsp;big&nbsp;fileboolean:<br />
+FileSelect<br />
+&nbsp;&nbsp;!include&nbsp;"snippet.txt"!<br />
+FileActions<br />
+&nbsp;&nbsp;....<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

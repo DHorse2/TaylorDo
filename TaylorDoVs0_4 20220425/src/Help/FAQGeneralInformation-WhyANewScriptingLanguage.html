@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Why a new scripting language?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ General information-Why a new scripting language?"></A><h2>FAQ General information - Why a new scripting language?</h2></P>
+When I designed MyDefrag I was faced with some choices. I could have
+  made an API (Application Programmers Interface) with dozens of function calls.
+  This would have meant a lot of work in porting the API to all the different
+  programming languages out there. The SQL paradigm was a lot easier to build,
+  a single entry point that accepts a script. MyDefrag can now be used from most
+  programming languages without having to build an API for that language, because
+  most languages already have a function to start up another program. An example
+  is the PHP system() function.<p>
+
+  Another choice I had to make was which programming language to use. I found that
+  the things I wanted to do were not easily mapped onto existing programming
+  languages. Also, it would have brought me back to having to build an API.
+  And it would have meant that all MyDefrag script writers would
+  have had to learn a rich and complete programming language.
+  So, I decided to write a simple, decidated, specially designed scripting
+  language.
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

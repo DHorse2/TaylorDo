@@ -1,0 +1,15 @@
+# Script: DefragVolumeSys # Defrag System Volume
+
+SetVariable(VolumeLabel,		"!VolumeSys!")
+SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeSys.MyDc"!')
+
+SetVariable(VolumeDescription,	"System")
+!include "..\Display\DisplaySetVolume.MyDc"!
+
+!include "..\Settings\SettingsRunVolume.MyDc"!
+
+SetVariable(MftZone,			 "Regular")
+
+!include "..\Settings\SettingsYours\SettingsYoursSys.MyDc"!
+
+!include "..\Defrag\DefragAnyComplexVolume.MyDc"!

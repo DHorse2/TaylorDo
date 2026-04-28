@@ -1,0 +1,11 @@
+# Script: SettingsSysExitIfTimeout
+# Exit Timeout
+# was 5 minutes (for old systems) (300)
+# default is 120.
+# 20211123 changed to 15 minutes (900)
+#	this is to accomodate running at Idle priority.
+#
+ExitIfTimeout(900) 
+#
+!include "..\..\Settings\SettingsYours\SettingsYoursSysExitIfTimeout.MyDc"!
+#

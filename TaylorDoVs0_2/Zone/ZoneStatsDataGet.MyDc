@@ -1,0 +1,33 @@
+# Script: ZoneStatsData
+# !Date! !Time! !RunTime!")
+
+RunProgram("..\..\Commands\WriteDateTime.bat LastZone")
+
+
+SetVariable(ZoneStatsData, "")
+
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!.
+")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData! Zone: !ZoneCurrent! !ZoneCurrentDescription! !DATETIME YYYY/MM/DD HH:MM:SS! !RunTime!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!Zone Completion report:")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!.")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!   No: !ZoneNoCurrent!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData! Size: !ZoneSizeCurrent!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!  Gap: !ZoneGapCurrent!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!Total: !ZoneSizeTotalCurrent!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!.")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!Location on Volume:")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!      Start: !ZoneBeginCurrent!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!        End: !ZoneEndCurrent!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!      Total: !ZoneTotalCurrent!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData! Zone Gap %: !ZoneAdjRoundUp!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!   Volume %: !ZoneRoundUp!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!.")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!Free Space:")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!    Zone % Used: !ZoneFreePerUsed!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!Volume consumed: !VolumeFreeUsed!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!Free % consumed: !VolumeFreePerUsed!")
+SetVariable("!ZoneStatsData!", "!ZoneStatsData!.")
+
+# WriteLogfile("!LogFileName! Volume !VolumenName! Zone !ZoneNoCurrent! !ZoneCurrentDescription!", "!ZoneStatsData!")
+# AppendLogfile("!LogFileName!", "!ZoneStatsData!")

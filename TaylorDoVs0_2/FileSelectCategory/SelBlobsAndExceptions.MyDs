@@ -1,0 +1,20 @@
+# BlobsAndExceptions start.
+( not(
+  FileName("*.bat")
+  or FileName("*.css")
+  or FileName("*.dll")
+  or FileName("*.exe")
+  or FileName("*.htm*")
+  or FileName("*.jar")
+  or FileName("*.js")
+  or FileName("*.script")
+  or FileName("*.wsf")
+  or (
+!include "..\..\FileSelectCategory\SelDatabases.MyDs"!
+    # BlobsAndExceptions
+    or 
+!include "..\..\FileSelectCategory\SelData.MyDs"!
+    # BlobsAndExceptions
+  )
+) )
+# BlobsAndExceptions end.

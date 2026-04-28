@@ -1,0 +1,22 @@
+# Script: DefragZoneTypeSystemOtherData
+/* ------------------------- */
+/* Zone SystemOtherData System Other and Data */
+SetVariable(ZoneLabel,			"!ZoneLabelSystemOtherData!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionSystemOtherData!")
+SetVariable(ZoneSizeMin,			"!ZoneSizeSystemOtherData!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpSystemOtherData!")
+SetVariable(ZoneGapSize,			"!ZoneGapSizeSystemOtherData!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
+
+SetVariable(ZoneTypeSelect,'
+System Other Data:
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectSystemOtherData.MyDc"!
+')
+
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectSystemOtherData.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* ------------------------- */

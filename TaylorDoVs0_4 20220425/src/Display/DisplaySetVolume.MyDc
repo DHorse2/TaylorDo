@@ -1,0 +1,27 @@
+# Script: DisplaySetVolume
+
+SetVariable(VolumeStatisticsSummary,	"")
+SetVariable(VolumeStatisticsDetail,	    "")
+
+SetVariable(VolumeStepDescription, 	"!VolumeLabel! !DashWord! !VolumeDescription!")
+SetVariable(ZoneStepDescription,	"")
+SetVariable(ZoneStepDescription,	"")
+
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+
+!include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
+
+# Clear list of Zones processed
+# Zones processed
+SetVariable(ZoneListByLine, 		"!VolumeWordCaps! !VolumeLabel! !StartedWord! !DateNow! !TimeNow! !RunTimeNow!!ColonWord!
+")
+
+# Clear list of Steps processed within Zone
+# Zone processing steps
+SetVariable(ZoneStepByLine, 		"!PendingWordCaps!!PeriodWord!
+")
+
+!include "..\Display\BannerDescriptionSet.MyDc"!
+pause(2)
+
+# Precision issue: (!VolumeNoCurrent!!DashWord!!ZoneNoCurrent!!DashWord!!ZoneStepNoCurrent!) 

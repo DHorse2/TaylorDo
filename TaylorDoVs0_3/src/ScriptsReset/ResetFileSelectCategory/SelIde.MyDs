@@ -1,0 +1,7 @@
+# Ide start.
+(
+    DirectoryName("Ide*")
+    or DirectoryName("Java*")
+    or DirectoryName("Os")
+)
+# Ide end.

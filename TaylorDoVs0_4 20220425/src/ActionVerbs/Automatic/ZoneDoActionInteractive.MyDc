@@ -1,0 +1,5 @@
+# Script: ZoneDoActionInteractive
+	# AUTOMATIC SETTINGS Run overrides:
+	# Which are not used in interacte runs
+	# Xinclude "..\Settings\SettingsAutomaticRun.MyDc"X
+

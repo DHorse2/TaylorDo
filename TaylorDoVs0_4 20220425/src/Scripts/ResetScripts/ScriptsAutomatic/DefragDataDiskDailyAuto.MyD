@@ -1,0 +1,10 @@
+# MyDefrag v4.0 script: Automatic Data Disk Daily Defrag 
+#
+# This script is part of the standard Mdm disk configuration
+# Author: David G. Horsman (DBA MacroDM) (OpenSource) 2019
+# based on MyDefrag distribution.
+
+/* Automatically exit MyDefrag when it is finished. */
+WhenFinished(Exit)
+
+!include "..\ScriptsDaily\DefragDataDiskDaily.MyD"!

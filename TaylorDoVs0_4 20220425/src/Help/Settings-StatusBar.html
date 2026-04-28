@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>StatusBar</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-StatusBar"></A><h2>Settings - StatusBar</h2></P>
+This setting controls which information areas are displayed above and below
+  the diskmap.
+  <ul>
+  <li> Default is "all".
+  <li> If no textlines are selected then the diskmap will fill the window.
+  <li> This setting is ignored by the screensaver. It has it's own setting, see the
+    "Settings" button when selecting a Windows screensaver.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>StatusBar(PARAMETER)</code></td></tr></table></center><p>
+<h3>Parameter</h3>
+The PARAMETER is a space-separated list of zero or more of the following keywords:
+<center>
+<table bgcolor="#EEEEEE" width="80%">
+<tr>
+  <td valign=top><b>Status</b></td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>The status line at the top, with information such as the zone number, percentage
+    complete, the action currently performed, and other information.</td>
+  </tr>
+<tr>
+  <td valign=top><b>Path</b></td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>The second status line, just above the diskmap. It shows the path that is currently
+    being processed.</td>
+  </tr>
+<tr>
+  <td valign=top><b>MouseOver</b></td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>The textlines below the diskmap, with details about the file under the
+    cursor.</td>
+  </tr>
+<tr>
+  <td valign=top><b>All</b></td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>The same as "Status Path MouseOver".</td>
+  </tr>
+</tr></table></center><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>StatusBar(Status&nbsp;Path&nbsp;MouseOver)</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

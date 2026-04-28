@@ -1,0 +1,16 @@
+# Script: DisplaySetZone
+
+SetVariable(ZoneId,					"!ZoneLabel! - !ZoneDescription!")
+SetVariable(ZoneStepDescription,	"!ZoneLabel! - !ZoneDescription!")
+SetVariable(FileStepDescription,	"")
+
+# Message ZoneSummary
+SetVariable(ZoneSummary, '
+Zone Summary:
+')
+# Zone processing steps
+SetVariable(ZoneStepByLine, 'Zone started.
+')
+
+!include "..\..\Display\BannerDescriptionSet.MyDc"!
+pause(1)

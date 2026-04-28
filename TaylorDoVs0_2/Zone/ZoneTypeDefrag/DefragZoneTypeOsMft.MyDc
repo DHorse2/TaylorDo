@@ -1,0 +1,39 @@
+# Script: DefragZoneTypeOsMft
+/* ---------------------------------------------------------- */
+/* Mft Method: MakeGap(MftLocation, DoNotVacate) */ 
+  
+SetVariable(ZoneLabel,				"MFT") // "4" 
+SetVariable(ZoneDescription, 		"MFT - Master File Table")
+/* and some other special NTFS files. */
+SetVariable(ZoneVolRoundUp, 		"!ZoneVolRoundUpMft!")
+SetVariable(ZoneGapSize, 			"!ZoneGapSizeMft!")
+
+SetVariable(ZoneTypeSelect,			'
+MFT Master File Table:
+!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsMFT.MyDc"!
+')
+
+	# First 1st of 2 in Group MftDir
+	!include "..\..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\..\Zone\ZoneTypeSelect\ZoneTypeSelectOsMFT.MyDc"!
+	
+	FileActions
+	  	!include "..\..\Gap\GapZoneCalc.MyDc"!
+	
+		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionStart!")
+
+		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+	
+		SetVariable(MftZone,	ZoneCurrent) 
+
+		!include "..\..\ActionVerbs\ZoneDoActionTypeOsMft.MyDc"!
+
+  		# SetVariable(MftSize,	ZoneSize) 
+
+		SetVariable(FileStepDescription, "!FileStepDescriptionFileActionEnd!")
+
+		!include "..\..\Display\DisplaySetFileStep.MyDc"!
+
+  	!include "..\..\Zone\ZoneDoFooter.MyDc"!
+/* ---------------------------------------------------------- */

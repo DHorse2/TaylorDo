@@ -1,0 +1,22 @@
+# Script: DefragZoneTypePeople
+/* ------------------------- */
+/* Zone People */
+SetVariable(ZoneLabel,			"!ZoneLabelPeople!")
+SetVariable(ZoneDescription,		"!ZoneDescriptionPeople!")
+SetVariable(ZoneSizeMin,			"!ZoneSizePeople!")
+SetVariable(ZoneVolRoundUp,			"!ZoneVolRoundUpPeople!")
+SetVariable(ZoneGapSize,			"!ZoneGapSizePeople!")
+SetVariable(ZoneCommand,			'!include "..\ActionVerbs\ZoneDoActionThis.MyDc"!')
+
+SetVariable(ZoneTypeSelect,'
+# People and Users:
+!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectPeople.MyDc"!
+')
+
+	!include "..\Zone\ZoneNoIncrement.MyDc"!
+	!include "..\Zone\ZoneDoHeader.MyDc"!
+	!include "..\Zone\ZoneTypeSelect\ZoneTypeSelectPeople.MyDc"!
+	!include "..\Zone\ZoneDoAction.MyDc"!
+	!include "..\Zone\ZoneDoFooter.MyDc"!
+
+/* ------------------------- */

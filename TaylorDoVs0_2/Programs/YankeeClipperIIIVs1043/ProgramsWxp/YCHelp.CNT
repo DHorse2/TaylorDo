@@ -1,0 +1,71 @@
+:Base YCHelp.hlp
+:Title Yankee Clipper
+:Index Index for YCHelp.hlp=YCHelp.hlp
+1 Welcome=Hlp_Welcome
+1 Getting Started, introduction=Hlp_Getting_Started
+1 YCIII Modes
+2 Boilerplates and History=Hlp_BPandHistory
+2 Boilerplate=Hlp_BPMode
+2 History=Hlp_HistoryMode
+1 Tutorial
+2 Shoot Example=Hlp_Shoot_Example
+2 Load In Editor Example=Hlp_Load_In1
+2 Strip Characters Example=Hlp_Strip_Characters
+2 Drag and Drop Example=Hlp_Drag_and
+2 Menu Shortcut Example=Hlp_Menu_Shortcut
+2 Change Item Description Example=Hlp_ChangeDescription
+1 Features Description
+2 Main Menu
+3 File
+4 Save=Hlp_Main_Menu
+4 Print=Hlp_Main_Menu5
+3 Edit
+4 Find=Hlp_Main_Menu1
+4 Find Next=Hlp_Main_Menu6
+4 Clear History=Hlp_Main_Menu7
+4 Clear Boilerplate=Hlp_Main_Menu7
+4 Configuration=Hlp_Main_Menu8
+4 Empty Clipboard=Hlp_Main_Menu9
+3 View
+4 Text, Pictures, Rich Text, All Formats, URL=Hlp_Main_Menu2
+3 Window
+4 Hide=Hlp_Main_Menu3
+4 Float=Hlp_Main_Menu10
+3 Tools
+4 Enable=Hlp_Main_Menu4
+4 Copy Time To Clipboard=Hlp_Main_Menu11
+4 Shoot=Hlp_Main_Menu12
+2 Items Menu
+3 Print=Hlp_Main_Menu5
+3 Delete=Hlp_Items_Menu1
+3 Clear history=Hlp_Main_Menu7
+3 Run URL=Hlp_Items_Menu2
+3 Shoot=Hlp_Main_Menu12
+3 Load In Editor=Hlp_Items_Menu4
+3 Strip Characters=Hlp_Items_Menu
+3 Run screensaver=Hlp_Run_Screen
+3 Combine Top To Bottom=Hlp_Items_Menu5
+3 Combine Bottom To Top=Hlp_Items_Menu6
+3 Change Description=Hlp_ChangeDescription
+3 Send to boilerplate=Hlp_SendToBP
+2 Images Menu
+3 Large Icons=Hlp_Images_Menu
+3 Small Icons=Hlp_Images_Menu1
+3 Switch boilerplate collection=Hlp_BPMode
+3 New boilerplate=Hlp_BPMode
+1 Other Features
+2 Drag and Drop=Hlp_Drag_and
+2 Calendar=Hlp_Calendar
+2 Start Options=Hlp_Start_Options
+1 How To
+2 Copy Item To Clipboard=Hlp_Copy_Item1
+2 Save Contents Of Item=Hlp_Load_In1
+2 Access Options With Shortcuts=Hlp_Shortcuts
+2 Save Contents Of Item=Hlp_Load_In1
+2 Drag Text From And To Yankee Clipper III=Hlp_Drag_and
+1 Miscellaneous
+2 YCIII Items limits=Hlp_MaxLimits
+2 Visit WebSite or email author=Hlp_Visit_WebSite
+2 Make-My-Dayware=Hlp_Dayware
+2 BugFixes=Hlp_Bugfixes
+2 Acknowledgements=Hlp_Acknowledgements

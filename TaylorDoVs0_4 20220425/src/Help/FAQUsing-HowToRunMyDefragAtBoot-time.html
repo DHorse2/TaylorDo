@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How to run MyDefrag at boot-time?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Using-How to run MyDefrag at boot-time?"></A><h2>FAQ Using - How to run MyDefrag at boot-time?</h2></P>
+It's very easy to run MyDefrag automatically in the background when the
+  computer starts via the Windows Task Scheduler. First create (and test) the task, see
+  <a href="FAQUsing-HowDoIScheduleATaskToRunAutomaticallyEveryDay.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>How do I schedule a task, to run automatically every day?</b></a>
+  Then come back here and change the properties of the task like this:
+
+  <h4>2000, XP</h4>
+  <ul>
+  <li> Start -> Settings -> Control Panel -> Scheduled Tasks
+  <li> Open the properties of the task.
+  <li> Open the "Schedule" tab.
+  <li> From the "Schedule Task" pull-down select "At System Startup".
+  </ul>
+
+  <h4>Vista</h4>
+  <ul>
+  <li> Start -> Settings -> Control Panel -> Administrative Tools -> Task Scheduler
+  <li> Open the properties of the task.
+  <li> Open the "Triggers" tab, then edit or create a trigger.
+  <li> From the "begin the task" pulldown select "At Startup".
+  </ul>
+
+  <b>Note:</b> This will not defragment system files such as the page file. To do that
+  see the "see also" chapter for a link to Pagedefrag, a free utility by
+  Microsoft Technet (formerly SysInternals).<p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

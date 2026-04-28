@@ -1,0 +1,3 @@
+﻿SetVariable(DateNow, 	DATETIME)
+SetVariable(TimeNow, 	Time)
+SetVariable(RunTimeNow, 	RunTime)

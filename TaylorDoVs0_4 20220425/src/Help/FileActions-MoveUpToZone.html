@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>MoveUpToZone</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileActions-MoveUpToZone"></A><h2>FileActions - MoveUpToZone</h2></P>
+Move the selected files to above the beginning of the zone. Files that are
+  already above the beginning of the zone are not moved. If there is no gap above
+  the beginning of the zone that is big enough for a particular file, then the file
+  is not moved.<p>
+
+  <ul>
+  <li> Files are automatically defragmented when they are moved.
+  <li> This action is designed to be used in cases where the beginning of the zone
+    has been moved upwards by a <a href="VolumeActions-MakeGap.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>MakeGap</b></a> volumeaction
+    and the other fileactions would not move all the files. An example is the
+    <a href="FileActions-FastFill.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FastFill</b></a> fileaction, which only moves files down,
+    never up, so files could stay before the beginning of the zone.
+    MoveUpToZone() is not needed in zones that use a SortBy fileaction, because
+    those actions will already move all files to the zone, even files that are before
+    the beginning of the zone.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>MoveUpToZone()</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Place&nbsp;the&nbsp;next&nbsp;zone&nbsp;at&nbsp;50%&nbsp;of&nbsp;the&nbsp;volume.<br />
+MakeGap(VolumeSize&nbsp;*&nbsp;0.5,&nbsp;DoNotVacate)<br />
+#&nbsp;Select&nbsp;files&nbsp;for&nbsp;the&nbsp;zone.<br />
+FileSelect<br />
+&nbsp;&nbsp;....<br />
+FileActions<br />
+&nbsp;&nbsp;#&nbsp;Make&nbsp;sure&nbsp;all&nbsp;files&nbsp;are&nbsp;above&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;zone.<br />
+&nbsp;&nbsp;MoveUpToZone()<br />
+&nbsp;&nbsp;#&nbsp;FastFill&nbsp;gaps&nbsp;in&nbsp;the&nbsp;zone&nbsp;with&nbsp;files&nbsp;from&nbsp;above&nbsp;the&nbsp;zone.<br />
+&nbsp;&nbsp;FastFill()<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

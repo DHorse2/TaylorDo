@@ -1,0 +1,53 @@
+# Script: VolumeWhenFinished
+
+/* Write the "after" statistics to the logfile. */
+
+!include "..\..\Display\BannerSet.MyDc"!
+!include "..\..\Display\BannerLog.MyDc"!
+
+!include "..\..\Volume\VolumeFooterGet.MyDc"!
+
+!include "..\..\Volume\VolumeSizeLog.MyDc"!
+
+/* Write/display stats: */
+
+# Log:  
+
+!include "..\..\Volume\VolumeStatisticsDetailGet.MyDc"!
+
+# Write to log
+# VolumeStatisticsSummary
+SetVariable(VolumeFooter,     "!VolumeStatisticsSummary!")
+# SetVariable(VolumeFooter,     "!VolumeStatisticsSummary1!!VolumeStatisticsSummary2!")
+
+SetVariable(VolumeKeyCurr, "!LogFileName! !VolumeCurrentDescription!")
+
+WriteLogfile("!VolumeKeyCurr!", "!VolumeFooter!")
+
+# WriteLogfile("!VolumeKeyCurr! part1", "!VolumeFooter1!")
+# WriteLogfile("!VolumeKeyCurr! part2", "!VolumeFooter2!")
+# RunProgram("..\..\Commands\WriteDateTime.bat LastVolume")
+
+RunProgram("Echo","!VolumeFooter1! > !VolumeKeyCurr!.log")
+RunProgram("Type","DateTimeLastVolume.txt",">>","!VolumeKeyCurr!.log")
+RunProgram("Echo","!VolumeFooter2!",">>","!VolumeKeyCurr!.log")
+# ,"/Y")
+# RunProgram("Echo",
+
+# SetVariable(LogFileBlock,	"")
+# SetVariable(LogFileBlock,	"!LogFileBlock!
+# SetVariable(LogFileBlock,	"!LogFileBlock!XXX")
+
+SetVariable(LogFileBlock,	"!LogFileBlock!
+.")
+SetVariable(LogFileBlock,	"!LogFileBlock!!VolumeStatisticsDetail!
+")
+SetVariable(LogFileBlock,	"!LogFileBlock!
+.")
+SetVariable(LogFileBlock,	"!LogFileBlock!Volume End.
+")	
+
+# SetStatisticsWindowText("!VolumeStatisticsDetail!")
+
+!include "..\..\Pause\PauseVolume.MyDc"!
+  

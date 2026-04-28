@@ -1,0 +1,29 @@
+# MyDefrag v4.0 default script: Flash memory disks
+#
+# This script is part of the standard MyDefrag distribution.
+
+Title('Flash memory disks')
+Description("Flash memory disks description")      // See the "Settings.MyD" file.
+
+
+
+#dgh@Z#  Writelogfile("MyDefrag.log","LogHeader")
+
+VolumeSelect
+  CommandlineVolumes()
+VolumeActions
+
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogBefore")
+
+  FileSelect
+    all
+  FileActions
+    Defragment(Fast)
+    FastFill()
+  FileEnd
+
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAfter")
+
+VolumeEnd
+
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

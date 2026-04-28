@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>I have a problem!</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Using-I have a problem!"></A><h2>FAQ Using - I have a problem!</h2></P>
+First of all: don't worry, nothing can happen to your data. See
+  <a href="FAQGeneralInformation-HowSafeIsMyDefrag.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>How safe is MyDefrag?</b></a><p>
+
+  <ul>
+  <li> Make a debug logfile. It contains lot's of information, and perhaps
+    your question is answered there. You can create a debug logfile by uncommenting one
+    of the Debug() lines in your "Settings.MyD" file, default location is
+    "C:\Program Files\MyDefrag v4.3.1\Scripts\Settings.MyD".
+    The default location of the debug logfile is "C:\Program Files\MyDefrag v4.3.1\MyDefrag.debuglog".
+    <br>
+    <b>Note:</b> make sure your userid has write permissions on the MyDefrag installation
+    folder, or MyDefrag cannot write the logfile. Windows 7 is configured by default to
+    deny regular users write-access to the "C:\Program Files" folder.
+  <li> Post a question on the forum. Help me to help you, the better your question,
+    the better the answer. A tiny little short question "auw it hurts" can usually
+    not be answered because I am not psychic. A huge long 5-page question is also no
+    good because I don't have time to read through all that information.
+    Please include the debug logfile. Usually the "Debug(175)" setting will
+    generate enough detail. Do not post
+    the complete file, but only the first and last few hundred lines, enough
+    to demonstrate the problem.
+    <p>
+
+  <li> See <a href="FAQUsing-MyDefragIsVerySlowWhatSpeedCanIExpect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>MyDefrag is very slow, what speed can I expect?</b></a>
+  <li> See <a href="FAQGeneralInformation-WhyDoesMyDefragNotPerfectlyOptimizeMyDisk.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Why does MyDefrag not perfectly optimize my disk?</b></a>
+  <li> See <a href="Manual-KnownProblems.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Known problems</b></a>
+  <li> See the <a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a>
+    <p>
+
+  <li> If nothing happens at all, no MyDefrag window that pops-up, then you could try
+    the following. Execute the following commandline in the "Start -> Run" box, and
+    then reboot.
+    It will create a key in the registry that will disable the injection of LeakTrack
+    (from Microsoft Debug Diagnostic Tool) into processes. LeakTrack is known to cause some
+    programs not to load.
+    <center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v LeakTrack /t REG_DWORD /d 0x0 /f</code></td></tr></table></center>
+  </ul>
+
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>
