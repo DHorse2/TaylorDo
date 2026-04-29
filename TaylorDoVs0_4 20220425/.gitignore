@@ -1,5 +1,8 @@
 ## Ignore Project Working Directories
-MattTaylorAndNumenta/
+**/MattTaylorAndNumenta/
+
+## Ignore NSIS instnaller exe (too big)
+TaylorDoSetup.exe
 
 ## GitHub VisualStudio.gitignore:
 ## Ignore Visual Studio temporary files, build results, and

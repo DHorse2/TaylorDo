@@ -132,7 +132,7 @@ InstType "Custom"; IT_CUSTOM
 
 SetCompressor lzma
 
-OutFile "TaylorDoSetup.exe"
+OutFile "..\..\Programs\TaylorDoSetup.exe"
 
 ; SectionEnd
 
