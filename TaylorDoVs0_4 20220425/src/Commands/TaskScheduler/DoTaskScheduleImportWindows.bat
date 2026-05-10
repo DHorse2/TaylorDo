@@ -8,7 +8,7 @@ pause()
 @TIMEOUT /T 1 /NOBREAK
 @Echo ------------------------------------------------------
 @Echo Disable Windows Defrag Schedule.
-SchTasks /Create /xml "%PROGRAMFILES%\TaylorDoVs0_4\src\Install\ScheduledDefrag.xml" /tn "\Microsoft\Windows\Defrag\ScheduledDefrag" /ru SYSTEM
+SchTasks /Create /xml "%PROGRAMFILES%\TaylorDo\Commands\Install\ScheduledDefrag.xml" /tn "\Microsoft\Windows\Defrag\ScheduledDefrag" /ru SYSTEM
 @Echo ------------------------------------------------------
 @Echo . 
 @Echo - End of DoTaskScheduleImportWindows -----------------

@@ -293,8 +293,8 @@ Section "Directory Section" DirInstall
     SetShellVarContext all ; ToDo add a prompt if the install is for all users.
     
     ; InstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
-    StrCpy $ProductAppInstallDir "$OUTDIR\MyDefrag v4.3.1"
-    StrCpy $TaylorDoInstallDir "$OUTDIR\TaylorDo"
+    StrCpy $ProductAppInstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
+    StrCpy $TaylorDoInstallDir "$PROGRAMFILES\TaylorDo"
 
     ; Setx MyDefragDir $ProductAppInstallDir
     ; Setx MyTaylorDoDir $TaylorDoInstallDir
@@ -306,10 +306,12 @@ SectionEnd
 Section "MyDefrag Section" MyDefrag
     SectionInstType ${IT_FULL} ${IT_CUSTOM}
     SetShellVarContext all
+    DetailPrint "My Defrag Installation"
+    DetailPrint "Path: $ProductAppInstallDir"
 
 ; Check if it exists.
     ; registry load
-    IfFileExists '$ProductAppInstallDir\MyDefrag.exe' +2 0
+    IfFileExists "$ProductAppInstallDir\MyDefrag.exe" +2 0
         Goto myDefragInstall
         Goto myDefragExists
 
@@ -359,7 +361,7 @@ myDefragInstall:
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayName" "$StartMenuFolder (remove only)"
     ; executable
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayIcon" "$ProductAppInstallDir\Unins000.exe"
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "UninstallString" '"$ProductAppInstallDir\unins000.exe"'
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "UninstallString" "$ProductAppInstallDir\unins000.exe"
 
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoModify" 1
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 0
@@ -377,15 +379,17 @@ SectionEnd
 
 Section "Matt Taylor Libraries" TaylorDoLibraries
     SectionInstType ${IT_FULL} ${IT_CUSTOM}
+    DetailPrint "TaylorDo library install"
+    DetailPrint "Path: $TaylorDoInstallDir"
+
     SetShellVarContext all
     SetOutPath $TaylorDoInstallDir
 
     ;--------------- Check if it exists ----------------- IT'S THE $ SIGN #2
     ; Load path from registry (see top)
 
-    IfFileExists '$OUTDIR\ReadMe.md' +2 0
-        Goto taylorDoInstall
-        Goto taylorDoExists
+    DetailPrint "Check for: $TaylorDoInstallDir\ReadMe.md"
+    IfFileExists "$TaylorDoInstallDir\ReadMe.md" 0 taylorDoInstall
     ;
 taylorDoExists:
     ; Display message program exists.
@@ -403,7 +407,6 @@ taylorDoExistsContinue:
     ; CopyFiles $TaylorDoInstallDir\*.log $TaylorDoInstallDir\backup
 
     MessageBox MB_YESNO "Do you want to repair the existing install?" /SD IDYES IDNO taylorDoExistsReplace
-        Goto taylorDoExistsReplace
 
 taylorDoExistsRepair:
     DetailPrint "TaylorDo Repair existing"
@@ -420,52 +423,31 @@ taylorDoInstall:
     ; Initialization
     ;--------------- Copy Files -----------------
 
-    Delete '..\Download\TaylorDoSetup.exe' 
-    Delete '..\Download\TaylorDo.zip' 
-    Delete '..\Install\TaylorDoSetup.exe' 
-    Delete '..\Install\TaylorDo.zip' 
+    Delete "..\Download\TaylorDoSetup.exe" 
+    Delete "..\Download\TaylorDo.zip" 
+    Delete "..\Install\TaylorDoSetup.exe" 
+    Delete "..\Install\TaylorDo.zip" 
+        ; /x "..\Download\TaylorDoSetup.exe" "..\Download\*.zip"
+        ; /x "..\Install\TaylorDoSetup.exe" "..\Install\*.zip"
+        ; This is wrong. The target isn't the installation it's preprocessing.
+        ; Exclude the previous installer and zip files if they exist.
+        ; Delete "$TaylorDoInstallDir\src\Download\TaylorDoSetup.exe" 
+        ; ToDo can nsis zip at the same time?
+        ; Delete "$TaylorDoInstallDir\src\Download\*.zip"
 
     CreateDirectory $TaylorDoInstallDir
     File /r ..\*.* 
-        ; /x '..\Download\TaylorDoSetup.exe' '..\Download\*.zip'
-        ; /x '..\Install\TaylorDoSetup.exe' '..\Install\*.zip'
-
-        ; This is wrong. The target isn't the installation it's preprocessing.
-        ; Exclude the previous installer and zip files if they exist.
-        ; Delete '$TaylorDoInstallDir\src\Download\TaylorDoSetup.exe' 
-        ; ToDo can nsis zip at the same time?
-        ; Delete '$TaylorDoInstallDir\src\Download\*.zip'
-
     DetailPrint "TaylorDo Files Added"
 
-    ;-------- Repair MyDefrag Install -----------------
-    ; Move all supplied scripts to "Example Scripts" and delete them.
+    ;-------- Repair MyDefrag Install Update -----------------
+    DetailPrint "Update MyDefrag with TaylorDo directories"
+    DetailPrint "Move all supplied scripts to Example Scripts and delete them."
 
-    ; ToDo If MyDefrag or TaylorDo exists.
-    CopyFiles /SILENT '$ProductAppInstallDir\Scripts\*.MyD' '$ProductAppInstallDir\Example Scripts\'
+    CopyFiles /SILENT "$ProductAppInstallDir\Scripts\*.MyD" "$ProductAppInstallDir\Example Scripts\"
     ; ExecWait 'copy "$ProductAppInstallDir\Scripts\*.MyD" "$ProductAppInstallDir\Example Scripts\" /Y'
-    Delete '$ProductAppInstallDir\Scripts\*.MyD'
+    Delete "$ProductAppInstallDir\Scripts\*.MyD"
 
-    ; Move '$ProductAppInstallDir\Scripts\
-    ; Move '$ProductAppInstallDir\Scripts\AnalyzeOnly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDirScripts\AutomaticDaily.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\AutomaticMonthly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\AutomaticWeekly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-
-    ; Move '$ProductAppInstallDir\Scripts\ConsolidateFreeSpace.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\DataDiskDaily.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\DataDiskMonthly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\DataDiskWeekly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-
-    ; Move '$ProductAppInstallDir\Scripts\DefragmentOnly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\FlashMemoryDisks.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\LogTest.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\Settings.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-
-    ; Move '$ProductAppInstallDir\Scripts\SystemDiskDaily.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\SystemDiskMonthly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-    ; Move '$ProductAppInstallDir\Scripts\SystemDiskWeekly.MyD' '$ProductAppInstallDir\ScriptsSaved\'
-
+    CopyFiles /SILENT "$TaylorDoInstallDir\*.*" "$ProductAppInstallDir\"
     DetailPrint "TaylorDo MyDefrag Scripts Updated"
 
     ; ///////////////////////////////////////////////////////
@@ -568,7 +550,7 @@ taylorDoInstall:
     ; Write the uninstall keys for Windows
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayName" "$StartMenuFolder (remove only)"
     WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "DisplayIcon" "$TaylorDoInstallDir\Uninstall.exe"
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "UninstallString" '"$TaylorDoInstallDir\uninstall.exe"'
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "UninstallString" "$TaylorDoInstallDir\uninstall.exe"
 
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoModify" 1
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder" "NoRepair" 0
@@ -615,23 +597,24 @@ Section "TalyorDo Startmenu" TaylorStartMenu
     ;!insertmacro MUI_STARTMENU_WRITE_END
 
     ;--------------------------------
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" '$SYSDIR\explorer.exe -root, "$TaylorDoInstallDir\src\Commands"'
-    
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptsByDrive"'
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" "$SYSDIR\explorer.exe" '-root,"$TaylorDoInstallDir\src\Commands"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptsAutomatic"'
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" "$SYSDIR\explorer.exe" '-root,"$ProductAppInstallDir\Scripts\ScriptsByDrive"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Daily.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptDaily"'
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk" "$SYSDIR\explorer.exe" '-root,"$ProductAppInstallDir\Scripts\ScriptsAutomatic"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptWeekly"'
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Daily.lnk" "$SYSDIR\explorer.exe" '-root,"$ProductAppInstallDir\Scripts\ScriptDaily"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Monthly.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptMonthly"'
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk" "$SYSDIR\explorer.exe" '-root,"$ProductAppInstallDir\Scripts\ScriptWeekly"'
 
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Yearly.lnk" '$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptYearly"'
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Monthly.lnk" "$SYSDIR\explorer.exe" '-root,"$ProductAppInstallDir\Scripts\ScriptMonthly"'
 
-    ; CopyFiles /SILENT '$SMPROGRAMS\$StartMenuFolder\*.lnk' '$ProductAppInstallDir\Scripts\'
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Yearly.lnk" "$SYSDIR\explorer.exe" '-root,"$ProductAppInstallDir\Scripts\ScriptYearly"'
 
-    ; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Run NSIS Example Application 1.lnk" "$SYSDIR\javaw.exe" "NSISExampleApplication1"
+; CopyFiles /SILENT "$SMPROGRAMS\$StartMenuFolder\*.lnk" "$ProductAppInstallDir\Scripts"
+
+; Example:
+; CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Run NSIS Example Application 1.lnk" "$SYSDIR\javaw.exe" "NSISExampleApplication1"
 
     ; ///////////////////////////////////////////////////////
     ;--------------------------------
@@ -703,12 +686,12 @@ unTaylorDo:
 
 unMyDefrag:
 ; Check if it exists.
-    IfFileExists '$ProductAppInstallDir\MyDefrag.exe' +2 0
+    IfFileExists "$ProductAppInstallDir\MyDefrag.exe" +2 0
         Goto unMyDefragEnd
         Goto unMyDefragExists
 
 unMyDefragExists:
-    ExecWait '$ProductAppInstallDir\unins000.exe'
+    ExecWait "$ProductAppInstallDir\unins000.exe"
     Goto unMyDefragEnd
 
 unMyDefragEnd:

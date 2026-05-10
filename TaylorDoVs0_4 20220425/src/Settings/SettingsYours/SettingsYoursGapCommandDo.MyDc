@@ -1,3 +1,5 @@
+# Script: SettingsYoursGapCommandDo
+
 # Controlled via settings commands
 
 # Xinclude "..\ActionVerbs\ZoneDoGapThis.MyDc"X

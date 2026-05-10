@@ -1,3 +1,5 @@
+# Script: SettingsYoursSysServerNames
+
 # IMPORTANT: ServerName NAME: 
 
 	# SetVariable(ServerName,"PcAny")

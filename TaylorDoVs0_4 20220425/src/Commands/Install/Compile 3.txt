@@ -1,0 +1,2026 @@
+MakeNSIS v3.11 - Copyright 1999-2025 Contributors
+See the file COPYING for license details.
+Credits can be found in the Users Manual.
+
+Processing config: C:\Program Files (x86)\NSIS\nsisconf.nsh
+Processing default plugins: "C:\Program Files (x86)\NSIS\Plugins\x86-unicode\*.dll"
+ + AdvSplash::show
+ + Banner::destroy
+ + Banner::getWindow
+ + Banner::show
+ + BgImage::AddImage
+ + BgImage::AddText
+ + BgImage::Clear
+ + BgImage::Destroy
+ + BgImage::Redraw
+ + BgImage::SetBg
+ + BgImage::SetReturn
+ + BgImage::Sound
+ + Dialer::AttemptConnect
+ + Dialer::AutodialHangup
+ + Dialer::AutodialOnline
+ + Dialer::AutodialUnattended
+ + Dialer::GetConnectedState
+ + EnVar::AddValue
+ + EnVar::AddValueEx
+ + EnVar::Check
+ + EnVar::Delete
+ + EnVar::DeleteValue
+ + EnVar::SetHKCU
+ + EnVar::SetHKLM
+ + EnVar::SetValue
+ + EnVar::SetValueEx
+ + EnVar::Update
+ + InstallOptions::dialog
+ + InstallOptions::initDialog
+ + InstallOptions::make_unicode
+ + InstallOptions::show
+ + LangDLL::LangDialog
+ + Math::Script
+ + NSISdl::download
+ + NSISdl::download_quiet
+ + Splash::show
+ + StartMenu::Init
+ + StartMenu::Select
+ + StartMenu::Show
+ + System::Alloc
+ + System::Call
+ + System::Copy
+ + System::Free
+ + System::Get
+ + System::Int64Op
+ + System::Store
+ + System::StrAlloc
+ + TypeLib::GetLibVersion
+ + TypeLib::Register
+ + TypeLib::UnRegister
+ + UserInfo::GetAccountType
+ + UserInfo::GetName
+ + UserInfo::GetOriginalAccountType
+ + VPatch::GetFileCRC32
+ + VPatch::GetFileMD5
+ + VPatch::vpatchfile
+ + nsDialogs::Create
+ + nsDialogs::CreateControl
+ + nsDialogs::CreateItem
+ + nsDialogs::CreateTimer
+ + nsDialogs::GetUserData
+ + nsDialogs::KillTimer
+ + nsDialogs::OnBack
+ + nsDialogs::OnChange
+ + nsDialogs::OnClick
+ + nsDialogs::OnNotify
+ + nsDialogs::SelectFileDialog
+ + nsDialogs::SelectFolderDialog
+ + nsDialogs::SetRTL
+ + nsDialogs::SetUserData
+ + nsDialogs::Show
+ + nsExec::Exec
+ + nsExec::ExecToLog
+ + nsExec::ExecToStack
+
+!define: "MUI_INSERT_NSISCONF"=""
+
+Changing directory to: "D:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\Install"
+
+Processing script file: "D:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\Install\TaylorDiskOptimizerSetupFull.nsi" (ACP)
+!include: "C:\Program Files (x86)\NSIS\Include\LogicLib.nsh" (UTF8)
+!include: closed: "C:\Program Files (x86)\NSIS\Include\LogicLib.nsh"
+!include: "C:\Program Files (x86)\NSIS\Include\WinVer.nsh" (UTF8)
+!include: closed: "C:\Program Files (x86)\NSIS\Include\WinVer.nsh"
+!include: "C:\Program Files (x86)\NSIS\Include\x64.nsh" (UTF8)
+!define: "___X64__NSH___"=""
+!include: "C:\Program Files (x86)\NSIS\Include\LogicLib.nsh" (UTF8)
+!include: closed: "C:\Program Files (x86)\NSIS\Include\LogicLib.nsh"
+!define: "IsWow64"=""" IsWow64 """
+!define: "RunningX64"=""" RunningX64 """
+!define: "GetNativeMachineArchitecture"="!insertmacro GetNativeMachineArchitecture "
+!define: "IsNativeMachineArchitecture"=""" IsNativeMachineArchitecture "
+!define: "IsNativeIA32"=""" IsNativeMachineArchitecture  332"
+!define: "IsNativeAMD64"=""" IsNativeMachineArchitecture  34404"
+!define: "IsNativeARM64"=""" IsNativeMachineArchitecture  43620"
+!define: "DisableX64FSRedirection"="!insertmacro DisableX64FSRedirection"
+!define: "EnableX64FSRedirection"="!insertmacro EnableX64FSRedirection"
+!include: closed: "C:\Program Files (x86)\NSIS\Include\x64.nsh"
+!include: "C:\Program Files (x86)\NSIS\Include\WinMessages.nsh" (UTF8)
+!define: "WINMESSAGES_INCLUDED"=""
+!include: closed: "C:\Program Files (x86)\NSIS\Include\WinMessages.nsh"
+!include: "C:\Program Files (x86)\NSIS\Include\nsDialogs.nsh" (UTF8)
+!include: closed: "C:\Program Files (x86)\NSIS\Include\nsDialogs.nsh"
+Unicode: true
+Processing default plugins: "C:\Program Files (x86)\NSIS\Plugins\x86-unicode\*.dll"
+
+!include: "C:\Program Files (x86)\NSIS\Include\MUI2.nsh" (UTF8)
+!include: "C:\Program Files (x86)\NSIS\Contrib\Modern UI 2\MUI2.nsh" (UTF8)
+NSIS Modern User Interface version 2.1 - Copyright 2002-2025 Joost Verburg (C:\Program Files (x86)\NSIS\Contrib\Modern UI 2\MUI2.nsh:14)
+!include: closed: "C:\Program Files (x86)\NSIS\Contrib\Modern UI 2\MUI2.nsh"
+!include: closed: "C:\Program Files (x86)\NSIS\Include\MUI2.nsh"
+!include: "C:\Program Files (x86)\NSIS\Include\nsDialogs.nsh" (UTF8)
+!include: closed: "C:\Program Files (x86)\NSIS\Include\nsDialogs.nsh"
+!include: "C:\Program Files (x86)\NSIS\Include\LogicLib.nsh" (UTF8)
+!include: closed: "C:\Program Files (x86)\NSIS\Include\LogicLib.nsh"
+!include: "C:\Program Files (x86)\NSIS\Include\WinMessages.nsh" (UTF8)
+!include: closed: "C:\Program Files (x86)\NSIS\Include\WinMessages.nsh"
+Var: "OutDirRoot"
+!define: "PRODUCT_NAME"="Taylor Disk Optimizer"
+!define: "PRODUCT_VERSION"="4.0.1.0"
+!define: "PRODUCT_PUBLISHER"="David G Horsman"
+Var: "TaylorDoDir"
+InstallDir: "$PROGRAMFILES\TaylorDo"
+InstallRegKey: "HKLM\Software\Taylor Disk Optimizer\Install_Dir"
+!addplugindir: "C:\Program Files (x86)\NSIS\Plugins\x86-unicode"
+Var: "ProductAppName"
+Var: "ProductAppVersion"
+Var: "ProductAppPublisher"
+Icon: "..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+Var: "MyDefragDir"
+Var: "ProductAppInstallDir"
+Var: "ProductAppInstallDirRegKey"
+Var: "ProductAppInstallDirRegKeyRoot"
+Var: "ProductAppInstallDirRegKeyPath"
+Var: "ProductAppInstallDirRegKeyValueName"
+Var: "CheckboxAllUsers"
+Var: "StateAllUsers"
+Var: "Dialog"
+Var: "CheckboxMyDefrag"
+Var: "CheckboxTaskDaily"
+Var: "CheckboxTaskWeekly"
+Var: "CheckboxTaskMonthly"
+Var: "CheckboxTaskYearly"
+Var: "EnableMyDefragSelected"
+Var: "TaskDailySelected"
+Var: "TaskWeeklySelected"
+Var: "TaskMonthlySelected"
+Var: "TaskYearlySelected"
+Name: "Taylor Disk Optimizer 4.0.1.0"
+Caption: "Matt Taylor Disk Optimizer"
+ShowInstDetails: show
+InstType: "Full" (0)
+InstType: "Custom" (1)
+SetCompressor: lzma
+OutFile: "..\..\Programs\TaylorDoSetup.exe"
+!define: "MUI_ICON"="..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+!define: "MUI_UNICON"="..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+!define: "MUI_HEADERIMAGE"=""
+!define: "MUI_HEADERIMAGE_BITMAP_NOSTRETCH"="..\MattTaylorAndNumenta\1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky.bmp"
+!define: "MUI_ABORTWARNING"=""
+!define: "MUI_WELCOMEFINISHPAGE_BITMAP"="..\Install\MyDefrag Run Zone 6 Small.bmp"
+!define: "MUI_WELCOMEPAGE_TITLE"="Welcome to the Taylor Disk Optimizer 4.0.1.0 Setup Wizard"
+!define: "MUI_WELCOMEPAGE_TEXT"="This wizard will guide you through the installation of the TaylorDo (Taylor Disk Optimizer) 4.0.1.0, the next generation of the Windows disk optimization and defragmentation.
+
+TaylorDo works out of the box and tuned for the home user.
+
+But it is designed for network system administration, is highly customizable and easy to change.
+
+$_CLICK"
+!insertmacro: MUI_PAGE_WELCOME
+!insertmacro: end of MUI_PAGE_WELCOME
+!insertmacro: MUI_PAGE_LICENSE
+!insertmacro: end of MUI_PAGE_LICENSE
+!define: "MUI_PAGE_CUSTOMFUNCTION_PRE"="ComponentsPagePre"
+!insertmacro: MUI_PAGE_COMPONENTS
+!insertmacro: end of MUI_PAGE_COMPONENTS
+!define: "MUI_DIRECTORYPAGE_TEXT_TOP"="Installation Directory for TaylorDo"
+!define: "MUI_TEXT_DIRECTORY_TITLE"="Destination Folder for TaylorDo"
+!define: "MUI_TEXT_DIRECTORY_SUBTITLE"="Click Install to install to the default folder or click Browse to choose another"
+!insertmacro: MUI_PAGE_DIRECTORY
+!insertmacro: end of MUI_PAGE_DIRECTORY
+Page: Custom (creator:TaskSchedulerPageCreate) (leave:TaskSchedulerPageLeave)
+XPStyle: on
+ShowInstDetails: show
+Var: "StartMenuFolder"
+!define: "MUI_STARTMENUPAGE_DEFAULTFOLDER"="David G Horsman\Taylor Disk Optimizer"
+!define: "MUI_STARTMENUPAGE_REGISTRY_ROOT"="HKCU"
+!define: "MUI_STARTMENUPAGE_REGISTRY_KEY"="Software\Taylor Disk Optimizer"
+!define: "MUI_STARTMENUPAGE_REGISTRY_VALUENAME"="StartMenuFolder"
+!define: "MUI_PAGE_CUSTOMFUNCTION_PRE"="StartMenuPre"
+!insertmacro: MUI_PAGE_STARTMENU
+!insertmacro: end of MUI_PAGE_STARTMENU
+!insertmacro: MUI_PAGE_INSTFILES
+!insertmacro: end of MUI_PAGE_INSTFILES
+!define: "MUI_FINISHPAGE_NOAUTOCLOSE"=""
+!insertmacro: MUI_PAGE_FINISH
+!insertmacro: end of MUI_PAGE_FINISH
+!insertmacro: MUI_UNPAGE_WELCOME
+!insertmacro: end of MUI_UNPAGE_WELCOME
+!insertmacro: MUI_UNPAGE_CONFIRM
+!insertmacro: end of MUI_UNPAGE_CONFIRM
+!insertmacro: MUI_UNPAGE_LICENSE
+!insertmacro: end of MUI_UNPAGE_LICENSE
+!insertmacro: MUI_UNPAGE_COMPONENTS
+!insertmacro: end of MUI_UNPAGE_COMPONENTS
+!insertmacro: MUI_UNPAGE_INSTFILES
+!insertmacro: end of MUI_UNPAGE_INSTFILES
+!define: "MUI_UNFINISHPAGE_NOAUTOCLOSE"=""
+!insertmacro: MUI_UNPAGE_FINISH
+!insertmacro: end of MUI_UNPAGE_FINISH
+!insertmacro: MUI_LANGUAGE
+!insertmacro: end of MUI_LANGUAGE
+VIAddVersionKey: "ProductName" "Taylor Disk Optimizer"
+VIAddVersionKey: "Comments" "An advanced automatic disk optimization library dedicated to Matt Taylor. Added Autorun, Scheduler and All options."
+VIAddVersionKey: "CompanyName" "dba MacroDM (David G Horsman)"
+VIAddVersionKey: "InternalName" "MdmDefrag"
+VIAddVersionKey: "LegalTrademarks" "none"
+VIAddVersionKey: "LegalCopyright" "Â© 2015, 2020, 2021, 2022 David G Horsman"
+VIAddVersionKey: "FileDescription" "TaylorDo Application using MyDefrag Vs4.3.1"
+VIAddVersionKey: "FileVersion" "4.0.1"
+Function: "TaskSchedulerPageCreate"
+Plugin command: Create 1018
+Pop: $Dialog
+!insertmacro: _If
+!insertmacro: end of _If
+Abort: ""
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+!insertmacro: MUI_HEADER_TEXT
+!insertmacro: end of MUI_HEADER_TEXT
+Plugin command: CreateControl BUTTON 0x40000000|0x10000000|0x04000000|0x00010000|0x00000000|0x00000C00|0x00000003|0x00002000 0 0u 100u 100% 12u Install for all users
+Pop: $CheckboxAllUsers
+!insertmacro: __NSD_SetState
+SendMessage:($CheckboxAllUsers,0x00F1,1,0)
+!insertmacro: end of __NSD_SetState
+Plugin command: CreateControl STATIC 0x40000000|0x10000000|0x04000000|0x00000100 0x00000020 0 0 100% 12u Select optional features:
+Pop: $0
+Plugin command: CreateControl BUTTON 0x40000000|0x10000000|0x04000000|0x00010000|0x00000000|0x00000C00|0x00000003|0x00002000 0 0 20u 100% 12u Enable MyDefrag in Task Scheduler
+Pop: $CheckboxMyDefrag
+!insertmacro: __NSD_SetState
+SendMessage:($CheckboxMyDefrag,0x00F1,1,0)
+!insertmacro: end of __NSD_SetState
+Plugin command: CreateControl BUTTON 0x40000000|0x10000000|0x04000000|0x00010000|0x00000000|0x00000C00|0x00000003|0x00002000 0 10u 35u 100% 12u Daily Optimization (not recommended)
+Pop: $CheckboxTaskDaily
+!insertmacro: __NSD_SetState
+SendMessage:($CheckboxTaskDaily,0x00F1,0,0)
+!insertmacro: end of __NSD_SetState
+Plugin command: CreateControl BUTTON 0x40000000|0x10000000|0x04000000|0x00010000|0x00000000|0x00000C00|0x00000003|0x00002000 0 10u 45u 100% 12u Weekly Optimization
+Pop: $CheckboxTaskWeekly
+!insertmacro: __NSD_SetState
+SendMessage:($CheckboxTaskWeekly,0x00F1,1,0)
+!insertmacro: end of __NSD_SetState
+Plugin command: CreateControl BUTTON 0x40000000|0x10000000|0x04000000|0x00010000|0x00000000|0x00000C00|0x00000003|0x00002000 0 10u 55u 100% 12u Monthly Optimization (recommended)
+Pop: $CheckboxTaskMonthly
+!insertmacro: __NSD_SetState
+SendMessage:($CheckboxTaskMonthly,0x00F1,1,0)
+!insertmacro: end of __NSD_SetState
+Plugin command: CreateControl BUTTON 0x40000000|0x10000000|0x04000000|0x00010000|0x00000000|0x00000C00|0x00000003|0x00002000 0 10u 65u 100% 12u Yearly Optimization (recommended)
+Pop: $CheckboxTaskYearly
+!insertmacro: __NSD_SetState
+SendMessage:($CheckboxTaskYearly,0x00F1,1,0)
+!insertmacro: end of __NSD_SetState
+Plugin command: Show
+FunctionEnd
+Function: "TaskSchedulerPageLeave"
+!insertmacro: __NSD_GetState
+SendMessage:(->$StateAllUsers)($CheckboxAllUsers,0x00F0,0,0)
+!insertmacro: end of __NSD_GetState
+!insertmacro: __NSD_GetState
+SendMessage:(->$EnableMyDefragSelected)($CheckboxMyDefrag,0x00F0,0,0)
+!insertmacro: end of __NSD_GetState
+!insertmacro: __NSD_GetState
+SendMessage:(->$TaskDailySelected)($CheckboxTaskDaily,0x00F0,0,0)
+!insertmacro: end of __NSD_GetState
+!insertmacro: __NSD_GetState
+SendMessage:(->$TaskWeeklySelected)($CheckboxTaskWeekly,0x00F0,0,0)
+!insertmacro: end of __NSD_GetState
+!insertmacro: __NSD_GetState
+SendMessage:(->$TaskMonthlySelected)($CheckboxTaskMonthly,0x00F0,0,0)
+!insertmacro: end of __NSD_GetState
+!insertmacro: __NSD_GetState
+SendMessage:(->$TaskYearlySelected)($CheckboxTaskYearly,0x00F0,0,0)
+!insertmacro: end of __NSD_GetState
+FunctionEnd
+Function: "TaskScheduler"
+DetailPrint: "Windows Task Scheduler being updated"
+DetailPrint: "Add TaylorDo scheduled tasks to Windows"
+ExecWait: ""$ProductAppInstallDir\Commands\TaskScheduler\DoTaskScheduleInstall.bat"" (->$0)
+DetailPrint: "exit code: $0"
+!insertmacro: _If
+!insertmacro: end of _If
+DetailPrint: "Daily optimization activated"
+ExecWait: ""$INSTDIR\Install\DoEnableDaily.bat"" (->)
+DetailPrint: "exit code: $0"
+!insertmacro: _Else
+!insertmacro: end of _Else
+DetailPrint: "No Daily optimization"
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+!insertmacro: _If
+!insertmacro: end of _If
+DetailPrint: "Weekly optimization activated"
+ExecWait: ""$INSTDIR\Install\DoEnableWeekly.bat"" (->)
+DetailPrint: "exit code: $0"
+!insertmacro: _Else
+!insertmacro: end of _Else
+DetailPrint: "No Weekly optimization"
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+!insertmacro: _If
+!insertmacro: end of _If
+DetailPrint: "Monthly optimization activated"
+ExecWait: ""$INSTDIR\Install\DoEnableMontly.bat"" (->)
+DetailPrint: "exit code: $0"
+!insertmacro: _Else
+!insertmacro: end of _Else
+DetailPrint: "No Montly optimization"
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+!insertmacro: _If
+!insertmacro: end of _If
+DetailPrint: "Yearly optimization activated"
+ExecWait: ""$INSTDIR\Install\DoEnableYearly.bat"" (->)
+DetailPrint: "exit code: $0"
+!insertmacro: _Else
+!insertmacro: end of _Else
+DetailPrint: "No Yearly optimization"
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+FunctionEnd
+Section: "-SETTINGS"
+SectionIn: [0] [1] [RO] 
+SetShellVarContext: all
+SetOverwrite: ifnewer
+!insertmacro: _If
+!insertmacro: end of _If
+SetOutPath: "$PROGRAMFILES32"
+!insertmacro: _Else
+!insertmacro: end of _Else
+SetOutPath: "$PROGRAMFILES"
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+StrCpy $ProductAppName "MyDefrag" () ()
+StrCpy $ProductAppVersion "4.3.1" () ()
+StrCpy $ProductAppPublisher "J.C. Kessels" () ()
+StrCpy $ProductAppInstallDir "$OUTDIR\MyDefrag v4.3.1" () ()
+StrCpy $ProductAppInstallDirRegKeyRoot "HKLM" () ()
+StrCpy $ProductAppInstallDirRegKeyPath "Software\$ProductAppName" () ()
+StrCpy $ProductAppInstallDirRegKeyValueName "Install_Dir" () ()
+StrCpy $ProductAppInstallDirRegKey "$ProductAppInstallDirRegKeyRoot $ProductAppInstallDirRegKeyPath $ProductAppInstallDirRegKeyValueName" () ()
+SectionEnd
+Section: "MyDefrag Section" ->(MyDefrag)
+SectionIn: [0] [1] [RO] 
+!insertmacro: _If
+!insertmacro: end of _If
+SetShellVarContext: all
+!insertmacro: _Else
+!insertmacro: end of _Else
+SetShellVarContext: current
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+StrCpy $ProductAppInstallDir "$OUTDIR\MyDefrag v4.3.1" () ()
+!insertmacro: _If
+!insertmacro: end of _If
+SetOutPath: "$PROGRAMFILES32"
+!insertmacro: _Else
+!insertmacro: end of _Else
+SetOutPath: "$PROGRAMFILES"
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+SetOutPath: "$INSTDIR"
+CreateDirectory: "$ProductAppInstallDir"
+SetOverwrite: ifnewer
+IfFileExists: "$ProductAppInstallDir\unins000.exe" ? 0 : myDefragInstall
+MessageBox: 4: "MyDefrag exists. Replace it?" (on IDNO goto myDefragSkipped)
+ExecWait: ""$ProductAppInstallDir\unins000.exe"" (->$0)
+MessageBox: 4: "MyDefrag uninstalled. Proceed with fresh install?" (on IDNO goto myDefragSkipped)
+SetOverwrite: on
+Goto: myDefragInstall
+DetailPrint: "Installing MyDefrag"
+File: "MyDefrag-v4.3.1.exe" [compress] 1734611/2082630 bytes
+ExecWait: ""$INSTDIR\MyDefrag-v4.3.1.exe" /silent /dir="$ProductAppInstallDir" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo"" (->$0)
+DetailPrint: "MyDefrag exit code: $0"
+DetailPrint: "MyDefrag Install Updated"
+DetailPrint: "MyDefrag Update Registry"
+WriteRegStr: HKLM\$ProductAppInstallDirRegKeyPath\$ProductAppInstallDirRegKeyValueName=$ProductAppInstallDir
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\DisplayName=$StartMenuFolder (remove only)
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\DisplayIcon=$ProductAppInstallDir\Unins000.exe
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\UninstallString="$ProductAppInstallDir\unins000.exe"
+WriteRegDWORD: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\NoModify=1
+WriteRegDWORD: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\NoRepair=0
+DetailPrint: "MyDefrag Registry Added"
+Goto: myDefragEnd
+DetailPrint: "MyDefrag skipped"
+DetailPrint: "MyDefrag finished"
+SectionEnd
+Section: "Matt Taylor Libraries" ->(TaylorDoLibraries)
+SectionIn: [0] [1] 
+!insertmacro: _If
+!insertmacro: end of _If
+SetShellVarContext: all
+!insertmacro: _Else
+!insertmacro: end of _Else
+SetShellVarContext: current
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+SetOutPath: "$INSTDIR"
+IfFileExists: "$OUTDIR\ReadMe.md" ? +2 : 0
+Goto: taylorDoInstall
+Goto: taylorDoExists
+MessageBox: 4: "TaylorDo already exists! Do you wish to replace it?" (on IDNO goto taylorDoExistsCancel)
+Goto: taylorDoInstall
+DetailPrint: "TaylorDo Cancelled"
+Goto: taylorDoEnd
+DetailPrint: "--------"
+Delete: "..\Download\TaylorDoSetup.exe"
+Delete: "..\Download\TaylorDo.zip"
+Delete: "..\Install\TaylorDoSetup.exe"
+Delete: "..\Install\TaylorDo.zip"
+DetailPrint: "--------"
+DetailPrint: "Add TaylorDo appliction..."
+DetailPrint: "Instdir: $INSTDIR"
+DetailPrint: "Product App InstDir: $ProductAppInstallDir"
+CreateDirectory: "$INSTDIR"
+SetOutPath: "$INSTDIR"
+SetOverwrite: on
+DetailPrint: "--------"
+File: "$ MyDefrag Help Manual.chm" [compress] 394340/409696 bytes
+File: "$ TaylorDo Analyst Readme.md" [compress] 14650/44638 bytes
+File: "DateThis.txt" [compress] 13 bytes
+File: "DateTimeThis.txt" [compress] 23 bytes
+File: "FileList.txt" [compress] 236/801 bytes
+File: "License.txt" [compress] 188/254 bytes
+File: "MyDefrag Command Line.txt" [compress] 1046/2419 bytes
+File: "MyDefrag Install Command Line.txt" [compress] 2520/7789 bytes
+File: "MyDefrag Keyboard Help.jpg" [compress] 43390/67951 bytes
+File: "MyDefrag v4.3.1 in Programs.lnk" [compress] 406/662 bytes
+File: "NotesAndWhiteBoard.txt" [compress] 359/3280 bytes
+File: "QuickStart.md" [compress] 1479/2910 bytes
+File: "ReadMe.md" [compress] 2209/4188 bytes
+File: "TimeThis.txt" [compress] 10 bytes
+File: Descending to: "..\ActionVerbs\"
+File: "DateThis.txt" [compress] 0/13 bytes
+File: "DateTimeThis.txt" [compress] 0/23 bytes
+File: "FileList.txt" [compress] 0/801 bytes
+File: "TimeThis.txt" [compress] 0/10 bytes
+File: "VolumeTypeSelect.MyDc" [compress] 10 bytes
+File: "ZoneDoActionAutomaticThis.MyDc" [compress] 158/170 bytes
+File: "ZoneDoActionMoveToEndOfDisk.MyDc" [compress] 55 bytes
+File: "ZoneDoActionMoveUpToZone.MyDc" [compress] 49 bytes
+File: "ZoneDoActionSortByCreationDate.MyDc" [compress] 99/122 bytes
+File: "ZoneDoActionSortByCreationDateFull.MyDc" [compress] 79/85 bytes
+File: "ZoneDoActionSortByImportSequence.MyDc" [compress] 72/75 bytes
+File: "ZoneDoActionSortByImportSequenceSkip.MyDc" [compress] 101/130 bytes
+File: "ZoneDoActionSortByName.MyDc" [compress] 86/95 bytes
+File: "ZoneDoActionThis.MyDc" [compress] 208/435 bytes
+File: "ZoneDoActionThisMode.MyDc" [compress] 7 bytes
+File: "ZoneDoActionThisMode.txt" [compress] 0/7 bytes
+File: "ZoneDoActionTypeAll.MyDc" [compress] 0/435 bytes
+File: "ZoneDoActionTypeArchivesBu.MyDc" [compress] 70 bytes
+File: "ZoneDoActionTypeBlobs.MyDc" [compress] 69 bytes
+File: "ZoneDoActionTypeOsBootData.MyDc" [compress] 112/115 bytes
+File: "ZoneDoActionTypeOsBootFixed.MyDc" [compress] 115/117 bytes
+File: "ZoneDoActionTypeOsDir.MyDc" [compress] 135/240 bytes
+File: "ZoneDoActionTypeOsMft.MyDc" [compress] 126/153 bytes
+File: "ZoneDoActionTypeOsPageHiberDump.MyDc" [compress] 126/147 bytes
+File: "ZoneDoActionTypeOsProgramHints.MyDc" [compress] 187/392 bytes
+File: "ZoneDoActionTypeOsProgramHintsData.MyDc" [compress] 128/134 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixed.MyDc" [compress] 149/202 bytes
+File: "ZoneDoActionTypeOsPrograms.MyDc" [compress] 152/202 bytes
+File: "ZoneDoActionTypeOsProgramsData.MyDc" [compress] 128 bytes
+File: "ZoneDoActionTypeOsProgramsFixed.MyDc" [compress] 153/203 bytes
+File: "ZoneDoGapNoVacate.MyDc" [compress] 91/93 bytes
+File: "ZoneDoGapThis.MyDc" [compress] 0/93 bytes
+File: "ZoneDoGapVacate.MyDc" [compress] 78 bytes
+File: Descending to: "..\ActionVerbs\Automatic\"
+File: "ZoneDoActionAutomatic.MyDc" [compress] 126/129 bytes
+File: "ZoneDoActionInteractive.MyDc" [compress] 0/170 bytes
+File: Descending to: "..\ActionVerbs\Fast\"
+File: "ZoneDoActionThisModeFast.MyDc" [compress] 7 bytes
+File: "ZoneDoActionThisModeFastBoot.MyDc" [compress] 11 bytes
+File: "ZoneDoActionTypeAllFast.MyDc" [compress] 62 bytes
+File: "ZoneDoActionTypeAllRegular.MyDc" [compress] 99/112 bytes
+File: "ZoneDoActionTypeArchivesBuFast.MyDc" [compress] 66 bytes
+File: "ZoneDoActionTypeBlobsFast.MyDc" [compress] 69 bytes
+File: "ZoneDoActionTypeOsBootDataFast.MyDc" [compress] 66 bytes
+File: "ZoneDoActionTypeOsBootFixedFast.MyDc" [compress] 0/66 bytes
+File: "ZoneDoActionTypeOsDirFast.MyDc" [compress] 132/150 bytes
+File: "ZoneDoActionTypeOsMftFast.MyDc" [compress] 124/150 bytes
+File: "ZoneDoActionTypeOsPageHiberDumpFast.MyDc" [compress] 75 bytes
+File: "ZoneDoActionTypeOsProgramHintsDataFast.MyDc" [compress] 81 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixedFast.MyDc" [compress] 86 bytes
+File: "ZoneDoActionTypeOsProgramsDataFast.MyDc" [compress] 80 bytes
+File: "ZoneDoActionTypeOsProgramsFixedFast.MyDc" [compress] 81 bytes
+File: "ZoneDoGapFast.MyDc" [compress] 129/174 bytes
+File: Descending to: "..\ActionVerbs\Full\"
+File: "ZoneDoActionThisModeFull.MyDc" [compress] 0/7 bytes
+File: "ZoneDoActionTypeAllFull.MyDc" [compress] 102/118 bytes
+File: "ZoneDoActionTypeArchivesBuFull.MyDc" [compress] 110/124 bytes
+File: "ZoneDoActionTypeBlobsFull.MyDc" [compress] 106/120 bytes
+File: "ZoneDoActionTypeOsBootDataFull.MyDc" [compress] 116/119 bytes
+File: "ZoneDoActionTypeOsBootFixedFull.MyDc" [compress] 0/117 bytes
+File: "ZoneDoActionTypeOsDirFull.MyDc" [compress] 119/122 bytes
+File: "ZoneDoActionTypeOsMftFull.MyDc" [compress] 0/153 bytes
+File: "ZoneDoActionTypeOsPageHiberDumpFull.MyDc" [compress] 127/143 bytes
+File: "ZoneDoActionTypeOsProgramHintsDataFull.MyDc" [compress] 133/135 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixedFull.MyDc" [compress] 133/136 bytes
+File: "ZoneDoActionTypeOsProgramsDataFull.MyDc" [compress] 131/134 bytes
+File: "ZoneDoActionTypeOsProgramsFixedFull.MyDc" [compress] 131/135 bytes
+File: "ZoneDoGapFull.MyDc" [compress] 0/174 bytes
+File: Descending to: "..\ActionVerbs\Regular\"
+File: "ZoneDoActionThisModeRegular.MyDc" [compress] 10 bytes
+File: "ZoneDoActionTypeAllRegular.MyDc" [compress] 0/435 bytes
+File: "ZoneDoActionTypeArchivesBuRegular.MyDc" [compress] 0/70 bytes
+File: "ZoneDoActionTypeBlobsRegular.MyDc" [compress] 0/69 bytes
+File: "ZoneDoActionTypeOsBootDataRegular.MyDc" [compress] 0/115 bytes
+File: "ZoneDoActionTypeOsBootFixedRegular.MyDc" [compress] 0/117 bytes
+File: "ZoneDoActionTypeOsDirRegular.MyDc" [compress] 0/240 bytes
+File: "ZoneDoActionTypeOsMftRegular.MyDc" [compress] 0/153 bytes
+File: "ZoneDoActionTypeOsPageHiberDumpRegular.MyDc" [compress] 0/147 bytes
+File: "ZoneDoActionTypeOsProgramHintsDataRegular.MyDc" [compress] 0/392 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixedRegular.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsProgramsDataRegular.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsProgramsFixedRegular.MyDc" [compress] 0/203 bytes
+File: "ZoneDoGapRegular.MyDc" [compress] 0/174 bytes
+File: Descending to: "..\Commands\"
+File: "DoDefragAutomaticOff.bat" [compress] 181/474 bytes
+File: "DoDefragAutomaticOn.bat" [compress] 209/611 bytes
+File: "DoDefragFast.bat" [compress] 146/646 bytes
+File: "DoDefragFastBoot.bat" [compress] 150/658 bytes
+File: "DoDefragFull.bat" [compress] 146/646 bytes
+File: "DoDefragRegular.bat" [compress] 147/655 bytes
+File: "DoEnvironmentClear.bat" [compress] 159/665 bytes
+File: "DoEnvironmentSet.bat" [compress] 313/1028 bytes
+File: "DoGapNoVacate.bat" [compress] 152/510 bytes
+File: "DoGapVacate.bat" [compress] 150/504 bytes
+File: "DoMoveToEndOfDisk.bat" [compress] 155/524 bytes
+File: "DoMoveUpToZone.bat" [compress] 151/514 bytes
+File: "DoReset.bat" [compress] 186/695 bytes
+File: "DoResetTaskScheduler.bat" [compress] 112/277 bytes
+File: "DoSetPagefile.bat" [compress] 510/1210 bytes
+File: "DoSortByCreationDate.bat" [compress] 160/528 bytes
+File: "DoSortByName.bat" [compress] 151/508 bytes
+File: "DoSortByNewestDate.bat" [compress] 156/526 bytes
+File: "DoSortFast.bat" [compress] 407/2408 bytes
+File: "DoSortFastBoot.bat" [compress] 411/2226 bytes
+File: "DoSortFull.bat" [compress] 407/2411 bytes
+File: "DoSortRegular.bat" [compress] 437/2616 bytes
+File: "DoStateRestore.bat" [compress] 464/2070 bytes
+File: "DoStateSave.bat" [compress] 465/2100 bytes
+File: "DoSysCleanStep1Start.bat" [compress] 1318/3642 bytes
+File: "DoSysCleanStep2Reboot.bat" [compress] 750/2300 bytes
+File: "DoSysCleanStep3Logon.bat" [compress] 677/1781 bytes
+File: "DoVolumeArchive.bat" [compress] 161/505 bytes
+File: "DoVolumeC.bat" [compress] 156/487 bytes
+File: "DoVolumeD.bat" [compress] 156/487 bytes
+File: "DoVolumeData.bat" [compress] 159/496 bytes
+File: "DoVolumeDev.bat" [compress] 158/493 bytes
+File: "DoVolumeE.bat" [compress] 156/487 bytes
+File: "DoVolumeF.bat" [compress] 156/487 bytes
+File: "DoVolumeG.bat" [compress] 156/487 bytes
+File: "DoVolumeSys.bat" [compress] 157/493 bytes
+File: "FileList.bat" [compress] 46 bytes
+File: "Home.bat" [compress] 725/1400 bytes
+File: "Home1.bat" [compress] 1200/2981 bytes
+File: "WriteDateTime.bat" [compress] 432/1142 bytes
+File: "WriteDateTimeNotes MMDDYYYY.txt" [compress] 760/1878 bytes
+File: "WriteDateTimeNotes YYYYMMDD.txt" [compress] 767/1872 bytes
+File: "desktop.ini" [compress] 114 bytes
+File: "file.txt" [compress] 192/397 bytes
+File: Descending to: "..\Commands\RunPeriod\"
+File: "DefragDiskDailySetSettings.bat" [compress] 235/571 bytes
+File: Descending to: "..\Commands\SetVolumes\"
+File: Descending to: "..\Commands\TaskScheduler\"
+File: "DoTaskDisableWindows.bat" [compress] 190/542 bytes
+File: "DoTaskEnableWindows.bat" [compress] 289/1425 bytes
+File: "DoTaskOnDemand.bat" [compress] 281/1417 bytes
+File: "DoTaskOnSchedule.bat" [compress] 284/1421 bytes
+File: "DoTaskScheduleExport.bat" [compress] 328/1743 bytes
+File: "DoTaskScheduleImport.bat" [compress] 359/1655 bytes
+File: "DoTaskScheduleImportWindows.bat" [compress] 301/712 bytes
+File: "DoTaskScheduleInstall.bat" [compress] 627/2892 bytes
+File: "DoTaskScheduleUninstall.bat" [compress] 357/1697 bytes
+File: Descending to: "..\Defrag\"
+File: "DEFRAGANY$ VOLUME HERE.MyDc" [compress] 0 bytes
+File: "DEFRAGVOLUME$ TYPE HERE.MyDc" [compress] 0 bytes
+File: "DEFRAGZONE$GROUP$ HERE.MyDc" [compress] 0 bytes
+File: "DefragAnyBasicVolume.MyDc" [compress] 680/2494 bytes
+File: "DefragAnyComplexVolume.MyDc" [compress] 1278/5183 bytes
+File: "DefragAnyVolume.MyDc" [compress] 241/531 bytes
+File: "DefragVolumeArchive.MyDc" [compress] 287/612 bytes
+File: "DefragVolumeData.MyDc" [compress] 291/592 bytes
+File: "DefragVolumeDev.MyDc" [compress] 283/581 bytes
+File: "DefragVolumeSys.MyDc" [compress] 272/546 bytes
+File: "DefragZoneGroupMftDir.MyDc" [compress] 751/2131 bytes
+File: "DefragZoneGroupOs.MyDc" [compress] 543/1453 bytes
+File: Descending to: "..\Display\"
+File: "BANNER$ HERE.MyDc" [compress] 0 bytes
+File: "BANNERz END.MyDc" [compress] 0 bytes
+File: "BannerDescriptionSet.MyDc" [compress] 86/112 bytes
+File: "BannerLog.MyDc" [compress] 79 bytes
+File: "BannerSet.MyDc" [compress] 478/1193 bytes
+File: "DISPLA$Y HERE.MyDc" [compress] 0 bytes
+File: "DataVolumeStats.MyDc" [compress] 40 bytes
+File: "Display.MyDc" [compress] 53 bytes
+File: "DisplayColors - Copy.MyDc" [compress] 426/1118 bytes
+File: "DisplayColors p20211108.MyDc" [compress] 740/2149 bytes
+File: "DisplayColors.MyDc" [compress] 843/2326 bytes
+File: "DisplayColorsZoneDark.MyDc" [compress] 247/456 bytes
+File: "DisplayColorsZoneLight.MyDc" [compress] 254/465 bytes
+File: "DisplayDiskmapFlip.MyDc" [compress] 20 bytes
+File: "DisplaySetDateTimeCurrent.MyDc" [compress] 72/100 bytes
+File: "DisplaySetDateTimeRun.MyDc" [compress] 148/232 bytes
+File: "DisplaySetRun.MyDc" [compress] 286/856 bytes
+File: "DisplaySetServer.MyDc" [compress] 377/848 bytes
+File: "DisplaySetVolume.MyDc" [compress] 381/867 bytes
+File: "DisplaySetVolumeLayout.txt" [compress] 629/2004 bytes
+File: "DisplaySetWindowText.MyDc" [compress] 340/1389 bytes
+File: "DisplaySetZone.MyDc" [compress] 235/425 bytes
+File: "DisplaySetZoneStep.MyDc" [compress] 188/309 bytes
+File: "DisplayStatusBar.MyDc" [compress] 28 bytes
+File: "StatsDataToDo.MyDc" [compress] 48 bytes
+File: Descending to: "..\Download\"
+File: "MyDefrag-v4.3.1.exe" [compress] 0/2082630 bytes
+File: "MyDefragCopy.exe" [compress] 0/2082630 bytes
+File: Descending to: "..\FileSelectCategory\"
+File: "$ FILE TYPE SELECTIONS.MyDs" [compress] 0 bytes
+File: "SelArchives.MyDs" [compress] 193/459 bytes
+File: "SelBackups.MyDs" [compress] 111/208 bytes
+File: "SelBlobs.MyDs" [compress] 208/489 bytes
+File: "SelBlobsAndExceptions.MyDs" [compress] 191/460 bytes
+File: "SelCorp.MyDs" [compress] 79/94 bytes
+File: "SelData.MyDs" [compress] 134/363 bytes
+File: "SelDatabases.MyDs" [compress] 143/484 bytes
+File: "SelDev.MyDs" [compress] 99/185 bytes
+File: "SelFamily.MyDs" [compress] 69 bytes
+File: "SelGames.MyDs" [compress] 90/150 bytes
+File: "SelIde.MyDs" [compress] 81/118 bytes
+File: "SelLinks.MyDs" [compress] 92/134 bytes
+File: "SelNotArchivesBu.MyDs" [compress] 127/226 bytes
+File: "SelNotBlobsArchivesBu.MyDs" [compress] 167/343 bytes
+File: "SelOsDataDynamic.MyDs" [compress] 104/184 bytes
+File: "SelOsPageHiberDump.MyDs" [compress] 129/204 bytes
+File: "SelPeople.MyDs" [compress] 164/405 bytes
+File: "SelReference.MyDs" [compress] 218/629 bytes
+File: "SelScripts.MyDs" [compress] 69 bytes
+File: "SelShare.MyDs" [compress] 105/193 bytes
+File: "SelSupport.MyDs" [compress] 95/137 bytes
+File: "SelSystemDir.MyDs" [compress] 144/354 bytes
+File: "SelToDo.MyDs" [compress] 61 bytes
+File: "SelUnallocated.MyDs" [compress] 51 bytes
+File: "SelWinSysLow.MyDs" [compress] 329/1032 bytes
+File: "SelWork.MyDs" [compress] 101/204 bytes
+File: Descending to: "..\Gap\"
+File: "GAP$ CALCULATIONS HERE.MyDc" [compress] 0 bytes
+File: "GapCalcMethod.MyDc" [compress] 348/654 bytes
+File: "GapCalcMft.MyDc" [compress] 206/285 bytes
+File: "GapCalcOriginal.MyDc" [compress] 237/330 bytes
+File: "GapCalcOs.MyDc" [compress] 165/206 bytes
+File: "GapCalcStd.MyDc" [compress] 188/258 bytes
+File: "GapCommandDoNotVacate.MyDc" [compress] 78/92 bytes
+File: "GapCommandDoVacate.MyDc" [compress] 79/92 bytes
+File: "GapZoneActualFreeSetCurrent.XXX" [compress] 381/1203 bytes
+File: "GapZoneCalc.MyDc" [compress] 195/308 bytes
+File: "GapZoneCommand.MyDc" [compress] 330/509 bytes
+File: "GapZoneCommandNotes.txt" [compress] 516/1177 bytes
+File: "GapZoneSet.MyDc" [compress] 1543/4317 bytes
+File: Descending to: "..\Help\"
+File: "#IDXHDR" [compress] 63/4096 bytes
+File: "#ITBITS" [compress] 0 bytes
+File: "#STRINGS" [compress] 2340/6418 bytes
+File: "#SYSTEM" [compress] 176/4258 bytes
+File: "#TOPICS" [compress] 1374/4320 bytes
+File: "#URLSTR" [compress] 2457/12811 bytes
+File: "#URLTBL" [compress] 2073/3240 bytes
+File: "$ MyDefrag Help Manual.chm" [compress] 0/409696 bytes
+File: "$FIftiMain" [compress] 109878/157873 bytes
+File: "$OBJINST" [compress] 1139/2751 bytes
+File: "Converted_CHM_Clean_Structure.docx" [compress] 37001/39671 bytes
+File: "Converted_CHM_Help_With_TOC.docx" [compress] 157944/159933 bytes
+File: "Defragment-ChunkSize.html" [compress] 1027/2655 bytes
+File: "Defragment-Fast.html" [compress] 765/1988 bytes
+File: "DownloadAndInstall-DefragPre-versions2.24PreOct2006.html" [compress] 287/444 bytes
+File: "DownloadAndInstall-MyDefragV4.3.1May202010.html" [compress] 622/943 bytes
+File: "FAQDownloadAndInstall-CanMyDefragDoContinuousBackgroundDefragmenting.html" [compress] 630/1013 bytes
+File: "FAQDownloadAndInstall-HowDoIDisableTheWindowsBuilt-inDefragger.html" [compress] 1083/2232 bytes
+File: "FAQDownloadAndInstall-HowMuchMinimumFreeDiskSpaceDoesMyDefragRequire.html" [compress] 873/1660 bytes
+File: "FAQDownloadAndInstall-HowToUpgrade.html" [compress] 1349/3021 bytes
+File: "FAQDownloadAndInstall-IsThereANo-installVersionAvailable.html" [compress] 1497/3733 bytes
+File: "FAQDownloadAndInstall-IsThereAVersionForDOSWindows39598MENTLinuxOrMacOSAvailable.html" [compress] 720/1431 bytes
+File: "FAQDownloadAndInstall-IsThereAnX64VersionAvailable.html" [compress] 615/1097 bytes
+File: "FAQDownloadAndInstall-MyVirusscannerSaysMyDefragIsInfected!.html" [compress] 915/4715 bytes
+File: "FAQDownloadAndInstall-TheScreensaverDoesNotWork.html" [compress] 657/1072 bytes
+File: "FAQGeneralInformation-AreStripedRAIDVolumesFasterAtTheirBeginning.html" [compress] 677/1331 bytes
+File: "FAQGeneralInformation-DoesMyDefragSupportRAIDDisksUSBDisksFloppiesMemorySticks.html" [compress] 753/1388 bytes
+File: "FAQGeneralInformation-HowSafeIsMyDefrag.html" [compress] 1162/2218 bytes
+File: "FAQGeneralInformation-SupportHelpdeskAddressContactInfoEtc.Etc..html" [compress] 850/2244 bytes
+File: "FAQGeneralInformation-WhatAreSpaceHogs.html" [compress] 1213/2776 bytes
+File: "FAQGeneralInformation-WhatIsTheAverageEnd-beginDistance.html" [compress] 676/1105 bytes
+File: "FAQGeneralInformation-WhatIsdiskFragmentation.html" [compress] 651/1132 bytes
+File: "FAQGeneralInformation-WhatIsdiskOptimization.html" [compress] 719/1292 bytes
+File: "FAQGeneralInformation-WhyANewScriptingLanguage.html" [compress] 913/1622 bytes
+File: "FAQGeneralInformation-WhyDoesMyDefragNotPerfectlyOptimizeMyDisk.html" [compress] 1577/3564 bytes
+File: "FAQGeneralInformation-WhyUseMyDefragInsteadOfACommercialOrSharewareDefragger.html" [compress] 712/1247 bytes
+File: "FAQGeneralInformation-WhyUseMyDefragInsteadOfTheStandardWindowsDefragger.html" [compress] 724/1342 bytes
+File: "FAQGeneralInformation-WillMyDefragReduceTheLifespanOfMyFlashSSDMemoryDisk.html" [compress] 2031/4785 bytes
+File: "FAQSpecialFiles-HowDoIDefragmentCExtendRmMetadataTxfLogTopsTDATA.html" [compress] 742/1383 bytes
+File: "FAQSpecialFiles-HowDoIDefragmentCExtendUsnJrnlJDATA.html" [compress] 495/1025 bytes
+File: "FAQSpecialFiles-HowDoIDefragmentCLogfile.html" [compress] 737/1230 bytes
+File: "FAQSpecialFiles-HowDoIDefragmentCSystemVolumeInformation.....html" [compress] 864/1631 bytes
+File: "FAQSpecialFiles-HowDoIDefragmentChiberfil.sys.html" [compress] 989/2118 bytes
+File: "FAQSpecialFiles-HowDoIDefragmentCpagefile.systheSwapfile.html" [compress] 1538/3491 bytes
+File: "FAQUsing-CanIRunMyDefragOutsideWindows.html" [compress] 888/1909 bytes
+File: "FAQUsing-CanIhideTheProgramFromUsers.html" [compress] 634/1208 bytes
+File: "FAQUsing-DoIHaveTocheckdiskBeforeRunningMyDefrag.html" [compress] 733/1461 bytes
+File: "FAQUsing-HowDoIDefragmentUnmountedVolumes.html" [compress] 858/1584 bytes
+File: "FAQUsing-HowDoIScheduleATaskToRunAutomaticallyEveryDay.html" [compress] 1595/4037 bytes
+File: "FAQUsing-HowToRunADifferentScriptPerDisk.html" [compress] 1301/3713 bytes
+File: "FAQUsing-HowToRunMyDefragAtBoot-time.html" [compress] 884/1759 bytes
+File: "FAQUsing-HowToRunMyDefragForASingleDisk.html" [compress] 1150/2831 bytes
+File: "FAQUsing-HowToRunWithALowerPriority.html" [compress] 553/1070 bytes
+File: "FAQUsing-HowToStartMinimizedOrMaximized.html" [compress] 541/936 bytes
+File: "FAQUsing-HowToUseMyDefragFromABootableCD-ROMOrMemoryStick.html" [compress] 1770/3863 bytes
+File: "FAQUsing-IHaveAProblem!.html" [compress] 1521/3436 bytes
+File: "FAQUsing-IHaveStoppedMyDefragButItRemainsRunning.html" [compress] 718/1316 bytes
+File: "FAQUsing-IsItSafeToStopMyDefrag.html" [compress] 705/1339 bytes
+File: "FAQUsing-MyDefragIsVerySlowWhatSpeedCanIExpect.html" [compress] 1972/4351 bytes
+File: "FAQUsing-WhatAreTheColorsOnTheDiskmap.html" [compress] 1069/3184 bytes
+File: "FAQUsing-WhatIsNtfsDisableLastAccessUpdate.html" [compress] 923/2365 bytes
+File: "FAQUsing-WhatIsTheBestDefragmentationoptimizationStrategyForMe.html" [compress] 1184/2519 bytes
+File: "FAQUsing-WhyDoIHaveLessDiskspaceAfterRunningMyDefrag.html" [compress] 1402/3081 bytes
+File: "FAQUsing-WhyDoIHaveMoreDiskspaceAfterRunningMyDefrag.html" [compress] 1374/3030 bytes
+File: "FAQUsing-WhyDoesMyDefragDeleteMyRestorePoints.html" [compress] 452/802 bytes
+File: "FAQUsing-WhyIsMyDefragSoSlowInWindowssafeMode.html" [compress] 443/685 bytes
+File: "FastFill-WithShuffling.html" [compress] 712/1799 bytes
+File: "FileActions-AddGap.html" [compress] 1241/3301 bytes
+File: "FileActions-Defragment.html" [compress] 1069/3031 bytes
+File: "FileActions-FastFill.html" [compress] 1295/3683 bytes
+File: "FileActions-ForcedFill.html" [compress] 679/1725 bytes
+File: "FileActions-MoveDownFill.html" [compress] 777/1982 bytes
+File: "FileActions-MoveToEndOfDisk.html" [compress] 1004/2245 bytes
+File: "FileActions-MoveUpToZone.html" [compress] 1036/2776 bytes
+File: "FileActions-PlaceNtfsSystemFiles.html" [compress] 1467/4200 bytes
+File: "FileActions-Settings.html" [compress] 768/5582 bytes
+File: "FileActions-SortByCreationDate.html" [compress] 989/2781 bytes
+File: "FileActions-SortByImportSequence.html" [compress] 965/3379 bytes
+File: "FileActions-SortByLastAccess.html" [compress] 1553/4378 bytes
+File: "FileActions-SortByLastChange.html" [compress] 983/2774 bytes
+File: "FileActions-SortByName.html" [compress] 1073/2997 bytes
+File: "FileActions-SortByNewestDate.html" [compress] 1416/3878 bytes
+File: "FileActions-SortBySize.html" [compress] 859/2509 bytes
+File: "FileBoolean-....html" [compress] 551/1235 bytes
+File: "FileBoolean-AND.html" [compress] 591/1520 bytes
+File: "FileBoolean-All.html" [compress] 534/1146 bytes
+File: "FileBoolean-Archive.html" [compress] 610/1373 bytes
+File: "FileBoolean-AverageFragmentSize.html" [compress] 731/1733 bytes
+File: "FileBoolean-Compressed.html" [compress] 678/1577 bytes
+File: "FileBoolean-CreationDate.html" [compress] 787/1826 bytes
+File: "FileBoolean-Directory.html" [compress] 795/1744 bytes
+File: "FileBoolean-DirectoryName.html" [compress] 1045/2865 bytes
+File: "FileBoolean-DirectoryPath.html" [compress] 1107/2957 bytes
+File: "FileBoolean-Encrypted.html" [compress] 666/1530 bytes
+File: "FileBoolean-FileLocation.html" [compress] 955/2587 bytes
+File: "FileBoolean-FileName.html" [compress] 922/2369 bytes
+File: "FileBoolean-FragmentCount.html" [compress] 656/1553 bytes
+File: "FileBoolean-Fragmented.html" [compress] 544/1263 bytes
+File: "FileBoolean-FullPath.html" [compress] 1254/3340 bytes
+File: "FileBoolean-Hidden.html" [compress] 608/1371 bytes
+File: "FileBoolean-ImportListFromBootOptimize.html" [compress] 2007/5457 bytes
+File: "FileBoolean-ImportListFromFile.html" [compress] 1113/2893 bytes
+File: "FileBoolean-ImportListFromProgramHints.html" [compress] 1590/3911 bytes
+File: "FileBoolean-Largest.html" [compress] 608/1463 bytes
+File: "FileBoolean-LargestFragmentSize.html" [compress] 686/1620 bytes
+File: "FileBoolean-LastAccess.html" [compress] 940/2479 bytes
+File: "FileBoolean-LastAccessEnabled.html" [compress] 922/2860 bytes
+File: "FileBoolean-LastChange.html" [compress] 785/1816 bytes
+File: "FileBoolean-NOT.html" [compress] 592/1313 bytes
+File: "FileBoolean-NotToBeIndexed.html" [compress] 635/1476 bytes
+File: "FileBoolean-OR.html" [compress] 590/1523 bytes
+File: "FileBoolean-Offline.html" [compress] 654/1457 bytes
+File: "FileBoolean-Readonly.html" [compress] 550/1269 bytes
+File: "FileBoolean-SelectNtfsSystemFiles.html" [compress] 1344/3780 bytes
+File: "FileBoolean-Size.html" [compress] 711/1569 bytes
+File: "FileBoolean-Smallest.html" [compress] 605/1467 bytes
+File: "FileBoolean-SmallestFragmentSize.html" [compress] 685/1627 bytes
+File: "FileBoolean-Sparse.html" [compress] 543/1248 bytes
+File: "FileBoolean-System.html" [compress] 840/1878 bytes
+File: "FileBoolean-Temporary.html" [compress] 686/1516 bytes
+File: "FileBoolean-Unmovable.html" [compress] 650/1456 bytes
+File: "FileBoolean-Virtual.html" [compress] 566/1301 bytes
+File: "FrequentlyAskedQuestions-FAQDownloadAndInstall.html" [compress] 771/2484 bytes
+File: "FrequentlyAskedQuestions-FAQGeneralInformation.html" [compress] 914/3420 bytes
+File: "FrequentlyAskedQuestions-FAQSpecialFiles.html" [compress] 550/1765 bytes
+File: "FrequentlyAskedQuestions-FAQUsing.html" [compress] 1196/5106 bytes
+File: "Manual-DownloadAndInstall.html" [compress] 5651/29924 bytes
+File: "Manual-FrequentlyAskedQuestions.html" [compress] 2278/11903 bytes
+File: "Manual-KnownProblems.html" [compress] 1560/3304 bytes
+File: "Manual-License.html" [compress] 1192/2412 bytes
+File: "Manual-Scripts.html" [compress] 4190/16941 bytes
+File: "Manual-SeeAlso.html" [compress] 2448/8941 bytes
+File: "Manual-TipsAndTricks.html" [compress] 1576/3432 bytes
+File: "Manual-UsingMyDefrag.html" [compress] 3108/8728 bytes
+File: "Manual.hhc" [compress] 4737/59618 bytes
+File: "Manual.hhk" [compress] 4786/64641 bytes
+File: "MyDefrag Help Files.7z" [compress] 342198 bytes
+File: "MyDefrag Help Files.zip" [compress] 525361/577510 bytes
+File: "Scripts-DATETIME.html" [compress] 1135/3380 bytes
+File: "Scripts-FileActions.html" [compress] 829/4040 bytes
+File: "Scripts-FileBoolean.html" [compress] 1183/8275 bytes
+File: "Scripts-FileSelect.html" [compress] 1051/3382 bytes
+File: "Scripts-FormalScriptGrammar.html" [compress] 2497/12052 bytes
+File: "Scripts-Macros.html" [compress] 1640/4104 bytes
+File: "Scripts-NUMBER.html" [compress] 1730/6326 bytes
+File: "Scripts-STRING.html" [compress] 1043/2185 bytes
+File: "Scripts-Settings.html" [compress] 764/5574 bytes
+File: "Scripts-Variables.html" [compress] 4482/45438 bytes
+File: "Scripts-VolumeActions.html" [compress] 706/2531 bytes
+File: "Scripts-VolumeBoolean.html" [compress] 991/5363 bytes
+File: "Scripts-VolumeSelect.html" [compress] 976/3118 bytes
+File: "SeeAlso-MyFragmenter.html" [compress] 865/2326 bytes
+File: "Settings-AppendLogfile.html" [compress] 886/2249 bytes
+File: "Settings-BatteryPower.html" [compress] 787/1690 bytes
+File: "Settings-Debug.html" [compress] 1471/5273 bytes
+File: "Settings-Description.html" [compress] 945/2301 bytes
+File: "Settings-DiskmapFlip.html" [compress] 1021/1873 bytes
+File: "Settings-ExcludeFiles.html" [compress] 908/2602 bytes
+File: "Settings-ExcludeVolumes.html" [compress] 745/1869 bytes
+File: "Settings-ExitIfTimeout.html" [compress] 718/1175 bytes
+File: "Settings-FileMoveChunkSize.html" [compress] 1442/3099 bytes
+File: "Settings-IgnoreWrapAroundFragmentation.html" [compress] 1283/2737 bytes
+File: "Settings-Language.html" [compress] 686/1433 bytes
+File: "Settings-MaxRunTime.html" [compress] 999/3160 bytes
+File: "Settings-Message.html" [compress] 946/2115 bytes
+File: "Settings-OtherInstances.html" [compress] 757/1689 bytes
+File: "Settings-Pause.html" [compress] 703/1448 bytes
+File: "Settings-ProcessPriority.html" [compress] 996/2341 bytes
+File: "Settings-RememberUnmovables.html" [compress] 906/1614 bytes
+File: "Settings-RunProgram.html" [compress] 823/1665 bytes
+File: "Settings-RunScript.html" [compress] 1101/2786 bytes
+File: "Settings-SetColor.html" [compress] 1180/4720 bytes
+File: "Settings-SetFileColor.html" [compress] 2096/8103 bytes
+File: "Settings-SetScreenPowerSaver.html" [compress] 764/1724 bytes
+File: "Settings-SetScreenSaver.html" [compress] 748/1621 bytes
+File: "Settings-SetStatisticsWindowText.html" [compress] 1434/10914 bytes
+File: "Settings-SetVariable.html" [compress] 1114/3322 bytes
+File: "Settings-Slowdown.html" [compress] 740/1590 bytes
+File: "Settings-StatusBar.html" [compress] 929/2052 bytes
+File: "Settings-Title.html" [compress] 824/1864 bytes
+File: "Settings-WhenFinished.html" [compress] 1346/4244 bytes
+File: "Settings-WindowSize.html" [compress] 754/1938 bytes
+File: "Settings-WriteLogfile.html" [compress] 1032/3249 bytes
+File: "Settings-ZoomLevel.html" [compress] 687/1497 bytes
+File: "SortByName-Ascending.html" [compress] 394/705 bytes
+File: "SortByName-Descending.html" [compress] 397/712 bytes
+File: "SortByName-SkipBlock.html" [compress] 912/1924 bytes
+File: "VolumeActions-DeleteJournal.html" [compress] 1669/3753 bytes
+File: "VolumeActions-DismountVolume.html" [compress] 1026/2133 bytes
+File: "VolumeActions-FileSelect.html" [compress] 1054/3394 bytes
+File: "VolumeActions-MakeGap.html" [compress] 1284/3288 bytes
+File: "VolumeActions-ReclaimNtfsReservedAreas.html" [compress] 1077/3016 bytes
+File: "VolumeActions-Settings.html" [compress] 768/5586 bytes
+File: "VolumeBoolean-....html" [compress] 549/1253 bytes
+File: "VolumeBoolean-AND.html" [compress] 575/1539 bytes
+File: "VolumeBoolean-All.html" [compress] 507/1130 bytes
+File: "VolumeBoolean-Cdrom.html" [compress] 512/1175 bytes
+File: "VolumeBoolean-CheckVolume.html" [compress] 594/1325 bytes
+File: "VolumeBoolean-CommandlineVolumes.html" [compress] 853/2255 bytes
+File: "VolumeBoolean-FileSystemType.html" [compress] 698/1911 bytes
+File: "VolumeBoolean-Fixed.html" [compress] 558/1363 bytes
+File: "VolumeBoolean-FragmentCount.html" [compress] 780/1922 bytes
+File: "VolumeBoolean-FragmentSize.html" [compress] 802/2000 bytes
+File: "VolumeBoolean-Label.html" [compress] 744/1848 bytes
+File: "VolumeBoolean-Mounted.html" [compress] 921/2056 bytes
+File: "VolumeBoolean-NOT.html" [compress] 591/1335 bytes
+File: "VolumeBoolean-Name.html" [compress] 886/2197 bytes
+File: "VolumeBoolean-NumberBetween.html" [compress] 717/1918 bytes
+File: "VolumeBoolean-OR.html" [compress] 576/1542 bytes
+File: "VolumeBoolean-Ramdisk.html" [compress] 555/1250 bytes
+File: "VolumeBoolean-Remote.html" [compress] 539/1214 bytes
+File: "VolumeBoolean-Removable.html" [compress] 657/1547 bytes
+File: "VolumeBoolean-Size.html" [compress] 639/1471 bytes
+File: "VolumeBoolean-Writable.html" [compress] 580/1303 bytes
+File: "debug.html" [compress] 925/1781 bytes
+File: "index.html" [compress] 2876/7393 bytes
+File: Descending to: "..\Help\$WWAssociativeLinks\"
+File: "Property" [compress] 4 bytes
+File: Descending to: "..\Help\$WWKeywordLinks\"
+File: "BTree" [compress] 4103/34892 bytes
+File: "Data" [compress] 43/3497 bytes
+File: "Map" [compress] 71/130 bytes
+File: "Property" [compress] 23/32 bytes
+File: Descending to: "..\Help\img\"
+File: "Bullit.gif" [compress] 649/1007 bytes
+File: "Cnet.png" [compress] 7198 bytes
+File: "FreewareGeeks.png" [compress] 9484 bytes
+File: "Ghacks.jpg" [compress] 10523/10908 bytes
+File: "Snapshot1.gif" [compress] 29655 bytes
+File: "Snapshot2.gif" [compress] 13063/13184 bytes
+File: "WikiPedia.png" [compress] 15889 bytes
+File: "chippick_small1.png" [compress] 11410/11694 bytes
+File: "downloadtube.gif" [compress] 13122/13163 bytes
+File: "logo.gif" [compress] 6958/7137 bytes
+File: "rss.jpg" [compress] 608/690 bytes
+File: Descending to: "..\Install\"
+File: "Comple 1.txt" [compress] 9344/104454 bytes
+File: "Comple 2.txt" [compress] 9196/100102 bytes
+File: "DoAddSchTasks.bat" [compress] 179/497 bytes
+File: "DoDisableDaily.bat" [compress] 48 bytes
+File: "DoDisableMonthly.bat" [compress] 50 bytes
+File: "DoDisableSchTasks.bat" [compress] 56/87 bytes
+File: "DoDisableWeekly.bat" [compress] 49 bytes
+File: "DoDisableYearly.bat" [compress] 49 bytes
+File: "DoEnableDaily.bat" [compress] 47 bytes
+File: "DoEnableMonthly.bat" [compress] 49 bytes
+File: "DoEnableSchTasks.bat" [compress] 56/86 bytes
+File: "DoEnableWeekly.bat" [compress] 48 bytes
+File: "DoEnableYearly.bat" [compress] 48 bytes
+File: "EnvVarUpdate.nsh" [compress] 3007/10684 bytes
+File: "Install Summary.md" [compress] 2559/5894 bytes
+File: "MyDefrag Run Zone 6 Small.bmp" [compress] 0/35310 bytes
+File: "MyDefrag Run Zone 6.bmp" [compress] 1106469/2915154 bytes
+File: "Nsis Notes.txt" [compress] 510/1213 bytes
+File: "ScheduledDefrag.xml" [compress] 1088/4934 bytes
+File: "Sheduletask.nsh" [compress] 2406/7208 bytes
+File: "TaskScheduleSelection.ini" [compress] 450/1103 bytes
+File: "TaylorDiskOptimizerSetupFull MUI 1.67.nsi" [compress] 6703/30572 bytes
+File: "TaylorDiskOptimizerSetupFull.nsi" [compress] 8902/42471 bytes
+File: "TaylorDiskOptimizerSetupSimple.nsi" [compress] 1092/3061 bytes
+File: "TaylorDo All Daily.xml" [compress] 1067/5148 bytes
+File: "TaylorDo All Monthly.xml" [compress] 1055/4898 bytes
+File: "TaylorDo All Weekly.xml" [compress] 1073/5040 bytes
+File: "TaylorDo All Yearly.xml" [compress] 1027/4602 bytes
+File: "TaylorDo Dev Yearly (sb. All Yearly).xml" [compress] 1135/5090 bytes
+File: "TaylorDo Dev YearlyX.xml" [compress] 1139/5128 bytes
+File: "TaylorDoSetup.exe" [compress] 24030191/35615202 bytes
+File: "WinVersionRunTemplate.bat" [compress] 491/1077 bytes
+File: "Windows Scheduled Defrag Task Disable.bat" [compress] 352/641 bytes
+File: "Windows Scheduled Defrag Task Enable.bat" [compress] 345/623 bytes
+File: Descending to: "..\Install\EnVar_plugin\"
+File: Descending to: "..\Install\EnVar_plugin\Contrib\"
+File: Descending to: "..\Install\EnVar_plugin\Contrib\EnVar\"
+File: "EnVar.suo" [compress] 1335/9728 bytes
+File: "EnVar.vcproj" [compress] 1323/13802 bytes
+File: "envar.c" [compress] 4211/21678 bytes
+File: Descending to: "..\Install\EnVar_plugin\Contrib\EnVar\nsis\"
+File: "api.h" [compress] 1384/2761 bytes
+File: "nsis_tchar.h" [compress] 1252/5054 bytes
+File: "pluginapi-amd64-unicode.lib" [compress] 2838/9734 bytes
+File: "pluginapi-x86-ansi.lib" [compress] 2123/6986 bytes
+File: "pluginapi-x86-unicode.lib" [compress] 2132/6996 bytes
+File: "pluginapi.h" [compress] 934/3076 bytes
+File: Descending to: "..\Install\EnVar_plugin\Docs\"
+File: Descending to: "..\Install\EnVar_plugin\Docs\EnVar\"
+File: "license.txt" [compress] 602/1000 bytes
+File: "readme.txt" [compress] 1213/2992 bytes
+File: Descending to: "..\Install\EnVar_plugin\Examples\"
+File: Descending to: "..\Install\EnVar_plugin\Examples\EnVar\"
+File: "example.nsi" [compress] 512/2138 bytes
+File: Descending to: "..\Install\EnVar_plugin\Plugins\"
+File: Descending to: "..\Install\EnVar_plugin\Plugins\amd64-unicode\"
+File: "EnVar.dll" [compress] 4084/12800 bytes
+File: Descending to: "..\Install\EnVar_plugin\Plugins\x86-ansi\"
+File: "EnVar.dll" [compress] 3642/9728 bytes
+File: Descending to: "..\Install\EnVar_plugin\Plugins\x86-unicode\"
+File: "EnVar.dll" [compress] 3792/10240 bytes
+File: Descending to: "..\Logs\"
+File: "desktop.ini" [compress] 115 bytes
+File: Descending to: "..\MattTaylorAndNumenta\"
+File: "1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky - Copy.bmp" [compress] 96957/166434 bytes
+File: "1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky - Copy.jpg" [compress] 13680/13707 bytes
+File: "1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky.bmp" [compress] 10924/25818 bytes
+File: "1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky.jpg" [compress] 0/13707 bytes
+File: "1673821_235x235_ff1b1c_-_ForeverMissedCom_-_DonnaDubinsky.png" [compress] 74798 bytes
+File: "1674179_235x235_ff1b1c - ForeverMissedCom - ChristyMaver - Copy.jpg" [compress] 20324 bytes
+File: "1674179_235x235_ff1b1c - ForeverMissedCom - ChristyMaver.jpg" [compress] 0/20324 bytes
+File: "HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png" [compress] 32731 bytes
+File: "HTM_School_Ep5_Thumbnail_YouTube_hqdefault.webp" [compress] 5636 bytes
+File: "HTM_School_Ep5_Thumbnail_YouTube_hqdefault.xcf" [compress] 32434/42976 bytes
+File: "Matt_Self_Described.jpg" [compress] 4405/4701 bytes
+File: "Matthew Taylor, (1978 - 2020) - ForeverMissed.com Online Memorials.URL" [compress] 227/246 bytes
+File: "Matthew Taylor, (1978 - 2020) - ForeverMissed.com Online Memorials.htm" [compress] 46390/226347 bytes
+File: "Nument One Year from Forevermissed 2517722_280x240_7a982a.jpg" [compress] 27030/27048 bytes
+File: "Numenta 2e6a7067.jpg" [compress] 305506/317284 bytes
+File: "Numenta Site Terms of Service.htm" [compress] 17218/67064 bytes
+File: "Numenta Where Neuroscience Meets Machine Intelligence.URL" [compress] 205/216 bytes
+File: "Taylor Icon -DonnaDubinsky.ico" [compress] 2626/3262 bytes
+File: "Taylor Icon -DonnaDubinsky.jpg" [compress] 0/13707 bytes
+File: "Taylor Icon -DonnaDubinsky.xcf" [compress] 2975/4277 bytes
+File: "Terms of Use - ForeverMissed Online Memorials.htm" [compress] 25523/85501 bytes
+File: "The (Matt) Taylor Disk Optimizer beta release is being finalized..htm" [compress] 7224/110522 bytes
+File: "The (Matt) Taylor Disk Optimizer beta release is being finalized..msg" [compress] 25756/155648 bytes
+File: "htm-overview-video.png" [compress] 72597 bytes
+File: Descending to: "..\MattTaylorAndNumenta\Matthew Taylor, (1978 - 2020) - ForeverMissed.com Online Memorials_files\"
+File: "0b1b174fbb8845808745afdac70c8231.js" [compress] 1055/1868 bytes
+File: "1673821_260x190_7a982a.jpg" [compress] 6030/6103 bytes
+File: "1673821_320x225_7a982a.jpg" [compress] 7760/7851 bytes
+File: "1673821_320x290_7a982a.jpg" [compress] 11631/11683 bytes
+File: "1673821_85x65_7a982a.jpg" [compress] 1419/1539 bytes
+File: "1683111_235x235_ff1b1c.webp" [compress] 22222 bytes
+File: "1693002_235x235_ff1b1c.webp" [compress] 40220 bytes
+File: "1704655_235x235_ff1b1c.jpg" [compress] 11943/12012 bytes
+File: "1704656_235x235_fa65cd.jpg" [compress] 27581 bytes
+File: "1704657_235x235_ff1b1c.jpg" [compress] 17794 bytes
+File: "1704658_235x235_ff1b1c.jpg" [compress] 25700 bytes
+File: "1712082_235x235_ff1b1c.jpg" [compress] 23305/23746 bytes
+File: "1712202_105790.jpg" [compress] 7965/8006 bytes
+File: "1790293291237404.js" [compress] 28834/312595 bytes
+File: "2517722_235x235_ff1b1c.jpg" [compress] 26018/26080 bytes
+File: "2517722_280x240_7a982a.jpg" [compress] 0/27048 bytes
+File: "2517722_335x235_7a982a.jpg" [compress] 21327/21353 bytes
+File: "a" [compress] 1101/2421 bytes
+File: "analytics.js" [compress] 18781/50205 bytes
+File: "bundle.js" [compress] 20689/74116 bytes
+File: "candle_lights.css" [compress] 21151/329179 bytes
+File: "common.js" [compress] 25791/79100 bytes
+File: "conversion_async.js" [compress] 13647/37888 bytes
+File: "css.css" [compress] 328/695 bytes
+File: "css_002.css" [compress] 671/11128 bytes
+File: "fbevents.js" [compress] 22684/100837 bytes
+File: "fmsite.webp" [compress] 306065/306624 bytes
+File: "js" [compress] 54354/167169 bytes
+File: "js_002" [compress] 35407/99597 bytes
+File: "js_003" [compress] 33865/101926 bytes
+File: "js_004" [compress] 45184/156510 bytes
+File: "js_005" [compress] 32315/91659 bytes
+File: "memorial.css" [compress] 94908/1078440 bytes
+File: "memorial_build.js" [compress] 278635/1258672 bytes
+File: "qevents.txt" [compress] 12776/39437 bytes
+File: "sdk.js" [compress] 66040/273233 bytes
+File: "sdk_002.js" [compress] 1662/3097 bytes
+File: "top_common.js" [compress] 44583/145841 bytes
+File: "trustlogo.js" [compress] 4392/14089 bytes
+File: "util.js" [compress] 75534/304955 bytes
+File: "vue.js" [compress] 40345/116460 bytes
+File: Descending to: "..\MattTaylorAndNumenta\Numenta Site Terms of Service_files\"
+File: "80dbe14a-9221-4211-be29-2237621fb39f.js" [compress] 12953/53241 bytes
+File: "TwitterLogo.png" [compress] 11191/11406 bytes
+File: "YoutubeLogo.png" [compress] 6164/6698 bytes
+File: "animations.css" [compress] 2397/18468 bytes
+File: "css.css" [compress] 830/12194 bytes
+File: "css_002.css" [compress] 499/9180 bytes
+File: "daves-wordpress-live-search.js" [compress] 1652/5169 bytes
+File: "daves-wordpress-live-search_custom.css" [compress] 623/1527 bytes
+File: "dialog.js" [compress] 3487/10863 bytes
+File: "elementor-icons.css" [compress] 3312/18900 bytes
+File: "excanvas.js" [compress] 4171/11363 bytes
+File: "fitvids.js" [compress] 1113/3103 bytes
+File: "fontawesome.css" [compress] 10708/57912 bytes
+File: "frontend-gtag.js" [compress] 3174/11905 bytes
+File: "frontend-legacy.css" [compress] 492/3854 bytes
+File: "frontend-modules.js" [compress] 4475/14002 bytes
+File: "frontend.css" [compress] 15186/131479 bytes
+File: "frontend.js" [compress] 10242/36605 bytes
+File: "frontend_002.css" [compress] 22328/235979 bytes
+File: "frontend_002.js" [compress] 15167/58893 bytes
+File: "global.css" [compress] 2612/37570 bytes
+File: "jquery-migrate.js" [compress] 4009/10056 bytes
+File: "jquery.js" [compress] 1905/6595 bytes
+File: "jquery_002.js" [compress] 31434/96873 bytes
+File: "js" [compress] 32336/91818 bytes
+File: "numenta.svg" [compress] 1864/3937 bytes
+File: "position.js" [compress] 2466/6438 bytes
+File: "post-125.css" [compress] 316/1050 bytes
+File: "post-5.css" [compress] 771/4597 bytes
+File: "post-5451.css" [compress] 359/1062 bytes
+File: "preloaded-elements-handlers.js" [compress] 34734/164126 bytes
+File: "preloaded-modules.js" [compress] 8742/32274 bytes
+File: "share-link.js" [compress] 1139/2578 bytes
+File: "siteicon.png" [compress] 40822/41253 bytes
+File: "solid.css" [compress] 315/669 bytes
+File: "spinners.js" [compress] 2955/8012 bytes
+File: "style.css" [compress] 5598/41045 bytes
+File: "style_002.css" [compress] 7021/30884 bytes
+File: "swiper.js" [compress] 31679/139153 bytes
+File: "underscore.js" [compress] 5502/16010 bytes
+File: "vendors.css" [compress] 7741/48331 bytes
+File: "vendors.js" [compress] 6452/26112 bytes
+File: "video-container.css" [compress] 148/221 bytes
+File: "waypoints.js" [compress] 2956/12198 bytes
+File: "webpack-pro.js" [compress] 2439/5462 bytes
+File: "webpack.js" [compress] 2181/4879 bytes
+File: "wp-embed.js" [compress] 785/1391 bytes
+File: "wp-emoji-release.js" [compress] 4060/13849 bytes
+File: "ytprefs.css" [compress] 1685/7698 bytes
+File: "ytprefs.js" [compress] 3561/11174 bytes
+File: Descending to: "..\MattTaylorAndNumenta\Terms of Use - ForeverMissed Online Memorials_files\"
+File: "0b1b174fbb8845808745afdac70c8231.js" [compress] 1054/1868 bytes
+File: "a" [compress] 61399/272588 bytes
+File: "a.htm" [compress] 101/108 bytes
+File: "adsct" [compress] 31 bytes
+File: "app.css" [compress] 88306/808666 bytes
+File: "bat.js" [compress] 9653/35663 bytes
+File: "bundle.js" [compress] 20697/74195 bytes
+File: "common.js" [compress] 25817/79140 bytes
+File: "core.js" [compress] 625/1142 bytes
+File: "css.css" [compress] 0/11128 bytes
+File: "fbevents.js" [compress] 0/100837 bytes
+File: "fmsite.webp" [compress] 0/306624 bytes
+File: "header-logo.svg" [compress] 5570/17843 bytes
+File: "js" [compress] 45196/156774 bytes
+File: "js_002" [compress] 0/91659 bytes
+File: "m-outer-f7902241893e7a497417843cb15dc858.htm" [compress] 494/1752 bytes
+File: "main.js" [compress] 17043/55000 bytes
+File: "main_build.js" [compress] 219730/921769 bytes
+File: "pixel.js" [compress] 7335/23737 bytes
+File: "qevents.txt" [compress] 0/39437 bytes
+File: "sdk.js" [compress] 0/3097 bytes
+File: "top_common.js" [compress] 0/145841 bytes
+File: "trustlogo.js" [compress] 0/14089 bytes
+File: "util.js" [compress] 75300/304639 bytes
+File: "uwt.js" [compress] 5053/14407 bytes
+File: Descending to: "..\MattTaylorAndNumenta\Terms of Use - ForeverMissed Online Memorials_files\m-outer-f7902241893e7a497417843cb15dc858_data\"
+File: "inner.htm" [compress] 849/2420 bytes
+File: "m-outer-639174098ea8fe7fede6fa654790e8ec.js" [compress] 764/1495 bytes
+File: Descending to: "..\MattTaylorAndNumenta\Terms of Use - ForeverMissed Online Memorials_files\m-outer-f7902241893e7a497417843cb15dc858_data\inner_data\"
+File: "out-4.js" [compress] 13304/87228 bytes
+File: Descending to: "..\MattTaylorAndNumenta\The (Matt) Taylor Disk Optimizer beta release is being finalized._files\"
+File: "colorschememapping.xml" [compress] 208/314 bytes
+File: "filelist.xml" [compress] 206/288 bytes
+File: "themedata.thmx" [compress] 2939/3333 bytes
+File: Descending to: "..\MdmUtils\"
+File: Descending to: "..\Pause\"
+File: "PAUSE HERE.MyDc" [compress] 0 bytes
+File: "PauseAmt.MyDc" [compress] 68/69 bytes
+File: "PauseCheck.MyDc" [compress] 75/82 bytes
+File: "PauseCheckRun.MyDc" [compress] 0/82 bytes
+File: "PauseCheckVolume.MyDc" [compress] 0/82 bytes
+File: "PauseCheckZone.MyDc" [compress] 74/80 bytes
+File: "PauseCheckZoneTypes.MyDc" [compress] 0/82 bytes
+File: "PauseDisplay.MyDc" [compress] 56 bytes
+File: "PauseVolume.MyDc" [compress] 0/82 bytes
+File: "PauseZone.MyDc" [compress] 0/80 bytes
+File: "PauseZoneType.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeArchivesBu.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeDevToDo.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeGames.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeIdeScripts.MyDc" [compress] 13 bytes
+File: "PauseZoneTypeLinksCorp.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeOsBoot.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeOsDIR.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeOsDataDynamic.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeOsMFT.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeOsPageHiberDump.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeOsPrograms.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypePeople.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeProgramHints.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeReference.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeShares.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeSpaceHogs.MyDc" [compress] 0/80 bytes
+File: "PauseZoneTypeSystemOtherData.MyDc" [compress] 0/80 bytes
+File: Descending to: "..\Resources\"
+File: Descending to: "..\Resources\Icons\"
+File: "MdmControl.ico" [compress] 472/1078 bytes
+File: "MdmControlLeft.ico" [compress] 0/1078 bytes
+File: "MdmControlRight.ico" [compress] 481/1078 bytes
+File: "Taylor_Icon_-_DonnaDubinsky.ico" [compress] 0/3262 bytes
+File: "Taylor_Icon_-_DonnaDubinsky.jpg" [compress] 0/13707 bytes
+File: "Uninstall.ico" [compress] 43145/58573 bytes
+File: "Url.ico" [compress] 92354/123531 bytes
+File: Descending to: "..\Resources\Page\"
+File: "Dev Disk After 2021-11-26, 23_25_38.png" [compress] 774195/775232 bytes
+File: "Dev Disk Before 2021-10-24, 18_58_29.png" [compress] 1046915/1047416 bytes
+File: "Dev Disk Partial 2021-11-25, 19_12_01.png" [compress] 1201293/1202174 bytes
+File: "HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png" [compress] 0/32731 bytes
+File: "Taylor_Pic_-_DonnaDubinsky.png" [compress] 0/74798 bytes
+File: Descending to: "..\Scripts\"
+File: "AnalyzeOnly.MyD" [compress] 339/615 bytes
+File: "DateTime.txt" [compress] 13 bytes
+File: "DateTimeLast.txt" [compress] 0/13 bytes
+File: "DateTimeLastLong.txt" [compress] 24 bytes
+File: "DefragAnyDisk.MyD" [compress] 376/713 bytes
+File: "DefragArchiveDiskDaily.MyD" [compress] 432/820 bytes
+File: "DefragArchiveDiskMonthly.MyD" [compress] 436/837 bytes
+File: "DefragArchiveDiskWeekly.MyD" [compress] 431/829 bytes
+File: "DefragArchiveDiskYearly.MyD" [compress] 464/885 bytes
+File: "DefragDataDiskDaily.MyD" [compress] 428/799 bytes
+File: "DefragDataDiskMonthly.MyD" [compress] 430/815 bytes
+File: "DefragDataDiskWeekly.MyD" [compress] 430/808 bytes
+File: "DefragDataDiskYearly.MyD" [compress] 448/829 bytes
+File: "DefragDevDiskDaily.MyD" [compress] 344/689 bytes
+File: "DefragDevDiskMonthly.MyD" [compress] 349/710 bytes
+File: "DefragDevDiskWeekly.MyD" [compress] 345/698 bytes
+File: "DefragDevDiskYearly.MyD" [compress] 367/740 bytes
+File: "DefragDevDiskYearlyCommand.lnk" [compress] 596/1103 bytes
+File: "DefragSystemDiskDaily.MyD" [compress] 340/669 bytes
+File: "DefragSystemDiskMonthly.MyD" [compress] 344/690 bytes
+File: "DefragSystemDiskWeekly.MyD" [compress] 340/678 bytes
+File: "DefragSystemDiskYearly.MyD" [compress] 364/716 bytes
+File: "MyDefrag.debuglog" [compress] 108217/1518254 bytes
+File: "Settings.MyD" [compress] 4579/39744 bytes
+File: "desktop.ini" [compress] 0/114 bytes
+File: Descending to: "..\Scripts\MyDefrag Examples\"
+File: "AnalyzeOnly.MyD" [compress] 311/511 bytes
+File: "AutomaticDaily.MyD" [compress] 1476/5717 bytes
+File: "AutomaticMonthly.MyD" [compress] 1465/5680 bytes
+File: "AutomaticWeekly.MyD" [compress] 1445/5761 bytes
+File: "ConsolidateFreeSpace.MyD" [compress] 309/603 bytes
+File: "DataDiskDaily.MyD" [compress] 581/1539 bytes
+File: "DataDiskMonthly.MyD" [compress] 578/1543 bytes
+File: "DataDiskWeekly.MyD" [compress] 606/1583 bytes
+File: "DefragmentOnly.MyD" [compress] 474/994 bytes
+File: "FlashMemoryDisks.MyD" [compress] 315/611 bytes
+File: "Settings.MyD" [compress] 4359/37808 bytes
+File: "SystemDiskDaily.MyD" [compress] 1114/3984 bytes
+File: "SystemDiskMonthly.MyD" [compress] 1109/3969 bytes
+File: "SystemDiskWeekly.MyD" [compress] 1128/4116 bytes
+File: Descending to: "..\Scripts\MyDefrag Examples\More Example Scripts\"
+File: "ForceTogether.MyD" [compress] 332/620 bytes
+File: "HighLight.MyD" [compress] 266/362 bytes
+File: "MoveToEndOfDisk.MyD" [compress] 427/834 bytes
+File: "SortByCreationTime.MyD" [compress] 316/598 bytes
+File: "SortByLastAccess.MyD" [compress] 317/596 bytes
+File: "SortByLastChange.MyD" [compress] 317/596 bytes
+File: "SortByName.MyD" [compress] 302/564 bytes
+File: "SortBySize.MyD" [compress] 302/564 bytes
+File: Descending to: "..\Scripts\ResetScripts\"
+File: "Settings.MyD" [compress] 4458/39024 bytes
+File: Descending to: "..\Scripts\ResetScripts\MyDefrag Examples\"
+File: "AnalyzeOnly.MyD" [compress] 301/484 bytes
+File: "AutomaticDaily.MyD" [compress] 1467/5663 bytes
+File: "AutomaticMonthly.MyD" [compress] 1456/5626 bytes
+File: "AutomaticWeekly.MyD" [compress] 1435/5707 bytes
+File: "ConsolidateFreeSpace.MyD" [compress] 298/567 bytes
+File: "DataDiskDaily.MyD" [compress] 574/1503 bytes
+File: "DataDiskMonthly.MyD" [compress] 571/1507 bytes
+File: "DataDiskWeekly.MyD" [compress] 599/1547 bytes
+File: "DefragmentOnly.MyD" [compress] 464/958 bytes
+File: "FlashMemoryDisks.MyD" [compress] 305/575 bytes
+File: "Settings.MyD" [compress] 4459/39002 bytes
+File: "SystemDiskDaily.MyD" [compress] 1104/3948 bytes
+File: "SystemDiskMonthly.MyD" [compress] 1102/3933 bytes
+File: "SystemDiskWeekly.MyD" [compress] 1120/4080 bytes
+File: Descending to: "..\Scripts\ResetScripts\MyDefrag Examples\More Example Scripts\"
+File: "ForceTogether.MyD" [compress] 323/584 bytes
+File: "HighLight.MyD" [compress] 0/362 bytes
+File: "MoveToEndOfDisk.MyD" [compress] 417/798 bytes
+File: "SortByCreationTime.MyD" [compress] 306/562 bytes
+File: "SortByLastAccess.MyD" [compress] 307/560 bytes
+File: "SortByLastChange.MyD" [compress] 308/560 bytes
+File: "SortByName.MyD" [compress] 291/528 bytes
+File: "SortBySize.MyD" [compress] 291/528 bytes
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\"
+File: "ExecutableScript - Defrag Selected(VolumeType Frequency) Mode.txt" [compress] 0 bytes
+File: "ExecutableScriptFolder - RunType (Daily, Monthly, Auto).txt" [compress] 0 bytes
+File: "SampleCompiledScript.MyDc" [compress] 10346/43717 bytes
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\Banner Log\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\Banner Set\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\Do Exe Pskill\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\Do OtherInstances Exit\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\Script Directory Location\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\Set ExitIfTimeout\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\Set StatusBar\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\Settings Default Set Run\z Settings Yours Run\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\"
+File: "VolumeType Volume (Sys, Dev, Data, Archive).txt" [compress] 0 bytes
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\Settings Default Set Volume\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\Settings Default Set Volume\z Settings Yours Volume\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\$ DefragAny\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\BannerLog\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\BannerSet\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\VolumeStatisticsSummaryGet\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\DefragZonesMftDir\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\DefragZonesOs\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\DefragZonesOs\Do Exe Pagedfrg\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\File Type Select Components\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneDoGapCalc\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneWhenFinished\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneWhenFinished\BannerLog\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneWhenFinished\BannerSet\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\ZoneWhenStarted\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\ZoneWhenStarted\BannerLog\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\ZoneWhenStarted\BannerSet\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\BannerLog\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\BannerSet\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\VolumeSizeLog\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\VolumeStatisticsDetailedGet\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any Basic Volume\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any Complex Volume\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\z Settings Yours VolumeType\"
+File: Descending to: "..\Scripts\ResetScripts\Script Structure\ExecutableScriptFolder\"
+File: Descending to: "..\Scripts\ResetScripts\ScriptsAutomatic\"
+File: "AnalyzeOnly.MyD" [compress] 333/579 bytes
+File: "DefragAllDailyAuto.MyD" [compress] 256/329 bytes
+File: "DefragAllMonthlyAuto.MyD" [compress] 259/337 bytes
+File: "DefragArchiveDiskDailyAuto.MyD" [compress] 275/357 bytes
+File: "DefragArchiveDiskMonthlyAuto.MyD" [compress] 277/363 bytes
+File: "DefragDataDiskDailyAuto.MyD" [compress] 269/352 bytes
+File: "DefragDataDiskMonthlyAuto.MyD" [compress] 272/358 bytes
+File: "DefragDevDiskDailyAuto.MyD" [compress] 269/348 bytes
+File: "DefragDevDiskMonthlyAuto.MyD" [compress] 272/354 bytes
+File: "DefragSystemDiskDailyAuto.MyD" [compress] 272/354 bytes
+File: "DefragSystemDiskMonthlyAuto.MyD" [compress] 275/360 bytes
+File: Descending to: "..\Scripts\ResetScripts\ScriptsDaily\"
+File: "AnalyzeOnly.MyD" [compress] 0/579 bytes
+File: "DateTime.txt" [compress] 11 bytes
+File: "DateTimeLast.txt" [compress] 0/11 bytes
+File: "DateTimeLastLong.txt" [compress] 22 bytes
+File: "DefragAllDaily.MyD" [compress] 372/1112 bytes
+File: "DefragArchiveDiskDaily.MyD" [compress] 410/746 bytes
+File: "DefragDataDiskDaily.MyD" [compress] 404/731 bytes
+File: "DefragDevDiskDaily.MyD" [compress] 325/607 bytes
+File: "DefragDevDiskDaily.MyD - Shortcut.lnk" [compress] 569/1291 bytes
+File: "DefragDevDiskDaily.bat" [compress] 163/468 bytes
+File: "DefragSystemDiskDaily.MyD" [compress] 319/597 bytes
+File: Descending to: "..\Scripts\ResetScripts\ScriptsMonthly\"
+File: "AnalyzeOnly.MyD" [compress] 0/579 bytes
+File: "DateTime.txt" [compress] 11 bytes
+File: "DateTimeLast.txt" [compress] 0/11 bytes
+File: "DateTimeLastLong.txt" [compress] 22 bytes
+File: "DefragAllMonthly.MyD" [compress] 387/1191 bytes
+File: "DefragArchiveDiskMonthly.MyD" [compress] 421/758 bytes
+File: "DefragDataDiskMonthly.MyD" [compress] 407/743 bytes
+File: "DefragDevDiskMonthly.MyD" [compress] 329/624 bytes
+File: "DefragSystemDiskMonthly.MyD" [compress] 324/614 bytes
+File: Descending to: "..\Scripts\ResetScripts\ScriptsTest\"
+File: "LogTest.MyD" [compress] 145/309 bytes
+File: Descending to: "..\Scripts\ResetScripts\ScriptsWeekly\"
+File: "AnalyzeOnly.MyD" [compress] 0/579 bytes
+File: "DateTime.txt" [compress] 11 bytes
+File: "DateTimeLast.txt" [compress] 0/11 bytes
+File: "DateTimeLastLong.txt" [compress] 22 bytes
+File: "DefragAllWeekly.MyD" [compress] 370/1094 bytes
+File: "DefragArchiveDiskWeekly.MyD" [compress] 410/753 bytes
+File: "DefragDataDiskWeekly.MyD" [compress] 406/738 bytes
+File: "DefragDevDiskWeekly.MyD" [compress] 325/614 bytes
+File: "DefragSystemDiskWeekly.MyD" [compress] 320/604 bytes
+File: "TestDefragDevDiskDaily.MyD - Shortcut.lnk" [compress] 0/1291 bytes
+File: Descending to: "..\Scripts\ResetScripts\ScriptsYearly\"
+File: "AnalyzeOnly.MyD" [compress] 334/585 bytes
+File: "DateTime.txt" [compress] 11 bytes
+File: "DateTimeLast.txt" [compress] 0/11 bytes
+File: "DateTimeLastLong.txt" [compress] 22 bytes
+File: "DefragAllYearly.MyD" [compress] 406/1341 bytes
+File: "DefragArchiveDiskYearly.MyD" [compress] 423/789 bytes
+File: "DefragDataDiskYearly.MyD" [compress] 404/736 bytes
+File: "DefragDevDiskYearly.MyD" [compress] 331/628 bytes
+File: "DefragDevDiskYearlyCommand.lnk" [compress] 0/1103 bytes
+File: "DefragSystemDiskYearly.MyD" [compress] 326/618 bytes
+File: "MyDefrag - Copy.debuglog" [compress] 458/834 bytes
+File: "MyDefrag.debuglog" [compress] 0/834 bytes
+File: "MyDefrag.exe - Shortcut.lnk" [compress] 828/1663 bytes
+File: Descending to: "..\Scripts\Script Structure\"
+File: "ExecutableScript - Defrag Selected(VolumeType Frequency) Mode.txt" [compress] 0 bytes
+File: "ExecutableScriptFolder - RunType (Daily, Monthly, Auto).txt" [compress] 0 bytes
+File: "SampleCompiledScript.XXX" [compress] 10351/43717 bytes
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\Banner Log\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\Banner Set\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\Do Exe Pskill\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\Do OtherInstances Exit\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\Script Directory Location\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\Set ExitIfTimeout\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\Set StatusBar\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\Settings Default Set Run\z Settings Yours Run\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\"
+File: "VolumeType Volume (Sys, Dev, Data, Archive).txt" [compress] 0 bytes
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\Settings Default Set Volume\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\Settings Default Set Volume\z Settings Yours Volume\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\$ DefragAny\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\BannerLog\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\BannerSet\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\$ VolumeWhenStarted\VolumeStatisticsSummaryGet\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\DefragZonesMftDir\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\DefragZonesOs\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\DefragZonesOs\Do Exe Pagedfrg\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\File Type Select Components\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\File Type Select Components\Many nested Categories of Files\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneDoGapCalc\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneWhenFinished\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneWhenFinished\BannerLog\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoFooter\ZoneWhenFinished\BannerSet\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\ZoneWhenStarted\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\ZoneWhenStarted\BannerLog\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\Zones\ZoneDoHeader\ZoneWhenStarted\BannerSet\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\BannerLog\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\BannerSet\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\VolumeSizeLog\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any $ Volume Common\zzz VolumeWhenFinished\VolumeStatisticsDetailedGet\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any Basic Volume\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\Any Complex Volume\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScript\VolumeType Volume\VolumeType ComplexityType\z Settings Yours VolumeType\"
+File: Descending to: "..\Scripts\Script Structure\ExecutableScriptFolder\"
+File: Descending to: "..\Scripts\ScriptsAutomatic\"
+File: "DailyAutomatic.bat" [compress] 181/577 bytes
+File: "MontlyAutomatic.bat" [compress] 195/611 bytes
+File: "WeeklyAutomatic.bat" [compress] 183/584 bytes
+File: "YearlyAutomatic.bat" [compress] 184/590 bytes
+File: Descending to: "..\Scripts\ScriptsByDrive\"
+File: "DriveC.bat" [compress] 181/825 bytes
+File: "DriveD.bat" [compress] 180/825 bytes
+File: "DriveE.bat" [compress] 181/825 bytes
+File: "DriveF.bat" [compress] 181/825 bytes
+File: "DriveG.bat" [compress] 181/825 bytes
+File: Descending to: "..\Scripts\ScriptsDaily\"
+File: "AllDaily.bat" [compress] 215/890 bytes
+File: "ArchiveDaily.bat" [compress] 219/1081 bytes
+File: "DataDaily.bat" [compress] 213/1060 bytes
+File: "DevDaily.bat" [compress] 212/1053 bytes
+File: "SysDaily.bat" [compress] 217/1065 bytes
+File: Descending to: "..\Scripts\ScriptsMonthly\"
+File: "AllMonthly.bat" [compress] 307/1327 bytes
+File: "ArchiveMonthly.bat" [compress] 222/1098 bytes
+File: "DataMonthly.bat" [compress] 218/1077 bytes
+File: "DevMonthly.bat" [compress] 216/1070 bytes
+File: "SysMonthly.bat" [compress] 220/1082 bytes
+File: "environment.txt" [compress] 912/2954 bytes
+File: Descending to: "..\Scripts\ScriptsTest\"
+File: "LogTest.MyD" [compress] 154/345 bytes
+File: Descending to: "..\Scripts\ScriptsWeekly\"
+File: "AllWeekly.bat" [compress] 216/901 bytes
+File: "ArchiveWeekly.bat" [compress] 222/1090 bytes
+File: "DataWeekly.bat" [compress] 217/1069 bytes
+File: "DevWeekly.bat" [compress] 216/1062 bytes
+File: "SysWeekly.bat" [compress] 220/1074 bytes
+File: Descending to: "..\Scripts\ScriptsYearly\"
+File: "AllYearly.bat" [compress] 219/897 bytes
+File: "ArchiveYearly.bat" [compress] 217/1033 bytes
+File: "DataYearly.bat" [compress] 211/1018 bytes
+File: "DevYearly.bat" [compress] 211/1013 bytes
+File: "SysYearly.bat" [compress] 214/1019 bytes
+File: Descending to: "..\ScriptsLogs\"
+File: "desktop.ini" [compress] 0/115 bytes
+File: Descending to: "..\ScriptsReset\"
+File: Descending to: "..\ScriptsReset\ResetActionVerbs\"
+File: "DateThis.txt" [compress] 0/13 bytes
+File: "DateTimeThis.txt" [compress] 0/23 bytes
+File: "FileList.txt" [compress] 0/801 bytes
+File: "TimeThis.txt" [compress] 0/10 bytes
+File: "ZoneDoAction.MyDc" [compress] 561/1163 bytes
+File: "ZoneDoActionMoveToEndOfDisk.MyDc" [compress] 0/55 bytes
+File: "ZoneDoActionMoveUpToZone.MyDc" [compress] 0/49 bytes
+File: "ZoneDoActionSortByCreationDate.MyDc" [compress] 0/122 bytes
+File: "ZoneDoActionSortByImportSequence.MyDc" [compress] 0/75 bytes
+File: "ZoneDoActionSortByImportSequenceSkip.MyDc" [compress] 0/130 bytes
+File: "ZoneDoActionSortByName.MyDc" [compress] 0/95 bytes
+File: "ZoneDoActionThis.MyDc" [compress] 0/435 bytes
+File: "ZoneDoActionThisMode.txt" [compress] 0/10 bytes
+File: "ZoneDoActionTypeAll.MyDc" [compress] 0/435 bytes
+File: "ZoneDoActionTypeArchivesBu.MyDc" [compress] 0/70 bytes
+File: "ZoneDoActionTypeBlobs.MyDc" [compress] 0/69 bytes
+File: "ZoneDoActionTypeOsBootData.MyDc" [compress] 0/115 bytes
+File: "ZoneDoActionTypeOsBootFixed.MyDc" [compress] 0/117 bytes
+File: "ZoneDoActionTypeOsDir.MyDc" [compress] 0/240 bytes
+File: "ZoneDoActionTypeOsMft.MyDc" [compress] 0/153 bytes
+File: "ZoneDoActionTypeOsPageHiberDump.MyDc" [compress] 0/147 bytes
+File: "ZoneDoActionTypeOsProgramHints.MyDc" [compress] 0/392 bytes
+File: "ZoneDoActionTypeOsProgramHintsData.MyDc" [compress] 0/134 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixed.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsPrograms.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsProgramsData.MyDc" [compress] 0/128 bytes
+File: "ZoneDoActionTypeOsProgramsFixed.MyDc" [compress] 0/203 bytes
+File: "ZoneDoGapNoVacate.MyDc" [compress] 0/93 bytes
+File: "ZoneDoGapThis.MyDc" [compress] 0/93 bytes
+File: "ZoneDoGapVacate.MyDc" [compress] 0/78 bytes
+File: Descending to: "..\ScriptsReset\ResetActionVerbs\Fast\"
+File: "ZoneDoActionThisModeFast.txt" [compress] 0/7 bytes
+File: "ZoneDoActionThisModeFastBoot.txt" [compress] 0/11 bytes
+File: "ZoneDoActionTypeAllFast.MyDc" [compress] 0/62 bytes
+File: "ZoneDoActionTypeAllRegular.MyDc" [compress] 0/112 bytes
+File: "ZoneDoActionTypeArchivesBuFast.MyDc" [compress] 0/66 bytes
+File: "ZoneDoActionTypeBlobsFast.MyDc" [compress] 0/69 bytes
+File: "ZoneDoActionTypeOsBootDataFast.MyDc" [compress] 0/66 bytes
+File: "ZoneDoActionTypeOsBootFixedFast.MyDc" [compress] 0/66 bytes
+File: "ZoneDoActionTypeOsDirFast.MyDc" [compress] 0/150 bytes
+File: "ZoneDoActionTypeOsMftFast.MyDc" [compress] 0/150 bytes
+File: "ZoneDoActionTypeOsPageHiberDumpFast.MyDc" [compress] 0/75 bytes
+File: "ZoneDoActionTypeOsProgramHintsDataFast.MyDc" [compress] 0/81 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixedFast.MyDc" [compress] 0/86 bytes
+File: "ZoneDoActionTypeOsProgramsDataFast.MyDc" [compress] 0/80 bytes
+File: "ZoneDoActionTypeOsProgramsFixedFast.MyDc" [compress] 0/81 bytes
+File: "ZoneDoGapFast.MyDc" [compress] 0/174 bytes
+File: Descending to: "..\ScriptsReset\ResetActionVerbs\Full\"
+File: "ZoneDoActionThisModeFull.txt" [compress] 0/7 bytes
+File: "ZoneDoActionTypeAllFull.MyDc" [compress] 108/110 bytes
+File: "ZoneDoActionTypeArchivesBuFull.MyDc" [compress] 112/117 bytes
+File: "ZoneDoActionTypeBlobsFull.MyDc" [compress] 111/116 bytes
+File: "ZoneDoActionTypeOsBootDataFull.MyDc" [compress] 0/115 bytes
+File: "ZoneDoActionTypeOsBootFixedFull.MyDc" [compress] 0/117 bytes
+File: "ZoneDoActionTypeOsDirFull.MyDc" [compress] 131/167 bytes
+File: "ZoneDoActionTypeOsMftFull.MyDc" [compress] 0/153 bytes
+File: "ZoneDoActionTypeOsPageHiberDumpFull.MyDc" [compress] 0/143 bytes
+File: "ZoneDoActionTypeOsProgramHintsDataFull.MyDc" [compress] 129/131 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixedFull.MyDc" [compress] 130/132 bytes
+File: "ZoneDoActionTypeOsProgramsDataFull.MyDc" [compress] 128/130 bytes
+File: "ZoneDoActionTypeOsProgramsFixedFull.MyDc" [compress] 128/131 bytes
+File: "ZoneDoGapFull.MyDc" [compress] 0/174 bytes
+File: Descending to: "..\ScriptsReset\ResetActionVerbs\Regular\"
+File: "ZoneDoActionThisModeRegular.txt" [compress] 0/10 bytes
+File: "ZoneDoActionTypeAllRegular.MyDc" [compress] 0/435 bytes
+File: "ZoneDoActionTypeArchivesBuRegular.MyDc" [compress] 0/70 bytes
+File: "ZoneDoActionTypeBlobsRegular.MyDc" [compress] 0/69 bytes
+File: "ZoneDoActionTypeOsBootDataRegular.MyDc" [compress] 0/115 bytes
+File: "ZoneDoActionTypeOsBootFixedRegular.MyDc" [compress] 0/117 bytes
+File: "ZoneDoActionTypeOsDirRegular.MyDc" [compress] 0/240 bytes
+File: "ZoneDoActionTypeOsMftRegular.MyDc" [compress] 0/153 bytes
+File: "ZoneDoActionTypeOsPageHiberDumpRegular.MyDc" [compress] 0/147 bytes
+File: "ZoneDoActionTypeOsProgramHintsDataRegular.MyDc" [compress] 0/392 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixedRegular.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsProgramsDataRegular.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsProgramsFixedRegular.MyDc" [compress] 0/203 bytes
+File: "ZoneDoGapRegular.MyDc" [compress] 0/174 bytes
+File: Descending to: "..\ScriptsReset\ResetFileSelectCategory\"
+File: "$ FILE TYPE SELECTIONS.MyDs" [compress] 0 bytes
+File: "SelArchives.MyDs" [compress] 0/459 bytes
+File: "SelBackups.MyDs" [compress] 0/208 bytes
+File: "SelBlobs.MyDs" [compress] 0/489 bytes
+File: "SelBlobsAndExceptions.MyDs" [compress] 0/460 bytes
+File: "SelCorp.MyDs" [compress] 0/94 bytes
+File: "SelData.MyDs" [compress] 0/363 bytes
+File: "SelDatabases.MyDs" [compress] 0/484 bytes
+File: "SelDev.MyDs" [compress] 0/185 bytes
+File: "SelFamily.MyDs" [compress] 0/69 bytes
+File: "SelGames.MyDs" [compress] 0/150 bytes
+File: "SelIde.MyDs" [compress] 0/118 bytes
+File: "SelLinks.MyDs" [compress] 0/134 bytes
+File: "SelNotArchivesBu.MyDs" [compress] 0/226 bytes
+File: "SelNotBlobsArchivesBu.MyDs" [compress] 163/344 bytes
+File: "SelOsDataDynamic.MyDs" [compress] 0/184 bytes
+File: "SelOsPageHiberDump.MyDs" [compress] 0/204 bytes
+File: "SelPeople.MyDs" [compress] 0/405 bytes
+File: "SelReference.MyDs" [compress] 0/629 bytes
+File: "SelScripts.MyDs" [compress] 0/69 bytes
+File: "SelShare.MyDs" [compress] 0/193 bytes
+File: "SelSupport.MyDs" [compress] 0/137 bytes
+File: "SelSystemDir.MyDs" [compress] 0/354 bytes
+File: "SelToDo.MyDs" [compress] 0/61 bytes
+File: "SelWinSysLow.MyDs" [compress] 0/1032 bytes
+File: "SelWork.MyDs" [compress] 0/204 bytes
+File: Descending to: "..\ScriptsReset\ResetSetting\"
+File: "SETTINGSR$$ RUN PROCESSING.MyDc" [compress] 0 bytes
+File: "SETTINGSSY$ SYSTEM DEFAULTS HERE.MyDc" [compress] 0 bytes
+File: "Settings.MyDx" [compress] 4467/39078 bytes
+File: "SettingsRu$ DoBefore.MyDc" [compress] 260/348 bytes
+File: "SettingsRun.MyDc" [compress] 3631/11934 bytes
+File: "SettingsRunFileStepDescriptions.MyDc" [compress] 1251/3975 bytes
+File: "SettingsRunVolum$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsRunVolume.MyDc" [compress] 815/2310 bytes
+File: "SettingsRunZone$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsRunZonez$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsRunzz$ Volumzzz$DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsRunzzz$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsSysDebugLevel.MyDc" [compress] 361/1152 bytes
+File: "SettingsSysExitIfTimeout.MyDc" [compress] 214/305 bytes
+File: "SettingsSysLogFileName.MyDc" [compress] 155/277 bytes
+File: "SettingsSysOtherInstances.MyDc" [compress] 297/511 bytes
+File: "SettingsSysPagedfrg.MyDc" [compress] 111/116 bytes
+File: "SettingsSysPowerSaver.MyDc" [compress] 155/228 bytes
+File: "SettingsSysProcessPriority.MyDc" [compress] 510/1031 bytes
+File: "SettingsSysScriptDirectoryLocation.MyDc" [compress] 107/203 bytes
+File: "SettingsSysServerName.MyDc" [compress] 113/178 bytes
+File: "SettingsSysServerNames.MyDc" [compress] 85/99 bytes
+File: "SettingsSysVolumeNamePrefix.MyDc" [compress] 190/264 bytes
+File: "SettingsSysWindowSize.MyDc" [compress] 279/503 bytes
+File: "SettingsSysZoneNames.MyDc" [compress] 2302/9980 bytes
+File: Descending to: "..\ScriptsReset\ResetSettingYours\"
+File: "SETTINGSYOUR$ HERE.MyDc" [compress] 0 bytes
+File: "SETTINGSYOURz END.MyDc" [compress] 0 bytes
+File: "SettingsYoursArchive.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursData.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursDev.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursDisplayColors.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursDisplayStatusBar.MyDc" [compress] 45 bytes
+File: "SettingsYoursFileStepDescriptions.MyDc" [compress] 11 bytes
+File: "SettingsYoursGapCalcMethod.MyDc" [compress] 262/389 bytes
+File: "SettingsYoursGapCommandDo.MyDc" [compress] 158/183 bytes
+File: "SettingsYoursPauseVolume.MyDc" [compress] 15 bytes
+File: "SettingsYoursPauseZone.MyDc" [compress] 0/15 bytes
+File: "SettingsYoursRu$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRun.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunFileStepDescriptions.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunVolum$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunVolume.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunZone$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunZonez$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunzz$ Volumzzz$DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunzzz$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursServerNames.MyDc" [compress] 77 bytes
+File: "SettingsYoursSys.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursSysDebugLevel.MyDc" [compress] 13 bytes
+File: "SettingsYoursSysExitIfTimeout.MyDc" [compress] 71 bytes
+File: "SettingsYoursSysLogFileName.MyDc" [compress] 33 bytes
+File: "SettingsYoursSysOtherInstances.MyDc" [compress] 0/45 bytes
+File: "SettingsYoursSysPagedfrg.MyDc" [compress] 112/116 bytes
+File: "SettingsYoursSysPowerSaver.MyDc" [compress] 117/157 bytes
+File: "SettingsYoursSysProcessPriority.MyDc" [compress] 489/972 bytes
+File: "SettingsYoursSysServer.MyDc" [compress] 111/129 bytes
+File: "SettingsYoursSysServerName.MyDc" [compress] 114/127 bytes
+File: "SettingsYoursSysServerNames.MyDc" [compress] 119/139 bytes
+File: "SettingsYoursSysVolume.MyDc" [compress] 40 bytes
+File: "SettingsYoursSysVolumeNamePrefix.MyDc" [compress] 209/302 bytes
+File: "SettingsYoursSysVolumeNames.MyDc" [compress] 205/472 bytes
+File: "SettingsYoursSysWindowSize.MyDc" [compress] 67 bytes
+File: "SettingsYoursSysZoneNames.MyDc" [compress] 0/13 bytes
+File: Descending to: "..\Settings\"
+File: "SETTINGSR$$ RUN PROCESSING.MyDc" [compress] 0 bytes
+File: "SETTINGSSY$ SYSTEM DEFAULTS HERE.MyDc" [compress] 0 bytes
+File: "Settings.MyDx" [compress] 4361/37930 bytes
+File: "SettingsAutomaticRun.MyDc" [compress] 494/757 bytes
+File: "SettingsRu$ DoBefore.MyDc" [compress] 367/574 bytes
+File: "SettingsRun.MyDc" [compress] 3758/12463 bytes
+File: "SettingsRunLanguage.MyDc" [compress] 1660/7855 bytes
+File: "SettingsRunLanguageEnglish.MyDc" [compress] 3748/18424 bytes
+File: "SettingsRunVolum$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsRunVolume.MyDc" [compress] 829/2334 bytes
+File: "SettingsRunZone$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsRunZoneStepDescriptions.MyDc" [compress] 590/1663 bytes
+File: "SettingsRunZoneStepDescriptionsNotes.XXX" [compress] 593/1577 bytes
+File: "SettingsRunZonez$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsRunzz$ Volumzzz$DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsRunzzz$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsSysDebugLevel.MyDc" [compress] 382/1223 bytes
+File: "SettingsSysExitIfTimeout.MyDc" [compress] 0/305 bytes
+File: "SettingsSysLogFileName.MyDc" [compress] 0/277 bytes
+File: "SettingsSysOtherInstances.MyDc" [compress] 0/511 bytes
+File: "SettingsSysPagedfrg.MyDc" [compress] 0/116 bytes
+File: "SettingsSysPowerSaver.MyDc" [compress] 0/228 bytes
+File: "SettingsSysProcessPriority.MyDc" [compress] 0/1031 bytes
+File: "SettingsSysScriptDirectoryLocation.MyDc" [compress] 0/203 bytes
+File: "SettingsSysServerName.MyDc" [compress] 0/178 bytes
+File: "SettingsSysServerNames.MyDc" [compress] 0/99 bytes
+File: "SettingsSysVolumeNamePrefix.MyDc" [compress] 198/275 bytes
+File: "SettingsSysVolumeNames.MyDc" [compress] 277/604 bytes
+File: "SettingsSysWindowSize.MyDc" [compress] 0/503 bytes
+File: "SettingsSysZoneNames.MyDc" [compress] 3219/14256 bytes
+File: Descending to: "..\Settings\SettingsData\"
+File: "Pause.feature" [compress] 31 bytes
+File: "Pause_Global.value" [compress] 9 bytes
+File: "Pause_Global_Off.data" [compress] 0/15 bytes
+File: "Pause_Global_On.data" [compress] 9 bytes
+File: "Pause_Zone_ArchivesBu.feature" [compress] 37 bytes
+File: "Pause_Zone_ArchivesBu.value" [compress] 0/9 bytes
+File: "Pause_Zone_ArchivesBu_Off.data" [compress] 0/15 bytes
+File: "Pause_Zone_ArchivesBu_On.data" [compress] 0/9 bytes
+File: Descending to: "..\Settings\SettingsYours\"
+File: "SETTINGSYOUR$ HERE.MyDc" [compress] 0 bytes
+File: "SETTINGSYOURz END.MyDc" [compress] 0 bytes
+File: "SettingsYoursArchive.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursData.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursDev.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursDisplayColors.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursDisplayStatusBar.MyDc" [compress] 0/45 bytes
+File: "SettingsYoursGapCalcMethod.MyDc" [compress] 0/389 bytes
+File: "SettingsYoursGapCommandDo.MyDc" [compress] 160/189 bytes
+File: "SettingsYoursPauseVolume.MyDc" [compress] 0/15 bytes
+File: "SettingsYoursPauseZone.MyDc" [compress] 0/15 bytes
+File: "SettingsYoursRu$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRun.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunVolum$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunVolume.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunZone$ DoBefore.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunZoneStepDescriptions.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunZonez$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunzz$ Volumzzz$DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursRunzzz$ DoAfter.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursServerNames.MyDc" [compress] 0/77 bytes
+File: "SettingsYoursSys.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursSysDebugLevel.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursSysExitIfTimeout.MyDc" [compress] 0/71 bytes
+File: "SettingsYoursSysLogFileName.MyDc" [compress] 0/33 bytes
+File: "SettingsYoursSysOtherInstances.MyDc" [compress] 0/45 bytes
+File: "SettingsYoursSysPagedfrg.MyDc" [compress] 0/116 bytes
+File: "SettingsYoursSysPowerSaver.MyDc" [compress] 0/157 bytes
+File: "SettingsYoursSysProcessPriority.MyDc" [compress] 0/972 bytes
+File: "SettingsYoursSysServer.MyDc" [compress] 0/129 bytes
+File: "SettingsYoursSysServerName.MyDc" [compress] 0/127 bytes
+File: "SettingsYoursSysServerNames.MyDc" [compress] 0/139 bytes
+File: "SettingsYoursSysVolume.MyDc" [compress] 64 bytes
+File: "SettingsYoursSysVolumeNamePrefix.MyDc" [compress] 228/343 bytes
+File: "SettingsYoursSysVolumeNames.MyDc" [compress] 0/472 bytes
+File: "SettingsYoursSysWindowSize.MyDc" [compress] 0/67 bytes
+File: "SettingsYoursSysZoneNames.MyDc" [compress] 0/13 bytes
+File: "SettingsYoursZoneStepDescriptions.MyDc" [compress] 0/11 bytes
+File: Descending to: "..\State\"
+File: "VolumeTypeSelect.MyDc" [compress] 0/10 bytes
+File: "ZoneDoActionAutomaticThis.MyDc" [compress] 0/170 bytes
+File: "ZoneDoActionThis.MyDc" [compress] 0/435 bytes
+File: "ZoneDoActionThisMode.txt" [compress] 0/7 bytes
+File: "ZoneDoActionTypeAll.MyDc" [compress] 0/435 bytes
+File: "ZoneDoActionTypeOsBootData.MyDc" [compress] 0/115 bytes
+File: "ZoneDoActionTypeOsBootFixed.MyDc" [compress] 0/117 bytes
+File: "ZoneDoActionTypeOsDir.MyDc" [compress] 0/240 bytes
+File: "ZoneDoActionTypeOsMft.MyDc" [compress] 0/153 bytes
+File: "ZoneDoActionTypeOsPageHiberDump.MyDc" [compress] 0/147 bytes
+File: "ZoneDoActionTypeOsProgramHints.MyDc" [compress] 0/392 bytes
+File: "ZoneDoActionTypeOsProgramHintsData.MyDc" [compress] 0/134 bytes
+File: "ZoneDoActionTypeOsProgramHintsFixed.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsPrograms.MyDc" [compress] 0/202 bytes
+File: "ZoneDoActionTypeOsProgramsData.MyDc" [compress] 0/128 bytes
+File: "ZoneDoActionTypeOsProgramsFixed.MyDc" [compress] 0/203 bytes
+File: "ZoneDoGapThis.MyDc" [compress] 0/93 bytes
+File: Descending to: "..\Volume\"
+File: "VOLUME$ HERE.MyDc" [compress] 0 bytes
+File: "VOLUMEWHEN$ HERE - Copy.MyDc" [compress] 0 bytes
+File: "VolumeDoCurrentClear.MyDc" [compress] 673/2018 bytes
+File: "VolumeFooterGet.MyDc" [compress] 156/210 bytes
+File: "VolumeNoIncrement.MyDc" [compress] 209/442 bytes
+File: "VolumeSizeLog.MyDc" [compress] 198/706 bytes
+File: "VolumeStatisticsDataGet.MyDc" [compress] 2043/13286 bytes
+File: "VolumeStatisticsDetailDisplay.MyDc" [compress] 1164/6892 bytes
+File: "VolumeStatisticsDetailGet.MyDc" [compress] 175/258 bytes
+File: "VolumeStatisticsSummaryDisplay.MyDc" [compress] 433/1401 bytes
+File: "VolumeStatisticsSummaryGet.MyDc" [compress] 279/682 bytes
+File: "VolumeWhenFinished.MyDc" [compress] 582/1756 bytes
+File: "VolumeWhenStarted.MyDc" [compress] 727/2319 bytes
+File: Descending to: "..\VolumeType\"
+File: "VolumeTypeArchive.MyDc" [compress] 4 bytes
+File: "VolumeTypeC.MyDc" [compress] 0/10 bytes
+File: "VolumeTypeD.MyDc" [compress] 10 bytes
+File: "VolumeTypeData.MyDc" [compress] 0/4 bytes
+File: "VolumeTypeDev.MyDc" [compress] 0/4 bytes
+File: "VolumeTypeE.MyDc" [compress] 10 bytes
+File: "VolumeTypeF.MyDc" [compress] 10 bytes
+File: "VolumeTypeG.MyDc" [compress] 10 bytes
+File: "VolumeTypeNotes.md" [compress] 175/282 bytes
+File: "VolumeTypeSys.MyDc" [compress] 0/4 bytes
+File: Descending to: "..\Zone\"
+File: "ZONE$ HERE.MyDc" [compress] 0 bytes
+File: "ZONEFIXED$ HERE.MyDc" [compress] 0 bytes
+File: "ZONENO$ HERE.MyDc" [compress] 0 bytes
+File: "ZONEWHEN$ HERE.MyDc" [compress] 0 bytes
+File: "ZoneDoAction.MyDc" [compress] 234/542 bytes
+File: "ZoneDoCurrentClear.MyDc" [compress] 508/2143 bytes
+File: "ZoneDoCurrentSet.MyDc" [compress] 737/3127 bytes
+File: "ZoneDoFooter.MyDc" [compress] 357/787 bytes
+File: "ZoneDoHeader.MyDc" [compress] 277/443 bytes
+File: "ZoneDoTemplate.XXX" [compress] 480/917 bytes
+File: "ZoneDoVolumeTotals.MyDc" [compress] 472/1440 bytes
+File: "ZoneFixedDev.MyDc" [compress] 276/775 bytes
+File: "ZoneFixedOs.MyDc" [compress] 134/255 bytes
+File: "ZoneFixedSys.MyDc" [compress] 56 bytes
+File: "ZoneListStatisticsAppend.MyDc" [compress] 94/113 bytes
+File: "ZoneNoCalculation.MyDc" [compress] 103/190 bytes
+File: "ZoneNoIncrement.MyDc" [compress] 86/149 bytes
+File: "ZoneNoIncrementAdjust.MyDc" [compress] 92/161 bytes
+File: "ZoneStatisticsDetailReportAppend.MyDc" [compress] 138/210 bytes
+File: "ZoneStatisticsDetailZoneAppend.MyDc" [compress] 208/533 bytes
+File: "ZoneStatisticsGet.MyDc" [compress] 306/557 bytes
+File: "ZoneStatisticsReportGet.MyDc" [compress] 1023/3872 bytes
+File: "ZoneStatisticsReportGetOriginal.MyDc" [compress] 863/2856 bytes
+File: "ZoneWhenFinished.MyDc" [compress] 485/1089 bytes
+File: "ZoneWhenStarted.MyDc" [compress] 589/1741 bytes
+File: Descending to: "..\Zone\ZoneMarkers\"
+File: "ReferenceMarker.MyDx" [compress] 203/272 bytes
+File: Descending to: "..\Zone\ZoneTypeDefrag\"
+File: "DEFRAGZONETYPE$ HERE.MyDc" [compress] 0 bytes
+File: "DefragZoneTypeArchivesBu.MyDc" [compress] 403/1048 bytes
+File: "DefragZoneTypeBlobs.MyDc" [compress] 537/1503 bytes
+File: "DefragZoneTypeDevToDo.MyDc" [compress] 292/820 bytes
+File: "DefragZoneTypeGames.MyDc" [compress] 278/787 bytes
+File: "DefragZoneTypeIdeScripts.MyDc" [compress] 299/864 bytes
+File: "DefragZoneTypeIncludes.MyDc" [compress] 319/1388 bytes
+File: "DefragZoneTypeLinksCorp.MyDc" [compress] 293/850 bytes
+File: "DefragZoneTypeOsBoot.MyDc" [compress] 594/2872 bytes
+File: "DefragZoneTypeOsDir.MyDc" [compress] 549/1465 bytes
+File: "DefragZoneTypeOsMft.MyDc" [compress] 538/1449 bytes
+File: "DefragZoneTypeOsPageHiberDump.MyDc" [compress] 567/1600 bytes
+File: "DefragZoneTypeOsProgramHints.MyDc" [compress] 529/3027 bytes
+File: "DefragZoneTypeOsPrograms.MyDc" [compress] 663/4478 bytes
+File: "DefragZoneTypePeople.MyDc" [compress] 286/807 bytes
+File: "DefragZoneTypeReference.MyDc" [compress] 291/836 bytes
+File: "DefragZoneTypeRegular.MyDc" [compress] 280/807 bytes
+File: "DefragZoneTypeShares.MyDc" [compress] 277/795 bytes
+File: "DefragZoneTypeSystemOtherData.MyDc" [compress] 299/909 bytes
+File: "DefragZoneTypeUnallocated.MyDc" [compress] 449/1131 bytes
+File: Descending to: "..\Zone\ZoneTypeSelect\"
+File: "ZONETYPESELECT$ HERE - Copy.MyDc" [compress] 0 bytes
+File: "ZoneTypeSelectArchivesBu.MyDc" [compress] 177/273 bytes
+File: "ZoneTypeSelectBlobs.MyDc" [compress] 179/275 bytes
+File: "ZoneTypeSelectDevToDo.MyDc" [compress] 152/280 bytes
+File: "ZoneTypeSelectGames.MyDc" [compress] 144/210 bytes
+File: "ZoneTypeSelectIdeScripts.MyDc" [compress] 152/302 bytes
+File: "ZoneTypeSelectLinksCorp.MyDc" [compress] 162/363 bytes
+File: "ZoneTypeSelectOsBoot.MyDc" [compress] 97 bytes
+File: "ZoneTypeSelectOsDIR.MyDc" [compress] 80 bytes
+File: "ZoneTypeSelectOsDataDynamic.MyDc" [compress] 153/244 bytes
+File: "ZoneTypeSelectOsMFT.MyDc" [compress] 90 bytes
+File: "ZoneTypeSelectOsPageHiberDump.MyDc" [compress] 125/159 bytes
+File: "ZoneTypeSelectOsProgramHints.MyDc" [compress] 103/127 bytes
+File: "ZoneTypeSelectOsPrograms.MyDc" [compress] 166/272 bytes
+File: "ZoneTypeSelectPeople.MyDc" [compress] 139/213 bytes
+File: "ZoneTypeSelectReference.MyDc" [compress] 263/633 bytes
+File: "ZoneTypeSelectRegular.MyDc" [compress] 124/136 bytes
+File: "ZoneTypeSelectShares.MyDc" [compress] 153/277 bytes
+File: "ZoneTypeSelectSystemOtherData.MyDc" [compress] 167/336 bytes
+File: "ZoneTypeSelectUnallocated.MyDc" [compress] 153/206 bytes
+File: Returning to: ".."
+DetailPrint: "TaylorDo Files Added"
+DetailPrint: "--------"
+DetailPrint: "Remove default scripts"
+Delete: "$ProductAppInstallDir\Scripts\*.MyD"
+DetailPrint: "--------"
+DetailPrint: "Update MyDefrag scripts"
+DetailPrint: "$INSTDIR\Scripts\*.MyD to $ProductAppInstallDir\Scripts\"
+CreateDirectory: "$ProductAppInstallDir\Scripts"
+CopyFiles: (silent) "$INSTDIR\Scripts\*.MyD" -> "$ProductAppInstallDir\Scripts\", size=0KB
+DetailPrint: "TaylorDo MyDefrag Scripts Updated"
+DetailPrint: "--------"
+DetailPrint: "--------------- Environment -----------------"
+!define: "ENV_NAME"="TAYLORDO_PATH"
+StrCpy $R0 "$INSTDIR" () ()
+WriteRegExpandStr: HKCU\Environment\TAYLORDO_PATH=$R0
+DetailPrint: "WriteRegExpandStr HKCU attempted"
+ReadRegStr $R2 HKCU\Environment\TAYLORDO_PATH
+DetailPrint: "ReadRegStr HKCU value=|$R2|"
+Plugin command: Call user32::SendMessageTimeoutA(i 0xffff, i 0x1A, i 0, t "Environment", i 0x0002, i 500, *i .r0)
+
+DetailPrint: "Sent WM_SETTINGCHANGE, result=$r0"
+WriteRegExpandStr: HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\TAYLORDO_PATH=$R0
+DetailPrint: "WriteRegExpandStr HKLM attempted"
+ReadRegStr $R2 HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\TAYLORDO_PATH
+DetailPrint: "ReadRegStr HKLM value=|$R2|"
+Plugin command: Call user32::SendMessageTimeoutA(i 0xffff, i 0x1A, i 0, t "Environment", i 0x0002, i 500, *i .r0)
+DetailPrint: "Sent WM_SETTINGCHANGE for HKLM, result=$r0"
+DetailPrint: "--------"
+DetailPrint: "Add a MyDefragDir"
+File: "EnVar.dll"->"$PLUGINSDIR\EnVar.dll" [compress] 3938/11264 bytes
+Plugin command: AddValue TaylorDo MyDefragDir $ProductAppInstallDir
+Pop: $0
+DetailPrint: "MyDefragDir HKLM EnVar::AddValue returned=|$0|"
+DetailPrint: "Add a TaylorDoDir"
+Plugin command: AddValue TaylorDoDir $INSTDIR
+Pop: $0
+DetailPrint: "TaylorDo TaylorDoDir HKLM EnVar::AddValue returned=|$0|"
+DetailPrint: "Add the publisher"
+Plugin command: AddValue TaylorDoPublisher David G Horsman
+Pop: $0
+DetailPrint: "TaylorDo TaylorDoPublisher HKLM EnVar::AddValue returned=|$0|"
+DetailPrint: "Add the product name"
+Plugin command: AddValue TaylorDoProduct Taylor Disk Optimizer
+Pop: $0
+DetailPrint: "TaylorDo TaylorDoProduct HKLM EnVar::AddValue returned=|$0|"
+DetailPrint: "Set back to HKCU"
+Plugin command: SetHKCU
+DetailPrint: "EnVar::SetHKCU"
+DetailPrint: "Add a MyDefragDir"
+Plugin command: AddValue MyDefragDir $ProductAppInstallDir
+Pop: $0
+DetailPrint: "MyDefragDir HKCU EnVar::AddValue returned=|$0|"
+DetailPrint: "Add a TaylorDoDir"
+Plugin command: AddValue TaylorDoDir $INSTDIR
+Pop: $0
+DetailPrint: "TaylorDoDir HKCU EnVar::AddValue returned=|$0|"
+DetailPrint: "Add the publisher"
+Plugin command: AddValue TaylorDoPublisher David G Horsman
+Pop: $0
+DetailPrint: "TaylorDoPublisher HKLM EnVar::AddValue returned=|$0|"
+DetailPrint: "Add the product name"
+Plugin command: AddValue TaylorDoProduct Taylor Disk Optimizer
+Pop: $0
+DetailPrint: "TaylorDoProduct HKLM EnVar::AddValue returned=|$0|"
+DetailPrint: "TaylorDo Environment Added"
+DetailPrint: "--------------- Registry -----------------"
+WriteRegStr: HKLM\Software\Taylor Disk Optimizer\Install_Dir=$INSTDIR
+WriteRegStr: HKLM\Software\Taylor Disk Optimizer\ProductName=Taylor Disk Optimizer
+WriteRegStr: HKLM\Software\Taylor Disk Optimizer\Publisher=David G Horsman
+WriteRegStr: HKLM\Software\Taylor Disk Optimizer\Version=4.0.1.0
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\DisplayName=$StartMenuFolder (remove only)
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\DisplayIcon=$INSTDIR\Uninstall.exe
+WriteRegStr: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\UninstallString="$INSTDIR\uninstall.exe"
+WriteRegDWORD: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\NoModify=1
+WriteRegDWORD: HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartMenuFolder\NoRepair=0
+DetailPrint: "Registry Added"
+DetailPrint: "--------------- end of regristry keys -----------------"
+WriteUninstaller: "$INSTDIR\uninstall.exe"
+DetailPrint: "--------"
+DetailPrint: "TaylorDo Uninstall Added"
+DetailPrint: "--------"
+DetailPrint: "TaylorDo finished"
+DetailPrint: "--------------- end of INSTALL Matt Taylor Libraries -----------------"
+SectionEnd
+Section: "Update Startmenu" ->(TaylorStartMenu)
+SectionIn: [0] [1] 
+!insertmacro: _If
+!insertmacro: end of _If
+SetShellVarContext: all
+!insertmacro: _Else
+!insertmacro: end of _Else
+SetShellVarContext: current
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+MessageBox: 36: "Do you wish to create start-menu shortcuts for Taylor Disk Optimizer?" (on IDNO goto NoShortcuts)
+StrCpy $StartMenuFolder "Taylor Disk Optimizer" () ()
+CreateDirectory: "$SMPROGRAMS\$StartMenuFolder"
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk"->"$SYSDIR\explorer.exe -root, "$INSTDIR\src\Commands""  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk"->"$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptsByDrive""  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\ScriptsAutomatic.lnk"->"$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptsAutomatic""  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\Daily.lnk"->"$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptDaily""  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\Weekly.lnk"->"$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptWeekly""  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\Monthly.lnk"->"$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptMonthly""  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\Yearly.lnk"->"$SYSDIR\explorer.exe -root, "$ProductAppInstallDir\Scripts\ScriptYearly""  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+CreateShortcut: "$SMPROGRAMS\$StartMenuFolder\Uninstall Example Application 1.lnk"->"$INSTDIR\Uninstall.exe"  icon:,0, nwd=0, showmode=0x0, hotkey=0x0, comment=
+DetailPrint: "Shortcuts Added"
+DetailPrint: "--------------- end of shortcuts -----------------"
+SectionEnd
+Section: "Enable in Task Scheduler" ->(TaylorTaskMgr)
+SectionIn: [0] [1] 
+!insertmacro: _If
+!insertmacro: end of _If
+SetShellVarContext: all
+!insertmacro: _Else
+!insertmacro: end of _Else
+SetShellVarContext: current
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+ExecWait: ""$INSTDIR\Commands\TaskScheduler\DoTaskScheduleInstall.bat"" (->$0)
+DetailPrint: "Task Scheduler create exit code: $0"
+DetailPrint: "Applying Task Scheduler detailed settings"
+Call "TaskScheduler"
+DetailPrint: "--------------- end of Task Scheduler -----------------"
+SectionEnd
+LangString: "DESC_MyDefrag" 1033 "Required executable libraries. MyDefrag is freeware and a powerful script based defragmentation utility."
+LangString: "DESC_TaylorDoLibraries" 1033 "Required script libraries. This adds the 500 TaylorDo components used in building the standard and custom runs."
+LangString: "DESC_TaylorStartMenu" 1033 "You can add TaylorDo to the Start Menus. You can then selectively choose and set up optimization runs and observe their progress."
+LangString: "DESC_TaylorTaskMgr" 1033 "This updates the Windows Task Scheduler. This will disable Windows Defrag and add optimal weekly, monthly and yearly TaylorDo runs in it's place. This can be turned on and off afterwards."
+!insertmacro: MUI_FUNCTION_DESCRIPTION_BEGIN
+!insertmacro: end of MUI_FUNCTION_DESCRIPTION_BEGIN
+!insertmacro: MUI_DESCRIPTION_TEXT
+!insertmacro: end of MUI_DESCRIPTION_TEXT
+!insertmacro: MUI_DESCRIPTION_TEXT
+!insertmacro: end of MUI_DESCRIPTION_TEXT
+!insertmacro: MUI_FUNCTION_DESCRIPTION_END
+!insertmacro: end of MUI_FUNCTION_DESCRIPTION_END
+Section: "Uninstall"
+SectionIn: [0] [1] 
+!insertmacro: _If
+!insertmacro: end of _If
+SetShellVarContext: all
+!insertmacro: _Else
+!insertmacro: end of _Else
+SetShellVarContext: current
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+DetailPrint: "Checking for MyDefrag uninstaller..."
+IfFileExists: "$ProductAppInstallDir\unins000.exe" ? 0 : unMyDefragEnd
+DetailPrint: "Found unins000.exe"
+File: "nsExec.dll"->"$PLUGINSDIR\nsExec.dll" [compress] 3492/7168 bytes
+Plugin command: ExecToLog taskkill /IM MyDefrag.exe /F
+DetailPrint: "Killed MyDefrag.exe (if running)"
+DetailPrint: "Running VERYSILENT uninstall..."
+ExecWait: ""$ProductAppInstallDir\unins000.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART" (->$0)
+DetailPrint: "Exit code: $0"
+StrCmp "$0" "0" equal=unMyDefragEnd, nonequal=
+DetailPrint: "Falling back to SILENT uninstall..."
+ExecWait: ""$ProductAppInstallDir\unins000.exe" /SILENT /NORESTART" (->$0)
+DetailPrint: "Exit code: $0"
+DetailPrint: "Cleaning up leftover folder..."
+RMDir: /r "$ProductAppInstallDir"
+DetailPrint: "TaylorDo uninstaller..."
+DetailPrint: "Restore Windows defrag in Task Scheduler"
+ExecWait: ""$INSTDIR\Commands\TaskScheduler\DoTaskScheduleUninstall.bat"" (->$0)
+DetailPrint: "exit code: $0"
+DetailPrint: "Cleaning up leftover folder..."
+RMDir: /r "$INSTDIR"
+DetailPrint: "Cleaning up Registry..."
+DeleteRegKey: HKCU\Software\Taylor Disk Optimizer
+SectionEnd
+Function: "StartMenuPre"
+SectionGetFlags: 3->$0
+IntOp: $0=$0&1
+!insertmacro: _If
+!insertmacro: end of _If
+Abort: ""
+!insertmacro: _EndIf
+!insertmacro: end of _EndIf
+FunctionEnd
+Function: "ComponentsPagePre"
+FunctionEnd
+
+Processed 1 file, writing output (x86-unicode):
+Adding plug-ins initializing function... Done!
+warning 6012: label "unMyDefrag" not used
+warning 6012: label "unTaylorDo" not used
+warning 6012: label "NoTaskSchedule" not used
+Processing pages... Done!
+Removing unused resources... Done!
+Generating language tables... Done!
+warning 6001: Variable "OutDirRoot" not referenced or never set, wasting memory!
+warning 6001: Variable "TaylorDoDir" not referenced or never set, wasting memory!
+warning 6001: Variable "MyDefragDir" not referenced or never set, wasting memory!
+Generating uninstaller... Done!
+
+Output: "D:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\Programs\TaylorDoSetup.exe"
+Install: 8 pages (512 bytes), 5 sections (2 required) (10360 bytes), 2253 instructions (63084 bytes), 1494 strings (93670 bytes), 1 language table (366 bytes).
+Uninstall: 6 pages (448 bytes), 1 section (2072 bytes), 409 instructions (11452 bytes), 216 strings (8058 bytes), 1 language table (342 bytes).
+Datablock optimizer saved 4443 KiB (~11.2%).
+
+Using lzma compression.
+
+EXE header size:               43520 / 38400 bytes
+Install code:                  21012 / 168456 bytes
+Install data:               35784698 / 66325375 bytes
+Uninstall code+data:           26438 / 27070 bytes
+CRC (0xCB3F56CA):                  4 / 4 bytes
+
+Total size:                 35875672 / 66559305 bytes (53.9%)
+
+6 warnings:
+  6012: label "unMyDefrag" not used
+  6012: label "unTaylorDo" not used
+  6012: label "NoTaskSchedule" not used
+  6001: Variable "OutDirRoot" not referenced or never set, wasting memory!
+  6001: Variable "TaylorDoDir" not referenced or never set, wasting memory!
+  6001: Variable "MyDefragDir" not referenced or never set, wasting memory!

@@ -1,6 +1,6 @@
 # Ignore everything in this directory
 *
-TaylorDoSetup.exe
+# TaylorDoSetup.exe
 
 # Except this file
 !.gitignore

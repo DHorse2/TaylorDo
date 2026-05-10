@@ -4,5 +4,5 @@
 ; Company: dba MacroDM
 ; Named in memory of Matt Taylor.
 ; Copyright: 2015, 2019, 2020, 2021 David G Horsman
-; License: Yet to be determined.
+; License: MIT.
 ;

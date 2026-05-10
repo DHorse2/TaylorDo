@@ -29,6 +29,11 @@ VolumeSelect
 	and Writable(yes) 
 	and Mounted(yes)
 	and Remote(no)
+	and State(DiskType != SolidState)
+/* ------------------------- */
+Title("Disk Info Test")
+ShowDiskInfo
+Pause
 /* ------------------------- */
 VolumeActions
 /* ------------------------- */

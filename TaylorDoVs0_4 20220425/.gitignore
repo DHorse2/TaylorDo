@@ -2,7 +2,7 @@
 **/MattTaylorAndNumenta/
 
 ## Ignore NSIS instnaller exe (too big)
-TaylorDoSetup.exe
+# TaylorDoSetup.exe
 
 ## GitHub VisualStudio.gitignore:
 ## Ignore Visual Studio temporary files, build results, and
