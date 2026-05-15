@@ -1,37 +1,69 @@
+@REM Home
+@Rem Displays a menu of commands the user can run
 @echo off
 setlocal enabledelayedexpansion
 
 :: Config
-set "DEPTH=1"
+if "%~1"=="" (
+    set "FileMask=*.bat"
+) else (
+    set "FileMask=%~1"
+)
+for %%A in ("%FileMask%") do set "TargetExt=%%~xA"
+
+echo Pattern: %~1
+echo FileMask: !FileMask!
 set "colWidth=38"
 set "indent=4"
-
 :: init
 set /a idx=0
 set /a groupCount=0
-set "groupFiles0="
 
-:: collect files in root
-for /f "delims=" %%F in ('dir /b /a-d /on Do*.bat 2^>nul') do (
-  set /a idx+=1
-  set "file!idx!=%%~fF"
-  set "name!idx!=%%~nF"
-  if "!groupFiles0!"=="" (set "groupFiles0=!idx!") else (set "groupFiles0=!groupFiles0!,!idx!")
-)
+:: collect all matching files recursively
 
-:: collect files in immediate subfolders; store group lists by numeric id
-if "%DEPTH%"=="1" (
-  for /f "delims=" %%D in ('dir /b /ad /on 2^>nul') do (
-    set /a groupCount+=1
-    set "groupName[!groupCount!]=%%D"
-    set "tmpList="
-    for /f "delims=" %%F in ('dir "%%D\*.bat" /b /a-d /on 2^>nul') do (
-      set /a idx+=1
-      set "file!idx!=%%~fD\%%F"
-      set "name!idx!=%%~nF"
-      if "!tmpList!"=="" (set "tmpList=!idx!") else (set "tmpList=!tmpList!,!idx!")
+for /r %%F in (!FileMask!) do (
+  echo File: %%F
+  echo Extension: %%~xF
+  rem exact extension check
+  if /i "%%~xF"=="!TargetExt!" (
+    echo   Extension match.
+    set /a idx+=1
+
+    set "file!idx!=%%~fF"
+    set "name!idx!=%%~nF"
+
+    rem relative folder from script root
+    set "rel=%%~dpF"
+    set "rel=!rel:%CD%\=!"
+
+    rem remove trailing slash
+    if "!rel:~-1!"=="\" set "rel=!rel:~0,-1!"
+
+    rem root folder label
+    if "!rel!"=="" set "rel=Root folder"
+
+    rem locate/create group
+    set "found="
+
+    for /l %%G in (1,1,!groupCount!) do (
+        if /i "!groupName[%%G]!"=="!rel!" (
+            set "found=%%G"
+        )
     )
-    set "groupList[!groupCount!]=!tmpList!"
+
+    if not defined found (
+        set /a groupCount+=1
+        set "found=!groupCount!"
+        set "groupName[!found!]=!rel!"
+    )
+
+    call set "tmp=%%groupList[!found!]%%"
+
+    if defined tmp (
+        set "groupList[!found!]=!tmp!,!idx!"
+    ) else (
+        set "groupList[!found!]=!idx!"
+    )
   )
 )
 
@@ -44,9 +76,7 @@ if %idx%==0 (
 echo Available commands:
 echo.
 
-call :PrintGroup "Root folder" "%groupFiles0%"
-
-for /l %%G in (1,1,%groupCount%) do (
+for /l %%G in (1,1,%groupCount%) do (  
   set "lst=!groupList[%%G]!"
   if defined lst (
     set "gname=!groupName[%%G]!"

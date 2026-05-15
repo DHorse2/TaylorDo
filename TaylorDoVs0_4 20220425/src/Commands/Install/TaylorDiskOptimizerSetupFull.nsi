@@ -12,6 +12,7 @@
 ; "Taken from: HM NIS Edit Wizard helper defines"
 
 ;--------------------------------
+; Includes
 !include "LogicLib.nsh"
 !include "WinVer.nsh"
 !include "x64.nsh"
@@ -19,17 +20,17 @@
 !include "nsDialogs.nsh"
 Unicode True
 !include "MUI2.nsh"
+
+;--------------------------------
+; defines
+
+
 ; "--------------- Application -----------------"
 ; which programs folder to use
 ; Var /GLOBAL ProgramFilesFolder
 ; MAIN (this) application: TaylorDo
 ; InstallDir "$ProgramFilesFolder\TaylorDo"
-InstallDir "$PROGRAMFILES\TaylorDo"
-
-; MyDefrag executable app location of the Scripts folder.
-; This is the root folder where a copy of the TaylorDo Scripts
-; folder exists and replaces the default MyDefrag scripts.
-InstallDirRegKey HKLM "Software\${PRODUCT_NAME}" "Install_Dir"    
+; InstallDir "$PROGRAMFILES\TaylorDo"
 
 Var /GLOBAL OutDirRoot
 ; TaylorDo script library
@@ -42,7 +43,6 @@ Var /GLOBAL OutDirRoot
     ; 3.3 ActionVerbs, Fast (Daily) & Regular Optimize
 !define PRODUCT_VERSION "4.0.1.0"
 !define PRODUCT_PUBLISHER "David G Horsman"
-; environment variables
 ; TaylorDo installation folder.
 Var /GLOBAL TaylorDoDir
 
@@ -60,8 +60,6 @@ Var /GLOBAL ProductAppPublisher
 Icon "..\..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
 ; Icon ".\src\Resources\Icons\MdmControl.ico"
 
-; environment
-Var /GLOBAL MyDefragDir
 ; executable
 Var /GLOBAL ProductAppInstallDir
 ; registry
@@ -102,27 +100,8 @@ ShowInstDetails show
 ; SetSilent silent
 ; Unicode True
 
-Var InstallTypeCombo
-Var InstallMode ; "Full" or "Custom"
-;--------------------------------
-; INSTALLER FLOW
-; Full Mode:
-;   -> Welcome
-;   -> Install Type
-;   -> InstFiles
-;   -> Finish
-; Custom Mode:
-;   -> Welcome
-;   -> Install Type
-;   -> Components
-;       -> MyDefrag
-;       -> TaylorDo
-;   -> Directory
-;   -> Start Menu
-;   -> Task Scheduler
-;   -> InstFiles
-;   -> Finish
-;--------------------------------
+Var /GLOBAL InstallTypeCombo
+Var /GLOBAL InstallMode ; "Full" or "Custom"
 Var NextButton
 
 SetCompressor lzma
@@ -238,8 +217,8 @@ Page Custom InstallTypePageCreate InstallTypePageLeave
 ; Uninstall
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
-!insertmacro MUI_UNPAGE_LICENSE "..\..\License.txt"
-!insertmacro MUI_UNPAGE_COMPONENTS
+; !insertmacro MUI_UNPAGE_LICENSE "..\..\License.txt"
+; !insertmacro MUI_UNPAGE_COMPONENTS
 ; !insertmacro MUI_UNPAGE_DIRECTORY
 
 !insertmacro MUI_UNPAGE_INSTFILES
@@ -252,13 +231,8 @@ Page Custom InstallTypePageCreate InstallTypePageLeave
 !insertmacro MUI_LANGUAGE "English"
  
 ;--------------------------------
-; Reserve files
-; !insertmacro MUI_RESERVEFILE_INSTALLOPTIONS 
-; !error: MUI_RESERVEFILE_INSTALLOPTIONS is no longer supported as InstallOptions is no longer used by MUI2. 
-; Instead, use "ReserveFile /plugin InstallOptions.dll". It is also recommended to upgrade to nsDialogs.
-; !insertmacro MUI_RESERVEFILE_LANGDLL
-
-; MUI end ------
+; ------ MUI end ------
+;--------------------------------
 
 ; ///////////////////////////////////////////////////////
 ;--------------- Version Information -----------------
@@ -274,11 +248,58 @@ VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "TaylorDo Application us
 VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "4.0.1"
 
 ; ///////////////////////////////////////////////////////
+;---------------- Descriptions ----------------
+;Language strings
+LangString DESC_MyDefrag ${LANG_ENGLISH} "Required executable libraries. MyDefrag is freeware and a powerful script based defragmentation utility."
+LangString DESC_TaylorDoLibraries ${LANG_ENGLISH} "Required script libraries. This adds the 500 TaylorDo components used in building the standard and custom runs."
+LangString DESC_TaylorStartMenu ${LANG_ENGLISH} "You can add TaylorDo to the Start Menus. You can then selectively choose and set up optimization runs and observe their progress."
+LangString DESC_TaylorTaskMgr ${LANG_ENGLISH} "This updates the Windows Task Scheduler. This will disable Windows Defrag and add optimal weekly, monthly and yearly TaylorDo runs in it's place. This can be turned on and off afterwards."
+
+;Assign language strings to sections
+!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+!insertmacro MUI_DESCRIPTION_TEXT ${MyDefrag} $(DESC_MyDefrag)
+!insertmacro MUI_DESCRIPTION_TEXT ${TaylorDoLibraries} $(DESC_TaylorDoLibraries)
+!insertmacro MUI_FUNCTION_DESCRIPTION_END
+
+; ///////////////////////////////////////////////////////
 ; ///////////////// Functions ////////////////////////////
 ; ///////////////////////////////////////////////////////
+; ///////////////// Section SETTINGS ////////////////////
+!macro InitializeSettingsBody
 
-; Flow control "Full" "Custom"
+    StrCpy $ProductAppName "MyDefrag"
+    StrCpy $ProductAppVersion "4.3.1"
+    StrCpy $ProductAppPublisher "J.C. Kessels"
+
+    ${If} ${RunningX64}
+        SetRegView 64
+        StrCpy $INSTDIR "$PROGRAMFILES64\TaylorDo"
+        StrCpy $ProductAppInstallDir "$PROGRAMFILES64\MyDefrag v4.3.1"
+    ${Else}
+        StrCpy $INSTDIR "$PROGRAMFILES\TaylorDo"
+        StrCpy $ProductAppInstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
+    ${EndIf}
+
+    StrCpy $ProductAppInstallDirRegKeyRoot "HKLM"
+    StrCpy $ProductAppInstallDirRegKeyPath "Software\$ProductAppName"
+    StrCpy $ProductAppInstallDirRegKeyValueName "Install_Dir"
+    ; description?
+    StrCpy $ProductAppInstallDirRegKey "$ProductAppInstallDirRegKeyRoot $ProductAppInstallDirRegKeyPath $ProductAppInstallDirRegKeyValueName"
+
+!macroend
+
+Function InitializeSettings
+    !insertmacro InitializeSettingsBody
+FunctionEnd
+
+Function un.InitializeSettings
+    !insertmacro InitializeSettingsBody
+FunctionEnd
+
+; ///////////////////////////////////////////////////////
+; Page Preprocessing
 Function ComponentsPre
+    ; Flow control "Full" "Custom"
     StrCmp $InstallMode "Full" skip
     Return
 skip:
@@ -299,7 +320,7 @@ Function StartMenuPre
     StrCmp $InstallMode "Full" skip
     Return
 skip:
-    DetailPrint "Directory selection skipped"
+    DetailPrint "StartMenu options skipped"
     Abort
 FunctionEnd
 
@@ -312,25 +333,27 @@ skip:
     Abort
 FunctionEnd
 
+; ///////////////////////////////////////////////////////
+; Initialization
 Function .onInit
-    StrCpy $InstallMode "Full"; default
-    DetailPrint "Install mode default $InstallMode"
 
-    ; ${If} ${RunningX64}
-    ;     StrCpy $ProgramFilesFolder "$PROGRAMFILES32"
-    ; ${Else}
-    ;     StrCpy $ProgramFilesFolder "$PROGRAMFILES"
-    ; ${EndIf}
+    Call InitializeSettings
 
-    ; StrCpy $INSTDIR "$ProgramFilesFolder\TaylorDo"
-    ; DetailPrint "Installation directory: $INSTDIR"
-done:    
+    StrCpy $InstallMode "Full"
+    
+FunctionEnd
+
+Function un.onInit
+
+    Call un.InitializeSettings
+
+    StrCpy $InstallMode "Full"
+
 FunctionEnd
 
 ; ///////////////////////////////////////////////////////
 ; Flow Control
 ; Full or Custom Install Type
-
 Function InstallTypePageCreate
     !insertmacro MUI_HEADER_TEXT "Install Type" "Choose Full or Custom installation mode"
 
@@ -529,22 +552,11 @@ Function TaskSchedulerPageLeave
     ${NSD_GetState} $CheckboxTaskWeekly $TaskWeeklySelected
     ${NSD_GetState} $CheckboxTaskMonthly $TaskMonthlySelected
     ${NSD_GetState} $CheckboxTaskYearly $TaskYearlySelected
-    ; DetailPrint "Applying Task Scheduler settings"
-    ; Call TaskSchedulerApply
 FunctionEnd
 
 Function TaskSchedulerApply
     DetailPrint "Windows Task Scheduler being updated"
     DetailPrint "Add TaylorDo scheduled tasks to Windows"
-
-    ; nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoAddSchTasks.bat"'
-    ; DetailPrint "exit code: $0"
-    ; nsExec::ExecToLog 'cmd /c "$ProductAppInstallDir\Commands\TaskScheduler\DoTaskScheduleInstall.bat"'
-    ; MessageBox MB_YESNO|MB_ICONQUESTION "Do you wish to schedule regular optimiations by ${PRODUCT_NAME}?" /SD IDYES IDNO NoTaskSchedule
-
-    ; nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoTaskScheduleInstall.bat"'
-    ; Pop $0
-    ; DetailPrint "Task Scheduler create exit code: $0"
 
     StrCpy $0 "$ProductAppInstallDir\Commands\TaskScheduler\DoTaskScheduleInstall.bat"
     DetailPrint "Path: $0"
@@ -552,20 +564,15 @@ Function TaskSchedulerApply
     Pop $0
     DetailPrint "  exit code: $0"
 
-    ; ${If} $EnableMyDefragSelected == ${BST_CHECKED}
-    ;     DetailPrint "MyDefrag being installed..."
-    ;     nsExec::ExecToLog 'cmd /c ""$INSTDIR\tool1.exe""'
-    ; ${EndIf}
-
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskRunOnceSelected == ${BST_CHECKED}
         DetailPrint "Overnight one time optimization activated"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoEnableRunOnce.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableRunOnce.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Daily optimization"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoDisableRunOnce.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableRunOnce.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
@@ -573,12 +580,12 @@ Function TaskSchedulerApply
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskDailySelected == ${BST_CHECKED}
         DetailPrint "Daily optimization activated"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoEnableDaily.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableDaily.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Daily optimization"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoDisableDaily.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableDaily.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
@@ -586,12 +593,12 @@ Function TaskSchedulerApply
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskWeeklySelected == ${BST_CHECKED}
         DetailPrint "Weekly optimization activated"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoEnableWeekly.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWeekly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Weekly optimization"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoDisableWeekly.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableWeekly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
@@ -599,12 +606,12 @@ Function TaskSchedulerApply
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskMonthlySelected == ${BST_CHECKED}
         DetailPrint "Monthly optimization activated"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoEnableMonthly.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableMonthly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Montly optimization"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoDisableMonthly.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableMonthly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
@@ -612,15 +619,21 @@ Function TaskSchedulerApply
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskYearlySelected == ${BST_CHECKED}
         DetailPrint "Yearly optimization activated"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoEnableYearly.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableYearly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Yearly optimization"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\Install\DoDisableYearly.bat"'
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableYearly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
+
+    ${If} $EnableMyDefragSelected != ${BST_CHECKED}
+        DetailPrint "MyDefrag disabled, re-enabling Windows standard defrag."
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWindowsDefrag.bat"'
+    ${EndIf}
+
 
     ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 2" "State"
     ;   DetailPrint "Install X=$0"
@@ -635,6 +648,12 @@ Function TaskSchedulerApply
     ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 8" "State"
     ;   DetailPrint "Info=$0"
 
+FunctionEnd
+
+Function ExecutionLevelCheck
+    ${If} $StateAllUsers == ${BST_CHECKED}
+        ; RequestExecutionLevel Admin
+    ${EndIf}
 FunctionEnd
 
 ; ///////////////////////////////////////////////////////
@@ -664,30 +683,7 @@ FunctionEnd
 !macroend
 
 ; ///////////////////////////////////////////////////////
-; ///////////////// Section SETTINGS ////////////////////
-
-Section -SETTINGS
-    SectionIn 1 2 RO
-    ; SectionInstType ${IT_FULL} ${IT_CUSTOM}
-    SetShellVarContext all ; ToDo add a prompt if the install is for all users.
-    SetOverwrite ifnewer
-    ; LogSet on
-
-    ; Secondary application used by TaylorDo: MyDefrag
-    StrCpy $ProductAppName "MyDefrag"
-    StrCpy $ProductAppVersion "4.3.1"
-    StrCpy $ProductAppPublisher "J.C. Kessels"
-
-    StrCpy $ProductAppInstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
-    StrCpy $ProductAppInstallDirRegKeyRoot "HKLM"
-    StrCpy $ProductAppInstallDirRegKeyPath "Software\$ProductAppName"
-    StrCpy $ProductAppInstallDirRegKeyValueName "Install_Dir"
-    ; description?
-    StrCpy $ProductAppInstallDirRegKey "$ProductAppInstallDirRegKeyRoot $ProductAppInstallDirRegKeyPath $ProductAppInstallDirRegKeyValueName"
-
-
-SectionEnd
-
+; //////////////////   SECTIONS /////////////////////////
 ; ///////////////////////////////////////////////////////
 ; ///////////////// Section MyDefrag ///////////////////
 
@@ -699,36 +695,36 @@ Section "MyDefrag Section" MyDefrag
         SetShellVarContext current
     ${EndIf}
 
-; ///////////////////////////////////////////////////////
-; Check if it exists.
-; SetOutPath $MyDefragDir
-${If} ${RunningX64}
-    SetOutPath "$PROGRAMFILES32"
-${Else}
-    SetOutPath "$PROGRAMFILES"
-${EndIf} 
+    ; ///////////////////////////////////////////////////////
+    ; Check if it exists.
+    ; SetOutPath $MyDefragDir
+    ${If} ${RunningX64}
+        SetOutPath "$PROGRAMFILES32"
+    ${Else}
+        SetOutPath "$PROGRAMFILES"
+    ${EndIf} 
 
-SetOutPath "$INSTDIR"
-CreateDirectory "$ProductAppInstallDir"
-SetOverwrite ifnewer
+    SetOutPath "$INSTDIR"
+    CreateDirectory "$ProductAppInstallDir"
+    SetOverwrite ifnewer
 
-; IfFileExists "$INSTDIR\MyDefrag-v4.3.1.exe" 0 myDefragInstall
-IfFileExists "$ProductAppInstallDir\MyDefrag.exe" myDefragFound myDefragInstall
-IfFileExists "$ProductAppInstallDir\unins000.exe" 0 myDefragInstall
+    ; IfFileExists "$INSTDIR\MyDefrag-v4.3.1.exe" 0 myDefragInstall
+    IfFileExists "$ProductAppInstallDir\MyDefrag.exe" myDefragFound myDefragInstall
+    IfFileExists "$ProductAppInstallDir\unins000.exe" 0 myDefragInstall
 
 myDefragFound:
-MessageBox MB_YESNO "MyDefrag exists. Replace it?" /SD IDYES IDNO myDefragSkipped
+    MessageBox MB_YESNO "MyDefrag exists. Replace it?" /SD IDYES IDNO myDefragSkipped
 
-; replace MyDefrag
-nsExec::ExecToLog 'cmd /c ""$ProductAppInstallDir\unins000.exe""'
-Pop $0
-DetailPrint "exit code: $0"
+    ; replace MyDefrag
+    nsExec::ExecToLog 'cmd /c ""$ProductAppInstallDir\unins000.exe""'
+    Pop $0
+    DetailPrint "exit code: $0"
 
 
-MessageBox MB_YESNO "MyDefrag uninstalled. Proceed with fresh install?" /SD IDYES IDNO myDefragSkipped
-; User chose YES → force overwrite
-SetOverwrite on
-Goto myDefragInstall
+    MessageBox MB_YESNO "MyDefrag uninstalled. Proceed with fresh install?" /SD IDYES IDNO myDefragSkipped
+    ; User chose YES → force overwrite
+    SetOverwrite on
+    Goto myDefragInstall
 
 myDefragInstall:
     DetailPrint "Installing MyDefrag"
@@ -739,13 +735,10 @@ myDefragInstall:
     ; nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe""'
     nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe" /silent /dir="$ProductAppInstallDir" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo""'
     Pop $0
-    DetailPrint "exit code: $0"
-    ; nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe" /dir="$ProductAppInstallDir" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo""'
-    ; nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe" /DIR=$\"$ProductAppInstallDir$\""'
-
-
     DetailPrint "MyDefrag exit code: $0"
 
+    ; nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe" /dir="$ProductAppInstallDir" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo""'
+    ; nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe" /DIR=$\"$ProductAppInstallDir$\""'
     ; nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe" /silent /dir="$ProductAppInstallDir" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo""'
     ; nsExec::ExecToLog 'cmd /c "..\..\Download\MyDefrag-v4.3.1.exe /silent /dir="$ProductAppInstallDir" /LOG "$ProductAppInstallDir\MyDefrag.InstallLog" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo""'
         ; /DIR="x:\dirname"
@@ -809,7 +802,8 @@ Section "Matt Taylor Libraries" TaylorDoLibraries
     ;--------------- Check if it exists ----------------- IT'S THE $ SIGN #2
     ; Load path from registry (see top)
 
-    IfFileExists "$INSTDIR\*.*" 0 taylorDoInstall
+    IfFileExists "$INSTDIR\ReadMe.md" 0 taylorDoInstall
+    DetailPrint "$INSTDIR\ReadMe.md exists already."
     Goto taylorDoExists
     ;
 taylorDoExists:
@@ -1039,12 +1033,9 @@ Section "Update Startmenu" TaylorStartMenu
 
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" \
-        "$SYSDIR\explorer.exe" '-root, "$INSTDIR\src\Commands"'
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" \
-        "$SYSDIR\explorer.exe" '-root, "$ProductAppInstallDir\Scripts\ScriptsByDrive"'
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" \
-        "$INSTDIR\Uninstall.exe"
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" "$SYSDIR\explorer.exe" '-root, "$INSTDIR\src\Commands"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" "$SYSDIR\explorer.exe" '-root, "$ProductAppInstallDir\Scripts\ScriptsByDrive"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
     !insertmacro MUI_STARTMENU_WRITE_END
 
     ;--------------------------------
@@ -1092,23 +1083,7 @@ NoTaskSchedule:
 SectionEnd
 
 ; ///////////////////////////////////////////////////////
-;---------------- Descriptions ----------------
-;Language strings
-LangString DESC_MyDefrag ${LANG_ENGLISH} "Required executable libraries. MyDefrag is freeware and a powerful script based defragmentation utility."
-LangString DESC_TaylorDoLibraries ${LANG_ENGLISH} "Required script libraries. This adds the 500 TaylorDo components used in building the standard and custom runs."
-LangString DESC_TaylorStartMenu ${LANG_ENGLISH} "You can add TaylorDo to the Start Menus. You can then selectively choose and set up optimization runs and observe their progress."
-LangString DESC_TaylorTaskMgr ${LANG_ENGLISH} "This updates the Windows Task Scheduler. This will disable Windows Defrag and add optimal weekly, monthly and yearly TaylorDo runs in it's place. This can be turned on and off afterwards."
-
-;Assign language strings to sections
-!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-!insertmacro MUI_DESCRIPTION_TEXT ${MyDefrag} $(DESC_MyDefrag)
-!insertmacro MUI_DESCRIPTION_TEXT ${TaylorDoLibraries} $(DESC_TaylorDoLibraries)
-!insertmacro MUI_FUNCTION_DESCRIPTION_END
-
-; ///////////////////////////////////////////////////////
 ; ///////////////// UNISTALL ///////////////////////////
-
-;--------------------------------
 ; Uninstaller Section
 
 Section Uninstall
@@ -1118,34 +1093,64 @@ Section Uninstall
     ${Else}
         SetShellVarContext current
     ${EndIf}
-  ;ADD YOUR OWN FILES HERE...
+    ;ADD YOUR OWN FILES HERE...
 
 unMyDefrag:
-DetailPrint "Checking for MyDefrag uninstaller..."
 
-IfFileExists "$ProductAppInstallDir\unins000.exe" 0 unMyDefragEnd
+    DetailPrint " ------------------------------------------------------"
+    DetailPrint "Checking for MyDefrag uninstall..."
 
-DetailPrint "Found unins000.exe"
+    ${If} ${RunningX64}
+        SetRegView 64
+        StrCpy $0 "$PROGRAMFILES64\MyDefrag v4.3.1"
+    ${Else}
+        StrCpy $0 "$PROGRAMFILES\MyDefrag v4.3.1"
+    ${EndIf}
 
-nsExec::ExecToLog 'cmd /c "taskkill /IM MyDefrag.exe /F"'
-DetailPrint "Killed MyDefrag.exe (if running)"
+    DetailPrint "MyDefrag path: $0"
 
-DetailPrint "Running VERYSILENT uninstall..."
-nsExec::ExecToLog 'cmd /c ""$ProductAppInstallDir\unins000.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART"'
-Pop $0
-DetailPrint "unistall exit code: $0"
+    IfFileExists "$0\unins000.exe" 0 unMyDefragCleanup
 
-StrCmp $0 0 unMyDefragEnd
+    DetailPrint "Found MyDefrag uninstaller"
+    DetailPrint "Exit code 128 errors can be ignored here:"
 
-DetailPrint "Falling back to SILENT uninstall..."
-nsExec::ExecToLog 'cmd /c ""$ProductAppInstallDir\unins000.exe" /SILENT /NORESTART"'
-Pop $0
-DetailPrint "silent uninstall exit code: $0"
+    ; Stop running processes first
+    nsExec::ExecToLog 'cmd /c "taskkill /IM MyDefrag.exe /F"'
+    Pop $1
+    DetailPrint "taskkill exit code: $1"
+    DetailPrint " "
 
-DetailPrint "Cleaning up leftover folder..."
-RMDir /r "$ProductAppInstallDir"
+    Sleep 2000
+
+    ; Run Inno Setup uninstaller silently
+    DetailPrint "Running MyDefrag uninstaller..."
+
+    ExecWait '"$0\unins000.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART' $1
+
+    DetailPrint "unins000.exe exit code: $1"
+
+    ; Give Windows time to release handles
+    Sleep 2000
+
+unMyDefragCleanup:
+
+    DetailPrint "Removing leftover MyDefrag files from $0..."
+
+    RMDir /r "$0"
+
+    IfFileExists "$0\*.*" 0 unMyDefragEnd
+
+    DetailPrint "Some files remain. Scheduling delete on reboot."
+
+    Delete /REBOOTOK "$0\*.*"
+    RMDir /r /REBOOTOK "$0"
 
 unMyDefragEnd:
+
+    DetailPrint ""
+    DetailPrint "End of MyDefrag uninstall and cleanup."
+    DetailPrint " ------------------------------------------------------"
+
 
 unTaylorDo:
 
@@ -1154,11 +1159,14 @@ unTaylorDo:
     ; Delete "$INSTDIR\Uninstall.exe"
 
     DetailPrint "Restore Windows defrag in Task Scheduler"
-    nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoTaskScheduleUninstall.bat"'
+    StrCpy $0 "$ProductAppInstallDir\Commands\TaskScheduler\DoTaskScheduleUninstall.bat"
+    DetailPrint "Path: $0"
+    nsExec::ExecToLog 'cmd /c ""$0""'
     Pop $0
-    DetailPrint "exit code: $0"
+    DetailPrint "  exit code: $0"
     ; nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoTaskEnableWindows.bat"'
 
+    DetailPrint " ------------------------------------------------------"
     DetailPrint "Cleaning up leftover folder..."
     RMDir /r "$INSTDIR"
 
@@ -1170,25 +1178,4 @@ unTaylorDo:
 
 SectionEnd
 
-; ;Uninstaller Section
-  ; ;must be the first in this sektion
-  ; ;when you are going to delete the whole key later
-  ; ; DeleteRegKey HKCU "Software\<yoursoft>"
-
-  ; ; Remove shortcuts
-  ; Push $R0
-  ; ;ReadRegStr $R0 HKCU "Software\<yoursoft>" "StartMenuFolder"
-  ; ReadRegStr $R0 ${MUI_STARTMENUPAGE_REGISTRY_ROOT} ${MUI_STARTMENUPAGE_REGISTRY_KEY} ${MUI_STARTMENUPAGE_REGISTRY_VALUENAME}
-  ; StrCmp $R0 "" noshortcuts
-    ; RMDir /r "$SMPROGRAMS\$R0"
-  ; Pop $R0
-; noshortcuts:
-
 ; ///////////////////////////////////////////////////////
-; ///////////////// Global ///////////////////////////
-
-Function ExecutionLevelCheck
-    ${If} $StateAllUsers == ${BST_CHECKED}
-        ; RequestExecutionLevel Admin
-    ${EndIf}
-FunctionEnd

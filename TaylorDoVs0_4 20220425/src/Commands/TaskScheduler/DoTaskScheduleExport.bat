@@ -15,7 +15,9 @@ SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Yearly" > "%PROGRAMF
 SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Monthly"  > "%PROGRAMFILES%\TaylorDo\Commands\Install\TaylorDo Monthly.xml"
 @Echo ------------------------------------------------------
 @Echo Schedule Weekly for all drives. 
-SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly"  > "%PROGRAMFILES%\TaylorDo\Commands\Install\TaylorDo Weekly.xml"
+SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly 2"  > "%PROGRAMFILES%\TaylorDo\Commands\Install\TaylorDo Weekly 2.xml"
+SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly 3"  > "%PROGRAMFILES%\TaylorDo\Commands\Install\TaylorDo Weekly 3.xml"
+SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly 4"  > "%PROGRAMFILES%\TaylorDo\Commands\Install\TaylorDo Weekly 4.xml"
 @Echo ------------------------------------------------------
 @Echo Schedule Daily for all drives. 
 SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly"  > "%PROGRAMFILES%\TaylorDo\Commands\Install\TaylorDo Daily.xml"
