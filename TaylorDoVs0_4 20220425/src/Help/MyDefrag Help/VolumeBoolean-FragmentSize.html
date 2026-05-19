@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FragmentSize</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="VolumeBoolean-FragmentSize"></A><h2>VolumeBoolean - FragmentSize</h2></P>
+Select the volume if the average size per fragment is between the
+  minimum (first number) and maximum (second number) of bytes. If a file has 2 fragments and
+  is 100 bytes in size, then the average size per fragment is 50 bytes.
+  If the second number is zero then the maximum is infinity.
+  <p>
+
+  NOTE: MyDefrag has to open the disk and analyze all the files so it can calculate
+  the average size per fragment. This will take some time.<p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FragmentSize(<a href="Scripts-NUMBER.html">NUMBER</a> , <a href="Scripts-NUMBER.html">NUMBER</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>VolumeSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;all&nbsp;volumes&nbsp;that&nbsp;have&nbsp;an&nbsp;average&nbsp;size&nbsp;per&nbsp;fragment&nbsp;100000&nbsp;and&nbsp;1000000&nbsp;bytes.<br />
+&nbsp;&nbsp;FragmentSize(100000,1000000)<br />
+VolumeActions<br />
+&nbsp;&nbsp;...<br />
+VolumeEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="VolumeBoolean-FragmentCount.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FragmentCount</b></a><br><a href="Scripts-VolumeSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeSelect</b></a><br><a href="Scripts-VolumeBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeBoolean</b></a><br><a href="Scripts-VolumeActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeActions</b></a><br>
+</BODY>
+</HTML>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ImportListFromFile</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileBoolean-ImportListFromFile"></A><h2>FileBoolean - ImportListFromFile</h2></P>
+Select the items (files, directories) that are listed in the listfile.<p>
+
+  <ul>
+  <li> The STRING is the full path to an item on disk.
+  <li> The listfile is a flat text file, Unicode, UTF-8, or ASCII.
+  <li> The listfile must contain a list of full paths, 1 path per text line. For example:
+    <center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>C:\WINDOWS\SYSTEM32\NTOSKRNL.EXE<br>
+  C:\WINDOWS\SYSTEM32\PSHED.DLL<br>
+  C:\WINDOWS\SYSTEM32\KDCOM.DLL<br>
+  C:\WINDOWS\SYSTEM32\CLFS.SYS</code></td></tr></table></center>
+  <li> Paths that do not exist (or invalid paths) are quietly ignored.
+  <li> Folders are entities by themselves. If the listfile contains the name of a folder
+    then only the folder will be selected, not the items in that folder or subfolders.
+  <li> If the listfile contains the name of an item that has already been processed (placed
+    in a previous zone) then the item will not be selected (ignored).
+  <li> This is a fileboolean function and it only selects items. The FileActions will process
+    the selected items, for example sort by name. The <a href="FileActions-SortByImportSequence.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SortByImportSequence</b></a>
+    fileaction will order the items in the same sequence in which they are listed in
+    the listfile.
+  </ul>
+  <p><p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>ImportListFromFile(<a href="Scripts-STRING.html">STRING</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Select&nbsp;and&nbsp;sort&nbsp;items&nbsp;exactly&nbsp;how&nbsp;I&nbsp;want&nbsp;it.<br />
+FileSelect<br />
+&nbsp;&nbsp;ImportListFromFile("c:\users\jeroen\MyOptimizeList.txt")<br />
+FileActions<br />
+&nbsp;&nbsp;SortByImportSequence(Ascending)<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="FileActions-SortByImportSequence.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SortByImportSequence</b></a><br><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

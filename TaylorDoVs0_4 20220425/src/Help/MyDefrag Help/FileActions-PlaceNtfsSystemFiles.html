@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>PlaceNtfsSystemFiles</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileActions-PlaceNtfsSystemFiles"></A><h2>FileActions - PlaceNtfsSystemFiles</h2></P>
+Place the selected items and sort alphabetically by their full pathname,
+  ascending from A to Z or descending from Z to A.
+  This function is intended to be used together with the
+  <a href="FileBoolean-SelectNtfsSystemFiles.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SelectNtfsSystemFiles</b></a> fileboolean.
+  It is basically the same as the <a href="FileActions-SortByName.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SortByName</b></a>
+  fileaction, except that files can be placed inside the NTFS reserved area.
+  <p>
+
+  <ul>
+  <li> MyDefrag does not (cannot) change the size or location of the NTFS reserved area.
+    The NUMBER parameter is only used to create a gap after the MFT.
+    When Windows is booted it will automatically re-allocate the NTFS area. First
+    it tries to place the area just after the MFT, using whatever free gap is there
+    up to a maximum of 12.5% of the size of the volume. If there is no gap after the
+    MFT then Windows places the area elsewhere on disk. Windows will also reset the
+    area when the disk is mounted, see the MyDefrag
+    <a href="VolumeActions-DismountVolume.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>DismountVolume</b></a> action.
+    So, to move the NTFS reserved area you have to immediately boot the computer
+    after using MyDefrag, and even then it is not guaranteed that the NTFS
+    reserved area will have the size and place that you want.
+  <li> If the MFT is not selected then the NUMBER is ignored.
+  <li> It is useless to combine this fileaction with other fileactions, such as "Defragment()"
+    or "FastFill()", because it moves all the files in the zone. Another
+    fileaction would either needlessly move files, or would destroy the sorted
+    order of the files.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>PlaceNtfsSystemFiles(OPTIONS , <a href="Scripts-NUMBER.html">NUMBER</a>)</code></td></tr></table></center><p><center><table width="80%"><tr><td>The OPTIONS are a space-separated list of these keywords:<table><tr><td><a href="SortByName-Ascending.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Ascending</b></a></td></tr>
+<tr><td><a href="SortByName-Descending.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Descending</b></a></td></tr>
+<tr><td><a href="SortByName-SkipBlock.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SkipBlock</b></a></td></tr>
+</table><p>The NUMBER parameter is a hint, specifying a desired size for the NTFS reserved
+  area.</td></tr></table></center><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;all&nbsp;the&nbsp;NTFS&nbsp;system&nbsp;files.<br />
+&nbsp;&nbsp;SelectNtfsSystemFiles(yes)<br />
+FileActions<br />
+&nbsp;&nbsp;#&nbsp;Place&nbsp;the&nbsp;NTFS&nbsp;system&nbsp;files,&nbsp;NTFS&nbsp;reserved&nbsp;area&nbsp;is&nbsp;10%&nbsp;of&nbsp;the&nbsp;MFT.<br />
+&nbsp;&nbsp;PlaceNtfsSystemFiles(Ascending,MftSize&nbsp;*&nbsp;0.1)<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="FileBoolean-SelectNtfsSystemFiles.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SelectNtfsSystemFiles</b></a><br><a href="VolumeActions-DismountVolume.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>DismountVolume</b></a><br><a href="VolumeActions-ReclaimNtfsReservedAreas.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>ReclaimNtfsReservedAreas</b></a><br>
+</BODY>
+</HTML>

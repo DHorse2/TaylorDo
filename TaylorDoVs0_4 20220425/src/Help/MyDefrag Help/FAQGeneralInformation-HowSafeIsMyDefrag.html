@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How safe is MyDefrag?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ General information-How safe is MyDefrag?"></A><h2>FAQ General information - How safe is MyDefrag?</h2></P>
+Basically all MyDefrag does is send "move this file to that location" commands
+  to the defragmentation API by Microsoft, a collection of system calls that are
+  included in Windows NT, 2000, 2003, XP, Vista, 2008, and Win7.
+  Most defragmenters are based on this API, including commercial defragmenters.
+  The API is very mature and has proven to be extremely solid over the years.
+  It is for example impossible to overwrite data, the API simply refuses it.
+  It is also impossible for data to get corrupted, the API verifies every move.
+  <p>
+
+  MyDefrag is therefore totally safe to use, as testified by millions of users on all
+  kinds of hardware. However, it is still a good idea to backup
+  before defragmenting, just like with other defragmenters. because the heavy use of the
+  harddisk may trigger a hardware fault (disk crash), and/or overheating (disk, power supply,
+  controller chipset, etc.), and/or may cause unnoticed data corruption to come
+  to the surface. It is also theoretically possible that other software is incompatible
+  with MyDefrag, causing problems, but then that software would be incompatible
+  with the standard Microsoft defragmentation API and all other defragmenters out there.<p>
+
+  <b>Note:</b>  If your disks use FAT then you should seriously consider changing them
+  to NTFS. It is not only faster, but has several build-in safeguards that protect your
+  data. For example, with NTFS you are safe when the computer crashes in the middle of
+  defragmenting,
+  <p><h3>See also:</h3><a href="Manual-KnownProblems.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Known problems</b></a><br><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

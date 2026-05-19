@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>LastAccess</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileBoolean-LastAccess"></A><h2>FileBoolean - LastAccess</h2></P>
+Select all the items that have a last access time
+  between the minimum time (first parameter) and the maximum time (second parameter).
+  If the first parameter is empty then the minimum time is the beginning of time.
+  If the second parameter is empty then the maximum time is infinity.<p>
+  <ul>
+  <li> See the <a href="FileBoolean-LastAccessEnabled.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>LastAccessEnabled</b></a> fileboolean to test
+    if Windows is configured to record (update) the last access times.
+  <li> Some improperly programmed utilities cause a change in the last access time of
+    all items on the disk when they scan the disk. Examples are virus scanners,
+    backup programs, text indexers.
+  <li> On FAT volumes the resolution of the last access time is 1 day.
+    NTFS delays updates to the last access time by up to one hour.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>LastAccess(<a href="Scripts-DATETIME.html">DATETIME</a> , <a href="Scripts-DATETIME.html">DATETIME</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;all&nbsp;the&nbsp;items&nbsp;that&nbsp;were&nbsp;accessed&nbsp;less&nbsp;than&nbsp;10&nbsp;days&nbsp;ago.<br />
+&nbsp;&nbsp;LastAccessEnabled(yes)&nbsp;and&nbsp;LastAccess(10&nbsp;days&nbsp;ago,now)<br />
+FileActions<br />
+&nbsp;&nbsp;....<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="FileBoolean-LastAccessEnabled.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>LastAccessEnabled</b></a><br><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

@@ -1,9 +1,9 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo Command: DoSetPagefile
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 Rem Source: https://social.technet.microsoft.com/Forums/windows/en-US/708da424-3a7c-404d-8f54-f989ed62d323/command-for-changeing-the-page-file
 Rem from ::setpagefile.bat::
@@ -18,6 +18,6 @@ REM wmic pagefileset where name="<path/filename>" set InitialSize=<initialsize>,
 REM wmic pagefileset where name="<volume:\\path\filename>" set InitialSize=<initialsize>,MaximumSize=<maxsize> //right
 
 wmic /user:usirmc\%logon% /node:%server% pagefileset where name="%pathfilename%" set InitialSize=%StartSize%,MaximumSize=%MaxSize%
-@Echo . 
+@Echo. 
 @Echo - End of DoSetPagefile -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>NUMBER</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Scripts-NUMBER"></A><h2>Scripts - NUMBER</h2></P>
+Numbers can be integers or floating-point. MyDefrag uses 64-bit precision for
+  all numbers, maximum value is 9223372036854775807 for an integer and
+  1.7976931348623158e+308 for a floating-point.<p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>[0123456789]+<br>[0123456789]*"."[0123456789]+(( "d" | "D" | "e" | "E" )("-"|"+")?[0123456789]+)?</code></td></tr></table></center><p>The following multipliers can be appended to a number:
+  <center>
+  <table border=1>
+  <tr>
+    <td>K</td>
+    <td>kilo, 1 000</td>
+    </tr>
+  <tr>
+    <td>M</td>
+    <td>mega, 1 000 000</td>
+    </tr>
+  <tr>
+    <td>G</td>
+    <td>giga, 1 000 000 000</td>
+    </tr>
+  <tr>
+    <td>T</td>
+    <td>tera, 1 000 000 000 000</td>
+    </tr>
+  <tr>
+    <td>P</td>
+    <td>peta, 1 000 000 000 000 000</td>
+    </tr>
+  <tr>
+    <td>E</td>
+    <td>exa, 1 000 000 000 000 000 000</td>
+    </tr>
+  <tr>
+    <td>Z</td>
+    <td>zetta, 1 000 000 000 000 000 000 000</td>
+    </tr>
+  <tr>
+    <td>Y</td>
+    <td>yotta, 1 000 000 000 000 000 000 000 000</td>
+    </tr>
+
+  <tr>
+    <td>KB</td>
+    <td>kilobyte, 1 024</td>
+    </tr>
+  <tr>
+    <td>MB</td>
+    <td>megabyte, 1 048 576</td>
+    </tr>
+  <tr>
+    <td>GB</td>
+    <td>gigabyte, 1 073 741 824</td>
+    </tr>
+  <tr>
+    <td>TB</td>
+    <td>terabyte, 1 099 511 627 776</td>
+    </tr>
+  <tr>
+    <td>PB</td>
+    <td>petabyte, 1 125 899 906 842 624</td>
+    </tr>
+  <tr>
+    <td>EB</td>
+    <td>exabyte, 1 152 921 504 606 846 976</td>
+    </tr>
+  <tr>
+    <td>ZB</td>
+    <td>zettabyte, 1 180 591 620 717 411 303 424</td>
+    </tr>
+  <tr>
+    <td>YB</td>
+    <td>yottabyte, 1 208 925 819 614 629 174 706 176</td>
+    </tr>
+
+  <tr>
+    <td>Ki</td>
+    <td>kibi, 1 024</td>
+    </tr>
+  <tr>
+    <td>Mi</td>
+    <td>mebi, 1 048 576</td>
+    </tr>
+  <tr>
+    <td>Gi</td>
+    <td>gibi, 1 073 741 824</td>
+    </tr>
+  <tr>
+    <td>Ti</td>
+    <td>tebi, 1 099 511 627 776</td>
+    </tr>
+  <tr>
+    <td>Pi</td>
+    <td>pebi, 1 125 899 906 842 624</td>
+    </tr>
+  <tr>
+    <td>Ei</td>
+    <td>exbi, 1 152 921 504 606 846 976</td>
+    </tr>
+  <tr>
+    <td>Zi</td>
+    <td>zebi, 1 180 591 620 717 411 303 424</td>
+    </tr>
+  <tr>
+    <td>Yi</td>
+    <td>yobi, 1 208 925 819 614 629 174 706 176</td>
+    </tr>
+  </table>
+  </center>
+  <p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>100<br>34.553<br>20M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;20&nbsp;million&nbsp;bytes<br>20MB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;20&nbsp;megabytes<br>100Gi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;100&nbsp;gibibytes<br>-6.88153E2</code></td></tr></table></center><p>
+
+  <h3>Variables and pre-defined numbers</h3>
+
+  You can store values in variables and then use the variables in expressions.
+  Also, there is a long list of pre-defined variables. For more information see
+  <a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a>.
+
+  <h3>Arithmetic</h3>
+
+  The following arithmetic operators are available. All arithmetic is performed using
+  64-bit floating point numbers.<p>
+
+  <center>
+  <table border=1>
+  <tr>
+    <th>Operator</th>
+    <th>Description</th>
+    <th>Example</th>
+    <th>Result</th>
+    </tr>
+  <tr>
+    <td>+</td>
+    <td>Addition</td>
+    <td>5 + 3</td>
+    <td>8</td>
+    </tr>
+  <tr>
+    <td>-</td>
+    <td>Subtraction</td>
+    <td>5 - 3</td>
+    <td>2</td>
+    </tr>
+  <tr>
+    <td>*</td>
+    <td>Multiplication</td>
+    <td>5 * 3</td>
+    <td>15</td>
+    </tr>
+  <tr>
+    <td>/</td>
+    <td>Division</td>
+    <td>5 / 3</td>
+    <td>1.66666666</td>
+    </tr>
+  <tr>
+    <td>%</td>
+    <td>Remainder</td>
+    <td>5 % 3</td>
+    <td>2</td>
+    </tr>
+  </table>
+  </center>
+
+
+  <h3>Minimum and Maximum</h3>
+
+  The "Minimum" and "Maximum" functions take a series of numbers (1 or more) separated
+  by comma's and return the lowest or highest number.<p>
+  <center>
+  <table border=1>
+  <tr>
+    <td>Syntax</td>
+    <td>Example</td>
+    </td>
+  <tr>
+    <td>Minimum(<a href="Scripts-NUMBER.html">NUMBER</a> [ , <a href="Scripts-NUMBER.html">NUMBER</a> ] )</td>
+    <td>Minimum(1000,900,1200)</td>
+    </tr>
+  <tr>
+    <td>Maximum(<a href="Scripts-NUMBER.html">NUMBER</a> [ , <a href="Scripts-NUMBER.html">NUMBER</a> ] )</td>
+    <td>Maximum(1000,900,1200)</td>
+    </tr>
+  </table>
+  </center>
+
+  <h3>RoundDown and RoundUp</h3>
+
+  These functions take the first NUMBER and round it down/up to a multiple of the second NUMBER.
+  For example, if the first number is 15 and the second number is 4, then RoundUp will
+  round up to 16, because that is the first-next multiple of 4.
+  The "RoundDown" and "RoundUp" functions can for example be used when calculating the
+  beginning of a zone. They round the beginning of a zone down/up, so it will be the same
+  for many runs of MyDefrag and reduce the amount of data movement.
+  <p>
+  <center>
+  <table border=1>
+  <tr>
+    <td>Syntax</td>
+    <td>Example</td>
+    </td>
+  <tr>
+    <td>RoundDown(<a href="Scripts-NUMBER.html">NUMBER</a> , <a href="Scripts-NUMBER.html">NUMBER</a>)</td>
+    <td>RoundDown(ZoneEnd + ZoneSize * 0.1 , VolumeSize * 0.01)</td>
+    </tr>
+  <tr>
+    <td>RoundUp(<a href="Scripts-NUMBER.html">NUMBER</a> , <a href="Scripts-NUMBER.html">NUMBER</a>)</td>
+    <td>RoundUp(ZoneEnd + ZoneSize * 0.1 , VolumeSize * 0.01)</td>
+    </tr>
+  </table>
+  </center>
+  <p><h3>See also:</h3><a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a><br><a href="Scripts-Macros.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Macros</b></a><br><a href="Manual-Scripts.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Scripts</b></a><br>
+</BODY>
+</HTML>

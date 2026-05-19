@@ -1,9 +1,9 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoTaskScheduleExport
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo Schedule Run Once for all drives. 
 SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Run Once" > "%PROGRAMFILES%\TaylorDo\Commands\Install\TaylorDo Run Once.xml"
@@ -25,7 +25,7 @@ SchTasks /Query /xml /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly"  > "%PROGRAM
 @Echo Disable Windows Defrag Schedule.
 SchTasks /Query /xml /tn "\Microsoft\Windows\Defrag\ScheduledDefrag"  > "%PROGRAMFILES%\TaylorDo\Commands\Install\ScheduledDefrag.xml"
 @Echo ------------------------------------------------------
-@Echo . 
+@Echo. 
 @Echo - End of DoTaskScheduleExport -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 pause()

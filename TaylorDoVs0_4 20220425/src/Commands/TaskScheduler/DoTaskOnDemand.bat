@@ -1,9 +1,9 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoTaskOnDemand
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo Disable Run Once for all drives. 
 SchTasks /Change /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Run Once"  /DISABLE
@@ -23,7 +23,7 @@ SchTasks /Change /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Daily"  /DISABLE
 @Echo Disable Windows Defrag Schedule.
 SchTasks /Change /tn "\Microsoft\Windows\Defrag\ScheduledDefrag" /DISABLE
 @Echo ------------------------------------------------------
-@Echo . 
+@Echo. 
 @Echo - End of DoTaskOnDemand -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 pause()

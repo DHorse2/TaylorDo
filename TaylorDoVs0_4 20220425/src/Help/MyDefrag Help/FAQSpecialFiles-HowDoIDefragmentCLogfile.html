@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How do I defragment "C:\$Logfile"?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Special files-How do I defragment "C:\$Logfile"?"></A><h2>FAQ Special files - How do I defragment "C:\$Logfile"?</h2></P>
+The $Logfile is a special NTFS system file. It is a circular log of all disk
+  operations and is used to safely roll back unsuccessful disk operations.
+  The file has a fixed size and is allocated when the disk is formatted.
+  It cannot be deleted, moved, or defragmented.
+
+  <ul>
+  <li> The "chkdsk" Windows commandline utility can show and change the size of the
+    $Logfile.
+    Making the $Logfile bigger will not move it, but will append a new fragment.
+    Making the $Logfile smaller will remove fragments from the end.
+    <center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>CHKDSK c: /L</code></td></tr></table></center>
+  </ul>
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

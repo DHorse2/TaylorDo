@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Message</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-Message"></A><h2>Settings - Message</h2></P>
+Change a build-in English message (the first STRING) into another message (the
+  second STRING). This setting works in combination with the
+  <a href="Settings-Language.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Language</b></a> setting and will store the new message in memory
+  for the currently selected language. The message is only changed for the current
+  instance of the program, it is not a permanent change.
+  <p>
+
+  Arguments in messages begin with a percent-sign "%", followed by a number,
+  followed by "u" for an unsigned number or "s" for a string. The arguments may be
+  reorganised based on the number. For example:<p>
+
+  <dl>
+  <dd> Message("I have found %1n files, containing %2n bytes.","Ik heb %2n bytes gevonden in %1n bestanden.")
+  </dl>
+
+  Strings must be enclosed in single-quotes or double quotes, for example:
+
+  <dl>
+  <dd> "......"
+  <dd> '......'
+  </dl>
+
+  If enclosed by single-quotes then the string may not contain a single-quote.<br>
+  If enclosed by double-quotes then the string may not contain a double-quote.<p>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>Message(<a href="Scripts-STRING.html">STRING</a> , <a href="Scripts-STRING.html">STRING</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>Message("Finished&nbsp;with&nbsp;disk&nbsp;%1s","Klaar&nbsp;met&nbsp;disk&nbsp;%1s")</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Settings-Language.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Language</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

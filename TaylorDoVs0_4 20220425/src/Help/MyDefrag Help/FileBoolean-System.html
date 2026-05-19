@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>System</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileBoolean-System"></A><h2>FileBoolean - System</h2></P>
+Select all the items that have the "system" attribute set (yes) or not set (no).
+  This attribute is used by Windows to indicate items that are part of Windows, or
+  that are used exclusively by Windows. This definition includes files such as the
+  pagefile, "desktop.ini" files, just about everything in the Windows folder (including
+  infrequently used stuff), temporary files, files in the recycle bin, and lot's of
+  other stuff.<p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>System(yes)<br>System(no)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;all&nbsp;the&nbsp;items&nbsp;that&nbsp;have&nbsp;the&nbsp;"System"&nbsp;attribute.<br />
+&nbsp;&nbsp;System(yes)<br />
+FileActions<br />
+&nbsp;&nbsp;....<br />
+FileEnd</code></td></tr></table></center><p><b>Tip:</b> You can get a list of all the system files on the C: disk with the
+  following Windows commandline:
+  <center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>dir /A:S /S c:</code></td></tr></table></center>
+  <p><h3>See also:</h3><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

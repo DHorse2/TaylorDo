@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Name</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="VolumeBoolean-Name"></A><h2>VolumeBoolean - Name</h2></P>
+Select the volume if it's name matches the STRING. The string may
+  contain wildcard characters "*" (zero or more characters) or "?" (a single character).<p>
+
+  <ul>
+  <li> The function compares the STRING with the full volume mountpoint (for example
+    "C:\"), short volume mountpoint (for example "C" and "C:"), with
+    the volume name (for example "\\?\Volume{08439462-3004-11da-bbca-806d6172696f}"),
+    and with the device name (for example "\Device\HarddiskVolume1").
+  <li> The mountpoint of a volume can be a folder on another volume,
+    for example "C:\Users\".
+  <li> To get a list of all volumes on the computer enter "mountvol" in a command
+    prompt window.
+  <li> See the <a href="VolumeBoolean-Label.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Label</b></a> volumeboolean to select volumes by
+    their label.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>Name(<a href="Scripts-STRING.html">STRING</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>VolumeSelect<br />
+&nbsp;&nbsp;Name("c:")&nbsp;or&nbsp;Name("d:")<br />
+VolumeActions<br />
+&nbsp;&nbsp;...<br />
+VolumeEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="VolumeBoolean-Label.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Label</b></a><br><a href="Scripts-VolumeSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeSelect</b></a><br><a href="Scripts-VolumeBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeBoolean</b></a><br><a href="Scripts-VolumeActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeActions</b></a><br>
+</BODY>
+</HTML>

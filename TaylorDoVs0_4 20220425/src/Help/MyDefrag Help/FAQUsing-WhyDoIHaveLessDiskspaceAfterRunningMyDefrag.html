@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Why do I have less diskspace after running MyDefrag?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Using-Why do I have less diskspace after running MyDefrag?"></A><h2>FAQ Using - Why do I have less diskspace after running MyDefrag?</h2></P>
+The diskspace is used by the Microsoft Shadow Copy service, and it happens with all
+  defragmenters and optimizers, not only MyDefrag.<p>
+
+  The Microsoft Shadow Copy service makes snapshots of the disk, and is used to get a
+  consistent view of the disk by services such as restore points and backup.
+  MyDefrag does not change files (it only defragments or moves them), but it does change
+  the disk (moving a file is a change to the disk), and the Shadow Copy service remembers
+  all these changes in big files in the "C:\System Volume Information\...." folder. When
+  the total amount of diskspace used by shadow copies exceeds a threshold then the oldest
+  snapshot (restore point) is automatically deleted.<p>
+
+  To release the diskspace used by restore points see the
+  <a href="http://support.microsoft.com/kb/310405"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * "></a>&nbsp;<a href="http://support.microsoft.com/kb/310405"><b>How to turn off and turn on System Restore in Windows XP</b></a>
+  article on the Microsoft website.
+  The threshold can be changed with the "vssadmin" command, see the
+  <a href="http://technet2.microsoft.com/windowsserver/en/library/89d2e411-6977-4808-9ad5-476c9eaecaa51033.mspx?mfr=true"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * "></a>&nbsp;<a href="http://technet2.microsoft.com/windowsserver/en/library/89d2e411-6977-4808-9ad5-476c9eaecaa51033.mspx?mfr=true"><b>vssadmin manpage.</b></a>
+  <p>
+
+  In my opinion this is a bug in the Shadow Copy service. MyDefrag (and almost all the other
+  defragmenters out there) is build on top of the Microsoft defragmentation API, so it is
+  entirely possible for the Shadow Copy service to see what is happening. It should only
+  remember that a block of data has been moved, there is no need to make a complete copy
+  of the data.
+
+  <h3>About restore points</h3>
+  Restore points are a backup of certain Windows system files, such as drivers, registry,
+  menu, desktop settings, and more. They do not backup anything else, such as user files
+  and non-Windows programs.
+  Also, restore points are deleted automatically (see above).
+  You should therefore NOT rely on restore points as if they were a backup. They are
+  incomplete, and probably not there when you need them. Personally I always turn
+  them off, saving a ton of diskspace, and I use more reliable means to make my backups.
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

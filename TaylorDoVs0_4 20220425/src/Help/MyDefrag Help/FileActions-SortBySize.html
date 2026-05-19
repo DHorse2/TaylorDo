@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SortBySize</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileActions-SortBySize"></A><h2>FileActions - SortBySize</h2></P>
+Place the selected items and sort by size from smallest to largest ("ascending")
+  or from largest to smallest ("descending").
+
+  <ul>
+  <li> This action will also defragment. It is therefore not necessary to combine it
+    with the <a href="FileActions-Defragment.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Defragment</b></a> action.
+  <li> This action will create "wrap around" fragments. For more information see the
+    <a href="Settings-IgnoreWrapAroundFragmentation.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>IgnoreWrapAroundFragmentation</b></a> setting.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>SortBySize(OPTIONS)</code></td></tr></table></center><p><center><table width="80%"><tr><td>The OPTIONS are a space-separated list of these keywords:<table><tr><td><a href="SortByName-Ascending.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Ascending</b></a></td></tr>
+<tr><td><a href="SortByName-Descending.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Descending</b></a></td></tr>
+<tr><td><a href="SortByName-SkipBlock.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>SkipBlock</b></a></td></tr>
+</table></td></tr></table></center><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;....<br />
+FileActions<br />
+&nbsp;&nbsp;#&nbsp;Sort&nbsp;the&nbsp;items&nbsp;from&nbsp;smallest&nbsp;to&nbsp;largest.<br />
+&nbsp;&nbsp;SortBySize(Ascending)<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

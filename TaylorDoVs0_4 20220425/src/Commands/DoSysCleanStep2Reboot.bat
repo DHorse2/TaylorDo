@@ -1,5 +1,5 @@
 @Echo off
-@Echo .
+@Echo.
 @Echo ------------------------------------------------------
 @Echo - ToDo Command: DoSysCleanStep2Reboot Do Sys Clean Step2 Reboot
 @Echo ------------------------------------------------------
@@ -10,10 +10,10 @@
 @Echo Boot:
 @Echo - AtBootHklm HKLM
 @Echo - AtBootHkcu HKCU
-@Echo . 
+@Echo. 
 @Echo You might do house keeping here,
 @Echo start services, delete files, etc.
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - 
 @Echo Description
@@ -23,7 +23,7 @@
 @Echo System Indexes, 
 @Echo System Volume Information
 @Echo $JRN 
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo ------------------------------------------------------
 @Echo - 
@@ -32,26 +32,26 @@
 @Rem but could on backup drives.
 @Rem powercfg -h off
 Del Hyberfile.sys
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - 
 @Echo Disable Dumpfile
 Del DUMPFILE.sys
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - 
 @Echo Disable Pagefile (Recreate)
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - 
 @Echo Disable Pagefile (Delete & Recreate) (eval)
-@Echo . 
-@Echo . Del hyberfile.sys
-@Echo . 
+@Echo. 
+@Echo. Del hyberfile.sys
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - 
 @Echo Delete Restore Points (System Volume Information)
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo Recreate System Indexes
 net stop wsearch
@@ -62,14 +62,14 @@ sc config wsearch start= delayed-auto
 @Rem AFTER BOOT: net start wsearch
 @Rem IF NOT %ERRORLEVEL%==0 (goto :wsearch) ELSE goto :indexend
 :indexend
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - 
 @Echo Other
-@Echo . 
+@Echo. 
 Del hyberfile.sys
 @Echo Del swapfile.sys
-@Echo . 
+@Echo. 
 @Echo - End of DoSysCleanStep2Reboot -----------------
 @Echo - 
 @Echo REBOOT in safe mode is NOT done here.

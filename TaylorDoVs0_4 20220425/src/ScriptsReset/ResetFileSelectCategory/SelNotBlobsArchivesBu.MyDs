@@ -1,12 +1,12 @@
 # NotBlobsArchivesBu start.
 (not (
-!include "..\..\FileSelectCategory\SelBlobs.MyDs"!
+!include "..\FileSelectCategory\SelBlobs.MyDs"!
 # NotBlobsArchivesBu
 or 
-!include "..\..\FileSelectCategory\SelArchives.MyDs"!
+!include "..\FileSelectCategory\SelArchives.MyDs"!
 # NotBlobsArchivesBu
 or
-!include "..\..\FileSelectCategory\SelBackups.MyDs"!
+!include "..\FileSelectCategory\SelBackups.MyDs"!
 or 
 FileName("ReferenceMarker.MyDx")
 # NotBlobsArchivesBu

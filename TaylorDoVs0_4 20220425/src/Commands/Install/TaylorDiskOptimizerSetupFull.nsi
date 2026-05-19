@@ -369,47 +369,42 @@ Function InstallTypePageCreate
     ${NSD_CB_AddString} $InstallTypeCombo "Full"
     ${NSD_CB_AddString} $InstallTypeCombo "Custom"
 
+    ; Default selection
     ${NSD_CB_SelectString} $InstallTypeCombo "Full"
-
-    ; Default mode
     StrCpy $InstallMode "Full"
 
-    ; Get the Next button handle
+    ; Get Next/Install button handle
     GetDlgItem $NextButton $HWNDPARENT 1
 
-    ; Hook selection change
+    ; Watch for dropdown changes
     ${NSD_OnChange} $InstallTypeCombo InstallTypeChanged
 
-    ; Set initial button text
+    ; Initial button text
     SendMessage $NextButton ${WM_SETTEXT} 0 "STR:Install"
 
     nsDialogs::Show
 FunctionEnd
 
+
 Function InstallTypePageLeave
 
     ${NSD_GetText} $InstallTypeCombo $InstallMode
-    
-    ; ; Get selected item index
-    ; SendMessage $InstallTypeCombo ${CB_GETCURSEL} 0 0 $0
-
-    ; ; Get selected item text
-    ; SendMessage $InstallTypeCombo ${CB_GETLBTEXT} $0 $1
-
-    ; ; Store result
-    ; StrCpy $InstallMode $1
 
     DetailPrint "Mode: $InstallMode"
-    ; MessageBox MB_OK|MB_ICONINFORMATION "TaylorDo installation type $InstallMode ($InstallTypeCombo)"
 
 FunctionEnd
 
-Function InstallTypeChanged
-    ; ${NSD_GetText} $InstallTypeCombo $InstallMode
 
+Function InstallTypeChanged
+
+    ; Read current selection
+    ${NSD_GetText} $InstallTypeCombo $InstallMode
+
+    ; Get button handle
     GetDlgItem $0 $HWNDPARENT 1
 
     StrCmp $InstallMode "Full" 0 custom
+
         SendMessage $0 ${WM_SETTEXT} 0 "STR:Install"
         Goto done
 
@@ -417,6 +412,7 @@ custom:
         SendMessage $0 ${WM_SETTEXT} 0 "STR:Next"
 
 done:
+
 FunctionEnd
 
 Function InstallTypeSkipIfFull
@@ -563,6 +559,8 @@ Function TaskSchedulerApply
     nsExec::ExecToLog 'cmd /c ""$0""'
     Pop $0
     DetailPrint "  exit code: $0"
+    DetailPrint "--------"
+    DetailPrint " "
 
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskRunOnceSelected == ${BST_CHECKED}
@@ -576,6 +574,8 @@ Function TaskSchedulerApply
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
+    DetailPrint "--------"
+    DetailPrint " "
 
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskDailySelected == ${BST_CHECKED}
@@ -589,6 +589,8 @@ Function TaskSchedulerApply
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
+    DetailPrint "--------"
+    DetailPrint " "
 
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskWeeklySelected == ${BST_CHECKED}
@@ -602,6 +604,8 @@ Function TaskSchedulerApply
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
+    DetailPrint "--------"
+    DetailPrint " "
 
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskMonthlySelected == ${BST_CHECKED}
@@ -615,6 +619,8 @@ Function TaskSchedulerApply
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
+    DetailPrint "--------"
+    DetailPrint " "
 
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskYearlySelected == ${BST_CHECKED}
@@ -628,10 +634,14 @@ Function TaskSchedulerApply
         Pop $0
         DetailPrint "exit code: $0"
     ${EndIf}
+    DetailPrint "--------"
+    DetailPrint " "
 
     ${If} $EnableMyDefragSelected != ${BST_CHECKED}
         DetailPrint "MyDefrag disabled, re-enabling Windows standard defrag."
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWindowsDefrag.bat"'
+        DetailPrint "--------"
+        DetailPrint " "
     ${EndIf}
 
 
@@ -1154,17 +1164,19 @@ unMyDefragEnd:
 
 unTaylorDo:
 
+    DetailPrint " "
     DetailPrint "TaylorDo uninstaller..."
     ; WriteUninstaller $INSTDIR\uninstall.exe
     ; Delete "$INSTDIR\Uninstall.exe"
 
     DetailPrint "Restore Windows defrag in Task Scheduler"
-    StrCpy $0 "$ProductAppInstallDir\Commands\TaskScheduler\DoTaskScheduleUninstall.bat"
+    StrCpy $0 "$INSTDIR\Commands\TaskScheduler\DoTaskScheduleUninstall.bat"
     DetailPrint "Path: $0"
     nsExec::ExecToLog 'cmd /c ""$0""'
     Pop $0
     DetailPrint "  exit code: $0"
-    ; nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoTaskEnableWindows.bat"'
+    DetailPrint " "
+; nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoTaskEnableWindows.bat"'
 
     DetailPrint " ------------------------------------------------------"
     DetailPrint "Cleaning up leftover folder..."
@@ -1173,7 +1185,7 @@ unTaylorDo:
     ; Start Menu
 
     ; Registry
-    DetailPrint "Cleaning up Registry..."
+    DetailPrint "Cleaning up Registry $PRODUCT_NAME..."
     DeleteRegKey /ifempty HKCU "Software\${PRODUCT_NAME}"
 
 SectionEnd

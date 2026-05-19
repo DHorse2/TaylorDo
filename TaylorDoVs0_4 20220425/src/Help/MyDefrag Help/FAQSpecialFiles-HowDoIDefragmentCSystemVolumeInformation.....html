@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How do I defragment "C:\System Volume Information\...."?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Special files-How do I defragment "C:\System Volume Information\...."?"></A><h2>FAQ Special files - How do I defragment "C:\System Volume Information\...."?</h2></P>
+These huge files are used by the Shadow Copy service, which in turn is used by the
+  System Restore facility and by Windows backup.
+  The files can be defragmented on XP by stopping the Shadow Copy service ("srservice").
+  They cannot be defragmented on Vista. You can cleanup old shadow copies with
+  "Start -> Programs -> Accessories -> System Tools -> Disk Cleanup",
+  the "More Options" tab.
+  Or you can turn off System Restore altogether like this:
+  <dl>
+  <dt> Windows Vista:
+  <dd><ol>
+    <li> In Control Panel, click "System".
+    <li> Select "System Protection".
+    <li> If a disk has a checkmark then remove the checkmark.
+    </ol>
+  <dt> Windows XP:
+  <dd><ol>
+    <li> Open the properties of "My Computer".
+    <li> Select the "System Restore" tab. If you do not see the System Restore tab
+      then you are not logged on to Windows as an Administrator.
+    <li> Check "Turn off System Restore" or "Turn off System Restore on all drives".
+    </ol>
+  </dl><p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

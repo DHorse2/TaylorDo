@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RunProgram</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-RunProgram"></A><h2>Settings - RunProgram</h2></P>
+Run an external program.<p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>RunProgram(<a href="Scripts-STRING.html">STRING</a> [, STRINGS])</code></td></tr></table></center><p>
+<h3>Parameters</h3>
+<center><table bgcolor="#EEEEEE" width="80%">
+<tr>
+  <td valign=top>MyDefrag will give the strings to Windows as a single commandline
+    to be executed. The first string is usually the path of an executable program,
+    the other strings are it's parameters.
+    </td>
+  </tr>
+</tr></table></center><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>/*&nbsp;Run&nbsp;backup&nbsp;program.&nbsp;*/<br />
+RunProgram("backup","c:\","d:\")<br />
+<br />
+/*&nbsp;Show&nbsp;the&nbsp;MyDefrag&nbsp;logfile.&nbsp;*/<br />
+RunProgram("Notepad.exe","c:\Program&nbsp;Files\MyDefrag&nbsp;v4.3.1\MyDefrag.log")<br />
+<br />
+/*&nbsp;Disable&nbsp;the&nbsp;Windows&nbsp;hibernation&nbsp;facility.&nbsp;*/<br />
+RunProgram("powercfg","/hibernate","off")<br />
+<br />
+/*&nbsp;Hibernate&nbsp;the&nbsp;computer.&nbsp;*/<br />
+RunProgram("%windir%\system32\rundll32.exe",<br />
+&nbsp;&nbsp;"powrprof.dll,SetSuspendState","Hibernate")</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FileSystemType</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="VolumeBoolean-FileSystemType"></A><h2>VolumeBoolean - FileSystemType</h2></P>
+Select volumes that have a filesystem type that matches the ARGUMENT.<p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSystemType(ARGUMENT)</code></td></tr></table></center><p>
+<h3>Argument</h3>
+<center><table bgcolor="#EEEEEE" width="80%">
+<tr>
+  <td valign=top>
+    Possible values for ARGUMENT:
+    <table border=1>
+    <tr>
+      <td><b>NTSF</b></td>
+      <td>NTFS disks.</td>
+      </tr>
+    <tr>
+      <td><b>FAT</b></td>
+      <td>FAT disks (FAT12, FAT16, or FAT32).</td>
+      </tr>
+    <tr>
+      <td><b>FAT12</b></td>
+      <td>FAT12 disks.</td>
+      </tr>
+    <tr>
+      <td><b>FAT16</b></td>
+      <td>FAT16 disks.</td>
+      </tr>
+    <tr>
+      <td><b>FAT32</b></td>
+      <td>FAT32 disks.</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</tr></table></center><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>VolumeSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;only&nbsp;NTFS&nbsp;volumes.<br />
+&nbsp;&nbsp;FileSystemType(NTFS)<br />
+VolumeActions<br />
+&nbsp;&nbsp;...<br />
+VolumeEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-VolumeSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeSelect</b></a><br><a href="Scripts-VolumeBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeBoolean</b></a><br><a href="Scripts-VolumeActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeActions</b></a><br>
+</BODY>
+</HTML>

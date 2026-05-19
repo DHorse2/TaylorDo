@@ -1,9 +1,9 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoEnvironmentSet
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 
 setx /K /M MyDefragDir=HKEY_LOCAL_MACHINE\SOFTWARE\MyDefrag\Install_Dir
@@ -18,9 +18,9 @@ setx /K /M TaylorDoVersion=HKEY_LOCAL_MACHINE\SOFTWARE\TaylorDo\Version
 ; set TaylorDoProductName=Taylor Disk Optimizer
 ; set TaylorDoVersion=4.0.1.0
 
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
-@Echo . 
+@Echo. 
 @Echo - End of DoEnvironmentSet -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 pause()

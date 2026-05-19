@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FileSelect</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="VolumeActions-FileSelect"></A><h2>VolumeActions - FileSelect</h2></P>
+The "FileSelect" keyword is the beginning of a FileSelect-FileActions-FileEnd
+structure, and is used inside the
+<a href="Scripts-VolumeActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeActions</b></a>
+to select one or more items (files, directories) with the
+<a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a>,
+create a zone for those items, and then perform the
+<a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a> on the items.
+<p>
+
+<ul>
+<li> There will usually be more than one FileSelect-FileActions-FileEnd structure
+  inside a VolumeAction. This will create multiple zones, each zone with it's own
+  items. Items will be placed in the first possible zone, in other words,
+  if an item has been selected by a FileBoolean then it will automatically
+  not be selected by the next FileBooleans.
+<li> Files that are selected with the global <a href="Settings-ExcludeFiles.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>ExcludeFiles</b></a>
+  setting are automatically excluded and will not be processed by FileSelect statements.
+</ul>
+
+<h3>Syntax</h3>
+<center>
+<table width="80%">
+<tr>
+  <td bgcolor="#EEEEEE" width="60%" valign=top><code>
+    FileSelect<br>
+    &nbsp;&nbsp;....<br>
+    FileActions<br>
+    &nbsp;&nbsp;....<br>
+    FileEnd
+    </code></td>
+  <td valign=top><code>
+    <br>
+    --> see: <a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br>
+    <br>
+    --> see: <a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+    </code></td>
+  </tr>
+</table>
+</center><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Select&nbsp;all&nbsp;volumes,&nbsp;all&nbsp;files&nbsp;on&nbsp;those&nbsp;volumes,&nbsp;and&nbsp;defragment&nbsp;those&nbsp;files.<br />
+VolumeSelect<br />
+&nbsp;&nbsp;All<br />
+VolumeActions<br />
+&nbsp;&nbsp;FileSelect<br />
+&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+&nbsp;&nbsp;FileActions<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Defragment()<br />
+&nbsp;&nbsp;FileEnd<br />
+VolumeEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-VolumeActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeActions</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br><a href="Manual-Scripts.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Scripts</b></a><br>
+</BODY>
+</HTML>

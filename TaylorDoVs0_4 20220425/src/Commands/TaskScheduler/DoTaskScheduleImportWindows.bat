@@ -1,16 +1,16 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoTaskScheduleImportWindows
 @Echo ------------------------------------------------------
-@Echo . This will overwrite your current settings with any previous exported tasks.
+@Echo. This will overwrite your current settings with any previous exported tasks.
 pause()
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo Disable Windows Defrag Schedule.
 SchTasks /Create /xml "%PROGRAMFILES%\TaylorDo\Commands\Install\ScheduledDefrag.xml" /tn "\Microsoft\Windows\Defrag\ScheduledDefrag" /ru SYSTEM
 @Echo ------------------------------------------------------
-@Echo . 
+@Echo. 
 @Echo - End of DoTaskScheduleImportWindows -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 pause()

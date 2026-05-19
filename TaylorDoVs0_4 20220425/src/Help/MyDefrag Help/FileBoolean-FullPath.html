@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FullPath</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileBoolean-FullPath"></A><h2>FileBoolean - FullPath</h2></P>
+Select all the directories that have a full path which matches the first
+  STRING, and in these selected directories and their subdirectories select all
+  the files that match the second STRING.
+  The strings may contain wildcard characters "*" (zero or more characters)
+  or "?" (a single character).
+  <p>
+
+  <ul>
+  <li> Make sure that the directory mask also matches the drive letter. A directory
+    path looks like this: "c:\windows\System32". Note that there is no trailing
+    backslash, only the root folder (for example "c:\") has a backslash.
+  <li> The "*" (star) wildcard will also match the "\" (backslash) character, so it
+    span's directories.
+  <li> Files in subdirectories are also selected. For example, the
+    "FullPath("c:\Windows","*.exe")" command not only selects .exe files in the
+    "Windows" folder, but also in the "Windows\System32" folder, and all other
+    subfolders in the "Windows" folder.
+  <li> The function looks at all the hard link filenames of an item (an item may
+    have 2 or more names, totally different and even in different directories, but
+    all referring to the same data).
+    The logfile will show whatever name happens to be first, so it may appear as
+    if the function has selected some wrong items.
+    The function does not follow soft links.
+  </ul><p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FullPath(<a href="Scripts-STRING.html">STRING</a> , <a href="Scripts-STRING.html">STRING</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;//&nbsp;Select&nbsp;all&nbsp;*.mp3&nbsp;files&nbsp;in&nbsp;all&nbsp;"music"&nbsp;folders&nbsp;and&nbsp;subfolders.<br />
+&nbsp;&nbsp;FullPath("*\music","*.mp3")<br />
+FileActions<br />
+&nbsp;&nbsp;....<br />
+FileEnd<br />
+<br />
+<br />
+//&nbsp;How&nbsp;to&nbsp;include&nbsp;files&nbsp;in&nbsp;a&nbsp;directory&nbsp;but&nbsp;not&nbsp;it's&nbsp;subdirectories.<br />
+FullPath("c:\windows","*")&nbsp;and&nbsp;not&nbsp;(FullPath("c:\windows\*","*"))</code></td></tr></table></center><p><p><h3>See also:</h3><a href="FileBoolean-FileName.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileName</b></a><br><a href="FileBoolean-DirectoryName.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>DirectoryName</b></a><br><a href="FileBoolean-DirectoryPath.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>DirectoryPath</b></a><br><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

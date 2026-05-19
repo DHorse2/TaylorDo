@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>STRING</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Scripts-STRING"></A><h2>Scripts - STRING</h2></P>
+A string is sequence of characters, enclosed by single-quotes or by double-quotes.<p>
+  <ul>
+  <li> You can use <a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a> and <a href="Scripts-Macros.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Macros</b></a> in a
+    string by enclosing their name with exclamation marks, for example "using the !date! in a
+    string".
+    If they contain a number then
+    the number will be automatically formatted according
+    to the Windows locale settings. For example, the value "36272891" will be formatted as
+    "36.272.891" if your computer is configured to use a dot as the thousands-separator.
+  <li> Strings may span multiple lines.
+  <li> There are no "escape" characters that are common in programming languages, such as the
+    backslash. To use a single-quote inside a string you have to enclose the string in
+    double-quotes, and to use a double-quote inside a string you have to enclose the string in
+    single-quotes.
+  <li> <b>Warning:</b> Do not use forward quotes, as in `hello' (the quote
+      before hello is a forward quote, not the same as the back-quote just after hello).
+      This will cause an error. Always use the single-quote (also known as back-quote) at
+      both the beginning and end of the string, for example 'hello'.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>"...."<br>'....'</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>"english"<br>'C:\Windows\Temp\*'<br>'!MountPoint!'</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Manual-Scripts.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Scripts</b></a><br>
+</BODY>
+</HTML>

@@ -31,6 +31,6 @@
 	SetVariable(ZoneFreePerRequested, 	ZoneGapSize )
 	SetVariable(ZoneFreePerUsed, 		GapActual / VolumeFreeAdj)
 
-	!include "..\..\Zone\ZoneFooterGet.MyDc"!
-	!include "..\..\Zone\ZoneSetWindowText.MyDc"!
+	!include "..\Zone\ZoneFooterGet.MyDc"!
+	!include "..\Zone\ZoneSetWindowText.MyDc"!
 	

@@ -1,12 +1,12 @@
 @Echo off
-@Echo .
+@Echo.
 @Echo ------------------------------------------------------
 @Echo - Command: DoVolumeData
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 copy "..\VolumeType\VolumeTypeData.MyDc"	        "..\ActionVerbs\VolumeTypeSelect.MyDc" /Y
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - End of DoVolumeData -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul

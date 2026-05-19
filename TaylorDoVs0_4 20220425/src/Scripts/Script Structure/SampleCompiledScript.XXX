@@ -39,7 +39,7 @@ Unkown symbol.
  24. # Script: DisplaySetDateTimeRun
  25. 
  26. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
- 27. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+ 27. /* Xinclude "..\Display\BannerSet.MyDc"X */
  28. /* pause(1) */
  29. 
  30. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
@@ -152,7 +152,7 @@ Unkown symbol.
 137. 	# Kill other instances
 138. 	/* Kill other MyDefrag Instances. */
 139. 	/* Oops! This commits suicide. */
-140. 	/* 	RunProgram("..\..\pskill.exe", "-t MyDefrag.exe") */
+140. 	/* 	RunProgram("..\pskill.exe", "-t MyDefrag.exe") */
 141. 	/* Pause(10) */
 142. 	
 143. 	/* If another instance of MyDefrag is already running then exit. */
@@ -194,9 +194,9 @@ Unkown symbol.
 179. 
 180. /* ---------------------------------------------------------- */
 181. # Script Directory Location:
-182. SetVariable(ScriptDir,"..\..\")
+182. SetVariable(ScriptDir,"..\")
 183. 
-184. /* SetVariable(ScriptDir,"..\..\") */
+184. /* SetVariable(ScriptDir,"..\") */
 185. /* SetVariable(ScriptDir,"G:\Dev\MdmDefrag\TaylorDOVs0_2\ScriptsYearly") */
 186. /* SetVariable(ScriptDir,"E:\Ide\MyDefrag\MyDefrag\MdmScriptMyDefragVs4_3_1\") */
 187. 
@@ -397,7 +397,7 @@ Unkown symbol.
 382. # Script: DisplaySetDateTimeRun
 383. 
 384. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
-385. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+385. /* Xinclude "..\Display\BannerSet.MyDc"X */
 386. /* pause(1) */
 387. 
 388. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
@@ -562,7 +562,7 @@ Unkown symbol.
 547. # Script: DisplaySetDateTimeRun
 548. 
 549. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
-550. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+550. /* Xinclude "..\Display\BannerSet.MyDc"X */
 551. /* pause(1) */
 552. 
 553. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
@@ -584,7 +584,7 @@ Unkown symbol.
 569. # Script: DisplaySetDateTimeRun
 570. 
 571. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
-572. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+572. /* Xinclude "..\Display\BannerSet.MyDc"X */
 573. /* pause(1) */
 574. 
 575. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
@@ -956,7 +956,7 @@ Unkown symbol.
 941. # STATISTICS
 942. /* ---------------------------------------------------------- */
 943. 
-944. /* Xinclude "..\..\StatisticsInitialization.MyDc"X ToDo */
+944. /* Xinclude "..\StatisticsInitialization.MyDc"X ToDo */
 945. 
 946. 
 947. /* ---------------------------------------------------------- */
@@ -1112,7 +1112,7 @@ Unkown symbol.
 1097. 	
 1098. 	#SetVariable(LogFileName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! 2021-11-16_02:53:56")
 1099. 	#SetVariable(LogFileZoneName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! !ZoneStepDescription! 2021-11-16_02:53:56")
-1100. 	/* SetVariable(LogFileName,"..\..\ScriptLogs\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
+1100. 	/* SetVariable(LogFileName,"..\ScriptLogs\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
 1101. 	/* SetVariable(LogFileName,"!ScriptDir!Logs\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
 1102. 	/* SetVariable(LogFileName,"Defrag2021-11-16_02:53:56.txt") */
 1103. 	/* SetVariable(LogFileName,"$ z ScriptLogs\Defrag2021-11-16_02:53:56.txt") */
@@ -1137,7 +1137,7 @@ Unkown symbol.
 1122. # Script: DisplaySetDateTimeRun
 1123. 
 1124. SetVariable(DateTimeRunDescription,		"2021-11-16 02:53:56 0:00:01")
-1125. /* Xinclude "..\..\Display\BannerSet.MyDc"X */
+1125. /* Xinclude "..\Display\BannerSet.MyDc"X */
 1126. /* pause(1) */
 1127. 
 1128. SetVariable(Heading, '!RunDescription! Regular ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !FileStepDescription! ||Server: !SeverStepDescription! - !RunStepDescription! started on !DateTimeRunDescription!')
@@ -1181,4 +1181,4 @@ Unkown symbol.
 1166. SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
 1167. 
 1168. /* Dev */
-1169. !include "..\..\DefragVolumeDev.MyDc"!
+1169. !include "..\DefragVolumeDev.MyDc"!

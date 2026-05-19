@@ -36,7 +36,7 @@ MyDxxxxx - xxxxxx???
 	not saved to the debug log. You must check any recent changes
 	lacking the output script code.
 /* ------------------------- */
-5) (Information) Yes, defrag SSD drives but only one per month. ToDo Set up script.
+5) (Information) Yes, defrag SSD drives but only one per month. ToDo Set up script. THIS HAS CHANGED 2026
 /* ------------------------- */
 6) (bug Vs2) What's up with logs?
 	I will be do some HelloWorld.Log tests when I have the time.
@@ -62,37 +62,37 @@ MyDxxxxx - xxxxxx???
 	202123 - Feature - Zone Analysis Report? (NoOp doesn't exist)
 /* ------------------------- */
 9) # GAPS
-	# TEST (FAILED!!!) NO BOOLEAN LOGIC AVAILABLE.
+	 TEST (FAILED!!!) NO BOOLEAN LOGIC AVAILABLE.
 	SetVariable(FlagDoNotVacate, 0)
 /* ------------------------- */
 10) # Os PageFile, Hybernation and Memory Dump (diagnostic) file.
-	# See Commands\DoSysCleanXXX
-	#
-	# Safe Mode required and UNKNOWN pagefile fix to move them
-	# to the right zone. 
-	#
+	 See Commands\DoSysCleanXXX
+	
+	 Safe Mode required and UNKNOWN pagefile fix to move them
+	 to the right zone. 
+	
 	# Hyberfile move causes corruption.
 /* ------------------------- */
 11) # Volume Management - Which Volume Script to use: 
-	# Complex, Basic, Archive...
-	#
-	#   Don't bother with DefragBasicVolume unless the Volume only
-	#     has one type of data. Even so, it is better to use the Data or
-	#     Archive Volume Types which are designed for this.
-	#   The reason for this is if there happens to be specialized folders
-	#     or file types within various categories that DO improve performance
-	#     then they will by default be in an optimal location.
-	#	FYI (tech.) DefragBasicVolume was an Agile/Rad dev stage.
-	#		It was simplified in nature, spawned for the original
-	#			sample scripts and provided a foundation to layer the
-	#			(project central) components on top of.
-	#		Quite a bit of experimentation had to occur to create the
-	#			Zone components and Zone building components in the
-	#			form they exist as of release.
-	#		Note: I should have introduced advanced Pausing features
-	#			(I had basic ones) at the beginning of the dev cycle
-	#			instead of the end. I would have helped me as I am
-	#           sure it will help you.
+	 Complex, Basic, Archive...
+	
+	   Don't bother with DefragBasicVolume unless the Volume only
+	     has one type of data. Even so, it is better to use the Data or
+	     Archive Volume Types which are designed for this.
+	   The reason for this is if there happens to be specialized folders
+	     or file types within various categories that DO improve performance
+	     then they will by default be in an optimal location.
+		FYI (tech.) DefragBasicVolume was an Agile/Rad dev stage.
+			It was simplified in nature, spawned for the original
+				sample scripts and provided a foundation to layer the
+				(project central) components on top of.
+			Quite a bit of experimentation had to occur to create the
+				Zone components and Zone building components in the
+				form they exist as of release.
+			Note: I should have introduced advanced Pausing features
+				(I had basic ones) at the beginning of the dev cycle
+				instead of the end. I would have helped me as I am
+	           sure it will help you.
 
 /* ------------------------- */
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Debug</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-Debug"></A><h2>Settings - Debug</h2></P>
+Set a debug level, controlling the amount of information that is written to the
+  ".debuglog" file. The NUMBER is constructed by adding values from the following table.<p>
+
+  <ul>
+  <li> See the <a href="Settings-WriteLogfile.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>WriteLogfile</b></a> and <a href="Settings-AppendLogfile.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>AppendLogfile</b></a>
+    script commands to create a logfile for users.
+  <li> The debug logfile is highly technical and not documented. You are welcome to look
+    at it and it can be useful when debugging a script, but please do not jump to any
+    conclusions from what you see. For example, the file will show many messages that
+    may look like severe error messages to you, but are in fact simply informational
+    messages.
+  <li> The debug logfile is created in the MyDefrag installation folder, default is
+    "C:\Program Files\MyDefrag v4.3.1\MyDefrag.debuglog".
+    It is not possible to change the name or location of the logfile.
+  <li> Make sure your userid has write permissions to the MyDefrag installation
+    folder, or MyDefrag cannot create the logfile. Windows 7 is configured by default to
+    deny regular users write-access to the "C:\Program Files" folder.
+  <li> The numbers used by the "-d" commandline option are different than the numbers
+    used by the "Debug()" script setting.
+  <li> The "-d" commandline option will set a debug level before script interpretation.
+    The "Debug()" script setting is executed much later.
+  <li> <b>Tip:</b> Put a Debug() line just before the FileSelect that you are interested
+    in.
+  </ul>
+
+  <center>
+  <table border=1>
+  <tr>
+    <td>1</td>
+    <td>Fatal error messages.</td>
+    </tr>
+  <tr>
+    <td>2</td>
+    <td>Warning messages.</td>
+    </tr>
+  <tr>
+    <td>4</td>
+    <td>Basic information messages.</td>
+    </tr>
+  <tr>
+    <td>8</td>
+    <td>Scripting information messages.</td>
+    </tr>
+  <tr>
+    <td>16</td>
+    <td>Scripting high-detail information messages.</td>
+    </tr>
+  <tr>
+    <td>32</td>
+    <td>Volume analysis information messages.</td>
+    </tr>
+  <tr>
+    <td>64</td>
+    <td>Volume analysis high-detail information messages.</td>
+    </tr>
+  <tr>
+    <td>128</td>
+    <td>Moving items information messages.</td>
+    </tr>
+  <tr>
+    <td>256</td>
+    <td>Moving items high-detail information messages.</td>
+    </tr>
+  </table>
+  </center>
+  <p>
+
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>Debug(<a href="Scripts-NUMBER.html">NUMBER</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>Debug(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Fatal&nbsp;errors.&nbsp;Equivalent&nbsp;to&nbsp;"-d&nbsp;0"&nbsp;*/<br />
+Debug(7)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Same&nbsp;as&nbsp;1&nbsp;plus&nbsp;warning&nbsp;messages&nbsp;and&nbsp;basic&nbsp;information&nbsp;messages.&nbsp;Equivalent&nbsp;to&nbsp;"-d&nbsp;1"&nbsp;*/<br />
+Debug(47)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Same&nbsp;as&nbsp;7&nbsp;plus&nbsp;scripting&nbsp;and&nbsp;volume&nbsp;analysis&nbsp;information&nbsp;messages.&nbsp;Equivalent&nbsp;to&nbsp;"-d&nbsp;2"&nbsp;*/<br />
+Debug(447)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Same&nbsp;as&nbsp;431&nbsp;plus&nbsp;scripting&nbsp;high-detail&nbsp;information&nbsp;messages.&nbsp;Equivalent&nbsp;to&nbsp;"-d&nbsp;3"&nbsp;*/<br />
+Debug(175)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Same&nbsp;as&nbsp;47&nbsp;plus&nbsp;moving&nbsp;items&nbsp;information&nbsp;messages.&nbsp;Equivalent&nbsp;to&nbsp;"-d&nbsp;4"&nbsp;*/<br />
+Debug(431)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Same&nbsp;as&nbsp;175&nbsp;plus&nbsp;moving&nbsp;items&nbsp;high-detail&nbsp;information&nbsp;messages.&nbsp;Equivalent&nbsp;to&nbsp;"-d&nbsp;5"&nbsp;*/<br />
+Debug(495)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;Same&nbsp;as&nbsp;431&nbsp;plus&nbsp;volume&nbsp;analysis&nbsp;high-detail&nbsp;information&nbsp;messages.&nbsp;Equivalent&nbsp;to&nbsp;"-d&nbsp;6"&nbsp;*/</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Settings-WriteLogfile.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>WriteLogfile</b></a><br><a href="Settings-AppendLogfile.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>AppendLogfile</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

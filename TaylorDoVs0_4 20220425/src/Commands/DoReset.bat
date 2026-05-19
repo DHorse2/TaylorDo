@@ -1,21 +1,21 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoReset
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo Do Sort Regular
 call "..\Commands\DoSortRegular.bat"
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
-@Echo . 
+@Echo. 
 @Echo Do Gap No Vacate
 call "..\Commands\DoGapNoVacate.bat"
 @Echo ------------------------------------------------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo Do State Save
 call "..\Commands\DoStateSave.bat"
-@Echo . 
+@Echo. 
 @Echo - End of DoReset -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul

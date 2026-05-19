@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How do I disable the Windows built-in defragger?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Download And Install-How do I disable the Windows built-in defragger?"></A><h2>FAQ Download And Install - How do I disable the Windows built-in defragger?</h2></P>
+<dl>
+  <dt> Windows 2000 & 2003:
+  <dd> The built-in defragger is not started automatically.
+  <dt> Windows XP:
+  <dd><ol>
+    <li> Download the free
+      <a href="http://www.microsoft.com/windowsxp/downloads/powertoys/xppowertoys.mspx"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * "></a>&nbsp;<a href="http://www.microsoft.com/windowsxp/downloads/powertoys/xppowertoys.mspx"><b>Tweak UI</b></a>
+      utility from Microsoft.
+    <li> Click on "General" and untick the "Optimise hard disk when idle" box.
+    </ol>
+  <dt> Windows Vista:
+  <dd><ol>
+    <li> Start -> All Programs -> Accessories -> System Tools -> Disk Defragmenter
+    <li> Untick the "Run on a schedule (recommended)" box.
+    </ol>
+  <dt> Windows 7:
+  <dd><ol>
+    <li> Klick on Start, type "services.msc" in the search box.
+    <li> Search for the "Defragmentation" service and disable it.
+    </ol>
+  </dl>
+
+The following registry settings have something to do with the build-in
+defragmenter. There is no official Microsoft documentation for these settings, so
+any information you may find on the internet regarding these settings is
+guesswork, and I will not add to that. My advise is not to play with these
+settings, you are on your own here.
+  <ul>
+  <li> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Dfrg\BootOptimizeFunction\Enable
+  <li> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout\EnableAutoLayout
+  <li> HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters\EnablePrefetcher
+  </ul>
+
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

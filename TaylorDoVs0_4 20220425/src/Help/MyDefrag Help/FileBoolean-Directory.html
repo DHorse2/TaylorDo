@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Directory</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileBoolean-Directory"></A><h2>FileBoolean - Directory</h2></P>
+Select all the directories (yes) or all the other files (no).<p>
+  <ul>
+  <li> Please note that this boolean does not select the files in a directory,
+    but the directory itself. Directories and files are separate entities.
+  <li> Directories cannot be moved (defragmented, optimized) on FAT32 volumes.
+    This is a known limitation of the Windows defragmentation API and not a bug in
+    MyDefrag.
+  <li> Moving directories is slower than moving files of the same size, presumably
+    because Windows has to update indexes and links in the MFT.
+  </ul><p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>Directory(yes)<br>Directory(no)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;#&nbsp;Select&nbsp;all&nbsp;the&nbsp;directories.<br />
+&nbsp;&nbsp;Directory(yes)<br />
+FileActions<br />
+&nbsp;&nbsp;....<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

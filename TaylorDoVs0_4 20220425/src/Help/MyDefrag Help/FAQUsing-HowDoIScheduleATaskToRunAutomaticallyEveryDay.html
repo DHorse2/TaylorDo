@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>How do I schedule a task, to run automatically every day?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Using-How do I schedule a task, to run automatically every day?"></A><h2>FAQ Using - How do I schedule a task, to run automatically every day?</h2></P>
+It's a great idea to run MyDefrag automatically every day by adding it to the
+  Windows scheduler. The MyDefrag installer has an option to create a schedule for the
+  Daily and Monthly scripts, or you can create a schedule yourself, like this:
+
+  <h4>2000, XP</h4>
+  <ul>
+  <li> Start -> Settings -> Control Panel -> Scheduled Tasks
+  <li> Double-click the "Add Scheduled Task" icon.
+  <li> The wizard starts, click "Next".
+  <li> Use the "browse" button to select the "*.MyD" script that you want to run, for
+    example "c:\Program Files\MyDefrag v4.3.1\Scripts\Daily.MyD".
+  <li> Select "daily", next, select a time, next.
+  <li> Enter a userid/password with administrator privileges, click "Finish".
+  </ul>
+
+  <h4>Vista</h4>
+  <ul>
+  <li> Start -> Settings -> Control Panel -> Administrative Tools -> Task Scheduler
+  <li> In the program select "Create Basic Task".
+  <li> When asked to select a "Program/Script" select the "*.MyD" script that you want
+    to run, for  example "c:\Program Files\MyDefrag v4.3.1\Scripts\Daily.MyD".
+    Leave the arguments and "start in" fields empty.
+  </ul>
+
+  <h4>Notes</h4>
+  <ul>
+  <li> The examples above will create a task for a .MyD script. This will only work if
+    there is an association between .MyD scripts and the MyDefrag script interpreter,
+    which is created by the MyDefrag installer (see the "Associate .MyD files with the
+    MyDefrag script interpreter" option).
+    Without the association you can still create a scheduled task, but then you will
+    have to point to the MyDefrag.exe executable and specify the script with the "-r"
+    commandline parameter. For more information see the Commandline chapter on the
+    <a href="Manual-Scripts.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Scripts</b></a> manual page.
+  <li> Windows will refuse to create a task for a userid if the password of that
+    userid is empty.
+  <li> The Daily, Weekly, and Monthly scripts that come with MyDefrag will automatically exit
+    when they are finished. The other scripts do not. To do this you have to change the script
+    and add the <a href="Settings-WhenFinished.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>WhenFinished</b></a> setting.
+  <li> See the "Settings" of the scheduled task to run only when the computer
+    is idle.
+  <li> To start the task minimized see the MyDefrag <a href="Settings-WindowSize.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>WindowSize</b></a>
+    script setting.
+  <li> Use the <a href="Settings-OtherInstances.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>OtherInstances</b></a> "exit" setting to make
+    sure that two scripts do not run simultaneously.<br>
+    Tip: schedule your Monthly script to start 1 minute before the Daily script. The Daily
+    script will then immediately exit because the Monthly script is already running.
+  <li> In some circumstances it can be preferable to run MyDefrag with "system"
+    privileges (instead of administrator privileges). Create a task and enter
+    the string "NT AUTHORITY\SYSTEM" for the userid, and no password.
+  <li> Administrators can create tasks from the commandline with the Windows
+    "schtasks" command.
+  </ul>
+  <p><h3>See also:</h3><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

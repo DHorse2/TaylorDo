@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RunScript</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-RunScript"></A><h2>Settings - RunScript</h2></P>
+Run another script from inside this script. The script must be a full
+  script, that is, it cannot be a partial script and for example only contain a
+  fileboolean. See the <a href="Scripts-Macros.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Macros</b></a> to include partial
+  scripts.
+
+  <ul>
+  <li> The STRING is the filename of the script.
+  <li> The interpreter will look for the STRING in the following directories. If not
+    found then it will try again with ".MyD" appended, and then with "Scripts\" prepended.
+    <ul>
+    <li> As a full path.
+    <li> In the current folder.
+    <li> In the same directory as the main script.
+    <li> In the same directory as the executable (MyDefrag.exe, MyDefragScreenSaver.exe).
+    <li> In the installation directory (default is "c:\Program Files\MyDefrag v4.3.1\").
+    <li> In the "!ProgramFiles!\MyDefrag v4.3.1" directory.
+    <li> In the "!ProgramW6432!\MyDefrag v4.3.1" directory.
+    <li> In the "!ProgramFiles(x86)!\MyDefrag v4.3.1" directory.
+    <li> In the PATH environment (this usually includes the current directory).
+    <li> In the "!SystemRoot!" directory.
+    </ul>
+  <li> The extension ".MyD" is optional and not required unless the script has a
+    different extension such as "*.txt".
+  <li> The script runs in the same window and the same process as the current script.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>RunScript(<a href="Scripts-STRING.html">STRING</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Run&nbsp;a&nbsp;script&nbsp;called&nbsp;"myscript".<br />
+RunScript("C:\Program&nbsp;Files\MyDefrag&nbsp;v4.3.1\Scripts\MyScript.MyD")<br />
+<br />
+#&nbsp;This&nbsp;works&nbsp;if&nbsp;the&nbsp;script&nbsp;is&nbsp;in&nbsp;one&nbsp;of&nbsp;the&nbsp;standard&nbsp;directories&nbsp;and&nbsp;is&nbsp;called&nbsp;".MyD":<br />
+RunScript("MyScript")</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Macros.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Macros</b></a><br><a href="Settings-RunProgram.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>RunProgram</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

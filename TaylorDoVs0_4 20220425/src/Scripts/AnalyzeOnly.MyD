@@ -12,8 +12,8 @@ RememberUnmovables(no)
 
 #dgh@Z#  Writelogfile("MyDefrag.log","!Commandline!")
 #dgh@Z#  Appendlogfile("MyDefrag.log","
-LogHeader
-")
+#dgh@Z#  LogHeader
+#dgh@Z#  ")
 
 VolumeSelect
   CommandlineVolumes()

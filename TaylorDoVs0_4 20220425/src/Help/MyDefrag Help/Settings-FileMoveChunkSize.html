@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FileMoveChunkSize</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-FileMoveChunkSize"></A><h2>Settings - FileMoveChunkSize</h2></P>
+Set the file-move chunk size. Minimum chunk size is the number of bytes per cluster
+  (depends on how the harddisk was formatted), maximum chunk size is 1 gigabyte (imposed by
+  the Microsoft defragmentation API).<p>
+
+  MyDefrag is build on top of the Microsoft defragmentation API and basically all it
+  does is send "move this file to that location" commands to the API. The API can
+  only move a maximum of 1 gigabyte at a time, so MyDefrag has to split up the commands
+  into chunks.<p>
+
+  <ul>
+  <li> Do not set a very low chunk size. It will not only make MyDefrag slower (moving
+    big chunks is far more efficient), but more importantly will cause the MFT to become
+    bigger and will make all disk access slower (for all applications, not just MyDefrag).
+    Files are stored in the MFT in "extends".
+    Contiguous extends (back-to-front on the disk) form fragments. The number of extends
+    is not listed by MyDefrag (or any other defragmentation program) but should be as low
+    as possible, just like the number of fragments should be as low as possible.
+    Decreasing the chunk size will increase the number of extends.
+  <li> MyDefrag has to read-only lock a file when it is defragmenting or moving that file.
+    This can sometimes cause problems for very big files if the file is actively
+    used (for example a database, or the Exchange mail repository). MyDefrag will
+    release the read-lock between chunks. Lowering the chunk size will give
+    other applications a chance to access the file.
+  <li> To make MyDefrag respond quicker to kill commands you can change the chunk size
+    to a smaller value. Once the Microsoft defragmentation API has been instructed by
+    MyDefrag to move a chunk it will finish moving the chunk in the background even if
+    MyDefrag is killed, but the API will finish faster if the chunksize is lower.
+  <li> The Microsoft defragmentation API does not provide any information to MyDefrag
+    about how far a move has progressed. MyDefrag can only update the display and the
+    percentage counter between moving the chunks, not while a chunk is being moved.
+    Lowering the chunksize will make the percentage counter update more often.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileMoveChunkSize(<a href="Scripts-NUMBER.html">NUMBER</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Set&nbsp;the&nbsp;chunk&nbsp;size&nbsp;to&nbsp;1&nbsp;gigabyte.<br>FileMoveChunkSize(1073741824)</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

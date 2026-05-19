@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Mounted</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="VolumeBoolean-Mounted"></A><h2>VolumeBoolean - Mounted</h2></P>
+Select the volume if it is mounted(yes) or not mounted(no).<p>
+  <ul>
+  <li> This function is primarily intended for volumes with a removable medium,
+    such as floppies.
+  <li> Windows will (try to) open the volume to test if it's mounted.
+  <li> A harddisk volume that has no mountpoint is treated by MyDefrag as "not mounted".
+  <li> To dismount a volume remove all mountpoints (drive letters and/or directories)
+    with the "mountvol /p" command on a command prompt, or with "Disk Management" in
+    the "Computer Management" administrator tool.
+  <li> Please note that the "fsutil volume dismount d:" commandline does not permanently
+    dismount a volume. The volume is automatically and transparently remounted by Windows,
+    and MyDefrag does not get a chance to see that the volume was dismounted.
+  <li> To get a list of all volumes and mountpoints enter the "mountvol" command
+   on a DOS commandline.
+  </ul><p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>Mounted(yes)<br>Mounted(no)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>VolumeSelect<br />
+&nbsp;&nbsp;Mounted(yes)<br />
+VolumeActions<br />
+&nbsp;&nbsp;...<br />
+VolumeEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-VolumeSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeSelect</b></a><br><a href="Scripts-VolumeBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeBoolean</b></a><br><a href="Scripts-VolumeActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeActions</b></a><br>
+</BODY>
+</HTML>

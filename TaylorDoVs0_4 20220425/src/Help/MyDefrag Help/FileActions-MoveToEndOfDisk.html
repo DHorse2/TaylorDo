@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>MoveToEndOfDisk</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FileActions-MoveToEndOfDisk"></A><h2>FileActions - MoveToEndOfDisk</h2></P>
+Move the selected files to the end of the disk. More specifically:
+  for every selected file try to find a gap above that file big enough
+  to hold the file, and move the file to the end of that gap. If no gap is
+  found then skip the file.
+  <p>
+
+  <ul>
+  <li> Files are automatically defragmented when they are moved.
+  <li> This action is relatively slow, best to be used for big files only. It's
+    because the Microsoft defragmentation API is not very efficient in finding the
+    last gap suitable for a file.
+  <li> The end of the disk is the slowest part of the disk. Many people want to
+    move the spacehogs zone (with less important files that take up a lot of
+    space) to the end of the disk, leaving a huge empty gap between the regular
+    files and the spacehogs. In my opinion this is a waste of perfectly good
+    harddisk space and makes the spacehogs slower than they need to be.
+    This is why the standard MyDefrag scripts do not move the spacehogs to
+    the end of the disk.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>MoveToEndOfDisk()</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>FileSelect<br />
+&nbsp;&nbsp;....<br />
+FileActions<br />
+&nbsp;&nbsp;#&nbsp;Move&nbsp;files&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;disk.<br />
+&nbsp;&nbsp;MoveToEndOfDisk()<br />
+FileEnd</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="Scripts-FileActions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileActions</b></a><br>
+</BODY>
+</HTML>

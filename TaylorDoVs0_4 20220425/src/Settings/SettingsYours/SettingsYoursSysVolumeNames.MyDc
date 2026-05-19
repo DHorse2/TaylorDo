@@ -11,8 +11,8 @@
 	
 	
 	SetVariable(VolumeSys,"NotUsed")
-	SetVariable(VolumeDev,"C:")
+	SetVariable(VolumeDev,"D:")
 	SetVariable(VolumeData,"NotUsed")
-	SetVariable(VolumeArchive,"F:")
+	SetVariable(VolumeArchive,"E:")
 
 !include "..\Settings\SettingsYours\SettingsYoursSysVolume.MyDc"!

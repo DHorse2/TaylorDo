@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SetVariable</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-SetVariable"></A><h2>Settings - SetVariable</h2></P>
+Variables are little storage areas inside MyDefrag that have a name and a value.
+  They can contain numbers or strings, and can be used in places such as
+  <a href="Scripts-NUMBER.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>NUMBER</b></a> expressions and <a href="Scripts-STRING.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>STRING</b></a>'s.<p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>SetVariable(NAME , VALUE)</code></td></tr></table></center><p><ul>
+  <li> The NAME of a variable is a character a-z plus any number of characters a-z and/or numbers 0-9.
+    Some examples: "abc", "x3", "month", "jha56ii7p".
+  <li> The VALUE of a variable can be a number or a string, MyDefrag will automatically
+    convert as needed.
+  <li> Variables can be used inside a string by enclosing the name of the variable in
+    exclamation marks. This is the same as with <a href="Scripts-Macros.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Macros</b></a>.
+  <li> <a href="Scripts-Macros.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Macros</b></a> can be used like variables. MyDefrag automatically
+    copies all the macros to the variables just before the script is executed.
+  <li> If you define a variable with the same name as a pre-defined variable then the
+    pre-defined variable is overruled.
+  <li> There are no limits to the size, the number, or the contents of variables.
+  </ul>
+  <p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Create&nbsp;a&nbsp;variable&nbsp;named&nbsp;"MyNumber"&nbsp;and&nbsp;store&nbsp;the&nbsp;number&nbsp;"1"&nbsp;in&nbsp;it.<br />
+SetVariable(MyCounter,1)<br />
+<br />
+#&nbsp;Create&nbsp;a&nbsp;variable&nbsp;named&nbsp;"TheMonth"&nbsp;and&nbsp;store&nbsp;the&nbsp;string&nbsp;"januari"&nbsp;in&nbsp;it.<br />
+SetVariable(TheMonth,"januari")<br />
+<br />
+#&nbsp;Using&nbsp;variables&nbsp;inside&nbsp;a&nbsp;string.<br />
+SetVariable(Color,"blue")<br />
+SetVariable(Message,"The&nbsp;month&nbsp;is&nbsp;!TheMonth!&nbsp;and&nbsp;the&nbsp;color&nbsp;is&nbsp;!Color!.")</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a><br><a href="Scripts-Macros.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Macros</b></a><br><a href="Scripts-NUMBER.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>NUMBER</b></a><br><a href="Scripts-STRING.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>STRING</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

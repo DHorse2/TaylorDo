@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ExcludeFiles</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-ExcludeFiles"></A><h2>Settings - ExcludeFiles</h2></P>
+Exclude a selection of files.<p>
+
+  <ul>
+  <li> The files will not be touched in any way, are
+    automatically excluded from selection with the <a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a>
+    of <a href="Scripts-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a> statements,
+    and will be marked in red on the diskmap.
+  <li> This is a global setting that can only be used
+    outside <a href="Scripts-VolumeSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeSelect</b></a> statements.
+  <li> Using the setting will replace any previous setting.
+    In other words, the setting is valid from the point in the script where it is
+    defined until the next ExcludeFiles setting.
+  </ul>
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>ExcludeFiles(<a href="Scripts-FileBoolean.html">FILEBOOLEAN</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Exclude&nbsp;all&nbsp;files&nbsp;larger&nbsp;than&nbsp;10&nbsp;gigabytes.<br />
+ExcludeFiles(Size(10000000000,0))<br />
+<br />
+#&nbsp;Exclude&nbsp;some&nbsp;folders.<br />
+ExcludeFiles(FullPath("C:\STAR&nbsp;WARS","*")<br />
+&nbsp;&nbsp;or&nbsp;FullPath("C:\SCREENSHOT","*")<br />
+&nbsp;&nbsp;or&nbsp;FullPath("D:\Cinema","*")<br />
+&nbsp;&nbsp;or&nbsp;FullPath("D:\Bc_Up","*")<br />
+&nbsp;&nbsp;or&nbsp;FullPath("D:\FireFox_DLHelper","*")<br />
+&nbsp;&nbsp;)</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-FileBoolean.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileBoolean</b></a><br><a href="VolumeActions-FileSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>FileSelect</b></a><br><a href="Scripts-VolumeSelect.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>VolumeSelect</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

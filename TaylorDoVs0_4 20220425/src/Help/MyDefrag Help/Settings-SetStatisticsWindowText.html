@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SetStatisticsWindowText</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="Settings-SetStatisticsWindowText"></A><h2>Settings - SetStatisticsWindowText</h2></P>
+Set the text that is displayed in the statistics window. The text can be
+  changed as many times as you want, for example a text while analyzing a disk,
+  while defragmenting, and when finished.
+  See the <a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a> for a list of variables that can be
+  used in the text.
+  <p><h3>Syntax</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>SetStatisticsWindowText(<a href="Scripts-STRING.html">STRING</a>)</code></td></tr></table></center><p><p><h3>Example</h3><center><table bgcolor="#EEEEEE" width="80%"><tr><td><code>#&nbsp;Set&nbsp;very&nbsp;basic&nbsp;statistics.<br />
+SetStatisticsWindowText("<br />
+&nbsp;&nbsp;Total&nbsp;disk&nbsp;space:&nbsp;&nbsp;&nbsp;!VolumeSize!&nbsp;bytes<br />
+&nbsp;&nbsp;Bytes&nbsp;per&nbsp;cluster:&nbsp;&nbsp;!BytesPerCluster!&nbsp;bytes<br />
+&nbsp;&nbsp;Unfragmented&nbsp;Items:&nbsp;!FILES200N!<br />
+&nbsp;&nbsp;Fragmented&nbsp;Items:&nbsp;&nbsp;&nbsp;!FILES210N!<br />
+&nbsp;&nbsp;Unfragmented&nbsp;Data:&nbsp;&nbsp;!FILES202N!&nbsp;bytes<br />
+&nbsp;&nbsp;Fragmented&nbsp;Data:&nbsp;&nbsp;&nbsp;&nbsp;!FILES212N!&nbsp;bytes<br />
+&nbsp;&nbsp;All&nbsp;Gaps:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP00N!<br />
+&nbsp;&nbsp;All&nbsp;gaps:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP10N!&nbsp;bytes<br />
+&nbsp;&nbsp;Average&nbsp;gap:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP13N!&nbsp;bytes<br />
+&nbsp;&nbsp;Median&nbsp;gap:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP14N!&nbsp;bytes<br />
+&nbsp;&nbsp;Biggest&nbsp;gap:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP15N!&nbsp;bytes<br />
+&nbsp;&nbsp;")<br />
+<br />
+<br />
+#&nbsp;Set&nbsp;long&nbsp;statistics.<br />
+SetStatisticsWindowText("<br />
+Volume&nbsp;mountpoint:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!MountPoint!<br />
+Volume&nbsp;name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!VolumeName!<br />
+Volume&nbsp;type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!VolumeType!<br />
+Total&nbsp;disk&nbsp;space:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!VolumeSize!&nbsp;bytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!VolumeSizeG!&nbsp;gigabytes<br />
+Bytes&nbsp;per&nbsp;cluster:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!BytesPerCluster!&nbsp;bytes<br />
+Average&nbsp;end-begin&nbsp;distance:&nbsp;!AverageBeginEndDistance!&nbsp;clusters<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!AverageBeginEndDistanceP!%&nbsp;of&nbsp;volume&nbsp;size<br />
+<br />
+Item&nbsp;count&nbsp;(the&nbsp;number&nbsp;of&nbsp;files&nbsp;and&nbsp;folders)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES000N!&nbsp;!FILES010N!&nbsp;!FILES020N!<br />
+Folders&nbsp;!FILES100N!&nbsp;!FILES110N!&nbsp;!FILES120N!<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES200N!&nbsp;!FILES210N!&nbsp;!FILES220N!<br />
+<br />
+Item&nbsp;count&nbsp;as&nbsp;percentage&nbsp;of&nbsp;total&nbsp;item&nbsp;count<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES000P!%!FILES010P!%!FILES020P!%<br />
+Folders&nbsp;!FILES100P!%!FILES110P!%!FILES120P!%<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES200P!%!FILES210P!%!FILES220P!%<br />
+<br />
+Occupied&nbsp;size&nbsp;in&nbsp;bytes&nbsp;(the&nbsp;amount&nbsp;of&nbsp;space&nbsp;occupied&nbsp;on&nbsp;disk)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES002N!&nbsp;!FILES012N!&nbsp;!FILES022N!<br />
+Folders&nbsp;!FILES102N!&nbsp;!FILES112N!&nbsp;!FILES122N!<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES202N!&nbsp;!FILES212N!&nbsp;!FILES222N!<br />
+<br />
+Occupied&nbsp;size&nbsp;in&nbsp;gigabytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES002G!&nbsp;!FILES012G!&nbsp;!FILES022G!<br />
+Folders&nbsp;!FILES102G!&nbsp;!FILES112G!&nbsp;!FILES122G!<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES202G!&nbsp;!FILES212G!&nbsp;!FILES222G!<br />
+<br />
+Occupied&nbsp;size&nbsp;as&nbsp;percentage&nbsp;of&nbsp;total&nbsp;size<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES002P!%!FILES012P!%!FILES022P!%<br />
+Folders&nbsp;!FILES102P!%!FILES112P!%!FILES122P!%<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES202P!%!FILES212P!%!FILES222P!%<br />
+<br />
+Used&nbsp;size&nbsp;in&nbsp;bytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES001N!&nbsp;!FILES011N!&nbsp;!FILES021N!<br />
+Folders&nbsp;!FILES101N!&nbsp;!FILES111N!&nbsp;!FILES121N!<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES201N!&nbsp;!FILES211N!&nbsp;!FILES221N!<br />
+<br />
+Used&nbsp;size&nbsp;in&nbsp;gigabytes<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES001G!&nbsp;!FILES011G!&nbsp;!FILES021G!<br />
+Folders&nbsp;!FILES101G!&nbsp;!FILES111G!&nbsp;!FILES121G!<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES201G!&nbsp;!FILES211G!&nbsp;!FILES221G!<br />
+<br />
+Used&nbsp;size&nbsp;as&nbsp;percentage&nbsp;of&nbsp;total&nbsp;size<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unfragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragmented&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Files&nbsp;&nbsp;&nbsp;!FILES001P!%!FILES011P!%!FILES021P!%<br />
+Folders&nbsp;!FILES101P!%!FILES111P!%!FILES121P!%<br />
+-------&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!FILES201P!%!FILES211P!%!FILES221P!%<br />
+<br />
+<br />
+Gaps&nbsp;by&nbsp;count<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Count&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentage&nbsp;of&nbsp;all<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----------------&nbsp;-----------------<br />
+Small&nbsp;gaps&nbsp;&nbsp;&nbsp;!GAP01N!&nbsp;!GAP01P!%<br />
+Big&nbsp;gaps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP02N!&nbsp;!GAP02P!%<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;gaps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP00N!&nbsp;!GAP00P!<br />
+<br />
+Gaps&nbsp;by&nbsp;size<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bytes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gigabytes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentage&nbsp;of&nbsp;all<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+Small&nbsp;gaps&nbsp;&nbsp;&nbsp;!GAP11N!&nbsp;!GAP11G!&nbsp;!GAP11P!%<br />
+Big&nbsp;gaps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP12N!&nbsp;!GAP12G!&nbsp;!GAP12P!%<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----------------&nbsp;-----------------&nbsp;-----------------<br />
+All&nbsp;gaps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!GAP10N!&nbsp;!GAP10G!&nbsp;!GAP10P!%<br />
+Average&nbsp;gap&nbsp;&nbsp;!GAP13N!&nbsp;!GAP13G!&nbsp;!GAP13P!%<br />
+Median&nbsp;gap&nbsp;&nbsp;&nbsp;!GAP14N!&nbsp;!GAP14G!&nbsp;!GAP14P!%<br />
+Biggest&nbsp;gap&nbsp;&nbsp;!GAP15N!&nbsp;!GAP15G!&nbsp;!GAP15P!%<br />
+")</code></td></tr></table></center><p><p><h3>See also:</h3><a href="Scripts-Variables.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Variables</b></a><br><a href="Scripts-Settings.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Settings</b></a><br>
+</BODY>
+</HTML>

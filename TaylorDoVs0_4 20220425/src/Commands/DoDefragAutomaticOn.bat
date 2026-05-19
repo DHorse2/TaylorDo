@@ -1,5 +1,5 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoDefragAutomaticOn
 @Echo ------------------------------------------------------
@@ -8,4 +8,4 @@ Copy "..\ActionVerbs\Automatic\ZoneDoActionInteractive.MyDc"	        "..\ActionV
 @Rem Copy "..\ActionVerbs\Automatic\ZoneDoActionAutomatic.MyDc"	        "..\ActionVerbs\ZoneDoActionAutomaticThis.MyDc" /Y
 @Echo ------------------------------------------------------
 @Echo - End of DoDefragAutomaticOn -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul

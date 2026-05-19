@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>I have stopped MyDefrag, but it remains running?</TITLE>
+</HEAD>
+<BODY>
+<P><A NAME="FAQ Using-I have stopped MyDefrag, but it remains running?"></A><h2>FAQ Using - I have stopped MyDefrag, but it remains running?</h2></P>
+It may take a bit of time for the program to actually stop because MyDefrag will finish the
+  current file in the background. Actually, it's not MyDefrag that finishes the file, but
+  Windows itself. MyDefrag is based on the Microsoft defragmentation API and basically all
+  it does is send "move this file to that location" commands to the API, and the API will
+  finish the command no matter what. Windows will show the MyDefrag process as still alive
+  until the API has finished with the file, even though MyDefrag has already stopped.<p><h3>See also:</h3><a href="FAQUsing-IsItSafeToStopMyDefrag.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Is it safe to stop MyDefrag?</b></a><br><a href="Manual-FrequentlyAskedQuestions.html"><img src="img/Bullit.gif" width=14 height=14 align=absmiddle border=0 alt=" * ">&nbsp;<b>Frequently Asked Questions</b></a><br>
+</BODY>
+</HTML>

@@ -13,14 +13,14 @@
 
   # more stuff...
 
-  !include "..\..\FileDoHeader.MyDc"!
+  !include "..\FileDoHeader.MyDc"!
 		[ThisZoneFileSelctionsHere]
 	FileActions
 	    AppendLogfile("!LogFileName!", "ZoneBegin: !ZoneBegin!")
 	    [ThisZoneFileSortingOrderHere]
 	    /* Example: SortByName(Ascending SkipBlock(SkipBlockFiles,SkipBlockBytes)) */
 	    /* Example: SortByLastAccess(Ascending SkipBlock(SkipBlockFiles,SkipBlockBytes)) */
-  !include "..\..\FileDoFooter.MyDc"!
+  !include "..\FileDoFooter.MyDc"!
 
   # other end of stuff...
   

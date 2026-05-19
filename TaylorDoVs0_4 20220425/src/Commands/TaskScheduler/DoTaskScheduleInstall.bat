@@ -1,11 +1,11 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoTaskScheduleInstall
 @Echo ------------------------------------------------------
-@Echo . This will overwrite your current settings with the defaults.
+@Echo. This will overwrite your current settings with the defaults.
 pause()
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo Schedule Run Once for all drives. 
 SchTasks /Create /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Run Once" /tr "%PROGRAMFILES%\MyDefrag v4.3.1\Scripts\ScriptsAutomatic\YearlyAutomatic.bat" /sc ONCE /st 23:00 /et 23:59 /sd %DATE% /f /rl Highest /ru SYSTEM /Z
@@ -33,7 +33,7 @@ SchTasks /Delete /tn "\MyDefrag v4.3.1 Monthly" /f
 @Echo Disable Windows Defrag Schedule.
 SchTasks /Change /tn "\Microsoft\Windows\Defrag\ScheduledDefrag" /DISABLE
 @Echo ------------------------------------------------------
-@Echo . 
+@Echo. 
 @Echo - End of DoTaskScheduleInstall -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 pause()

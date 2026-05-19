@@ -1,11 +1,11 @@
 @Echo off
-@Echo . 
+@Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoTaskScheduleUninstall
 @Echo ------------------------------------------------------
-@Echo . This will completely remove TaylorDo from the Task Scheduler
+@Echo. This will completely remove TaylorDo from the Task Scheduler
 pause()
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo Schedule Run Once for all drives. 
 SchTasks /Delete /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Run Once" /f
@@ -24,6 +24,12 @@ SchTasks /Delete /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly 4" /f
 @Echo Schedule Daily for all drives. 
 SchTasks /Delete /tn "\MacroDm\TaylorDo\Defrag\TaylorDo Daily" /f
 @Echo ------------------------------------------------------
+@Echo TaylorDo product directories.
+rmdir "C:\Windows\System32\Tasks\MacroDm\TaylorDo\Defrag" 2>nul
+rmdir "C:\Windows\System32\Tasks\MacroDm\TaylorDo" 2>nul
+rmdir "C:\Windows\System32\Tasks\MacroDm" 2>nul
+rmdir "C:\Windows\System32\Tasks\MyDefrag v4.3.1" 2>nul
+@Echo ------------------------------------------------------
 @Echo Remove MyDefrag Task Scheduler Items. 
 SchTasks /Delete /tn "\MyDefrag v4.3.1 Daily" /f
 SchTasks /Delete /tn "\MyDefrag v4.3.1 Monthly" /f
@@ -31,7 +37,7 @@ SchTasks /Delete /tn "\MyDefrag v4.3.1 Monthly" /f
 @Echo Disable Windows Defrag Schedule.
 SchTasks /Change /tn "\Microsoft\Windows\Defrag\ScheduledDefrag" /ENABLE
 @Echo ------------------------------------------------------
-@Echo . 
+@Echo. 
 @Echo - End of DoTaskScheduleUninstall -----------------
-@TIMEOUT /T 1 /NOBREAK
+@TIMEOUT /T 1 /NOBREAK >nul
 pause
