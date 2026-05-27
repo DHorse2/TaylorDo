@@ -15,7 +15,9 @@ SchTasks /Change /TN "\MacroDm\TaylorDo\Defrag\TaylorDo Yearly"  /DISABLE
 SchTasks /Change /TN "\MacroDm\TaylorDo\Defrag\TaylorDo Monthly"  /DISABLE
 @Echo ------------------------------------------------------
 @Echo Disable Weekly for all drives. 
-SchTasks /Change /TN "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly"  /DISABLE
+SchTasks /Change /TN "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly 2"  /DISABLE
+SchTasks /Change /TN "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly 3"  /DISABLE
+SchTasks /Change /TN "\MacroDm\TaylorDo\Defrag\TaylorDo Weekly 4"   /DISABLE
 @Echo ------------------------------------------------------
 @Echo Disable Daily for all drives. 
 SchTasks /Change /TN "\MacroDm\TaylorDo\Defrag\TaylorDo Daily"  /DISABLE

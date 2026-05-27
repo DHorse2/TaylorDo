@@ -426,10 +426,6 @@ Function SaveDriveRoles
     Push "SaveDriveRoles() INSTDIR = $INSTDIR"
     Call LogText
 
-    Delete "$INSTDIR\DriveRoles.ini"
-    Push "Deleted previous DriveRoles.ini"
-    Call LogText
-
     CreateDirectory "$INSTDIR\VolumeType"
 
     ${If} $DriveCount > 0

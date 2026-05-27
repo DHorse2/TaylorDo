@@ -52,7 +52,7 @@ SetVariable(VolCountAllPercent, 		'"VolCountAllPercent",!FILES200P!,!FILES210P!,
 /* ------------------------- */
 SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied"')
 
-SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","Bytes")
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","Bytes"')
 SetVariable(VolOccupiedSizeBDesc, 		'"VolOccupiedSizeBDesc,"Size: Occupied: In bytes"')
 
 SetVariable(VolOccupiedSizeFilesB, 		'"VolOccupiedSizeFilesB",!FILES002N!,!FILES012N!,!FILES022N!')
@@ -128,7 +128,7 @@ SetVariable(VolAverageGap, 	'"VolAverageGap",!GAP13N!,!GAP13G!,!GAP13P!')
 SetVariable(VolMedianGap, 	'"VolMedianGap",!GAP14N!,!GAP14G!,!GAP14P!')
 SetVariable(VolBiggestGap, 	'"VolBiggestGap",!GAP15N!,!GAP15G!,!GAP15P!')
 
-")
+// ")
 
 /* ------------------------- */
 SetVariable(Section, '"Top","Server","VOLUME","ZONE"')

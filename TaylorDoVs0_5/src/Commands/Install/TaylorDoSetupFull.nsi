@@ -550,6 +550,8 @@ Function TaskSchedulerPageLeave
     ${NSD_GetState} $CheckboxTaskYearly $TaskYearlySelected
 FunctionEnd
 
+Var /GLOBAL DriveScheduled
+
 Function TaskSchedulerApply
     DetailPrint "Windows Task Scheduler being updated"
     DetailPrint "Add TaylorDo scheduled tasks to Windows"
@@ -562,14 +564,20 @@ Function TaskSchedulerApply
     DetailPrint "--------"
     DetailPrint " "
 
+    Delete "$INSTDIR\DriveRoles.ini"
+    DetailPrint "Deleted previous DriveRoles.ini"
+
+    StrCpy $DriveScheduled "TaylorDoRunOnce"
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskRunOnceSelected == ${BST_CHECKED}
         DetailPrint "Overnight one time optimization activated"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableRunOnce.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Daily optimization"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableRunOnce.bat"'
         Pop $0
         DetailPrint "exit code: $0"
@@ -577,14 +585,17 @@ Function TaskSchedulerApply
     DetailPrint "--------"
     DetailPrint " "
 
+    StrCpy $DriveScheduled "TaylorDoDaily"
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskDailySelected == ${BST_CHECKED}
         DetailPrint "Daily optimization activated"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableDaily.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Daily optimization"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableDaily.bat"'
         Pop $0
         DetailPrint "exit code: $0"
@@ -592,14 +603,17 @@ Function TaskSchedulerApply
     DetailPrint "--------"
     DetailPrint " "
 
+    StrCpy $DriveScheduled "TaylorDoWeekly"
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskWeeklySelected == ${BST_CHECKED}
         DetailPrint "Weekly optimization activated"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWeekly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Weekly optimization"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableWeekly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
@@ -607,14 +621,17 @@ Function TaskSchedulerApply
     DetailPrint "--------"
     DetailPrint " "
 
+    StrCpy $DriveScheduled "TaylorDoMonthly"
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskMonthlySelected == ${BST_CHECKED}
         DetailPrint "Monthly optimization activated"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableMonthly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Montly optimization"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableMonthly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
@@ -622,14 +639,17 @@ Function TaskSchedulerApply
     DetailPrint "--------"
     DetailPrint " "
 
+    StrCpy $DriveScheduled "TaylorDo Yearly"
     ${If} $EnableMyDefragSelected == ${BST_CHECKED}
     ${AndIf} $TaskYearlySelected == ${BST_CHECKED}
         DetailPrint "Yearly optimization activated"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableYearly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
     ${Else}
         DetailPrint "No Yearly optimization"
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableYearly.bat"'
         Pop $0
         DetailPrint "exit code: $0"
@@ -637,12 +657,18 @@ Function TaskSchedulerApply
     DetailPrint "--------"
     DetailPrint " "
 
+    StrCpy $DriveScheduled "WindowsDefrag"
     ${If} $EnableMyDefragSelected != ${BST_CHECKED}
         DetailPrint "MyDefrag disabled, re-enabling Windows standard defrag."
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
         nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWindowsDefrag.bat"'
-        DetailPrint "--------"
-        DetailPrint " "
+    ${Else}
+        DetailPrint "MyDefrag enabled, disabling Windows standard defrag."
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableWindowsDefrag.bat"'
     ${EndIf}
+    DetailPrint "--------"
+    DetailPrint " "
 
 
     ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 2" "State"

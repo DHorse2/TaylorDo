@@ -1,0 +1,71 @@
+; ════════════════════════════════════════════════════════════════════════
+; MyDefrag Preprocessor — Merged Output
+; Generated  : 2026-05-26T05:12:04.268Z
+; Entry      : d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\Display\DisplaySetRun.MyDc
+; Output lines: 35  (logical merged lines)
+; ════════════════════════════════════════════════════════════════════════
+; <outLine><srcLine> <content>
+; ════════════════════════════════════════════════════════════════════════
+     1     1 # Script: DisplaySetRun
+     2     2 
+     3     3 SetVariable(RunStepDescription,			"!RunStepDescription! !DashWord! !ScriptTitle!")
+     4     4 SetVariable(SeverStepDescription,		"")
+     5     5 SetVariable(VolumeStepDescription,		"")
+     6     6 SetVariable(ZoneStepDescription,		"")
+     7     7 SetVariable(ZoneStepDescription,		"")
+     8     8 
+     9     9 SetVariable(RunStepSummary,			"!RunStepSummary! !DashWord! !ScriptTitle!")
+    10    10 SetVariable(SeverStepSummary,		"")
+    11    11 SetVariable(VolumeStepSummary,		"")
+    12    12 SetVariable(ZoneStepSummary,		"")
+    13    13 SetVariable(ZoneStepSummary,		"")
+    14    14 
+    15    15 SetVariable(VolumeLabel,			'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
+             ; >>> BEGIN [d:1] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\VolumeTypeSelect.MyDc  src:0  out:16-15
+    15     1 Name("C:")
+             ; <<< END   [d:1] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\VolumeTypeSelect.MyDc  src:0  out:16-15
+    15    16 SetVariable(VolumeLabelSelect,		'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
+             ; >>> BEGIN [d:1] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\VolumeTypeSelect.MyDc  src:0  out:16-15
+    15     1 Name("C:")
+             ; <<< END   [d:1] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\VolumeTypeSelect.MyDc  src:0  out:16-15
+    15    17 SetVariable(VolumeStatisticsDetail, 	"")
+    16    18 
+    17    19 SetVariable(ZoneListByLine, 			"!RunWord! !StartWord!!PeriodWord!")
+    18    20 SetVariable(ZoneStepByLine, 			"")
+    19    21 
+    20    22 !include "..\Display\BannerSet.MyDc"!
+             ; >>> BEGIN [d:1] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\Display\BannerSet.MyDc  src:17  out:21-34
+    20     1 # Script: BannerSet
+    21     2 
+    22     3 # NOTE: Can't round or truncate to integer precision. 
+    23     4 # This internal fields like ZoneCount format really badly.
+    24     5 #  for !RunTimeNow! does not work. None of the date functions do.
+    25     6 # Xinclude "..\Display\DisplaySetDateTimeRun.MyDc"X
+    26     7 
+    27     8 SetVariable(HeadingTemp2,	ZoneCount + 0)
+    28     9 
+    29    10 SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNoDisplay! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust!) of !HeadingTemp2!  ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
+             | ; >>> BEGIN [d:2] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\ZoneDoActionThisMode.MyDc  src:0  out:30-29
+    29     1 ﻿Full
+             | ; <<< END   [d:2] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\ZoneDoActionThisMode.MyDc  src:0  out:30-29
+    29    11 
+    30    12 Title('!Heading!')
+    31    13 
+    32    14 /* pause(1) */
+    33    15 
+    34    16 # Last SetVariable(Heading, '!RunDescription! !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"! ||Vol: !VolumeStepDescription! ||Zone: !ZoneStepDescription! ||Step: !ZoneStepDescription! ||Zone: !ZoneNumber! of !ZoneCount! (!ZoneNoCurrent!,!ZoneNoCurrentAdjust! or !ZoneNoDisplay!) ||Server: !SeverStepDescription! !DashWord! !RunStepDescription! started on !RunDateTime! for !RunTimeNow! ||VolumeUsed: !VolumeZoneUsed! of !VolumeSize!')
+             | ; >>> BEGIN [d:2] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\ZoneDoActionThisMode.MyDc  src:0  out:35-34
+    34     1 ﻿Full
+             | ; <<< END   [d:2] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\ZoneDoActionThisMode.MyDc  src:0  out:35-34
+    34    17 
+             ; <<< END   [d:1] d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\Display\BannerSet.MyDc  src:17  out:21-34
+    35    23 pause(2)
+
+; ════════════════════════════════════════════════════════════════════════
+; INCLUDE MAP  (4 file(s) processed)
+; ════════════════════════════════════════════════════════════════════════
+; [001]  "d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\Display\DisplaySetRun.MyDc"
+; [002]  "d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\VolumeTypeSelect.MyDc"
+; [003]  "d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\Display\BannerSet.MyDc"
+; [004]  "d:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\ActionVerbs\ZoneDoActionThisMode.MyDc"
+; ════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,42 @@
+4.5.2 Page Options
+
+Each page has its unique set of data that defines how it will look and act. This section describes what data each type of page uses and how you can set it. Callback functions are described below and are not dealt with in this section.
+
+The list below lists the commands that affect a certain page type. Unless otherwise mentioned, these commands can be used both inside and outside of a PageEx block. If used inside a PageEx block they will only affect the current page being set by PageEx, otherwise they will set the default for all other pages.
+
+License page
+
+    LicenseText
+    LicenseData
+    LicenseForceSelection
+
+Components selection page
+
+    ComponentText
+
+Directory selection page
+
+    DirText
+    DirVar (can only be used in PageEx)
+    DirVerify
+
+Un/Installation log page
+
+    DetailsButtonText
+    CompletedText
+
+Uninstall confirmation page
+
+    DirVar (can only be used in PageEx)
+    UninstallText
+
+Use Caption to set the page caption.
+4.5.3 Callbacks
+
+Each built-in page has three callback functions: the pre-function, the show function and the leave-function. The pre-function is called right before the page is created, the show-function is called right after it has been created but before it is shown and the leave-function is called right after the user has pressed the next button (before actually leaving the page).
+
+    The pre-function allows you to skip the page using Abort.
+    The show-function allows you to tweak the page's user interface with CreateFont, SetCtlColors, SendMessage etc.
+    The leave-function allows you to force the user to stay on the current page using Abort.
+
+A custom page only has two callback functions, one that creates it which is mandatory, and one leave-function that acts just like the leave-function for built-in pages.
