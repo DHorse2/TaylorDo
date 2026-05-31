@@ -6,11 +6,8 @@
 @TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo. starting Defrag Monthly Disk(s) Automatic
-cd ..
-call "..\Commands\DoDefragAutomaticOn.bat"
-cd
-cd ScriptsMonthly
-call "ScriptsMonthly\AllMonthly.bat"
+call "..\..\Commands\DoDefragAutomaticOn.bat"
+call "..\ScriptsMonthly\AllMonthly.bat"
 @Echo ------------------------------------------------------
 @Echo. end of  Monthly Automatic Defrag Monthly Disk(s) Automatic
 @TIMEOUT /T 1 /NOBREAK >nul

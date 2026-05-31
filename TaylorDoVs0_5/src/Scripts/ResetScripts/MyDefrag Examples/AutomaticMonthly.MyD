@@ -25,7 +25,7 @@ OtherInstances(exit)
 
 /* Write the header to the logfile. See the "Settings.MyD" file for the
    definition of the "LogHeader" string. */
-WriteLogfile("MyDefrag.log","LogHeader")
+#dgh@Z#  Writelogfile("MyDefrag.log","LogHeader")
 
 
 
@@ -36,7 +36,7 @@ VolumeActions
 
   /* Write the "before" statistics to the logfile. See the "Settings.MyD" file
      for the definition of the "LogBefore" string. */
-  AppendLogfile("MyDefrag.log","LogBefore")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogBefore")
 
   /* Place files at 30% into the data on the disk. */
   MakeGap(RoundUp(VolumeUsed * 0.3,VolumeSize * 0.01), DoNotVacate)
@@ -140,7 +140,7 @@ VolumeActions
 
   /* Write the "after" statistics to the logfile. See the "Settings.MyD" file
      for the definition of the "LogAfter" string. */
-  AppendLogfile("MyDefrag.log","LogAfter")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAfter")
 
 VolumeEnd
 
@@ -155,7 +155,7 @@ VolumeActions
 
   /* Write the "before" statistics to the logfile. See the "Settings.MyD" file
      for the definition of the "LogBefore" string. */
-  AppendLogfile("MyDefrag.log","LogBefore")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogBefore")
 
   /* Zone 1: Place the MFT and some other special NTFS files. */
   FileSelect
@@ -182,7 +182,7 @@ VolumeActions
 
   /* Write the "after" statistics to the logfile. See the "Settings.MyD" file
      for the definition of the "LogAfter" string. */
-  AppendLogfile("MyDefrag.log","LogAfter")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAfter")
 
 VolumeEnd
 
@@ -190,4 +190,4 @@ VolumeEnd
 
 /* Write the footer to the logfile. See the "Settings.MyD" file for the
    definition of the "LogFooter" string. */
-AppendLogfile("MyDefrag.log","LogFooter")
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

@@ -1,4 +1,5 @@
 @Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 @Echo.
 @Echo ------------------------------------------------------
 @Echo - Command: AllYearly Defrag All Disk(s) Yearly
@@ -8,37 +9,37 @@
 @Echo. starting Defrag Yearly Disk(s) 
 
 set "VolumeType=Sys"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
-    @Echo. %VolumeType% Disks
+    @Echo. !VolumeType! Disks
     call "SysYearly.bat"
     cd /d "%~dp0"
 )
 
 set "VolumeType=Dev"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
-    @Echo. %VolumeType% Disks
+    @Echo. !VolumeType! Disks
     call "DevYearly.bat"
     cd /d "%~dp0"
 )
 
 set "VolumeType=Data"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
-    @Echo. %VolumeType% Disks
+    @Echo. !VolumeType! Disks
     call "DataYearly.bat"
     cd /d "%~dp0"
 )
 
 set "VolumeType=Archive"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
-    @Echo. %VolumeType% Disks
+    @Echo. !VolumeType! Disks
     call "ArchiveYearly.bat"
 )
 @Echo ------------------------------------------------------

@@ -1,13 +1,15 @@
 @Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 @Echo.
 @Echo ------------------------------------------------------
 @Echo - Command: Data Monthly Defrag Data Disk Monthly
 @Echo ------------------------------------------------------
 set "VolumeType=Data"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I "%VolName%"=="SKIP" (
+@Echo.
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I ""=="SKIP" (
     echo.
-    @Echo VolumeType %VolumeType% is set as SKIP and is not processed!!!
+    @Echo VolumeType !VolumeType! is set as SKIP and is not processed!!!
     echo This volume is SKIPPED!!!
     echo.
     @TIMEOUT /T 1 /NOBREAK >nul
@@ -15,7 +17,11 @@ if /I "%VolName%"=="SKIP" (
 )
 @TIMEOUT /T 1 /NOBREAK >nul
 
-call "..\Scripts\CheckSDD.bat %VolumeName%"
+call "..\..\Scripts\CheckSSD.bat !VolumeName!"
+if %ERRORLEVEL% NEQ 0 (
+    echo CheckSSD failed with error: %ERRORLEVEL%
+    exit /b %ERRORLEVEL%
+)
 cd ..
 call "..\Commands\DoStateSave.bat"
 @Echo ------------------------------------------------------

@@ -1,12 +1,18 @@
 @Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 @Echo.
 @Echo ------------------------------------------------------
 @Echo - Command: Defrag F Disk Volume
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK >nul
 set "VolumeType=F"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-call "..\Scripts\CheckSDD.bat %VolumeName%"
+@Echo.
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+call "..\..\Scripts\CheckSSD.bat "
+if %ERRORLEVEL% NEQ 0 (
+    echo CheckSSD failed with error: %ERRORLEVEL%
+    exit /b %ERRORLEVEL%
+)
 cd ..
 call "..\Commands\DoStateSave.bat"
 @Echo ------------------------------------------------------
@@ -17,7 +23,7 @@ call "..\Commands\DoVolumeF.bat"
 @TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
 @Echo. starting Defrag F Disk Volume
-"DefragAnyDisk.MyD"
+START /wait "" "DefragAnyDisk.MyD"
 @Echo ------------------------------------------------------
 @Echo. end of Defrag F Disk Volume
 @TIMEOUT /T 1 /NOBREAK >nul

@@ -1,10 +1,11 @@
-﻿# The Matt Taylor Disk Optimizer - TaylorDo 
+﻿# The Matt Taylor Disk Optimizer - TaylorDo
 
 An advanced disk optizer that works out of the box while allowing admins full control of volume and concern management. Temporary terms at end. Help wanted.
 ___
 
 [Skip to TaylorDo **QUICK START**](QuickStart.md)
 ___
+
 ## About Matt Taylor
 
 <table>
@@ -18,7 +19,7 @@ This product is dedicated in memory of:<br \><b>Matt Taylor (1978-2020)</b>, <br
 </tr>
 </table>
 
-<img src="Resources/Page/Taylor_Pic_-_DonnaDubinsky.png" 
+<img src="Resources/Page/Taylor_Pic_-_DonnaDubinsky.png"
 alt="Thumbnail of Matt on YouTube" border="10" />
 ___
 
@@ -26,10 +27,12 @@ ___
 ___
 
 ## Developer comments
+
 I didn't know Matt, but I spent many hours getting to know Matt watching his teaching videos, Q&A and tutorial live streams, HTM School and other work at Numenta. In an effort to closely examine a company and its technology I came to realise what a truly sincere, nice and giving person Matt was. He was a great educator.
 
 He was a rare individual and set an example we could all follow. This app is in part a demonstration to students that in using the simplest of languages levels there is, complex and powerful abstractions can be built.
 ___
+
 ### HTM School
 
 HTM School is a series of educational videos created by former Numenta Open Source Community Manager Matt Taylor (1978-2020). Watch these videos to see detailed visualizations of HTM systems running, and thoughtful breakdowns of the biological algorithms involved.
@@ -39,19 +42,21 @@ This series was designed for a general audience to be viewed in order, but feel 
 [Thoughts on Matt from the HTM community](https://discourse.numenta.org/t/message-from-numenta-ceo-donna-dubinsky-regarding-matt-taylor/7524)
 
 <a href="https://www.youtube.com/c/NumentaTheory" target="_blank">
-<img src="Resources\Page\HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png" 
+<img src="Resources\Page\HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png"
 alt="Thumbnail of Matt on YouTube" width="336" height="188" border="10" /></a><br />
 <a href="https://www.youtube.com/c/NumentaTheory" target="_blank"/>HTM School with Matt on YouTube.</a>
 
 [Matt was also active on Twitch](https://www.twitch.tv/rhyolight_/videos?filter=all&sort=time)
 His Rhyolight website is no longer available.
 ___
-## Remembering Matt at Numenta 
+
+## Remembering Matt at Numenta
+
 (_Shared by Christy Maver_)
 
-At today's team meeting, several of us wore tie-dyed, brightly colored, or NuPIC shirts to honor Matt.  We shared stories and some of our favorite memories.  Much like when he was alive, there was a lot of laughter shared today.  He made an impact on all of us that will continue to live on.  Even some of the newer employees who never met him shared their impressions of him, or how they felt like they knew him from watching his videos. 
+At today's team meeting, several of us wore tie-dyed, brightly colored, or NuPIC shirts to honor Matt.  We shared stories and some of our favorite memories.  Much like when he was alive, there was a lot of laughter shared today.  He made an impact on all of us that will continue to live on.  Even some of the newer employees who never met him shared their impressions of him, or how they felt like they knew him from watching his videos.
 
-It doesn't seem possible that it's been a year.  We miss you, Matt! 
+It doesn't seem possible that it's been a year.  We miss you, Matt!
 
 May 10, 2021
 
@@ -71,3 +76,17 @@ ___
 There is noone else currently working on this but others can pursue sponship for their work if they wish.
 ___
 Permission for use granted subject to UN law and pending review of an otherwise permissive FOSS liscense. Freeware for now. Commericial use okay. I dunno... not my thing.
+
+```mydc
+Title('Development Volume Monthly')
+Description("Development Volume Monthly description")
+
+/* Development Volume Monthly */
+SetVariable(RunDescription,"Dev Vol Monthly")
+SetVariable(RunStepDescription,"Dev Vol Monthly")
+!include "..\Display\DisplaySetRun.MyDc"!
+
+!include "..\Settings\SettingsRun.MyDc"!
+SetVariable(RunDescription,"Dev Vol Monthly")
+SetVariable(RunStepDescription,"Dev Vol Monthly")
+```

@@ -9,13 +9,13 @@ Description("Analyze only description")            // See the "Settings.MyD" fil
 WhenFinished(exit)
 RememberUnmovables(no)
 
-WriteLogfile("MyDefrag.log","LogHeader")
+#dgh@Z#  Writelogfile("MyDefrag.log","LogHeader")
 
 VolumeSelect
   CommandlineVolumes()
 VolumeActions
-  AppendLogfile("MyDefrag.log","LogAnalyzeOnly")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAnalyzeOnly")
   Pause()
 VolumeEnd
 
-AppendLogfile("MyDefrag.log","LogFooter")
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

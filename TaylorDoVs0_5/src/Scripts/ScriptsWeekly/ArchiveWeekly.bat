@@ -1,21 +1,29 @@
 @Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 @Echo.
 @Echo ------------------------------------------------------
 @Echo - Command: ArchiveWeekly Defrag Archive Disk Weekly
 @Echo ------------------------------------------------------
 set "VolumeType=Archive"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I "%VolName%"=="SKIP" (
+@Echo.
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+@Echo Volume Type !VolumeType! 
+if /I ""=="SKIP" (
     echo.
-    @Echo VolumeType %VolumeType% is set as SKIP and is not processed!!!
+    @Echo VolumeType !VolumeType! is set as SKIP and is not processed!!!
     echo This volume is SKIPPED!!!
     echo.
     @TIMEOUT /T 1 /NOBREAK >nul
     exit /b 1
 )
 @TIMEOUT /T 1 /NOBREAK >nul
+@Echo VolumeName=
 
-call "..\Scripts\CheckSDD.bat %VolumeName%"
+call "..\..\Scripts\CheckSSD.bat !VolumeName!"
+if %ERRORLEVEL% NEQ 0 (
+    echo CheckSSD failed with error: %ERRORLEVEL%
+    exit /b %ERRORLEVEL%
+)
 cd ..
 call "..\Commands\DoStateSave.bat"
 @Echo ------------------------------------------------------

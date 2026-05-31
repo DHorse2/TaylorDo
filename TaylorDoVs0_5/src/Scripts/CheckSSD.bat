@@ -1,4 +1,4 @@
-@echo off
+@Echo off
 setlocal EnableExtensions EnableDelayedExpansion
 
 REM =========================================================
@@ -43,6 +43,7 @@ set "Drive=%Drive:"=%"
 set "Drive=%Drive::=%"
 set "Drive=%Drive: =%"
 
+@Echo Drive=%Drive%
 @REM echo(%Drive%| findstr /B /I /C:"Name(" >nul
 @REM if not errorlevel 1 (
 @REM     set "Drive=%Drive:Name("=%"
@@ -88,13 +89,12 @@ for /f "tokens=*" %%T in ('
 ') do (
     set "TrimInfo=%%T"
 )
-
-if /I "!TrimInfo!"=="Trim Supported" (
-    set "DiskType=SSD"
-) else if /I "!TrimInfo!"=="Trim Not Supported" (
-    set "DiskType=HDD"
+if defined TrimInfo (
+    echo !TrimInfo! | find /I "1" >nul
+    if not errorlevel 1 set "DiskType=SSD"
+    echo !TrimInfo! | find /I "0" >nul
+    if not errorlevel 1 set "DiskType=HDD"
 )
-
 echo %Drive%: disk type: %DiskType%
 echo.
 
@@ -115,7 +115,7 @@ if /I "%DiskType%"=="SSD" (
     REM N = exit with error
     REM -----------------------------------------------------
 
-    if errorlevel 2 (
+    if !errorlevel! 2 (
         echo.
         echo Operation cancelled.
         exit /b 1

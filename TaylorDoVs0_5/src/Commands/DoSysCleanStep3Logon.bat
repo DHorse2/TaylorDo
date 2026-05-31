@@ -11,11 +11,10 @@
 @Echo $JRN 
 @Echo. 
 @Echo ------------------------------------------------------
-@Echo off
 @Echo This script executes at logon or before the next run
 @Echo - AtLogon
 @Echo - AtNextRun
-@Echo 
+@Echo.
 @Echo You might do house keeping here,
 @Echo start services, delete files, etc.
 @Echo. 

@@ -42,14 +42,14 @@ REM =========================================================
 set "VolumeTypeValid="
 
 for %%A in (%ValidVolumeTypes%) do (
-    if /I "%VolumeType%"=="%%A" (
+    if /I "!VolumeType!"=="%%A" (
         set "VolumeTypeValid=1"
         set "VolumeType=%%A"
     )
 )
 
 if not defined VolumeTypeValid (
-    echo ERROR: Invalid VolumeType "%VolumeType%"
+    echo ERROR: Invalid VolumeType "!VolumeType!"
     echo.
     goto :ShowHelp
 )
@@ -58,7 +58,7 @@ REM =========================================================
 REM Create output filename (NOW IN DIRECTORY)
 REM =========================================================
 
-set "OutputFile=%VolumeDir%\VolumeType%VolumeType%.MyDc"
+set "OutputFile=%VolumeDir%\VolumeType!VolumeType!.MyDc"
 
 REM =========================================================
 REM Special option: SKIP
@@ -115,7 +115,7 @@ if /I "!TrimInfo!"=="Trim Supported" (
     choice /C YN /M "Continue anyway"
     if errorlevel 2 (
         echo Skipping %%D:
-        echo %VolumeType% was not set.
+        echo !VolumeType! was not set.
         echo.
         @REM set "DiskType=SKIPPED"
         exit /b 1

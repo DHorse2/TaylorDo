@@ -1,4 +1,5 @@
-@echo off
+@Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 
 $Cmd = Get-Command codium -ErrorAction SilentlyContinue
 if ($Cmd) {

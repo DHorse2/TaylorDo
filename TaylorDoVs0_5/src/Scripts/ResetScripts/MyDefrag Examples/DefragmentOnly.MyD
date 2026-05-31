@@ -12,13 +12,13 @@ Description("Defragment only description")         // See the "Settings.MyD" fil
    about wrap-around fragmentation. */
 IgnoreWrapAroundFragmentation(no)
 
-WriteLogfile("MyDefrag.log","LogHeader")
+#dgh@Z#  Writelogfile("MyDefrag.log","LogHeader")
 
 VolumeSelect
   CommandlineVolumes()
 VolumeActions
 
-  AppendLogfile("MyDefrag.log","LogBefore")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogBefore")
 
   FileSelect
     all
@@ -27,8 +27,8 @@ VolumeActions
     Defragment()      /* Slowly defragment files that are bigger than the largest gap. */
   FileEnd
 
-  AppendLogfile("MyDefrag.log","LogAfter")
+  #dgh@Z#  Appendlogfile("MyDefrag.log","LogAfter")
 
 VolumeEnd
 
-AppendLogfile("MyDefrag.log","LogFooter")
+#dgh@Z#  Appendlogfile("MyDefrag.log","LogFooter")

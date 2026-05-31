@@ -60,7 +60,7 @@ Del DUMPFILE.sys
 @Echo Disable Pagefile (Recreate)
 @Rem wmic pagefile
 wmic pagefile list /format:list
-@Echo ----------------------------------
+@Echo ---------------------------------- ToDo
 wmic computersystem where name="%computername%" set AutomaticManagedPagefile=False
 wmic pagefileset where name="C:\\pagefile.sys" set InitialSize=16,MaximumSize=16
 @Echo. 

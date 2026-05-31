@@ -1,4 +1,5 @@
 @Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 @Echo. 
 @Echo ------------------------------------------------------
 @Echo - Command: DoStateRestore

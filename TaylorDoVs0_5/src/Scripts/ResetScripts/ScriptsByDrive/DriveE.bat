@@ -1,0 +1,23 @@
+@Echo off
+@Echo.
+@Echo ------------------------------------------------------
+@Echo - Command: Defrag E Disk Volume
+@Echo ------------------------------------------------------
+@TIMEOUT /T 1 /NOBREAK >nul
+set "VolumeType=E"
+@Echo.
+set /p "VolumeName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
+call "..\..\Scripts\CheckSSD.bat !VolumenName!"
+call "..\..\Commands\DoStateSave.bat"
+@Echo ------------------------------------------------------
+@TIMEOUT /T 1 /NOBREAK >nul
+@Echo ------------------------------------------------------
+call "..\..\Commands\DoVolumeE.bat"
+@Echo ------------------------------------------------------
+@TIMEOUT /T 1 /NOBREAK >nul
+@Echo ------------------------------------------------------
+@Echo. starting Defrag E Disk Volume
+START /wait "" "..\DefragAnyDisk.MyD"
+@Echo ------------------------------------------------------
+@Echo. end of Defrag E Disk Volume
+@TIMEOUT /T 1 /NOBREAK >nul

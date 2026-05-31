@@ -1,4 +1,5 @@
 @Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 @Echo.
 @Echo ------------------------------------------------------
 @Echo - Command: AllWeekly Defrag All Disk(s) Weekly
@@ -7,8 +8,8 @@
 cd /d "%~dp0"
 
 set "VolumeType=Sys"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo  System Disks
     call "SysWeekly.bat"
@@ -16,8 +17,8 @@ if /I not "%VolName%"=="SKIP" (
 )
 
 set "VolumeType=Dev"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo Dev Disks
     call "DevWeekly.bat"
@@ -25,8 +26,8 @@ if /I not "%VolName%"=="SKIP" (
 )
 
 set "VolumeType=Data"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. Data Disks
     call "DataWeekly.bat"
@@ -34,10 +35,10 @@ if /I not "%VolName%"=="SKIP" (
 )
 
 set "VolumeType=Archive"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
-    @Echo. %VolumeType% Disks
+    @Echo. !VolumeType! Disks
     call "ArchiveWeekly.bat"
     cd /d "%~dp0"
 )

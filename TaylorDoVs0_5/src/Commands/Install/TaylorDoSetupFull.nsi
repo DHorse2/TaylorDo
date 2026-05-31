@@ -769,7 +769,7 @@ myDefragInstall:
     ; CreateDirectory "$ProductAppInstallDir"
     ; File "..\..\Download\MyDefrag-v4.3.1.exe"
     ; nsExec::ExecToLog 'cmd /c ""$INSTDIR\MyDefrag-v4.3.1.exe""'
-    nsExec::ExecToLog 'cmd /c ""$ProductAppInstallDir\Download\MyDefrag-v4.3.1.exe" /silent /dir="$ProductAppInstallDir" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo""'
+    nsExec::ExecToLog 'cmd /c ""$INSTDIR\Download\MyDefrag-v4.3.1.exe" /silent /dir="$ProductAppInstallDir" /SAVEINF="$ProductAppInstallDir\MyDefrag.InfInfo""'
     Pop $0
     DetailPrint "MyDefrag exit code: $0"
 

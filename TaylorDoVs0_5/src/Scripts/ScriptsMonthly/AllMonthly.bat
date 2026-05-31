@@ -1,4 +1,5 @@
 @Echo off
+setlocal EnableExtensions EnableDelayedExpansion
 @Echo.
 @Echo ------------------------------------------------------
 @Echo - Command: All Monthly Defrag All Disk(s) Monthly
@@ -6,16 +7,16 @@
 cd /d "%~dp0"
 
 set "VolumeType=Sys"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo  System Disks
     call "SysMonthly.bat"
     cd /d "%~dp0"
 )
 set "VolumeType=Dev"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo Dev Disks
     call "DevMonthly.bat"
@@ -23,8 +24,8 @@ if /I not "%VolName%"=="SKIP" (
 )
 
 set "VolumeType=Data"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. Data Disks
     call "DataMonthly.bat"
@@ -32,10 +33,10 @@ if /I not "%VolName%"=="SKIP" (
 )
 
 set "VolumeType=Archive"
-set /p "VolName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
-if /I not "%VolName%"=="SKIP" (
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
-    @Echo. %VolumeType% Disks
+    @Echo. !VolumeType! Disks
     call "ArchiveMonthly.bat"
     cd /d "%~dp0"
 )
