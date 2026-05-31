@@ -8,7 +8,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 set "VolumeType=D"
 @Echo.
 set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
-call "..\..\Scripts\CheckSSD.bat !VolumeName!"
+call "..\..\..\Scripts\CheckSSD.bat" "!VolumeName!"
 call "..\..\Commands\DoStateSave.bat"
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK >nul

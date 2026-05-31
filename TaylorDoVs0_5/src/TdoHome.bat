@@ -1,5 +1,5 @@
-@REM Home
-@Rem Displays a menu of commands the user can run
+﻿rem TdoHome
+rem Displays a menu of commands the user can run
 @echo off
 setlocal enabledelayedexpansion
 

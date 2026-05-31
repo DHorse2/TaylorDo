@@ -16,7 +16,7 @@ if /I "!VolumeName!"=="SKIP" (
     exit /b 1
 )
 
-call "..\..\Scripts\CheckSSD.bat !VolumeName!"
+call "..\..\..\Scripts\CheckSSD.bat" "!VolumeName!"
 if %ERRORLEVEL% NEQ 0 (
     echo CheckSSD failed with error: %ERRORLEVEL%
     exit /b %ERRORLEVEL%

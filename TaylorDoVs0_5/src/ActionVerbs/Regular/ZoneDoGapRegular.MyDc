@@ -1,3 +1,4 @@
+﻿# Script: ZoneDoGapRegular
 # Vacate (good for diagnostics)
 # Xinclude "..\Gap\GapCommandDoVacate.MyDc"X
 

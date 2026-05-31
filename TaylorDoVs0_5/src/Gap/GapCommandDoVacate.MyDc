@@ -1,3 +1,4 @@
+﻿# Script: GapCommandDoVacate
 
 # Vacate
 AddGap(GapUsedLoc)

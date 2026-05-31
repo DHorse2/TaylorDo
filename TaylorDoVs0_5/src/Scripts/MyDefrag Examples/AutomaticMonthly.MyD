@@ -1,4 +1,5 @@
-# MyDefrag v4.0 default script: Monthly
+﻿# Script: AutomaticMonthly
+# MyDefrag v5.0 default script Monthly
 #
 # Thorough defragment and optimize all the disks. This script is designed for running
 # automatically, it always processes all disks and ignores selections from the

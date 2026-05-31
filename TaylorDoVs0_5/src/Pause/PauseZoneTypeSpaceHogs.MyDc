@@ -1,2 +1,3 @@
+﻿# Script: PauseZoneTypeSpaceHogs
 /* pause() */
 !include "..\Settings\SettingsYours\SettingsYoursPauseZone.MyDc"!

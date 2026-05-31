@@ -8,7 +8,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 set "VolumeType=F"
 @Echo.
 set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
-call "..\..\Scripts\CheckSSD.bat "
+call "..\..\..\Scripts\CheckSSD.bat" "!VolumeName!"
 if %ERRORLEVEL% NEQ 0 (
     echo CheckSSD failed with error: %ERRORLEVEL%
     exit /b %ERRORLEVEL%

@@ -1,3 +1,4 @@
+﻿# Script: ZoneDoActionTypeAll
 # File Action - All - Regular -  SortByName.
 !include "..\ActionVerbs\ZoneDoActionSortByCreationDate.MyDc"!
 # SortByName(Ascending SkipBlock(SkipBlockFiles, SkipBlockBytes))

@@ -1,2 +1,3 @@
+﻿# Script: PauseZoneTypeOsPageHiberDump
 /* pause() */
 !include "..\Settings\SettingsYours\SettingsYoursPauseZone.MyDc"!

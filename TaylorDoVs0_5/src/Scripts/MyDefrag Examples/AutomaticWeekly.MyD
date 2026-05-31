@@ -1,4 +1,5 @@
-# MyDefrag v4.0 default script: Weekly
+﻿# Script: AutomaticWeekly
+# MyDefrag v5.0 default script Weekly
 #
 # Defragment and optimize all the disks. This script is designed for running
 # automatically, it always processes all disks and ignores selections from the

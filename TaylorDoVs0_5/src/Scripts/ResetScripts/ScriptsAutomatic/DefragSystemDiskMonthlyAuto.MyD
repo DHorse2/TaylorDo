@@ -1,4 +1,5 @@
-# MyDefrag v4.0 default script: Automatic System Disk Monthly defrag
+﻿# Script: DefragSystemDiskMonthlyAuto
+# MyDefrag v4.0 default script Automatic System Disk Monthly defrag
 #
 # This script is part of the standard Mdm disk configuration
 # Author: David G. Horsman (DBA MacroDM) (C) 2019

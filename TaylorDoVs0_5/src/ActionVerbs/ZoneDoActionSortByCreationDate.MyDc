@@ -1,3 +1,4 @@
-# File Action - ZoneDoActionSortByCreationDate
+﻿# Script: ZoneDoActionSortByCreationDate
+# Script: ZoneDoActionSortByCreationDate
 	SortByCreationDate(Ascending SkipBlock(SkipBlockFiles,SkipBlockBytes))
 	

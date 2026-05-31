@@ -7,8 +7,8 @@ setlocal EnableExtensions EnableDelayedExpansion
 set "VolumeType=Archive"
 @Echo.
 set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
-@Echo Volume Type !VolumeType! 
-if /I ""=="SKIP" (
+@Echo Volume Type !VolumeType! !VolumeName!
+if /I "!VolumeName!"=="SKIP" (
     echo.
     @Echo VolumeType !VolumeType! is set as SKIP and is not processed!!!
     echo This volume is SKIPPED!!!
@@ -17,9 +17,10 @@ if /I ""=="SKIP" (
     exit /b 1
 )
 @TIMEOUT /T 1 /NOBREAK >nul
-@Echo VolumeName=
+@Echo VolumeName=!VolumeName!
 
-call "..\..\Scripts\CheckSSD.bat !VolumeName!"
+echo Calling CheckSSD with: [!VolumeName!]
+call "..\..\..\Scripts\CheckSSD.bat" "!VolumeName!"
 if %ERRORLEVEL% NEQ 0 (
     echo CheckSSD failed with error: %ERRORLEVEL%
     exit /b %ERRORLEVEL%

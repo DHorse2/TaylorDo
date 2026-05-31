@@ -1,3 +1,4 @@
+﻿# Script: DefragZoneGroupMftDir
 SetVariable(ZoneStepDescription,"Calculating Gap for MFT and DIR.")
 !include "..\Display\BannerDescriptionSet.MyDc"!
 

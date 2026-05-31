@@ -1,4 +1,5 @@
-# MyDefrag v4.0 default script: Daily
+﻿# Script: AutomaticDaily
+# MyDefrag v5.0 default script Daily
 #
 # Fast defragment and optimize all the disks. This script is designed for running
 # automatically, it always processes all disks and ignores selections from the

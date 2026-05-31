@@ -1,3 +1,4 @@
+﻿# Script: ZoneDoActionTypeOsDirFull
 # File Action - Type Os Dir - Regular -  SortByName.
 # File Action - SortByName BY 10
 SortByCreationDate(Ascending SkipBlock(SkipBlockFiles,(SkipBlockBytes / 10)))

@@ -1,3 +1,4 @@
+﻿# Script: PauseAmt
 
 Title("!DebugMessage!")
 pause(DebugPauseAmt)

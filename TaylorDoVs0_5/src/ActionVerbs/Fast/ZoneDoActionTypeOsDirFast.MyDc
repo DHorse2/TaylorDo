@@ -1,3 +1,4 @@
+﻿# Script: ZoneDoActionTypeOsDirFast
 # File Action - Type Os Dir - Fast -  SortByName.
 # BY 10
 # SortByName(Ascending SkipBlock(SkipBlockFiles,(SkipBlockBytes / 10)))

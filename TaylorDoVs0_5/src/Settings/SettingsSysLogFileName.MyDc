@@ -1,3 +1,4 @@
+﻿# Script: SettingsSysLogFileName
 SetVariable(ScriptDir,"..\")
 
 /* SetVariable(ScriptDir,"..\") */

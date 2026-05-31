@@ -1,2 +1,3 @@
+﻿# Script: PauseZoneTypeLinksCorp
 /* pause() */
 !include "..\Settings\SettingsYours\SettingsYoursPauseZone.MyDc"!

@@ -1,2 +1,3 @@
+﻿# Script: PauseCheckZone
 /* pause() */
 !include "..\Settings\SettingsYours\SettingsYoursPauseZone.MyDc"!

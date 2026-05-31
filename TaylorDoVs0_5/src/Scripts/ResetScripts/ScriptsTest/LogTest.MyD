@@ -1,3 +1,4 @@
+﻿# Script: LogTest
 SetVariable(LogFileName,"C:\MyDefragLogs\MyTestLog !Date!")
 #dgh@Z#  Writelogfile("!LogFileName!.txt", "Script Test")
 #dgh@Z#  Appendlogfile("!LogFileName!.txt", "

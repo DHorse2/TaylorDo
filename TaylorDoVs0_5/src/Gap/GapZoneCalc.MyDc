@@ -1,4 +1,4 @@
-	# Script: GapZoneCalc
+﻿# Script: GapZoneCalc
 	# Gap
 		SetVariable(ZoneStepDescription,"!ZoneStepDescriptionFileActionGap!")
 		!include "..\Display\DisplaySetZoneStep.MyDc"!

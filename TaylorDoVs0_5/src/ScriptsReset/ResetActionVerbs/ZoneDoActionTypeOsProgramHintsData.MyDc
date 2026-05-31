@@ -1,3 +1,4 @@
+﻿# Script: ZoneDoActionTypeOsProgramHintsData
 # File Action - Type Os Program Hints Data - Regular - ImportSeq.
 !include "..\ActionVerbs\ZoneDoActionSortByImportSequence.MyDc"!
 	

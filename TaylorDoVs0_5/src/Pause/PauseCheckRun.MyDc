@@ -1,2 +1,3 @@
+﻿# Script: PauseCheckRun
 /* pause() */
 !include "..\Settings\SettingsYours\SettingsYoursPauseVolume.MyDc"!

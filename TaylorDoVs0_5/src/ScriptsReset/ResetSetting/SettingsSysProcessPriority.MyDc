@@ -1,3 +1,4 @@
+﻿# Script: SettingsSysProcessPriority
 # Script SettingsSysProcessPriority
 	# Options:
 	# High High CPU priority. It is not advised to use this for MyDefrag, because it will use nearly all available CPU time. 

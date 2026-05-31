@@ -538,7 +538,7 @@ The command 'C' is invalid, only the following commands are valid at this point:
 	)
 
 15:31:55 Script:
-  1. # MyDefrag v4.0 script: Development Volume Yearly defrag
+  1. # MyDefrag v5.0 script: Development Volume Yearly defrag
   2. #
   3. # This script is part of the standard Mdm Volume configuration
   4. # Author: David G. Horsman (DBA MacroDM) (FOSS) 2019
@@ -2833,7 +2833,7 @@ The command 'C' is invalid, only the following commands are valid at this point:
 2293. 
 2294. # Script: DefragAnyComplexVolume
 2295. /* Complex Volume */
-2296. # MyDefrag v4.0 script: Defrag Complex (Mixed or Any) Volume.
+2296. # MyDefrag v5.0 script: Defrag Complex (Mixed or Any) Volume.
 2297. 
 2298. SetVariable(DateNow, 	DATETIME)
 2299. SetVariable(TimeNow, 	Time)

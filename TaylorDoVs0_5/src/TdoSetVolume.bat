@@ -1,3 +1,4 @@
+﻿rem TdoSetVolume
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
 
@@ -179,7 +180,7 @@ echo. Note: TaylorDo skips SSD and network drives.
 @REM Limitations:
 @REM cannot detect SSD vs HDD
 @REM excludes network drives automatically
-@REM assumes “Fixed” = OK
+@REM assumes â€œFixedâ€ = OK
 
 for %%D in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
     if exist "%%D:\" (

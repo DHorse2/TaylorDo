@@ -1,2 +1,3 @@
+﻿# Script: PauseZoneTypeOsPrograms
 /* pause() */
 !include "..\Settings\SettingsYours\SettingsYoursPauseZone.MyDc"!

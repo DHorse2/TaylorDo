@@ -25,23 +25,35 @@ REM =========================================================
 REM =========================================================
 REM Validate parameters
 REM =========================================================
-
+@Echo "CheckSSD.bat %~1"
 if "%~1"=="" (
     echo ERROR: Missing drive letter.
-    exit /b 1
+    exit /b 2
 )
-
-set "Drive=%~1"
 
 REM =========================================================
 REM Normalize Name("C:") format
 REM =========================================================
 
+@REM set "Drive=%~1"
+@REM set "Drive=%Drive:Name(=%"
+@REM set "Drive=%Drive:)=%"
+@REM @REM set "Drive=%Drive:"=%"
+@REM set "Drive=%Drive::=%"
+@REM set "Drive=%Drive: =%"
+
+set "Drive=%~1"
+echo After ~1: [%Drive%]
 set "Drive=%Drive:Name(=%"
+echo After Name: [%Drive%]
 set "Drive=%Drive:)=%"
+echo After paren: [%Drive%]
 set "Drive=%Drive:"=%"
+echo After quote: [%Drive%]
 set "Drive=%Drive::=%"
+echo After colon: [%Drive%]
 set "Drive=%Drive: =%"
+echo After space: [%Drive%]
 
 @Echo Drive=%Drive%
 @REM echo(%Drive%| findstr /B /I /C:"Name(" >nul
@@ -65,7 +77,7 @@ REM =========================================================
 
 if not "%Drive:~1,1%"=="" (
     echo ERROR: Invalid drive letter "%~1"
-    exit /b 1
+    exit /b 3
 )
 
 REM =========================================================
@@ -74,7 +86,7 @@ REM =========================================================
 
 if not exist "%Drive%:\" (
     echo ERROR: Drive "%Drive%:" does not exist.
-    exit /b 1
+    exit /b 4
 )
 
 REM =========================================================
@@ -90,13 +102,15 @@ for /f "tokens=*" %%T in ('
     set "TrimInfo=%%T"
 )
 if defined TrimInfo (
-    echo !TrimInfo! | find /I "1" >nul
+    echo TrimInfo: !TrimInfo!
+    echo !TrimInfo! | find /I "Trim Supported" >nul
     if not errorlevel 1 set "DiskType=SSD"
-    echo !TrimInfo! | find /I "0" >nul
+    echo !TrimInfo! | find /I "Trim Not Supported" >nul
     if not errorlevel 1 set "DiskType=HDD"
 )
 echo %Drive%: disk type: %DiskType%
 echo.
+@Echo Drive=%Drive%, Type=%DiskType%
 
 REM =========================================================
 REM SSD Warning / Confirmation
@@ -110,15 +124,15 @@ if /I "%DiskType%"=="SSD" (
     echo.
 
     choice /C YN /M "Continue anyway"
-
+    set "ChoiceResult=!ERRORLEVEL!"
     REM -----------------------------------------------------
     REM N = exit with error
     REM -----------------------------------------------------
 
-    if !errorlevel! 2 (
+    if "!ChoiceResult!"=="2" (
         echo.
         echo Operation cancelled.
-        exit /b 1
+        exit /b 5
     )
 
     REM -----------------------------------------------------

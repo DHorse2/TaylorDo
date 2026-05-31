@@ -1,6 +1,6 @@
 # Script: DefragAnyComplexVolume
 /* Complex Volume */
-# MyDefrag v4.0 script: Defrag Complex (Mixed or Any) Volume.
+# MyDefrag v5.0 script Defrag Complex (Mixed or Any) Volume.
 
 !include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
 

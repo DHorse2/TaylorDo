@@ -1,2 +1,3 @@
+﻿# Script: ZoneDoActionTypeOsDirFull
 # File Action - Type Os Dir - Regular -  SortByName.
 !include "..\ActionVerbs\ZoneDoActionSortByCreationDateFull.MyDc"!

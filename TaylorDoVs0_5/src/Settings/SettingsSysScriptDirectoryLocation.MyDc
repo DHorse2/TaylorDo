@@ -1,3 +1,4 @@
+﻿# Script: SettingsSysScriptDirectoryLocation
 SetVariable(ScriptDir,"..\")
 
 /* SetVariable(ScriptDir,"..\") */
