@@ -8,11 +8,22 @@ setlocal EnableExtensions EnableDelayedExpansion
 set "VolumeType=F"
 @Echo.
 set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
-call "..\..\..\Scripts\CheckSSD.bat" "!VolumeName!"
+if /I ""=="SKIP" (
+    echo.
+    @Echo VolumeType !VolumeType! is set as SKIP and is not processed!!!
+    echo This volume is SKIPPED!!!
+    echo.
+    @TIMEOUT /T 1 /NOBREAK >nul
+    exit /b 1
+)
+@TIMEOUT /T 1 /NOBREAK >nul
+
+call "..\..\CheckSSD.bat" "!VolumeName!"
 if %ERRORLEVEL% NEQ 0 (
     echo CheckSSD failed with error: %ERRORLEVEL%
     exit /b %ERRORLEVEL%
 )
+
 cd ..
 call "..\Commands\DoStateSave.bat"
 @Echo ------------------------------------------------------

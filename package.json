@@ -1,0 +1,17 @@
+{
+    "contributes": {
+        "configuration": {
+            "title": "MyDefrag",
+            "properties": {
+                "mydc.batLink.exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [],
+                    "description": "Glob patterns for files to exclude from BAT link diagnostics"
+                }
+            }
+        }
+    }
+}

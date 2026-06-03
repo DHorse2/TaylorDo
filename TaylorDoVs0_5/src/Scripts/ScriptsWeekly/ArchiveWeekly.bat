@@ -20,11 +20,12 @@ if /I "!VolumeName!"=="SKIP" (
 @Echo VolumeName=!VolumeName!
 
 echo Calling CheckSSD with: [!VolumeName!]
-call "..\..\..\Scripts\CheckSSD.bat" "!VolumeName!"
+call "..\..\CheckSSD.bat" "!VolumeName!"
 if %ERRORLEVEL% NEQ 0 (
     echo CheckSSD failed with error: %ERRORLEVEL%
     exit /b %ERRORLEVEL%
 )
+
 cd ..
 call "..\Commands\DoStateSave.bat"
 @Echo ------------------------------------------------------

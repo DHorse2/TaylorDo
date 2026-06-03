@@ -1,0 +1,10 @@
+{
+    "mydc.batLink.exclude": [
+        "**/Compile*",
+        "**/*.log",
+        "**/TaylorDoVs0_2/**",
+        "**/TaylorDoVs0_3/**",
+        "**/TaylorDoVs0_4/**",
+        "**/Log/**"
+    ]
+}

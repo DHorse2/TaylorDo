@@ -1,0 +1,28 @@
+# Debug setting. It is off by default (commented out). To activate it remove the
+# slashes.
+//Debug(0)              /* Disable the debug logfile. */
+//Debug(1)              /* Fatal errors.*/
+//Debug(7)              /* Same as 1 plus warning messages and basic information messages. */
+//Debug(47)             /* Same as 7 plus scripting and volume analysis information messages. */
+//Debug(175)            /* Same as 47 plus moving items information messages. */
+//Debug(431)            /* Same as 175 plus moving items high-detail information messages. */
+//Debug(447)            /* Same as 431 plus scripting high-detail information messages. */
+//Debug(495)            /* Same as 431 plus volume analysis high-detail information messages. */
+
+
+# Default settings. See the manual for detailed information about each setting.
+BatteryPower(ask)
+DiskmapFlip(yes)
+FileMoveChunkSize(1073741824)
+OtherInstances(ask)
+SetScreenSaver(off)
+SetScreenPowerSaver(off)
+ProcessPriority(Normal)
+Slowdown(100)
+StatusBar(all)
+WhenFinished(wait)
+WindowSize(restore)
+
+# Do not show cdroms in the script chooser window:
+ExcludeVolumes(CDRom(yes) or not(CommandlineVolumes()) or not(Writable(yes)) or not(Mounted(yes)) or not(Remote(no))
+
