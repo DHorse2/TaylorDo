@@ -1,6 +1,6 @@
 # Support start.
 (
-  DirectoryName("*Logs*") or
+  DirectoryName("*Log*") or
   DirectoryName("*Support*") or
   DirectoryName("*Maintenance*")
 )

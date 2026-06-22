@@ -17,22 +17,22 @@ SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
 /* Sys */
 SetVariable(RunStepDescription,"Sys Vol Yearly")
 !include "..\..\Display\DisplaySetRun.MyDc"!
-!include "..\..\Defrag\DefragVolumeSys.MyDc"!
+!include "..\..\Defrag\DefragVolumeSys.MyD"!
 
 /* Dev */
 !include "..\..\Volume\VolumeDoCurrentClear.MyDc"!
 SetVariable(RunStepDescription,"Dev Vol Yearly")
 !include "..\..\Display\DisplaySetRun.MyDc"!
-!include "..\..\Defrag\DefragVolumeDev.MyDc"!
+!include "..\..\Defrag\DefragVolumeDev.MyD"!
 
 /* Archive */
 /* !include "..\..\Volume\VolumeDoCurrentClear.MyDc"! */
 /* SetVariable(RunStepDescription,"Archive Vol Yearly") */
 /* !include "..\..\Display\DisplaySetRun.MyDc"! */
-/* !include "..\..\Defrag\DefragVolumeArchive.MyDc"! */
+/* !include "..\..\Defrag\DefragVolumeArchive.MyD"! */
 
 /* Data */
 /* !include "..\..\Volume\VolumeDoCurrentClear.MyDc"! */
 /* SetVariable(RunStepDescription,"Data Vol Yearly") */
 /* !include "..\..\Display\DisplaySetRun.MyDc"! */
-/* !include "..\..\Defrag\DefragVolumeData.MyDc"! */
+/* !include "..\..\Defrag\DefragVolumeData.MyD"! */

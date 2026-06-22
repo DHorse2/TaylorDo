@@ -1,5 +1,8 @@
 # Script: DefragVolumeDev # Defrag Development Volume
 
+Title('Defrag Development Volume')
+Description("Defrag Development Volume using Complex structure") 
+
 SetVariable(VolumeLabel,		"!VolumeDev!")
 SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeDev.MyDc"!')
 
@@ -12,6 +15,6 @@ SetVariable(MftZone,			"!ProgramsWordCaps!")
 
 !include "..\Settings\SettingsYours\SettingsYoursDev.MyDc"!
 
-!include "..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\Defrag\DefragAnyComplexVolume.MyD"!
 
 Writelogfile("Defrag Development Volume.TaylorDoLog",	'!StatisticsWindowText!')

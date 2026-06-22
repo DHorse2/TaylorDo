@@ -195,15 +195,15 @@ src/
 │   └── WriteDateTimeNotes YYYYMMDD.txt
 ├── Defrag/
 │   ├── DEFRAGANY$ VOLUME HERE.MyDc
-│   ├── DefragAnyBasicVolume.MyDc
+│   ├── DefragAnyBasicVolume.MyD
 │   ├── DefragAnyComplexVolume.merged.MyDc
-│   ├── DefragAnyComplexVolume.MyDc
+│   ├── DefragAnyComplexVolume.MyD
 │   ├── DefragAnyVolume.MyDc
 │   ├── DEFRAGVOLUME$ TYPE HERE.MyDc
-│   ├── DefragVolumeArchive.MyDc
-│   ├── DefragVolumeData.MyDc
-│   ├── DefragVolumeDev.MyDc
-│   ├── DefragVolumeSys.MyDc
+│   ├── DefragVolumeArchive.MyD
+│   ├── DefragVolumeData.MyD
+│   ├── DefragVolumeDev.MyD
+│   ├── DefragVolumeSys.MyD
 │   ├── DEFRAGZONE$GROUP$ HERE.MyDc
 │   ├── DefragZoneGroupMftDir.MyDc
 │   └── DefragZoneGroupOs.MyDc
@@ -519,7 +519,7 @@ src/
 │   ├── Fragmentation Tools.md
 │   ├── HDD industry information.md
 │   └── VsCodium Extension Discussion.md
-├── Logs/
+├── Log/
 │   ├── desktop.ini
 │   └── TaylorDo_Config.log
 ├── MattTaylorAndNumenta/
@@ -704,7 +704,7 @@ src/
 │   ├── PauseZoneTypeShares.MyDc
 │   ├── PauseZoneTypeSpaceHogs.MyDc
 │   └── PauseZoneTypeSystemOtherData.MyDc
-├── Resources/
+├── resources/
 │   ├── Icons/
 │   │   ├── MdmControl.ico
 │   │   ├── MdmControlLeft.ico

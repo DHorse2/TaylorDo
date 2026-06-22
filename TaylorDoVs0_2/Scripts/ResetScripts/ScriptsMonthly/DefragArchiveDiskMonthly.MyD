@@ -18,4 +18,4 @@ SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
 /* Note: The Dev Volume handler works fairly well but... */
 /* Adjust the Archive MFT Percentage high around 40 or 45. */
 
-!include "..\..\Defrag\DefragVolumeArchive.MyDc"!
+!include "..\..\Defrag\DefragVolumeArchive.MyD"!

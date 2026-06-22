@@ -19,7 +19,7 @@ This product is dedicated in memory of:<br \><b>Matt Taylor (1978-2020)</b>, <br
 </tr>
 </table>
 
-<img src="Resources/Page/Taylor_Pic_-_DonnaDubinsky.png"
+<img src="resources/Page/Taylor_Pic_-_DonnaDubinsky.png"
 alt="Thumbnail of Matt on YouTube" border="10" />
 ___
 
@@ -42,7 +42,7 @@ This series was designed for a general audience to be viewed in order, but feel 
 [Thoughts on Matt from the HTM community](https://discourse.numenta.org/t/message-from-numenta-ceo-donna-dubinsky-regarding-matt-taylor/7524)
 
 <a href="https://www.youtube.com/c/NumentaTheory" target="_blank">
-<img src="Resources\Page\HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png"
+<img src="resources\Page\HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png"
 alt="Thumbnail of Matt on YouTube" width="336" height="188" border="10" /></a><br />
 <a href="https://www.youtube.com/c/NumentaTheory" target="_blank"/>HTM School with Matt on YouTube.</a>
 

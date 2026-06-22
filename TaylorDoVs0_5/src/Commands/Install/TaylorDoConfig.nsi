@@ -30,7 +30,7 @@ Var /GLOBAL ScriptState
 Var /GLOBAL ProductAppName
 Var /GLOBAL ProductAppVersion
 Var /GLOBAL ProductAppPublisher
-Icon "..\..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+Icon "..\..\resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
 Var /GLOBAL ProductAppInstallDir
 Var /GLOBAL ScriptTimeStamp
 Var /GLOBAL ScriptNow
@@ -144,8 +144,8 @@ Var /GLOBAL LogEnabled
 ; Function MUI Pages
 ;------------------------------------------------------------
 ; defines
-!define MUI_ICON "..\..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
-!define MUI_UNICON "..\..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+!define MUI_ICON "..\..\resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+!define MUI_UNICON "..\..\resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP_NOSTRETCH "..\..\MattTaylorAndNumenta\1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky.bmp"
 !define MUI_ABORTWARNING
@@ -214,8 +214,8 @@ Function LoadLogFile
         Call CloseLog
     ${EndIf}
 
-    IfFileExists "$INSTDIR\Logs\TaylorDo_Config.log" 0 Finish
-    FileOpen $LogLoadHandle "$INSTDIR\Logs\TaylorDo_Config.log" r
+    IfFileExists "$INSTDIR\log\TaylorDo_Config.log" 0 Finish
+    FileOpen $LogLoadHandle "$INSTDIR\log\TaylorDo_Config.log" r
 
 Loop:
     FileRead $LogLoadHandle $1
@@ -246,7 +246,7 @@ Function OpenLog
     ; MessageBox MB_OKCANCEL "Function: OpenLog" IDOK +2
     ;     Abort
 
-    FileOpen $LogHandle "$INSTDIR\Logs\TaylorDo_Config.log" a
+    FileOpen $LogHandle "$INSTDIR\log\TaylorDo_Config.log" a
     StrCpy $LogHandleOpen 1
 FunctionEnd
 
@@ -257,8 +257,8 @@ Function InitLog
     ;     Abort
 
     StrCpy $LogEnabled 1
-    CreateDirectory "$INSTDIR\Logs"
-    Delete "$INSTDIR\Logs\TaylorDo_Config.log"
+    CreateDirectory "$INSTDIR\log"
+    Delete "$INSTDIR\log\TaylorDo_Config.log"
     Call OpenLog
     FileWrite $LogHandle "===== NEW RUN =====$\r$\n"
 FunctionEnd

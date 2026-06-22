@@ -1,5 +1,8 @@
 # Script: DefragVolumeDev # Defrag Development Volume
 
+Title('Defrag Any Volume')
+Description("Uses Complex structure") 
+
 SetVariable(VolumeLabel,		'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
 SetVariable(VolumeLabelSelect,	'!include "..\ActionVerbs\VolumeTypeSelect.MyDc"!')
 
@@ -12,4 +15,4 @@ SetVariable(MftZone,			"!ProgramsWordCaps!")
 
 !include "..\Settings\SettingsYours\SettingsYoursDev.MyDc"!
 
-!include "..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\Defrag\DefragAnyComplexVolume.MyD"!

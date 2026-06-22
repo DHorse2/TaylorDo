@@ -1,4 +1,8 @@
-# Script: DefragVolumeSys # Defrag System Volume
+# Script: DefragVolumeSys 
+# Defrag System Volume
+
+Title('Defrag System Volume')
+Description("Defrag System Volume using Complex structure") 
 
 SetVariable(VolumeLabel,		"!VolumeSys!")
 SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeSys.MyDc"!')
@@ -12,6 +16,6 @@ SetVariable(MftZone,			 "Regular")
 
 !include "..\Settings\SettingsYours\SettingsYoursSys.MyDc"!
 
-!include "..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\Defrag\DefragAnyComplexVolume.MyD"!
 
 Writelogfile("Defrag System Volume.TaylorDoLog",	'!StatisticsWindowText!')

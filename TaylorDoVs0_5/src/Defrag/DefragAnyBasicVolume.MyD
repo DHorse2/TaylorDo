@@ -3,6 +3,9 @@
 /* Basic Volume */
 # MyDefrag v5.0 script Basic Volume Defrag
 #
+Title('Defrag Any Basic Volume')
+Description("Defrag Basic Volume uses a basic set of zones") 
+
 !include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
 
 !include "..\Volume\VolumeStatisticsDetailGet.MyDc"!

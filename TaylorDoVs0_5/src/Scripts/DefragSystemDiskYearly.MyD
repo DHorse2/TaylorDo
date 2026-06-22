@@ -20,4 +20,4 @@ SetVariable(SkipBlockFiles,"!SkipBlockFilesYear!")
 SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
 
 /* Sys */
-!include "..\Defrag\DefragVolumeSys.MyDc"!
+!include "..\Defrag\DefragVolumeSys.MyD"!

@@ -16,4 +16,4 @@ SetVariable(RunStepDescription,"Dev Vol Monthly")
 SetVariable(SkipBlockFiles,"!SkipBlockFilesMonth!")
 SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
 
-!include "..\..\Defrag\DefragVolumeDev.MyDc"!
+!include "..\..\Defrag\DefragVolumeDev.MyD"!

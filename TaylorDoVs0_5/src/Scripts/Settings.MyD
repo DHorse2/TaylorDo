@@ -35,7 +35,7 @@ WhenFinished(wait)
 WindowSize(restore)
 
 # Do not show cdroms in the script chooser window:
-ExcludeVolumes(CDRom(yes) or not(CommandlineVolumes()) or not(Writable(yes)) or not(Mounted(yes)) or not(Remote(no))
+ExcludeVolumes(CDRom(yes) or not(CommandlineVolumes()) or not(Writable(yes)) or not(Mounted(yes)) or not(Remote(no)))
 
 
 

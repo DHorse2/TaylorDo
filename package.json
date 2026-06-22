@@ -1,4 +1,13 @@
 {
+    "languages": [
+        {
+            "id": "mydfrg",
+            "extensions": [
+                ".mydfrg",
+                ".mdf"
+            ]
+        }
+    ],
     "contributes": {
         "configuration": {
             "title": "MyDefrag",

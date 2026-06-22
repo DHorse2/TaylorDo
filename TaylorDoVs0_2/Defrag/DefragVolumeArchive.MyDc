@@ -10,4 +10,4 @@ SetVariable(MftZone, "Shares")
 
 !include "..\..\Settings\SettingsYours\SettingsYoursArchive.MyDc"!
 
-!include "..\..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\..\Defrag\DefragAnyComplexVolume.MyD"!

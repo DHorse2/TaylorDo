@@ -21274,7 +21274,7 @@ The command 'C' is invalid, only the following commands are valid at this point:
 20734. or 
 20735. # Support start.
 20736. (
-20737.   DirectoryName("*Logs*") or
+20737.   DirectoryName("*Log*") or
 20738.   DirectoryName("*Support*") or
 20739.   DirectoryName("*Maintenance*")
 20740. )
@@ -21868,7 +21868,7 @@ The command 'C' is invalid, only the following commands are valid at this point:
 21328. or 
 21329. # Support start.
 21330. (
-21331.   DirectoryName("*Logs*") or
+21331.   DirectoryName("*Log*") or
 21332.   DirectoryName("*Support*") or
 21333.   DirectoryName("*Maintenance*")
 21334. )

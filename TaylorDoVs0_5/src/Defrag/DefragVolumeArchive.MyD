@@ -1,5 +1,8 @@
 # Script: DefragVolumeArchive # Defrag Archive Volume
 
+Title('Defrag Archive Volume')
+Description("Defrag Volume using Archive structure") 
+
 SetVariable(VolumeLabel,"!VolumeArchive!")
 SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeArchive.MyDc"!')
 
@@ -12,6 +15,6 @@ SetVariable(MftZone, "!SharesWordCaps!")
 
 !include "..\Settings\SettingsYours\SettingsYoursArchive.MyDc"!
 
-!include "..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\Defrag\DefragAnyComplexVolume.MyD"!
 
 Writelogfile("Defrag Archive Volume.TaylorDoLog",	'!StatisticsWindowText!')

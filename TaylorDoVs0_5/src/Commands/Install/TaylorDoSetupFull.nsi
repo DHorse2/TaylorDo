@@ -57,8 +57,8 @@ InstallDirRegKey HKLM "Software\${PRODUCT_NAME}" "Install_Dir"
 Var /GLOBAL ProductAppName 
 Var /GLOBAL ProductAppVersion 
 Var /GLOBAL ProductAppPublisher 
-Icon "..\..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
-; Icon ".\src\Resources\Icons\MdmControl.ico"
+Icon "..\..\resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+; Icon ".\src\resources\Icons\MdmControl.ico"
 
 ; executable
 Var /GLOBAL ProductAppInstallDir
@@ -107,8 +107,8 @@ Var NextButton
 SetCompressor lzma
 OutFile "..\..\..\Programs\TaylorDoSetup.exe"
 ;--------------- MUI - User Interface -----------------
-!define MUI_ICON "..\..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
-!define MUI_UNICON "..\..\Resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+!define MUI_ICON "..\..\resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
+!define MUI_UNICON "..\..\resources\Icons\Taylor_Icon_-_DonnaDubinsky.ico"
 
 ;--------------------------------
 ; Abort

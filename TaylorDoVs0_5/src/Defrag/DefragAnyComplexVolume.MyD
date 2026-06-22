@@ -1,6 +1,8 @@
 # Script: DefragAnyComplexVolume
 /* Complex Volume */
 # MyDefrag v5.0 script Defrag Complex (Mixed or Any) Volume.
+Title('Defrag Complex Volume')
+Description("Complex Defrag of Volume uses full structure for TaylorDo") 
 
 !include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
 

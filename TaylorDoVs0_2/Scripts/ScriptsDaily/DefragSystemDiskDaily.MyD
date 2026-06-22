@@ -15,4 +15,4 @@ SetVariable(RunStepDescription,"Sys Vol Daily")
 SetVariable(SkipBlockFiles,"!SkipBlockFilesDay!")
 SetVariable(SkipBlockBytes,"!SkipBlockBytesDay!")
 
-!include "..\..\Defrag\DefragVolumeSys.MyDc"!
+!include "..\..\Defrag\DefragVolumeSys.MyD"!

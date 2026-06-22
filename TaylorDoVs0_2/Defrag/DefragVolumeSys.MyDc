@@ -10,4 +10,4 @@ SetVariable(MftZone, "Regular")
 
 !include "..\..\Settings\SettingsYours\SettingsYoursSys.MyDc"!
 
-!include "..\..\Defrag\DefragAnyBasicVolume.MyDc"!
+!include "..\..\Defrag\DefragAnyBasicVolume.MyD"!

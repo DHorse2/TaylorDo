@@ -1,5 +1,8 @@
 # Script: DefragVolumeData # Defrag Data Volume
 
+Title('Defrag Data Volume')
+Description("Defrag Data Volume using Complex structure") 
+
 SetVariable(VolumeLabel,		"!VolumeData!")
 SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeData.MyDc"!')
 
@@ -12,6 +15,6 @@ SetVariable(MftZone,			"!SharesWordCaps!")
 
 !include "..\Settings\SettingsYours\SettingsYoursData.MyDc"!
 
-!include "..\Defrag\DefragAnyComplexVolume.MyDc"!
+!include "..\Defrag\DefragAnyComplexVolume.MyD"!
 
 Writelogfile("Defrag Data Volume.TaylorDoLog",	'!StatisticsWindowText!')

@@ -17,17 +17,17 @@ SetVariable(SkipBlockBytes,"!SkipBlockBytesWeek!")
 
 SetVariable(RunStepDescription,"!Sys Vol Weekly!")
 !include "..\..\Display\DisplaySetRun.MyDc"!
-!include "..\..\DefragVolumeSys.MyDc"!
+!include "..\..\DefragVolumeSys.MyD"!
 
 SetVariable(RunStepDescription,"!Dev Vol Weekly!")
 !include "..\..\Display\DisplaySetRun.MyDc"!
-!include "..\..\DefragVolumeDev.MyDc"!
+!include "..\..\DefragVolumeDev.MyD"!
 
 SetVariable(RunStepDescription,"!Archive Vol Weekly!")
 /* !include "..\..\Display\DisplaySetRun.MyDc"! */
-/* !include "..\..\DefragVolumeArchive.MyDc"! */
+/* !include "..\..\DefragVolumeArchive.MyD"! */
 
 SetVariable(RunStepDescription,"!Data Vol Weekly!")
 /* !include "..\..\Display\DisplaySetRun.MyDc"! */
-/* !include "..\..\DefragVolumeData.MyDc"! */
+/* !include "..\..\DefragVolumeData.MyD"! */
 

@@ -6,5 +6,6 @@
         "**/TaylorDoVs0_3/**",
         "**/TaylorDoVs0_4/**",
         "**/Log/**"
-    ]
+    ],
+    "myDefrag.projectType": "mydfrg"
 }

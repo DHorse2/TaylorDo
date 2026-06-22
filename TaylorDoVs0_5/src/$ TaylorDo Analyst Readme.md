@@ -567,7 +567,7 @@ End of list.
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 /* Future Enhancements: */
 
-/* 1) Add Zone stats to the Logs. [InProgress] */
+/* 1) Add Zone stats to the Log. [InProgress] */
 
 /* 2) Add Linux System Files .MyDs Selection scripts (Linux High and Sys Low.) */
 
@@ -1010,7 +1010,7 @@ End of list.
 	SetVariable(SkipBlockBytes,"!SkipBlockBytesMonth!")
 
 # LogFile
-	SetVariable(LogFileName,"!ScriptDir!Logs\!ScriptDescription! !Date!_!Time!.log")
+	SetVariable(LogFileName,"!ScriptDir!Log\!ScriptDescription! !Date!_!Time!.log")
 
 # Gap
 # Gap Adjustments

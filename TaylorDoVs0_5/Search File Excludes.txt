@@ -1,3 +1,6 @@
 
 D:\MdmTaylorDo20220427\MdmDefrag\TaylorDoVs0_4 20220425\src\**
 
+**/Compile*, **/*.log, **/TaylorDoVs0_2/**, **/TaylorDoVs0_3/**, **/TaylorDoVs0_4/**
+
+**/Compile*, **/*.log, D:/MdmTaylorDo20220427/MdmDefrag/TaylorDoVs0_2, D:/MdmTaylorDo20220427/MdmDefrag/TaylorDoVs0_3, D:/MdmTaylorDo20220427/MdmDefrag/TaylorDoVs0_4

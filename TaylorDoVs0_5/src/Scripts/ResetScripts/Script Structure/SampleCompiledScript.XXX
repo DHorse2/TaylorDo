@@ -1113,7 +1113,7 @@ Unkown symbol.
 1098. 	#SetVariable(LogFileName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! 2021-11-16_02:53:56")
 1099. 	#SetVariable(LogFileZoneName,"C:\MyDefragLogs\Defrag !VolumeStepDescription! !ZoneStepDescription! 2021-11-16_02:53:56")
 1100. 	/* SetVariable(LogFileName,"..\ScriptLogs\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
-1101. 	/* SetVariable(LogFileName,"!ScriptDir!Logs\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
+1101. 	/* SetVariable(LogFileName,"!ScriptDir!Log\!MdmMyDefrag! 2021-11-16_02:53:56.log") */
 1102. 	/* SetVariable(LogFileName,"Defrag2021-11-16_02:53:56.txt") */
 1103. 	/* SetVariable(LogFileName,"$ z ScriptLogs\Defrag2021-11-16_02:53:56.txt") */
 1104. 	
@@ -1181,4 +1181,4 @@ Unkown symbol.
 1166. SetVariable(SkipBlockBytes,"!SkipBlockBytesYear!")
 1167. 
 1168. /* Dev */
-1169. !include "..\DefragVolumeDev.MyDc"!
+1169. !include "..\DefragVolumeDev.MyD"!
