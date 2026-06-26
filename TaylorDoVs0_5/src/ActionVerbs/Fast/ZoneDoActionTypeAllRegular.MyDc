@@ -1,4 +1,3 @@
 ﻿# Script: ZoneDoActionTypeAllRegular
 # File Action - All - Regular -  SortByName.
 SortByName(Ascending SkipBlock(SkipBlockFiles, SkipBlockBytes))
-	

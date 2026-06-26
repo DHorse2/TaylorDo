@@ -1,0 +1,424 @@
+<CommentsInline> ::= "Name : 'MyDefrag'"
+<CommentsInline> ::= "Version : '4.0'"
+<CommentsInline> ::= "Author : 'Jeroen Kessels'"
+<CommentsInline> ::= "About : 'Disk defragmentation and optimization parameter language. Scripts - BNF Formal script grammar'"
+<CommentsInline> ::= "CaseSensitive : False"
+<CommentsInline> ::= "StartSymbol : <Statements>"
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<Comments> ::= <CommentBlock> | <CommentLine> | <Literal> | <Variable>
+
+<CommentBlock> ::= '/*' <CommentText> '*/'
+<CommentLine>  ::= '//' | 'REM' | '#' | '--'
+<CommentText>  ::= 
+
+<Literal>      ::= <DecLiteral> | <ExpLiteral> | <String>
+<DecLiteral>   ::= <Digits>
+<ExpLiteral>   ::= <Digits> '.' <Digits>
+               | <Digits> '.' <Digits> 'e' <Digits>
+               | <Digits> '.' <Digits> 'E' <Digits>
+<Digits>       ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+<String>       ::= '"' <StringText> '"'
+<StringText>   ::= 
+
+<Variable>     ::= <VarHead> <VarTail>
+<VarHead>      ::= <Letter>
+<VarTail>      ::= <Letter> | <Digit> | <VarTail> <Letter> | <VarTail> <Digit>
+<Letter>       ::= 
+<Digit>        ::=
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<Statements>
+::= <Statements> 'MaxRunTime' '(' <DateTime> ')' <Statements2>
+  | <Statements2>
+
+<Statements2>
+::= <Statement> <Statements2>
+  |
+
+<Statement>
+::= 'Description' '(' String ')'
+  | 'ExcludeVolumes' '(' <VolumeBooleans> ')'
+  | 'ExcludeFiles' '(' <FileBooleans> ')'
+  | 'VolumeSelect' <VolumeBooleans> 'VolumeActions' <VolumeActions> 'VolumeEnd'
+  | <Setting>
+  | 'SetFileColor' '(' <FileColorBooleans> ',' <Number> ',' <Number> ',' <Number> ')'
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<VolumeBooleans>
+::= <VolumeBooleans> 'or' <VolumeBoolean>
+  | <VolumeBooleans> '|' <VolumeBoolean>
+  | <VolumeBooleans> '||' <VolumeBoolean>
+  | <VolumeBooleans> 'and' <VolumeBoolean>
+  | <VolumeBooleans> '&' <VolumeBoolean>
+  | <VolumeBooleans> '&&' <VolumeBoolean>
+  | <VolumeBoolean>
+
+<VolumeBoolean>
+::= '(' <VolumeBooleans> ')'
+  | 'not' '(' <VolumeBooleans> ')'
+  | 'All'
+  | 'Mounted' '(' <YesNo> ')'
+  | 'Writable' '(' <YesNo> ')'
+  | 'Removable' '(' <YesNo> ')'
+  | 'Fixed' '(' <YesNo> ')'
+  | 'Remote' '(' <YesNo> ')'
+  | 'Cdrom' '(' <YesNo> ')'
+  | 'Ramdisk' '(' <YesNo> ')'
+  | 'Name' '(' String ')'
+  | 'Label' '(' String ')'
+  | 'Size' '(' <Number> ',' <Number> ')'
+  | 'FragmentCount' '(' <Number> ',' <Number> ')'
+  | 'FragmentSize' '(' <Number> ',' <Number> ')'
+  | 'CheckVolume'
+  | 'CommandlineVolumes' '(' ')'
+  | 'NumberBetween' '(' <Number> ',' <Number> ',' <Number> ')'
+  | 'FileSystemType' '(' <FileSystemTypes> ')'
+
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<FileSystemTypes>
+::= 'NTFS'
+  | 'FAT'
+  | 'FAT12'
+  | 'FAT16'
+  | 'FAT32'
+
+
+<VolumeActions>
+::= <VolumeActions> 'MaxRunTime' '(' <DateTime> ')' <VolumeActions2>
+  | <VolumeActions2>
+
+<VolumeActions2>
+::= <VolumeAction> <VolumeActions2>
+  |
+
+<VolumeAction>
+::= 'ReclaimNtfsReservedAreas' '(' <Settings> ')'
+  | 'FileSelect' <FileBooleans> 'FileActions' <FileActions> 'FileEnd'
+  | 'MakeGap' '(' <Number> <MakeGapOptions> ')'
+  | 'DismountVolume' '(' ')'
+  | 'DeleteJournal' '(' ')'
+  | <Setting>
+  | 'SetFileColor' '(' <FileBooleans> ',' <FileColorBooleans> ',' <Number> ',' <Number> ',' <Number> ')'
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<FileBooleans>
+::= <FileBooleans> 'or' <FileBoolean>
+  | <FileBooleans> '|' <FileBoolean>
+  | <FileBooleans> '||' <FileBoolean>
+  | <FileBooleans> 'and' <FileBoolean>
+  | <FileBooleans> '&' <FileBoolean>
+  | <FileBooleans> '&&' <FileBoolean>
+  | <FileBoolean>
+
+<FileBoolean>
+::= '(' <FileBooleans> ')'
+  | 'not' '(' <FileBooleans> ')'
+  | 'All'
+  | 'FileName' '(' String ')'
+  | 'DirectoryName' '(' String ')'
+  | 'DirectoryPath' '(' String ')'
+  | 'FullPath' '(' String ',' String ')'
+  | 'Size' '(' <Number> ',' <Number> ')'
+  | 'Fragmented' '(' <FileYesNo> ')'
+  | 'FragmentCount' '(' <Number> ',' <Number> ')'
+  | 'AverageFragmentSize' '(' <Number> ',' <Number> ')'
+  | 'LargestFragmentSize' '(' <Number> ',' <Number> ')'
+  | 'SmallestFragmentSize' '(' <Number> ',' <Number> ')'
+  | 'LastAccess' '(' <DateTime> ',' <DateTime> ')'
+  | 'LastAccessEnabled' '(' <FileYesNo> ')'
+  | 'LastChange' '(' <DateTime> ',' <DateTime> ')'
+  | 'CreationDate' '(' <DateTime> ',' <DateTime> ')'
+  | 'ImportListFromBootOptimize' '(' ')'
+  | 'ImportListFromFile' '(' String ')'
+  | 'ImportListFromProgramHints' '(' String ')'
+  | 'Largest' '(' <Number> ')'
+  | 'Smallest' '(' <Number> ')'
+  | 'Archive' '(' <FileYesNo> ')'
+  | 'Compressed' '(' <FileYesNo> ')'
+  | 'Directory' '(' <FileYesNo> ')'
+  | 'Encrypted' '(' <FileYesNo> ')'
+  | 'Hidden' '(' <FileYesNo> ')'
+  | 'NotToBeIndexed' '(' <FileYesNo> ')'
+  | 'Offline' '(' <FileYesNo> ')'
+  | 'Readonly' '(' <FileYesNo> ')'
+  | 'Sparse' '(' <FileYesNo> ')'
+  | 'System' '(' <FileYesNo> ')'
+  | 'Temporary' '(' <FileYesNo> ')'
+  | 'Virtual' '(' <FileYesNo> ')'
+  | 'Unmovable' '(' <FileYesNo> ')'
+  | 'SelectNtfsSystemFiles' '(' <FileYesNo> ')'
+  | 'FileLocation' '(' <FileLocationOptions> ',' <Number> ',' <Number> ')'
+
+<FileYesNo>
+::= 'yes'
+  | 'no'
+
+<FileLocationOptions>
+::= 'BeginOfFile'
+  | 'EndOfFile'
+  | 'EntireFile'
+  | 'AnyPart'
+  | 'AnyCompleteFragment'
+
+<FileActions>
+::= <FileActions> 'MaxRunTime' '(' <DateTime> ')' <FileActions2>
+  | <FileActions2>
+
+
+<FileActions2>
+::= <FileAction> <FileActions2>
+  |
+
+<FileAction>
+::= 'Defragment' '(' <DefragmentOptions> ')'
+  | 'FastFill' '(' <FastFillOptions> ')'
+  | 'MoveDownFill' '(' ')'
+  | 'MoveToEndOfDisk' '(' ')'
+  | 'MoveUpToZone' '(' ')'
+  | 'ForcedFill' '(' ')'
+  | 'SortByName' '(' <AscDesc> <SortByOption> ')'
+  | 'SortBySize' '(' <AscDesc> <SortByOption> ')'
+  | 'SortByLastAccess' '(' <AscDesc> <SortByOption> ')'
+  | 'SortByLastChange' '(' <AscDesc> <SortByOption> ')'
+  | 'SortByCreationDate' '(' <AscDesc> <SortByOption> ')'
+  | 'SortByNewestDate' '(' <AscDesc> <SortByOption> ')'
+  | 'SortByImportSequence' '(' <AscDesc> <SortByOption> ')'
+  | 'PlaceNtfsSystemFiles' '(' <AscDesc> <SortByOption> ',' <Number> ')'
+  | 'AddGap' '(' <Number> <MakeGapOptions> ')'
+  | <Setting>
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<DefragmentOptions>
+::= 'ChunkSize' '(' <Number> ')'
+  | 'Fast'
+  |
+
+<FastFillOptions>
+::= 'WithShuffling'
+  |
+
+<MakeGapOptions>
+::= ',' 'DoNotVacate'
+  |
+
+<AscDesc>
+::= 'Ascending'
+  | 'Descending'
+
+<SortByOption>
+::= 'SkipBlock' '(' <Number> ',' <Number> ')'
+  |
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<Settings>
+::= <Setting> <Settings>
+  |
+
+<Setting>
+::= 'Message' '(' String ',' String ')'
+  | 'Language' '(' String ')'
+  | 'Title' '(' String ')'
+  | 'WindowSize' '(' <WindowSize> ')'
+  | 'DiskmapFlip' '(' <YesNo> ')'
+  | 'StatusBar' '(' <StatusBars> ')'
+  | 'ZoomLevel' '(' <Number> ')'
+  | 'SetColor' '(' <ColorName> ',' <Number> ',' <Number> ',' <Number> ')'
+  | 'Slowdown' '(' <Number> ')'
+  | 'Pause' '(' <DateTime> ')'
+  | 'WhenFinished' '(' <WhenFinishedOptions> ')'
+  | 'OtherInstances' '(' <OtherInstances> ')'
+  | 'RunScript' '(' String ')'
+  | 'RunProgram' '(' <Strings> ')'
+  | 'BatteryPower' '(' <BatteryPower> ')'
+  | 'SetScreenSaver' '(' <OffReset> ')'
+  | 'SetScreenPowerSaver' '(' <OffReset> ')'
+  | 'FileMoveChunkSize' '(' <Number> ')'
+  | 'Debug' '(' <Number> ')'
+  | 'SetStatisticsWindowText' '(' String ')'
+  | 'WriteLogfile' '(' String ',' String ')'
+  | 'AppendLogfile' '(' String ',' String ')'
+  | 'IgnoreWrapAroundFragmentation' '(' <YesNo> ')'
+  | 'ProcessPriority' '(' <ProcessPriorities> ')'
+  | 'ExitIfTimeout' '(' <Number> ')'
+  | 'RememberUnmovables' '(' <YesNo> ')'
+  | 'SetVariable' '(' Variable ',' <Number> ')'
+  | 'SetVariable' '(' Variable ',' String ')'
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<FileColorBooleans>
+::= <FileColorBooleans> 'or' <FileColorBoolean>
+  | <FileColorBooleans> '|' <FileColorBoolean>
+  | <FileColorBooleans> '||' <FileColorBoolean>
+  | <FileColorBooleans> 'and' <FileColorBoolean>
+  | <FileColorBooleans> '&' <FileColorBoolean>
+  | <FileColorBooleans> '&&' <FileColorBoolean>
+  | <FileColorBoolean>
+
+<FileColorBoolean>
+::= '(' <FileColorBooleans> ')'
+  | 'not' '(' <FileColorBooleans> ')'
+  | 'Fragmented'
+  | 'Movable'
+  | 'Selected'
+  | 'Processed'
+  | 'All'
+
+<ColorName>
+::= 'Empty'
+  | 'Allocated'
+  | 'BusyRead'
+  | 'BusyWrite'
+  | 'Text'
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<OtherInstances>
+::= 'ask'
+  | 'allow'
+  | 'exit'
+  | 'kill'
+
+<BatteryPower>
+::= 'ask'
+  | 'allow'
+  | 'exit'
+
+<WindowSize>
+::= 'fixed'
+  | 'minimized'
+  | 'maximized'
+  | 'invisible'
+  | 'restore'
+
+<WhenFinishedOptions>
+::= 'Wait'
+  | 'Exit'
+  | 'Shutdown' <WhenFinishedOptions1>
+  | 'Hibernate' <WhenFinishedOption2>
+  | 'Standby' <WhenFinishedOption2>
+<WhenFinishedOptions1>
+::= <WhenFinishedOption1> <WhenFinishedOptions1>
+  |
+<WhenFinishedOption1>
+::= 'Reboot'
+  | 'WarnUsers'
+  | 'Forced'
+<WhenFinishedOption2>
+::= 'Forced'
+  |
+
+<StatusBars>
+::= <StatusBar> <StatusBars>
+  |
+<StatusBar>
+::= 'All'
+  | 'Status'
+  | 'Path'
+  | 'MouseOver'
+
+<YesNo>
+::= 'yes'
+  | 'no'
+
+<OffReset>
+::= 'off'
+  | 'reset'
+
+<ProcessPriorities>
+::= 'Normal'
+  | 'BelowNormal'
+  | 'Low'
+  | 'AboveNormal'
+  | 'High'
+  | 'Background'
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<DateTime>
+::= <Value> '/' <Value> '/' <Value> <Value> ':' <Value> ':' <Value>
+  | <Value> '-' <Value> '-' <Value> <Value> ':' <Value> ':' <Value>
+  | <Value> ':' <Value> ':' <Value> <DateTimeAgo>
+  | <Value> <DateTimeMultiple> <DateTimeAgo>
+  | 'now'
+  |
+
+<DateTimeMultiple>
+::= 'YEAR'
+  | 'YEARS'
+  | 'MONTH'
+  | 'MONTHS'
+  | 'DAY'
+  | 'DAYS'
+  | 'HOUR'
+  | 'HOURS'
+  | 'MINUTE'
+  | 'MINUTES'
+  | 'SECOND'
+  | 'SECONDS'
+  | 'WEEK'
+  | 'WEEKS'
+  |
+
+<DateTimeAgo>
+::= 'AGO'
+  |
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<Strings>
+::= String ',' <Strings>
+  | String
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<Numbers>
+::= <Number> ',' <Numbers>
+  | <Number>
+
+<Number>
+::= <Number> '+' <MultiplyDivide>
+  | <Number> '-' <MultiplyDivide>
+  | <MultiplyDivide>
+
+<MultiplyDivide>
+::= <MultiplyDivide> '*' <Value>
+  | <Value> '/' <Value>
+  | <Value> '%' <Value>
+  | <Value>
+
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<Value>
+::= Variable
+  | '-' Variable
+  | '(' <Number> ')'
+  | DecLiteral <DecMultiple>
+  | ExpLiteral <DecMultiple>
+  | 'RoundDown' '(' <Number> ',' <Number> ')'
+  | 'RoundUp' '(' <Number> ',' <Number> ')'
+  | 'Minimum' '(' <Numbers> ')'
+  | 'Maximum' '(' <Numbers> ')'
+ 
+<CommentsInline> ::= "{SectionMarker} : '-------------------------------------------------------'"
+<DecMultiple>
+::= 'K'
+  | 'M'
+  | 'G'
+  | 'T'
+  | 'P'
+  | 'E'
+  | 'Z'
+  | 'Y'
+  | 'KB'
+  | 'MB'
+  | 'GB'
+  | 'TB'
+  | 'PB'
+  | 'EB'
+  | 'ZB'
+  | 'YB'
+  | 'Ki'
+  | 'Mi'
+  | 'Gi'
+  | 'Ti'
+  | 'Pi'
+  | 'Ei'
+  | 'Zi'
+  | 'Yi'
+  |

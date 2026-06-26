@@ -7,5 +7,34 @@
         "**/TaylorDoVs0_4/**",
         "**/Log/**"
     ],
-    "myDefrag.projectType": "mydfrg"
+    "myDefrag.projectType": "mydfrg",
+
+    "search.exclude": {
+        "**/Backup/**": true,
+        "**/Bu/**": true,
+        "**/MdmSysTools/**": true,
+        "**/Archive/**": true,
+        "**/*.tmp.MyDc": true,
+        "**/Compile*": true,
+        "**/*.log": true,
+        "**/TaylorDoVs0_2/**": true,
+        "**/TaylorDoVs0_3/**": true,
+        "**/TaylorDoVs0_4/**": true,
+        "**/Log/**": true,
+        "**/Logs/**": true,
+        "**/artifacts/**": true,
+        "**/.user/**": true,
+        "**/node_modules/**": true,
+        "**/resources/**": true,
+        "**/dist/**": true,
+        "**/.git/**": true,
+        "**/.vs/**": true,
+        "**/.vscode/**": true,
+        "**/Download/**": true,
+        "**/GithubIo/**": true
+    },
+    "search.useIgnoreFiles": true,
+    "search.useGlobalIgnoreFiles": true,
+    "search.useParentIgnoreFiles": true,
+    "function-explorer.hideFolders": false
 }
