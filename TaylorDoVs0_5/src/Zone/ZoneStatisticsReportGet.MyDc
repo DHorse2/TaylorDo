@@ -28,7 +28,7 @@ SetVariable(ZoneStatisticsReport2, "Statistics Report!ColonWord!
    !SelectionWordCaps!!CriteriaWordCaps!!ColonWord!
    ------------------------
    !ZoneCommand! 
-   !ModeWordCaps!!ColonWord! !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"!
+   !ModeWordCaps!!ColonWord! !include "..\ActionVerbs\ZoneDoActionThisMode.txt"!
       
    !GapWordCaps! !SettingsWord!!ColonWord!
    ------------------------

@@ -16,7 +16,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 @Echo. 
 
 @Echo - Mode (Regular, Full, Fast, FastBoot)
-Copy "..\State\Full\ZoneDoActionThisMode.MyDc" /Y "..\ActionVerbs\"
+Copy "..\State\Full\ZoneDoActionThisMode.txt" /Y "..\ActionVerbs\"
 
 @Echo - Common Sort Method (Date, Name, Access) (Regular)
     Copy "..\State\ZoneDoActionTypeAll.MyDc" /Y "..\ActionVerbs\"

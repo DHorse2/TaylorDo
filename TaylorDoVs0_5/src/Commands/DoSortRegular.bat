@@ -13,7 +13,7 @@ Copy "..\ActionVerbs\Regular\ZoneDoActionTypeAllRegular.MyDc" /Y           "..\A
 Copy "..\ActionVerbs\Regular\ZoneDoActionTypeAllRegular.MyDc"  /Y          "..\ActionVerbs\ZoneDoActionTypeAll.MyDc"
 @Echo. 
 @Echo - Set Mode to Regular
-Copy "..\ActionVerbs\Regular\ZoneDoActionThisModeRegular.MyDc" /Y "..\ActionVerbs\ActionVerbs\ZoneDoActionThisMode
+Copy "..\ActionVerbs\Regular\ZoneDoActionThisModeRegular.txt" /Y "..\ActionVerbs\ActionVerbs\ZoneDoActionThisMode
 @Echo. 
 @Echo - OS Boot
 Copy "..\ActionVerbs\Regular\ZoneDoActionTypeOsBootDataRegular.MyDc" /Y    "..\ActionVerbs\ZoneDoActionTypeOsBootData.MyDc"

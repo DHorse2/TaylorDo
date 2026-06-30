@@ -4,7 +4,7 @@
 WindowSize(invisible) 
 #
 # Automatically exit when the script has finished. This script is designed to
-   be run via the task scheduler, so it must exit automatically.
+#   be run via the task scheduler, so it must exit automatically.
 WhenFinished(exit)
 
 # If another instance of MyDefrag is already running then exit.

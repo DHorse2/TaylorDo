@@ -12,7 +12,7 @@ Copy "..\ActionVerbs\Fast\ZoneDoActionTypeAllFast.MyDc"	        "..\ActionVerbs\
 Copy "..\ActionVerbs\Fast\ZoneDoActionTypeAllFast.MyDc"         "..\ActionVerbs\ZoneDoActionTypeAll.MyDc" /Y
 @Echo. 
 @Echo - Set Mode to Fast
-Copy "..\ActionVerbs\Fast\ZoneDoActionThisModeFast.MyDc"         "..\ActionVerbs\ZoneDoActionThisMode.MyDc" /Y
+Copy "..\ActionVerbs\Fast\ZoneDoActionThisModeFast.txt"         "..\ActionVerbs\ZoneDoActionThisMode.txt" /Y
 @Echo. 
 @Echo - OS Boot
 Copy "..\ActionVerbs\Fast\ZoneDoActionTypeOsBootDataFast.MyDc"  "..\ActionVerbs\ZoneDoActionTypeOsBootData.MyDc" /Y

@@ -12,7 +12,7 @@ Copy "..\ActionVerbs\Full\ZoneDoActionTypeAllFull.MyDc" /Y      "..\ActionVerbs\
 Copy "..\ActionVerbs\Full\ZoneDoActionTypeAllFull.MyDc" /Y      "..\ActionVerbs\ZoneDoActionTypeAll.MyDc"
 @Echo. 
 @Echo - Set Mode to Full
-Copy "..\ActionVerbs\Full\ZoneDoActionThisModeFull.MyDc" /Y      "..\ActionVerbs\ZoneDoActionThisMode.MyDc"
+Copy "..\ActionVerbs\Full\ZoneDoActionThisModeFull.txt" /Y      "..\ActionVerbs\ZoneDoActionThisMode.txt"
 @Echo. 
 @Echo - OS Boot
 Copy "..\ActionVerbs\Full\ZoneDoActionTypeOsBootDataFull.MyDc" /Y  "..\ActionVerbs\ZoneDoActionTypeOsBootData.MyDc"

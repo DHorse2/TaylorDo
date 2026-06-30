@@ -342,7 +342,7 @@ Command Line: !Commandline!
 Script Title: !ScriptTitle!
 Process ID: !ProcessID!
 Action: !include "..\ActionVerbs\ZoneDoActionThis.MyDc"!
-Mode: !include "..\ActionVerbs\ZoneDoActionThisMode.MyDc"!
+Mode: !include "..\ActionVerbs\ZoneDoActionThisMode.txt"!
 Requested Volume: !include "..\ActionVerbs\VolumeTypeSelect.MyDc"!
 
 Label:      !VolumeName!

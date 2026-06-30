@@ -61,7 +61,7 @@ SetVariable(VolOccupiedSizeFoldersB, 	'"VolOccupiedSizeFoldersB",!FILES102N!,!FI
 SetVariable(VolOccupiedSizeAllB, 		'"VolOccupiedSizeAllB",!FILES202N!,!FILES212N!,!FILES222N!')
 
 SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","GBytes")
-SetVariable(VolOccupiedSizeGbDesc, 		'"VolOccupiedSizeGbDesc,"Size: Occupied: In gigabytes")
+SetVariable(VolOccupiedSizeGbDesc, 		'"VolOccupiedSizeGbDesc", Size: Occupied: In gigabytes`)
 
 SetVariable(VolOccupiedSizeFilesGb, 	'"VolOccupiedSizeFilesGb",!FILES002G!,!FILES012G!,!FILES022G!')
 SetVariable(VolOccupiedSizeFoldersGb, 	'"VolOccupiedSizeFoldersGb",!FILES102G!,!FILES112G!,!FILES122G!')
@@ -69,7 +69,7 @@ SetVariable(VolOccupiedSizeFoldersGb, 	'"VolOccupiedSizeFoldersGb",!FILES102G!,!
 SetVariable(VolOccupiedAllGb, 			'"VolOccupiedAllGb",!FILES202G!,!FILES212G!,!FILES222G!')
 
 SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","Percent %"')
-SetVariable(VolOccupiedSizePercentDesc,	'"VolOccupiedSizePercentDesc,"Size: Occupied: As a ) of total size"')
+SetVariable(VolOccupiedSizePercentDesc,	'"VolOccupiedSizePercentDesc", Size: Occupied: As a % of total size')
 
 SetVariable(VolOccupiedSizeFilesPercent, '"VolOccupiedSizeFilesPercent",!FILES002P!,!FILES012P!,!FILES022P!')
 SetVariable(VolOccupiedSizeFoldersPercent, '"VolOccupiedSizeFoldersPercent",!FILES102P!,!FILES112P!,!FILES122P!')

@@ -15,8 +15,8 @@ Call :CopyFile "Automatic / Interactive" "..\ActionVerbs\ZoneDoActionAutomaticTh
 Call :CopyFile "Common Sort Method (Date, Name, Access) (Current)" "..\ActionVerbs\ZoneDoActionThis.MyDc"
 
 Rem THIS IS WRONG!!
-@REM Call :CopyFile "Mode (Regular, Full, Fast, FastBoot)" "..\ActionVerbs\Full\ZoneDoActionThisModeFull.MyDc" "..\State\ZoneDoActionThisMode.MyDc"
-Call :CopyFile "Mode (Regular, Full, Fast, FastBoot)" "..\ActionVerbs\ZoneDoActionThisMode.MyDc"
+@REM Call :CopyFile "Mode (Regular, Full, Fast, FastBoot)" "..\ActionVerbs\Full\ZoneDoActionThisModeFull.txt" "..\State\ZoneDoActionThisMode.txt"
+Call :CopyFile "Mode (Regular, Full, Fast, FastBoot)" "..\ActionVerbs\ZoneDoActionThisMode.txt"
 
 Call :CopyFile "Common Sort Method (Date, Name, Access) (Regular)" "..\ActionVerbs\ZoneDoActionTypeAll.MyDc"
 
