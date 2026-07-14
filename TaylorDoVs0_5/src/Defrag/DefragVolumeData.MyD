@@ -4,7 +4,7 @@ Title('Defrag Data Volume')
 Description("Defrag Data Volume using Complex structure") 
 
 SetVariable(VolumeLabel,		"!VolumeData!")
-SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeData.MyDc"!')
+SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeData.txt"!')
 
 SetVariable(VolumeDescription,	"!DataWordCaps! !AndWord! !DatabasesWordCaps!")
 !include "..\Display\DisplaySetVolume.MyDc"!

@@ -654,7 +654,7 @@ FunctionEnd
 
 ;------------------------------------------------------------
 ; GetVolumeTypeFromName
-; Input:  full path on stack, e.g. "D:\...\VolumeType\VolumeTypeArchive.MyDc"
+; Input:  full path on stack, e.g. "D:\...\VolumeType\VolumeTypeArchive.txt"
 ; Output: type name on stack, e.g. "Archive"
 ;         returns "" if filename doesn't match expected pattern
 ;------------------------------------------------------------
@@ -671,7 +671,7 @@ Function GetVolumeTypeFromName
     ; Push "    Name = $GvtfnResult"
     ; Call LogText
 
-    ; $GvtfnResult = "VolumeTypeArchive.MyDc"
+    ; $GvtfnResult = "VolumeTypeArchive.txt"
     ; strip leading "VolumeType" (10 chars)
     StrCpy $GvtfnChar $GvtfnResult 10
     StrCmp $GvtfnChar "VolumeType" +2

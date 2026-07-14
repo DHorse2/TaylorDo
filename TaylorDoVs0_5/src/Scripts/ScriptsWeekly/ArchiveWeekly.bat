@@ -6,7 +6,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 @Echo ------------------------------------------------------
 set "VolumeType=Archive"
 @Echo.
-set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.txt"
 @Echo Volume Type !VolumeType! !VolumeName!
 if /I "!VolumeName!"=="SKIP" (
     echo.

@@ -6,10 +6,10 @@ SetVariable(Section, '"Top","Server","VOLUME","Headings"')
 
 # Category
 SetVariable(CategoryHeadingText, 			'"!CategoryWordCaps!","!UnFragmentedWordCaps!","!FragmentedWordCaps!","!AllWord!"')
-SetVariable(CategoryHeadingSeperator, 		'"--------------","-----------------","-----------------","-----------------"')
+SetVariable(CategoryHeadingSeparator, 		'"--------------","-----------------","-----------------","-----------------"')
 
 SetVariable(SizeHeading2, 			'"!BytesWord!","!GigabytesWordCaps!","!PercentSymbolWord! !OfWord! !AllWord!"')
-SetVariable(SizeHeading2Seperator, '"-----------------","-----------------","-----------------"')
+SetVariable(SizeHeading2Separator, '"-----------------","-----------------","-----------------"')
 
 /* ------------------------- */
 # STATISTICS
@@ -60,8 +60,8 @@ SetVariable(VolOccupiedSizeFoldersB, 	'"VolOccupiedSizeFoldersB",!FILES102N!,!FI
 
 SetVariable(VolOccupiedSizeAllB, 		'"VolOccupiedSizeAllB",!FILES202N!,!FILES212N!,!FILES222N!')
 
-SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","GBytes")
-SetVariable(VolOccupiedSizeGbDesc, 		'"VolOccupiedSizeGbDesc", Size: Occupied: In gigabytes`)
+SetVariable(Section, '"Top","Server","VOLUME","Statistics","Occupied","GBytes"')
+SetVariable(VolOccupiedSizeGbDesc, 		'"VolOccupiedSizeGbDesc", Size: Occupied: In gigabytes')
 
 SetVariable(VolOccupiedSizeFilesGb, 	'"VolOccupiedSizeFilesGb",!FILES002G!,!FILES012G!,!FILES022G!')
 SetVariable(VolOccupiedSizeFoldersGb, 	'"VolOccupiedSizeFoldersGb",!FILES102G!,!FILES112G!,!FILES122G!')
@@ -246,3 +246,6 @@ SetVariable(ZoneBiggestGap, 		'"ZoneBiggestGap",!GAP15N!,!GAP15G!,!GAP15P!')
 # FILE STEP
 /* SetVariable(Section, '"Top","Server","VOLUME","ZONE","FILESTEP"') */
 /* ------------------------- */
+
+SetVariable(ZoneAllGaps, 'blah blah !GAP')
+

@@ -59,15 +59,14 @@ REM =========================================================
 REM Create output filename (NOW IN DIRECTORY)
 REM =========================================================
 
-set "OutputFile=%VolumeDir%\VolumeType!VolumeType!.MyDc"
+set "OutputFile=%VolumeDir%\VolumeType!VolumeType!.txt"
 
 REM =========================================================
 REM Special option: SKIP
 REM =========================================================
 
 if /I "%Drive%"=="SKIP" (
-    <nul set /p "=SKIP" > "%OutputFile%"
-
+    <nul set /p "=SKIP" > "%OutputFile%"F
     echo Created:
     echo     %OutputFile%
     echo.
@@ -202,7 +201,7 @@ echo.
 
 for %%A in (%ValidVolumeTypes%) do (
 
-    set "FileName=%VolumeDir%\VolumeType%%A.MyDc"
+    set "FileName=%VolumeDir%\VolumeType%%A.txt"
 
     echo ----- !FileName! -----
 

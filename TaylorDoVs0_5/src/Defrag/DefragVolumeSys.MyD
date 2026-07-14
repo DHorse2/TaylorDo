@@ -5,7 +5,7 @@ Title('Defrag System Volume')
 Description("Defrag System Volume using Complex structure") 
 
 SetVariable(VolumeLabel,		"!VolumeSys!")
-SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeSys.MyDc"!')
+SetVariable(VolumeLabelSelect,	'!include "..\VolumeType\VolumeTypeSys.txt"!')
 
 SetVariable(VolumeDescription,	"System")
 !include "..\Display\DisplaySetVolume.MyDc"!

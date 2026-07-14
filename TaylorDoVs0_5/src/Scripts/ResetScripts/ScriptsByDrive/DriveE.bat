@@ -6,7 +6,7 @@
 @TIMEOUT /T 1 /NOBREAK >nul
 set "VolumeType=E"
 @Echo.
-set /p "VolumeName="<"..\..\VolumeType\VolumeType%VolumeType%.MyDc"
+set /p "VolumeName="<"..\..\VolumeType\VolumeType%VolumeType%.txt"
 if /I ""=="SKIP" (
     echo.
     @Echo VolumeType !VolumeType! is set as SKIP and is not processed!!!

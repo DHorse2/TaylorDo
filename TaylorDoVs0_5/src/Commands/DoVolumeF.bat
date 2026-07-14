@@ -5,7 +5,7 @@
 @Echo ------------------------------------------------------
 @TIMEOUT /T 1 /NOBREAK >nul
 @Echo ------------------------------------------------------
-copy "..\VolumeType\VolumeTypeF.MyDc"	        "..\ActionVerbs\VolumeTypeSelect.MyDc" /Y
+copy "..\VolumeType\VolumeTypeF.txt"	        "..\ActionVerbs\VolumeTypeSelect.MyDc" /Y
 @Echo. 
 @Echo ------------------------------------------------------
 @Echo - End of DoVolumeF -----------------

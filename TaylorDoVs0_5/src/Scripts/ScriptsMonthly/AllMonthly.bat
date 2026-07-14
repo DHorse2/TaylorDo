@@ -7,7 +7,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 cd /d "%~dp0"
 
 set "VolumeType=Sys"
-set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo  System Disks
@@ -15,7 +15,7 @@ if /I not "!VolumeName!"=="SKIP" (
     cd /d "%~dp0"
 )
 set "VolumeType=Dev"
-set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo Dev Disks
@@ -24,7 +24,7 @@ if /I not "!VolumeName!"=="SKIP" (
 )
 
 set "VolumeType=Data"
-set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. Data Disks
@@ -33,7 +33,7 @@ if /I not "!VolumeName!"=="SKIP" (
 )
 
 set "VolumeType=Archive"
-set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. !VolumeType! Disks

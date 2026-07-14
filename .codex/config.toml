@@ -1,0 +1,53 @@
+# Codex project-level configuration for AI
+# Save to: D:\AI\.codex\config.toml
+#
+# Purpose:
+# - This file supplies the active project root for this VSCodium/Codex window.
+# - Duplicate this pattern into each project repo, changing only the root paths.
+# - The project must be trusted in the user-level config before Codex loads this file.
+
+[mcp_servers.filesystem]
+command = "npx"
+args = [
+  "-y",
+  "@modelcontextprotocol/server-filesystem",
+  "D:\\MdmTaylorDo\\MdmDefrag"
+]
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.git]
+command = "uvx"
+args = [
+  "mcp-server-git",
+  "--repository",
+  "D:\\MdmTaylorDo\\MdmDefrag"
+]
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.powershell]
+command = "C:\\Program Files\\nodejs\\node.exe"
+args = [
+  "C:\\ProgramData\\MCP-DevTools\\powershell-devtools-mcp\\server.mjs"
+]
+cwd = "C:\\ProgramData\\MCP-DevTools\\powershell-devtools-mcp"
+required = false
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.powershell.env]
+PROJECT_ROOT = "D:\\MdmTaylorDo\\MdmDefrag"
+PWSH = "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+MAX_OUTPUT = "200000"
+
+[mcp_servers.sqlite]
+enabled = true
+command = "uvx"
+args = [
+  "mcp-server-sqlite",
+  "--db-path",
+  "D:\\MdmTaylorDo\\MdmDefrag\\data\\dev.sqlite"
+]
+startup_timeout_sec = 30
+tool_timeout_sec = 120

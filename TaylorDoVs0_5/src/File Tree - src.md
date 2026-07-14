@@ -1189,16 +1189,16 @@ src/
 │   └── VolumeWhenStarted.MyDc
 ├── VolumeType/
 │   ├── VolumeType.MyDc
-│   ├── VolumeTypeArchive.MyDc
-│   ├── VolumeTypeC.MyDc
-│   ├── VolumeTypeD.MyDc
-│   ├── VolumeTypeData.MyDc
-│   ├── VolumeTypeDev.MyDc
-│   ├── VolumeTypeE.MyDc
-│   ├── VolumeTypeF.MyDc
-│   ├── VolumeTypeG.MyDc
+│   ├── VolumeTypeArchive.txt
+│   ├── VolumeTypeC.txt
+│   ├── VolumeTypeD.txt
+│   ├── VolumeTypeData.txt
+│   ├── VolumeTypeDev.txt
+│   ├── VolumeTypeE.txt
+│   ├── VolumeTypeF.txt
+│   ├── VolumeTypeG.txt
 │   ├── VolumeTypeNotes.md
-│   └── VolumeTypeSys.MyDc
+│   └── VolumeTypeSys.txt
 ├── VsCodiumMyDefragExtension/
 │   ├── Bu/
 │   │   ├── files 1.zip

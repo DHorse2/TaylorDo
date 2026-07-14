@@ -6,7 +6,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 @Echo ------------------------------------------------------
 set "VolumeType=Data"
 @Echo.
-set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I ""=="SKIP" (
     echo.
     @Echo VolumeType !VolumeType! is set as SKIP and is not processed!!!

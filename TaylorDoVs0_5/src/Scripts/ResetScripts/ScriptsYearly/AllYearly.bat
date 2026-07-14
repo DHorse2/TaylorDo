@@ -9,7 +9,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 @Echo. starting Defrag Yearly Disk(s) 
 
 set "VolumeType=Sys"
-set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. !VolumeType! Disks
@@ -18,7 +18,7 @@ if /I not "!VolumeName!"=="SKIP" (
 )
 
 set "VolumeType=Dev"
-set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. !VolumeType! Disks
@@ -27,7 +27,7 @@ if /I not "!VolumeName!"=="SKIP" (
 )
 
 set "VolumeType=Data"
-set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. !VolumeType! Disks
@@ -36,7 +36,7 @@ if /I not "!VolumeName!"=="SKIP" (
 )
 
 set "VolumeType=Archive"
-set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.MyDc"
+set /p "VolumeName="<"..\..\..\VolumeType\VolumeType!VolumeType!.txt"
 if /I not "!VolumeName!"=="SKIP" (
     @Echo ------------------------------------------------------
     @Echo. !VolumeType! Disks

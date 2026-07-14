@@ -26,7 +26,7 @@ FileActions
 /* Only does files where a gap will fit it. */
 # Defragment(Fast)
 
-/* Skips fragmented files larger than the Chunck Size. */
+/* Skips fragmented files larger than the Chunk Size. */
 /* The build-in defragmenter that comes with Vista does a chunk defragment, ignoring fragments larger than 64 megabytes. */
 # Defragment(Chunk Size)
 
