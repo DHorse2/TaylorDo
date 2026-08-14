@@ -14,6 +14,7 @@ Unicode True
 !include "LogicLib.nsh"
 !include "FileFunc.nsh"
 !include "WinMessages.nsh"
+!include "x64.nsh"
 !addplugindir 'C:\Program Files (x86)\NSIS\Plugins\x86-unicode'
 
 SetCompressor lzma
@@ -47,6 +48,7 @@ ShowInstDetails show
 Var /GLOBAL DriveLetter
 Var /GLOBAL DriveCount
 Var /GLOBAL DriveRoleChanged
+Var /GLOBAL DriveRoleChangeReverting
 
 ;------------------------------------------------------------
 ; Volume Type
@@ -103,6 +105,17 @@ Var DriveLetter7
 Var DriveLetter8
 Var DriveLetter9
 
+Var DriveType0
+Var DriveType1
+Var DriveType2
+Var DriveType3
+Var DriveType4
+Var DriveType5
+Var DriveType6
+Var DriveType7
+Var DriveType8
+Var DriveType9
+
 Var Combo0
 Var Combo1
 Var Combo2
@@ -124,6 +137,25 @@ Var Role6
 Var Role7
 Var Role8
 Var Role9
+
+;------------------------------------------------------------
+; Task Scheduler Page
+Var CheckboxAllUsers
+Var StateAllUsers
+Var CheckboxEnableMyDefrag
+Var CheckboxTaskRunOnce
+Var CheckboxTaskDaily
+Var CheckboxTaskWeekly
+Var CheckboxTaskMonthly
+Var CheckboxTaskYearly
+
+Var EnableMyDefragSelected
+Var TaskRunOnceSelected
+Var TaskDailySelected
+Var TaskWeeklySelected
+Var TaskMonthlySelected
+Var TaskYearlySelected
+Var DriveScheduled
 
 ;------------------------------------------------------------
 ; Change Log Page
@@ -150,12 +182,14 @@ Var /GLOBAL LogEnabled
 !define MUI_HEADERIMAGE_BITMAP_NOSTRETCH "..\..\MattTaylorAndNumenta\1673821_235x235_ff1b1c - ForeverMissedCom - DonnaDubinsky.bmp"
 !define MUI_ABORTWARNING
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\..\Commands\Install\MyDefrag Run Zone 6 Small.bmp"
-!define MUI_WELCOMEPAGE_TITLE "TaylorDo ${PRODUCT_VERSION} Volume Configuration Wizard"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the Taylor Disk Optimizer ${PRODUCT_VERSION}. This wizard will configure your storage volumes for TaylorDo (Taylor Disk Optimizer), the next generation of the Windows disk optimization and defragmentation.$\r$\n$\r$\nTaylorDo works out of the box and tuned for the home user.$\r$\n$\r$\nBut it is designed for network system administration, is highly customizable and easy to change.$\r$\n$\r$\n$_CLICK"
+!define MUI_WELCOMEPAGE_TITLE "TaylorDo ${PRODUCT_VERSION} Configuration Wizard"
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the Taylor Disk Optimizer ${PRODUCT_VERSION}. This wizard will configure storage volumes and scheduled optimization for TaylorDo (Taylor Disk Optimizer), the next generation of the Windows disk optimization and defragmentation.$\r$\n$\r$\nTaylorDo works out of the box and tuned for the home user.$\r$\n$\r$\nBut it is designed for network system administration, is highly customizable and easy to change.$\r$\n$\r$\n$_CLICK"
 ;------------------------------------------------------------
 ; Function Pages
 !insertmacro MUI_PAGE_WELCOME
 Page Custom DriveRolesPageCreate DriveRolesPageLeave
+Page Custom TaskSchedulerPageCreate TaskSchedulerPageLeave
+!insertmacro MUI_PAGE_INSTFILES
 Page Custom ChangeLogPageCreate ChangeLogPageLeave
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !insertmacro MUI_PAGE_FINISH
@@ -166,7 +200,7 @@ Page Custom ChangeLogPageCreate ChangeLogPageLeave
 ;------------------------------------------------------------
 
 Section "Main"
-    Call LoadLogFile
+    Call PrintLogFileToDetails
 SectionEnd
 
 ;------------------------------------------------------------
@@ -190,10 +224,14 @@ FunctionEnd
 ; !macroend
 
 !macro FuncEntry NAME
-    MessageBox MB_OKCANCEL "Function: ${NAME}" IDOK +2
-        Abort
+    ; Usage:
+    ;     !insertmacro FuncEntry "LoadLogFile"
+    ; Currently off:
+    ; MessageBox MB_OKCANCEL "Function: ${NAME}" IDOK +2
+    ;     Abort
+    ; Log function
     Push "Function: ${NAME}"
-    Call Log
+    Call LogText
 !macroend
 
 ;------------------------------------------------------------
@@ -242,6 +280,37 @@ FunctionEnd
 
 ;------------------------------------------------------------
 
+Function PrintLogFileToDetails
+    ${If} $LogEnabled == 0
+        Return
+    ${EndIf}
+
+    ${If} $LogHandleOpen == 1
+        Call CloseLog
+    ${EndIf}
+
+    IfFileExists "$INSTDIR\log\TaylorDo_Config.log" 0 Finish
+    FileOpen $LogLoadHandle "$INSTDIR\log\TaylorDo_Config.log" r
+
+Loop:
+    FileRead $LogLoadHandle $1
+    IfErrors Done
+
+    DetailPrint "$1"
+    Goto Loop
+
+Done:
+    FileClose $LogLoadHandle
+
+Finish:
+    ClearErrors
+    ${If} $LogEnabled == 1
+        Call OpenLog
+    ${EndIf}
+FunctionEnd
+
+;------------------------------------------------------------
+
 Function OpenLog
     ; MessageBox MB_OKCANCEL "Function: OpenLog" IDOK +2
     ;     Abort
@@ -255,12 +324,12 @@ FunctionEnd
 Function InitLog
     ; MessageBox MB_OKCANCEL "Function: InitLog" IDOK +2
     ;     Abort
-
     StrCpy $LogEnabled 1
     CreateDirectory "$INSTDIR\log"
     Delete "$INSTDIR\log\TaylorDo_Config.log"
     Call OpenLog
     FileWrite $LogHandle "===== NEW RUN =====$\r$\n"
+    !insertmacro FuncEntry "InitLog"
 FunctionEnd
 
 ;------------------------------------------------------------
@@ -307,10 +376,14 @@ Function .onInit
     StrCpy $ScriptTimeStamp $ScriptNow
     StrCpy $ScriptState "Edit"
     StrCpy $LogHandleOpen 0
-    StrCpy $INSTDIR "$EXEDIR"
+    ReadRegStr $INSTDIR HKLM "Software\${PRODUCT_NAME}" "Install_Dir"
+    ${If} $INSTDIR == ""
+        StrCpy $INSTDIR "$EXEDIR"
+    ${EndIf}
 
     Call InitializeSettings
 
+    !insertmacro FuncEntry "onInit"
     Push "TaylorDoConfig started $ScriptTimeStamp"
     Call LogText
     Push "--------------------------------------------------"
@@ -331,33 +404,29 @@ FunctionEnd
 Function InitializeSettings
     StrCpy $LogEnabled 1
     Call InitLog
-    ; !insertmacro FuncEntry "InitializeSettings"
+    !insertmacro FuncEntry "InitializeSettings"
 
     StrCpy $ProductAppName "MyDefrag"
     StrCpy $ProductAppVersion "4.3.1"
     StrCpy $ProductAppPublisher "J.C. Kessels"
 
-    System::Call "kernel32::GetCurrentProcess() p .r9"
-    System::Call "kernel32::IsWow64Process(p r9, *i .r0)"
-
-    ${If} $R0 == 1
+    ${If} ${RunningX64}
         SetRegView 64
-        StrCpy $ProductAppInstallDir "$INSTDIR\MyDefrag v4.3.1"
+        StrCpy $ProductAppInstallDir "$PROGRAMFILES64\MyDefrag v4.3.1"
     ${Else}
-        StrCpy $ProductAppInstallDir "$INSTDIR\MyDefrag v4.3.1"
+        StrCpy $ProductAppInstallDir "$PROGRAMFILES\MyDefrag v4.3.1"
     ${EndIf}
 
     StrCpy $DriveRoleChanged 0
+    StrCpy $DriveRoleChangeReverting 0
+    StrCpy $StateAllUsers ${BST_CHECKED}
+    Call LoadTaskSchedulerSettings
 FunctionEnd
 
 ;------------------------------------------------------------
 
 Function LoadDriveRoles
-    ; Has stack arg - MessageBox before Exch
-    MessageBox MB_OKCANCEL "Function: LoadDriveRoles" IDOK +2
-        Abort
-    Push "Function: LoadDriveRoles"
-    Call LogText
+    !insertmacro FuncEntry "LoadDriveRoles"
 
     Exch $R0
     StrCpy $ComboHandle $R0
@@ -628,11 +697,8 @@ FunctionEnd
 ;------------------------------------------------------------
 
 Function IsAssignableVolumeType
-    ; Has stack arg - MessageBox before Exch
-    MessageBox MB_OKCANCEL "Function: IsAssignableVolumeType" IDOK +2
-        Abort
-    Push "Function: IsAssignableVolumeType"
-    Call LogText
+    !insertmacro FuncEntry "IsAssignableVolumeType"
+
     Exch $0
     Push $1
     StrCpy $1 0
@@ -668,6 +734,8 @@ Function GetVolumeTypeFromName
 
     Push "    -------------------------------------------"
     Call LogText
+    ; Push "Function: GetVolumeTypeFromName"
+    ; Call LogText
     ; Push "    Name = $GvtfnResult"
     ; Call LogText
 
@@ -794,6 +862,432 @@ Done:
 FunctionEnd
 
 ;------------------------------------------------------------
+; DetectFixedDriveMediaType
+; Input: drive letter on stack, e.g. "C:"
+; Output: "SSD", "HDD", or "Fixed" on stack.
+;------------------------------------------------------------
+Function DetectFixedDriveMediaType
+    Exch $0
+    Push $1
+    Push $2
+    Push $3
+
+    StrCpy $1 "Fixed"
+
+    nsExec::ExecToStack 'cmd /c fsutil fsinfo sectorinfo $0 2>nul | find /I "Trim Supported"'
+    Pop $2
+    Pop $3
+
+    ${If} $2 == 0
+        StrCpy $1 "SSD"
+        Goto DetectFixedDriveMediaTypeDone
+    ${EndIf}
+
+    nsExec::ExecToStack 'cmd /c fsutil fsinfo sectorinfo $0 2>nul | find /I "Trim Not Supported"'
+    Pop $2
+    Pop $3
+
+    ${If} $2 == 0
+        StrCpy $1 "HDD"
+    ${EndIf}
+
+DetectFixedDriveMediaTypeDone:
+    StrCpy $0 $1
+
+    Pop $3
+    Pop $2
+    Pop $1
+    Exch $0
+FunctionEnd
+
+;------------------------------------------------------------
+; Task Scheduler Configuration
+;------------------------------------------------------------
+
+Function LoadTaskSchedulerSettings
+    ; Defaults used when TaylorDo has not been configured yet.
+    StrCpy $EnableMyDefragSelected ${BST_CHECKED}
+    StrCpy $TaskRunOnceSelected ${BST_CHECKED}
+    StrCpy $TaskDailySelected ${BST_UNCHECKED}
+    StrCpy $TaskWeeklySelected ${BST_CHECKED}
+    StrCpy $TaskMonthlySelected ${BST_CHECKED}
+    StrCpy $TaskYearlySelected ${BST_CHECKED}
+
+    IfFileExists "$INSTDIR\DriveRoles.ini" 0 LoadTaskSchedulerSettingsDone
+
+    ReadINIStr $0 "$INSTDIR\DriveRoles.ini" "DriveScheduled" "WindowsDefrag"
+    ${If} $0 == "ENABLED"
+        StrCpy $EnableMyDefragSelected ${BST_UNCHECKED}
+    ${ElseIf} $0 == "DISABLED"
+        StrCpy $EnableMyDefragSelected ${BST_CHECKED}
+    ${EndIf}
+
+    ReadINIStr $0 "$INSTDIR\DriveRoles.ini" "DriveScheduled" "TaylorDoRunOnce"
+    ${If} $0 == "ENABLED"
+        StrCpy $TaskRunOnceSelected ${BST_CHECKED}
+    ${ElseIf} $0 == "DISABLED"
+        StrCpy $TaskRunOnceSelected ${BST_UNCHECKED}
+    ${EndIf}
+
+    ReadINIStr $0 "$INSTDIR\DriveRoles.ini" "DriveScheduled" "TaylorDoDaily"
+    ${If} $0 == "ENABLED"
+        StrCpy $TaskDailySelected ${BST_CHECKED}
+    ${ElseIf} $0 == "DISABLED"
+        StrCpy $TaskDailySelected ${BST_UNCHECKED}
+    ${EndIf}
+
+    ReadINIStr $0 "$INSTDIR\DriveRoles.ini" "DriveScheduled" "TaylorDoWeekly"
+    ${If} $0 == "ENABLED"
+        StrCpy $TaskWeeklySelected ${BST_CHECKED}
+    ${ElseIf} $0 == "DISABLED"
+        StrCpy $TaskWeeklySelected ${BST_UNCHECKED}
+    ${EndIf}
+
+    ReadINIStr $0 "$INSTDIR\DriveRoles.ini" "DriveScheduled" "TaylorDoMonthly"
+    ${If} $0 == "ENABLED"
+        StrCpy $TaskMonthlySelected ${BST_CHECKED}
+    ${ElseIf} $0 == "DISABLED"
+        StrCpy $TaskMonthlySelected ${BST_UNCHECKED}
+    ${EndIf}
+
+    ; Preserve compatibility with the existing key name containing a space.
+    ReadINIStr $0 "$INSTDIR\DriveRoles.ini" "DriveScheduled" "TaylorDo Yearly"
+    ${If} $0 == "ENABLED"
+        StrCpy $TaskYearlySelected ${BST_CHECKED}
+    ${ElseIf} $0 == "DISABLED"
+        StrCpy $TaskYearlySelected ${BST_UNCHECKED}
+    ${EndIf}
+
+LoadTaskSchedulerSettingsDone:
+FunctionEnd
+
+Function TaskSchedulerPageCreate
+    !insertmacro MUI_HEADER_TEXT \
+        "TaylorDo Scheduled Tasks" \
+        "Configure automatic TaylorDo optimization. These settings can be changed whenever TaylorDoConfig is run."
+
+    nsDialogs::Create 1018
+    Pop $Dialog
+
+    ${If} $Dialog == error
+        Abort
+    ${EndIf}
+
+    ${NSD_CreateLabel} 0 0 100% 12u "Select scheduled optimization options:"
+    Pop $0
+
+    ${NSD_CreateCheckbox} 0 20u 100% 12u "Enable MyDefrag in Task Scheduler"
+    Pop $CheckboxEnableMyDefrag
+    ${NSD_SetState} $CheckboxEnableMyDefrag $EnableMyDefragSelected
+    ${NSD_OnClick} $CheckboxEnableMyDefrag TaskSchedulerMyDefragChanged
+
+    ${NSD_CreateCheckbox} 10u 35u 100% 12u "Run once overnight (recommended)"
+    Pop $CheckboxTaskRunOnce
+    ${NSD_SetState} $CheckboxTaskRunOnce $TaskRunOnceSelected
+    ${NSD_OnClick} $CheckboxTaskRunOnce TaskSchedulerRunOnceChanged
+
+    ${NSD_CreateCheckbox} 10u 50u 100% 12u "Daily Optimization (not recommended)"
+    Pop $CheckboxTaskDaily
+    ${NSD_SetState} $CheckboxTaskDaily $TaskDailySelected
+    ${NSD_OnClick} $CheckboxTaskDaily TaskSchedulerDailyChanged
+
+    ${NSD_CreateCheckbox} 10u 65u 100% 12u "Weekly Optimization"
+    Pop $CheckboxTaskWeekly
+    ${NSD_SetState} $CheckboxTaskWeekly $TaskWeeklySelected
+    ${NSD_OnClick} $CheckboxTaskWeekly TaskSchedulerWeeklyChanged
+
+    ${NSD_CreateCheckbox} 10u 80u 100% 12u "Monthly Optimization (recommended)"
+    Pop $CheckboxTaskMonthly
+    ${NSD_SetState} $CheckboxTaskMonthly $TaskMonthlySelected
+    ${NSD_OnClick} $CheckboxTaskMonthly TaskSchedulerMonthlyChanged
+
+    ${NSD_CreateCheckbox} 10u 95u 100% 12u "Yearly Optimization (recommended)"
+    Pop $CheckboxTaskYearly
+    ${NSD_SetState} $CheckboxTaskYearly $TaskYearlySelected
+    ${NSD_OnClick} $CheckboxTaskYearly TaskSchedulerYearlyChanged
+
+    ${NSD_CreateCheckbox} 0u 120u 100% 12u "Configure for all users"
+    Pop $CheckboxAllUsers
+    ${NSD_SetState} $CheckboxAllUsers $StateAllUsers
+    ${NSD_OnClick} $CheckboxAllUsers TaskSchedulerAllUsersChanged
+
+    Call SetTaskSchedulerChildState
+    nsDialogs::Show
+FunctionEnd
+
+Function SetTaskSchedulerChildState
+    ${NSD_GetState} $CheckboxEnableMyDefrag $0
+
+    ${If} $0 == ${BST_CHECKED}
+        EnableWindow $CheckboxTaskRunOnce 1
+        EnableWindow $CheckboxTaskDaily 1
+        EnableWindow $CheckboxTaskWeekly 1
+        EnableWindow $CheckboxTaskMonthly 1
+        EnableWindow $CheckboxTaskYearly 1
+    ${Else}
+        EnableWindow $CheckboxTaskRunOnce 0
+        EnableWindow $CheckboxTaskDaily 0
+        EnableWindow $CheckboxTaskWeekly 0
+        EnableWindow $CheckboxTaskMonthly 0
+        EnableWindow $CheckboxTaskYearly 0
+    ${EndIf}
+FunctionEnd
+
+Function TaskSchedulerMyDefragChanged
+    Pop $0
+    ${NSD_GetState} $0 $EnableMyDefragSelected
+    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
+        Push "Task Scheduler setting changed: Enable MyDefrag in Task Scheduler = ENABLED"
+    ${Else}
+        Push "Task Scheduler setting changed: Enable MyDefrag in Task Scheduler = DISABLED"
+    ${EndIf}
+    Call LogText
+    Call SetTaskSchedulerChildState
+FunctionEnd
+
+Function TaskSchedulerRunOnceChanged
+    Pop $0
+    ${NSD_GetState} $0 $TaskRunOnceSelected
+    ${If} $TaskRunOnceSelected == ${BST_CHECKED}
+        Push "Task Scheduler setting changed: Run once overnight = ENABLED"
+    ${Else}
+        Push "Task Scheduler setting changed: Run once overnight = DISABLED"
+    ${EndIf}
+    Call LogText
+FunctionEnd
+
+Function TaskSchedulerDailyChanged
+    Pop $0
+    ${NSD_GetState} $0 $TaskDailySelected
+    ${If} $TaskDailySelected == ${BST_CHECKED}
+        Push "Task Scheduler setting changed: Daily Optimization = ENABLED"
+    ${Else}
+        Push "Task Scheduler setting changed: Daily Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+FunctionEnd
+
+Function TaskSchedulerWeeklyChanged
+    Pop $0
+    ${NSD_GetState} $0 $TaskWeeklySelected
+    ${If} $TaskWeeklySelected == ${BST_CHECKED}
+        Push "Task Scheduler setting changed: Weekly Optimization = ENABLED"
+    ${Else}
+        Push "Task Scheduler setting changed: Weekly Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+FunctionEnd
+
+Function TaskSchedulerMonthlyChanged
+    Pop $0
+    ${NSD_GetState} $0 $TaskMonthlySelected
+    ${If} $TaskMonthlySelected == ${BST_CHECKED}
+        Push "Task Scheduler setting changed: Monthly Optimization = ENABLED"
+    ${Else}
+        Push "Task Scheduler setting changed: Monthly Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+FunctionEnd
+
+Function TaskSchedulerYearlyChanged
+    Pop $0
+    ${NSD_GetState} $0 $TaskYearlySelected
+    ${If} $TaskYearlySelected == ${BST_CHECKED}
+        Push "Task Scheduler setting changed: Yearly Optimization = ENABLED"
+    ${Else}
+        Push "Task Scheduler setting changed: Yearly Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+FunctionEnd
+
+Function TaskSchedulerAllUsersChanged
+    Pop $0
+    ${NSD_GetState} $0 $StateAllUsers
+    ${If} $StateAllUsers == ${BST_CHECKED}
+        Push "Task Scheduler setting changed: Configure for all users = ENABLED"
+    ${Else}
+        Push "Task Scheduler setting changed: Configure for all users = DISABLED"
+    ${EndIf}
+    Call LogText
+FunctionEnd
+
+Function LogTaskSchedulerFinalSettings
+    Push "Task Scheduler settings final selection:"
+    Call LogText
+
+    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
+        Push "  Enable MyDefrag in Task Scheduler = ENABLED"
+        Call LogText
+        Push "  Windows Defrag Schedule = DISABLED"
+        Call LogText
+    ${Else}
+        Push "  Enable MyDefrag in Task Scheduler = DISABLED"
+        Call LogText
+        Push "  Windows Defrag Schedule = ENABLED"
+        Call LogText
+    ${EndIf}
+
+    ${If} $TaskRunOnceSelected == ${BST_CHECKED}
+        Push "  Run once overnight = ENABLED"
+    ${Else}
+        Push "  Run once overnight = DISABLED"
+    ${EndIf}
+    Call LogText
+
+    ${If} $TaskDailySelected == ${BST_CHECKED}
+        Push "  Daily Optimization = ENABLED"
+    ${Else}
+        Push "  Daily Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+
+    ${If} $TaskWeeklySelected == ${BST_CHECKED}
+        Push "  Weekly Optimization = ENABLED"
+    ${Else}
+        Push "  Weekly Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+
+    ${If} $TaskMonthlySelected == ${BST_CHECKED}
+        Push "  Monthly Optimization = ENABLED"
+    ${Else}
+        Push "  Monthly Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+
+    ${If} $TaskYearlySelected == ${BST_CHECKED}
+        Push "  Yearly Optimization = ENABLED"
+    ${Else}
+        Push "  Yearly Optimization = DISABLED"
+    ${EndIf}
+    Call LogText
+
+    ${If} $StateAllUsers == ${BST_CHECKED}
+        Push "  Configure for all users = ENABLED"
+    ${Else}
+        Push "  Configure for all users = DISABLED"
+    ${EndIf}
+    Call LogText
+FunctionEnd
+
+Function TaskSchedulerPageLeave
+    ${NSD_GetState} $CheckboxAllUsers $StateAllUsers
+    ${NSD_GetState} $CheckboxEnableMyDefrag $EnableMyDefragSelected
+    ${NSD_GetState} $CheckboxTaskRunOnce $TaskRunOnceSelected
+    ${NSD_GetState} $CheckboxTaskDaily $TaskDailySelected
+    ${NSD_GetState} $CheckboxTaskWeekly $TaskWeeklySelected
+    ${NSD_GetState} $CheckboxTaskMonthly $TaskMonthlySelected
+    ${NSD_GetState} $CheckboxTaskYearly $TaskYearlySelected
+
+    Call LogTaskSchedulerFinalSettings
+    Call TaskSchedulerApply
+FunctionEnd
+
+Function TaskSchedulerApply
+    Push "Applying Task Scheduler settings"
+    Call LogText
+
+    ${If} $StateAllUsers == ${BST_CHECKED}
+        SetShellVarContext all
+    ${Else}
+        SetShellVarContext current
+    ${EndIf}
+
+    StrCpy $0 "$INSTDIR\Commands\TaskScheduler\DoTaskScheduleInstall.bat"
+    IfFileExists "$0" 0 TaskSchedulerBaseMissing
+        nsExec::ExecToLog 'cmd /c ""$0""'
+        Pop $0
+        Push "DoTaskScheduleInstall.bat exit code: $0"
+        Call LogText
+        Goto TaskSchedulerBaseDone
+TaskSchedulerBaseMissing:
+        Push "Missing: $INSTDIR\Commands\TaskScheduler\DoTaskScheduleInstall.bat"
+        Call LogText
+TaskSchedulerBaseDone:
+
+    ; Preserve the file and update only scheduler keys.
+    StrCpy $DriveScheduled "TaylorDoRunOnce"
+    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
+    ${AndIf} $TaskRunOnceSelected == ${BST_CHECKED}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableRunOnce.bat"'
+    ${Else}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableRunOnce.bat"'
+    ${EndIf}
+    Pop $0
+    Push "Run Once task exit code: $0"
+    Call LogText
+
+    StrCpy $DriveScheduled "TaylorDoDaily"
+    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
+    ${AndIf} $TaskDailySelected == ${BST_CHECKED}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableDaily.bat"'
+    ${Else}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableDaily.bat"'
+    ${EndIf}
+    Pop $0
+    Push "Daily task exit code: $0"
+    Call LogText
+
+    StrCpy $DriveScheduled "TaylorDoWeekly"
+    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
+    ${AndIf} $TaskWeeklySelected == ${BST_CHECKED}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWeekly.bat"'
+    ${Else}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableWeekly.bat"'
+    ${EndIf}
+    Pop $0
+    Push "Weekly task exit code: $0"
+    Call LogText
+
+    StrCpy $DriveScheduled "TaylorDoMonthly"
+    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
+    ${AndIf} $TaskMonthlySelected == ${BST_CHECKED}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableMonthly.bat"'
+    ${Else}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableMonthly.bat"'
+    ${EndIf}
+    Pop $0
+    Push "Monthly task exit code: $0"
+    Call LogText
+
+    StrCpy $DriveScheduled "TaylorDo Yearly"
+    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
+    ${AndIf} $TaskYearlySelected == ${BST_CHECKED}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableYearly.bat"'
+    ${Else}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableYearly.bat"'
+    ${EndIf}
+    Pop $0
+    Push "Yearly task exit code: $0"
+    Call LogText
+
+    StrCpy $DriveScheduled "WindowsDefrag"
+    ${If} $EnableMyDefragSelected != ${BST_CHECKED}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWindowsDefrag.bat"'
+    ${Else}
+        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
+        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableWindowsDefrag.bat"'
+    ${EndIf}
+    Pop $0
+    Push "Windows Defrag task exit code: $0"
+    Call LogText
+
+    Push "Task Scheduler settings applied"
+    Call LogText
+FunctionEnd
+
+;------------------------------------------------------------
 ; DriveRolesPageCreate
 ;------------------------------------------------------------
 Function DriveRolesPageCreate
@@ -871,6 +1365,9 @@ DriveLoop:
 
     ${ElseIf} $R4 == 3
         StrCpy $R5 "Fixed"
+        Push "$DriveLetter"
+        Call DetectFixedDriveMediaType
+        Pop $R5
 
     ${ElseIf} $R4 == 2
         StrCpy $R5 "Removable"
@@ -941,52 +1438,72 @@ DriveLoop:
 
         ${Case} 0
             StrCpy $DriveLetter0 "$DriveLetter"
+            StrCpy $DriveType0 "$R5"
             StrCpy $Combo0 $DropListHandle
+            StrCpy $Role0 "$VolumeType"
         ${Break}
 
         ${Case} 1
             StrCpy $DriveLetter1 "$DriveLetter"
+            StrCpy $DriveType1 "$R5"
             StrCpy $Combo1 $DropListHandle
+            StrCpy $Role1 "$VolumeType"
         ${Break}
 
         ${Case} 2
             StrCpy $DriveLetter2 "$DriveLetter"
+            StrCpy $DriveType2 "$R5"
             StrCpy $Combo2 $DropListHandle
+            StrCpy $Role2 "$VolumeType"
         ${Break}
 
         ${Case} 3
             StrCpy $DriveLetter3 "$DriveLetter"
+            StrCpy $DriveType3 "$R5"
             StrCpy $Combo3 $DropListHandle
+            StrCpy $Role3 "$VolumeType"
         ${Break}
 
         ${Case} 4
             StrCpy $DriveLetter4 "$DriveLetter"
+            StrCpy $DriveType4 "$R5"
             StrCpy $Combo4 $DropListHandle
+            StrCpy $Role4 "$VolumeType"
         ${Break}
 
         ${Case} 5
             StrCpy $DriveLetter5 "$DriveLetter"
+            StrCpy $DriveType5 "$R5"
             StrCpy $Combo5 $DropListHandle
+            StrCpy $Role5 "$VolumeType"
         ${Break}
 
         ${Case} 6
             StrCpy $DriveLetter6 "$DriveLetter"
+            StrCpy $DriveType6 "$R5"
             StrCpy $Combo6 $DropListHandle
+            StrCpy $Role6 "$VolumeType"
         ${Break}
 
         ${Case} 7
             StrCpy $DriveLetter7 "$DriveLetter"
+            StrCpy $DriveType7 "$R5"
             StrCpy $Combo7 $DropListHandle
+            StrCpy $Role7 "$VolumeType"
         ${Break}
 
         ${Case} 8
             StrCpy $DriveLetter8 "$DriveLetter"
+            StrCpy $DriveType8 "$R5"
             StrCpy $Combo8 $DropListHandle
+            StrCpy $Role8 "$VolumeType"
         ${Break}
 
         ${Case} 9
             StrCpy $DriveLetter9 "$DriveLetter"
+            StrCpy $DriveType9 "$R5"
             StrCpy $Combo9 $DropListHandle
+            StrCpy $Role9 "$VolumeType"
         ${Break}
 
     ${EndSwitch}
@@ -1046,60 +1563,100 @@ FunctionEnd
 
 ;------------------------------------------------------------
 
-Function GetDriveForCombo
-    ; Has stack arg - MessageBox before Exch
-    MessageBox MB_OKCANCEL "Function: GetDriveForCombo" IDOK +2
-        Abort
-    Push "Function: GetDriveForCombo"
-    Call LogText
-    Exch $0
-
-    StrCpy $1 "Unknown"
-
-    ${If} $0 == $Combo0
-        StrCpy $1 $DriveLetter0
-    ${ElseIf} $0 == $Combo1
-        StrCpy $1 $DriveLetter1
-    ${ElseIf} $0 == $Combo2
-        StrCpy $1 $DriveLetter2
-    ${ElseIf} $0 == $Combo3
-        StrCpy $1 $DriveLetter3
-    ${ElseIf} $0 == $Combo4
-        StrCpy $1 $DriveLetter4
-    ${ElseIf} $0 == $Combo5
-        StrCpy $1 $DriveLetter5
-    ${ElseIf} $0 == $Combo6
-        StrCpy $1 $DriveLetter6
-    ${ElseIf} $0 == $Combo7
-        StrCpy $1 $DriveLetter7
-    ${ElseIf} $0 == $Combo8
-        StrCpy $1 $DriveLetter8
-    ${ElseIf} $0 == $Combo9
-        StrCpy $1 $DriveLetter9
-    ${Else}
-        StrCpy $1 "Unknown"
-    ${EndIf}
-
-    Pop $0
-    Push $1
-
-FunctionEnd
-
-;------------------------------------------------------------
-
 Function OnRoleChanged
     !insertmacro FuncEntry "OnRoleChanged"
 
-    StrCpy $DriveRoleChanged 1
+    Pop $0
 
-    ${NSD_GetState} $0 $1
+    ${If} $DriveRoleChangeReverting == 1
+        Return
+    ${EndIf}
+
     ${NSD_GetText} $0 $2
 
-    Push $0
-    Call GetDriveForCombo
-    Pop $3
+    StrCpy $3 "Unknown"
+    StrCpy $4 "Unknown"
+    StrCpy $5 "Unknown"
 
-    Push "Drive $3 changed to $2"
+    ${If} $0 == $Combo0
+        StrCpy $3 $DriveLetter0
+        StrCpy $4 $Role0
+        StrCpy $5 $DriveType0
+    ${ElseIf} $0 == $Combo1
+        StrCpy $3 $DriveLetter1
+        StrCpy $4 $Role1
+        StrCpy $5 $DriveType1
+    ${ElseIf} $0 == $Combo2
+        StrCpy $3 $DriveLetter2
+        StrCpy $4 $Role2
+        StrCpy $5 $DriveType2
+    ${ElseIf} $0 == $Combo3
+        StrCpy $3 $DriveLetter3
+        StrCpy $4 $Role3
+        StrCpy $5 $DriveType3
+    ${ElseIf} $0 == $Combo4
+        StrCpy $3 $DriveLetter4
+        StrCpy $4 $Role4
+        StrCpy $5 $DriveType4
+    ${ElseIf} $0 == $Combo5
+        StrCpy $3 $DriveLetter5
+        StrCpy $4 $Role5
+        StrCpy $5 $DriveType5
+    ${ElseIf} $0 == $Combo6
+        StrCpy $3 $DriveLetter6
+        StrCpy $4 $Role6
+        StrCpy $5 $DriveType6
+    ${ElseIf} $0 == $Combo7
+        StrCpy $3 $DriveLetter7
+        StrCpy $4 $Role7
+        StrCpy $5 $DriveType7
+    ${ElseIf} $0 == $Combo8
+        StrCpy $3 $DriveLetter8
+        StrCpy $4 $Role8
+        StrCpy $5 $DriveType8
+    ${ElseIf} $0 == $Combo9
+        StrCpy $3 $DriveLetter9
+        StrCpy $4 $Role9
+        StrCpy $5 $DriveType9
+    ${EndIf}
+
+    ${If} $2 != "SKIP"
+    ${AndIf} $5 != "HDD"
+    ${AndIf} $5 != "Fixed"
+        Push "Drive role setting rejected: $3 is $5 and cannot be assigned $2; restored $4"
+        Call LogText
+        MessageBox MB_ICONSTOP|MB_OK "Drive $3 is $5.$\r$\n$\r$\nTaylorDo cannot assign a defragmentation role to SSD, removable, network, or unsupported drives.$\r$\n$\r$\nIt will be igonored by the system OS, SKIP is more accurate."
+        ; StrCpy $DriveRoleChangeReverting 1
+        ; ${NSD_CB_SelectString} $0 $4
+        ; StrCpy $DriveRoleChangeReverting 0
+        Return
+    ${EndIf}
+
+    StrCpy $DriveRoleChanged 1
+
+    ${If} $0 == $Combo0
+        StrCpy $Role0 $2
+    ${ElseIf} $0 == $Combo1
+        StrCpy $Role1 $2
+    ${ElseIf} $0 == $Combo2
+        StrCpy $Role2 $2
+    ${ElseIf} $0 == $Combo3
+        StrCpy $Role3 $2
+    ${ElseIf} $0 == $Combo4
+        StrCpy $Role4 $2
+    ${ElseIf} $0 == $Combo5
+        StrCpy $Role5 $2
+    ${ElseIf} $0 == $Combo6
+        StrCpy $Role6 $2
+    ${ElseIf} $0 == $Combo7
+        StrCpy $Role7 $2
+    ${ElseIf} $0 == $Combo8
+        StrCpy $Role8 $2
+    ${ElseIf} $0 == $Combo9
+        StrCpy $Role9 $2
+    ${EndIf}
+
+    Push "Drive role setting changed: $3 = $4 -> $2"
     Call LogText
 
     ${If} $DriveRoleChanged == 1
@@ -1156,11 +1713,7 @@ FunctionEnd
 ;------------------------------------------------------------
 
 Function FindSubstring
-    ; Has stack args - MessageBox before Exch
-    ; MessageBox MB_OKCANCEL "Function: FindSubstring" IDOK +2
-    ;     Abort
-    ; Push "Function: FindSubstring"
-    ; Call LogText
+    ; !insertmacro FuncEntry "FindSubstring"
 
     Exch $1
     Exch
@@ -1206,9 +1759,7 @@ FunctionEnd
 ;------------------------------------------------------------
 Var /GLOBAL var_name
 Function GetTimeStamp
-    ; Has stack return - MessageBox only
-    ; MessageBox MB_OKCANCEL "Function: GetTimeStamp" IDOK +2
-    ;     Abort
+    ; !insertmacro FuncEntry "GetTimeStamp"
 
     System::Alloc 16
     Pop $0

@@ -1,4 +1,4 @@
-; "Title: Taylor Disk Optimizer"
+﻿; "Title: Taylor Disk Optimizer"
 ; "Program: Taylor Disk Optimizer Full Install"
 ; "Author: David G Horsman"
 ; "Company: dba MacroDM"
@@ -70,21 +70,6 @@ var /GLOBAL ProductAppInstallDirRegKeyValueName
 ;--------------------------------
 Var CheckboxAllUsers
 Var StateAllUsers
-; taskschedudler checkboxes
-Var Dialog
-Var CheckboxEnableMyDefrag
-Var CheckboxTaskRunOnce
-Var CheckboxTaskDaily
-Var CheckboxTaskWeekly
-Var CheckboxTaskMonthly
-Var CheckboxTaskYearly
-
-Var EnableMyDefragSelected
-Var TaskRunOnceSelected
-Var TaskDailySelected
-Var TaskWeeklySelected
-Var TaskMonthlySelected
-Var TaskYearlySelected
 
 ; "--------------- Main -----------------"
 ; LogSet on
@@ -182,11 +167,6 @@ Page Custom InstallTypePageCreate InstallTypePageLeave
     !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder    
 
 ;--------------------------------
-; Task Schedule Options
-    ; InstallTypeSkipIfFull
-    Page Custom TaskSchedulerPageCreate TaskSchedulerPageLeave
-
-;--------------------------------
 ; Installation
     ; !define MUI_INSTFILESPAGE_COLORS (foreground color: RRGGBB hexadecimal) (background color: RRGGBB hexadecimal)
     ; !define MUI_INSTFILESPAGE_PROGRESSBAR colored
@@ -196,6 +176,9 @@ Page Custom InstallTypePageCreate InstallTypePageLeave
 ;--------------------------------
 ; Finish
 !define MUI_FINISHPAGE_NOAUTOCLOSE
+!define MUI_FINISHPAGE_RUN
+!define MUI_FINISHPAGE_RUN_TEXT "Configure TaylorDo now"
+!define MUI_FINISHPAGE_RUN_FUNCTION LaunchTaylorDoConfig
     ; !define MUI_FINISHPAGE_TITLE title ; Title to display on the top of the page.
     ; !define MUI_FINISHPAGE_TITLE_3LINES ; Extra space for the title area.
     ; !define MUI_FINISHPAGE_TEXT text ; Text to display on the page.
@@ -253,7 +236,6 @@ VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "4.0.1"
 LangString DESC_MyDefrag ${LANG_ENGLISH} "Required executable libraries. MyDefrag is freeware and a powerful script based defragmentation utility."
 LangString DESC_TaylorDoLibraries ${LANG_ENGLISH} "Required script libraries. This adds the 500 TaylorDo components used in building the standard and custom runs."
 LangString DESC_TaylorStartMenu ${LANG_ENGLISH} "You can add TaylorDo to the Start Menus. You can then selectively choose and set up optimization runs and observe their progress."
-LangString DESC_TaylorTaskMgr ${LANG_ENGLISH} "This updates the Windows Task Scheduler. This will disable Windows Defrag and add optimal weekly, monthly and yearly TaylorDo runs in it's place. This can be turned on and off afterwards."
 
 ;Assign language strings to sections
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
@@ -324,15 +306,6 @@ skip:
     Abort
 FunctionEnd
 
-Function TaskSchedulerPre
-    ; MessageBox MB_OK|MB_ICONINFORMATION "TaylorDo installation type $InstallMode"
-    StrCmp $InstallMode "Full" skip
-    Return
-skip:
-    DetailPrint "Task Scheduler configuration skipped"
-    Abort
-FunctionEnd
-
 ; ///////////////////////////////////////////////////////
 ; Initialization
 Function .onInit
@@ -340,6 +313,7 @@ Function .onInit
     Call InitializeSettings
 
     StrCpy $InstallMode "Full"
+    StrCpy $StateAllUsers ${BST_CHECKED}
     
 FunctionEnd
 
@@ -422,268 +396,14 @@ Function InstallTypeSkipIfFull
 done:
 FunctionEnd
 
-; ///////////////////////////////////////////////////////
-; Task Scheduler - MyDefrag scheduling Daily, Weekly, Monthly, Yearly
+Function LaunchTaylorDoConfig
+    IfFileExists "$INSTDIR\TaylorDoConfig.exe" 0 ConfigNotFound
 
-Function TaskSchedulerPageCreate
-    StrCmp $InstallMode "Full" 0 custom
-        ; Full
-        StrCpy $StateAllUsers ${BST_CHECKED}
-        StrCpy $EnableMyDefragSelected ${BST_CHECKED}
-        StrCpy $TaskRunOnceSelected ${BST_CHECKED}
-        StrCpy $TaskDailySelected ${BST_UNCHECKED}
-        StrCpy $TaskWeeklySelected ${BST_CHECKED}
-        StrCpy $TaskMonthlySelected ${BST_CHECKED}
-        StrCpy $TaskYearlySelected ${BST_CHECKED}
-        Abort
-    custom:
+    Exec '"$INSTDIR\TaylorDoConfig.exe"'
+    Return
 
-    nsDialogs::Create 1018
-    Pop $Dialog
-
-    ${If} $Dialog == error
-        Abort
-    ${EndIf}
-
-    !insertmacro MUI_HEADER_TEXT "Scheduled Tasks and Optional Features" "You shouldn't need to reconfigure TaylorDo options and scheduled tasks but can here"
-
-    ${NSD_CreateCheckbox} 0u 100u 100% 12u "Install for all users"
-    Pop $CheckboxAllUsers
-    ${NSD_SetState} $CheckboxAllUsers ${BST_CHECKED}  ; default
-
-    ${NSD_CreateLabel} 0 0 100% 12u "Select optional features:"
-    Pop $0
-
-    ; ////////////////////////////////
-    ${NSD_CreateCheckbox} 0 20u 100% 12u "Enable MyDefrag in Task Scheduler"
-    Pop $CheckboxEnableMyDefrag
-    ${NSD_SetState} $CheckboxEnableMyDefrag ${BST_CHECKED}
-
-    ; SectionGetFlags ${TaylorTaskMgr} $0
-    SectionGetFlags 4 $0
-    IntOp $0 $0 & ${SF_SELECTED}
-
-    ${If} $0 <> 0
-        ; TaylorTaskMgr A is checked
-        ${NSD_SetState} $CheckboxEnableMyDefrag ${BST_CHECKED}
-        ; Enable & check children
-        EnableWindow $CheckboxTaskRunOnce 1
-        EnableWindow $CheckboxTaskDaily 1
-        EnableWindow $CheckboxTaskWeekly 1
-        EnableWindow $CheckboxTaskMonthly 1
-        EnableWindow $CheckboxTaskYearly 1        
-    ${Else}
-        ; TaylorTaskMgr A is NOT checked
-        ${NSD_SetState} $CheckboxEnableMyDefrag ${BST_UNCHECKED}
-        EnableWindow $CheckboxTaskRunOnce 0
-        EnableWindow $CheckboxTaskDaily 0
-        EnableWindow $CheckboxTaskWeekly 0
-        EnableWindow $CheckboxTaskMonthly 0
-        EnableWindow $CheckboxTaskYearly 0
-    ${EndIf}
-    ${NSD_OnClick} $CheckboxEnableMyDefrag TaskSchedulerMyDefragChanged
-
-    ; ////////////////////////////////
-    ${NSD_CreateCheckbox} 10u 35u 100% 12u "Run once overnight (recommended)"
-    Pop $CheckboxTaskRunOnce
-    ${NSD_SetState} $CheckboxTaskRunOnce ${BST_CHECKED}
-
-    ${NSD_CreateCheckbox} 10u 45u 100% 12u "Daily Optimization (not recommended)"
-    Pop $CheckboxTaskDaily
-    ${NSD_SetState} $CheckboxTaskDaily ${BST_UNCHECKED}
-
-    ${NSD_CreateCheckbox} 10u 55u 100% 12u "Weekly Optimization"
-    Pop $CheckboxTaskWeekly
-    ${NSD_SetState} $CheckboxTaskWeekly ${BST_CHECKED}
-
-    ${NSD_CreateCheckbox} 10u 65u 100% 12u "Monthly Optimization (recommended)"
-    Pop $CheckboxTaskMonthly
-    ${NSD_SetState} $CheckboxTaskMonthly ${BST_CHECKED}
-
-    ${NSD_CreateCheckbox} 10u 75u 100% 12u "Yearly Optimization (recommended)"
-    Pop $CheckboxTaskYearly
-    ${NSD_SetState} $CheckboxTaskYearly ${BST_CHECKED}
-
-    nsDialogs::Show
-FunctionEnd
-
-; Task Scheduler Optimization Choice.
-Function TaskSchedulerMyDefragChanged
-    ${NSD_GetState} $CheckboxEnableMyDefrag $0
-
-    ${If} $0 == ${BST_CHECKED}
-        ; Enable & check children
-        EnableWindow $CheckboxTaskRunOnce 1
-        EnableWindow $CheckboxTaskDaily 1
-        EnableWindow $CheckboxTaskWeekly 1
-        EnableWindow $CheckboxTaskMonthly 1
-        EnableWindow $CheckboxTaskYearly 1
-
-        ; ${NSD_SetState} $CheckboxTaskRunOnce ${BST_CHECKED}
-        ; ${NSD_SetState} $CheckboxTaskDaily ${BST_UNCHECKED}
-        ; ${NSD_SetState} $CheckboxTaskWeekly ${BST_CHECKED}
-        ; ${NSD_SetState} $CheckboxTaskMonthly ${BST_CHECKED}
-        ; ${NSD_SetState} $CheckboxTaskYearly ${BST_CHECKED}
-    ${Else}
-        ; Uncheck & disable children
-        ; ${NSD_SetState} $CheckboxTaskRunOnce ${BST_CHECKED}
-        ; ${NSD_SetState} $CheckboxTaskDaily ${BST_UNCHECKED}
-        ; ${NSD_SetState} $CheckboxTaskWeekly ${BST_UNCHECKED}
-        ; ${NSD_SetState} $CheckboxTaskMonthly ${BST_UNCHECKED}
-        ; ${NSD_SetState} $CheckboxTaskYearly ${BST_UNCHECKED}
-
-        EnableWindow $CheckboxTaskRunOnce 0
-        EnableWindow $CheckboxTaskDaily 0
-        EnableWindow $CheckboxTaskWeekly 0
-        EnableWindow $CheckboxTaskMonthly 0
-        EnableWindow $CheckboxTaskYearly 0
-    ${EndIf}
-FunctionEnd
-
-Function TaskSchedulerPageLeave
-    ${NSD_GetState} $CheckboxAllUsers $StateAllUsers    
-    ${NSD_GetState} $CheckboxEnableMyDefrag $EnableMyDefragSelected
-    ${NSD_GetState} $CheckboxTaskRunOnce $TaskRunOnceSelected
-    ${NSD_GetState} $CheckboxTaskDaily $TaskDailySelected
-    ${NSD_GetState} $CheckboxTaskWeekly $TaskWeeklySelected
-    ${NSD_GetState} $CheckboxTaskMonthly $TaskMonthlySelected
-    ${NSD_GetState} $CheckboxTaskYearly $TaskYearlySelected
-FunctionEnd
-
-Var /GLOBAL DriveScheduled
-
-Function TaskSchedulerApply
-    DetailPrint "Windows Task Scheduler being updated"
-    DetailPrint "Add TaylorDo scheduled tasks to Windows"
-
-    StrCpy $0 "$INSTDIR\Commands\TaskScheduler\DoTaskScheduleInstall.bat"
-    DetailPrint "Path: $0"
-    nsExec::ExecToLog 'cmd /c ""$0""'
-    Pop $0
-    DetailPrint "  exit code: $0"
-    DetailPrint "--------"
-    DetailPrint " "
-
-    Delete "$INSTDIR\DriveRoles.ini"
-    DetailPrint "Deleted previous DriveRoles.ini"
-
-    StrCpy $DriveScheduled "TaylorDoRunOnce"
-    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
-    ${AndIf} $TaskRunOnceSelected == ${BST_CHECKED}
-        DetailPrint "Overnight one time optimization activated"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableRunOnce.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${Else}
-        DetailPrint "No Daily optimization"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableRunOnce.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${EndIf}
-    DetailPrint "--------"
-    DetailPrint " "
-
-    StrCpy $DriveScheduled "TaylorDoDaily"
-    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
-    ${AndIf} $TaskDailySelected == ${BST_CHECKED}
-        DetailPrint "Daily optimization activated"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableDaily.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${Else}
-        DetailPrint "No Daily optimization"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableDaily.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${EndIf}
-    DetailPrint "--------"
-    DetailPrint " "
-
-    StrCpy $DriveScheduled "TaylorDoWeekly"
-    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
-    ${AndIf} $TaskWeeklySelected == ${BST_CHECKED}
-        DetailPrint "Weekly optimization activated"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWeekly.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${Else}
-        DetailPrint "No Weekly optimization"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableWeekly.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${EndIf}
-    DetailPrint "--------"
-    DetailPrint " "
-
-    StrCpy $DriveScheduled "TaylorDoMonthly"
-    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
-    ${AndIf} $TaskMonthlySelected == ${BST_CHECKED}
-        DetailPrint "Monthly optimization activated"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableMonthly.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${Else}
-        DetailPrint "No Montly optimization"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableMonthly.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${EndIf}
-    DetailPrint "--------"
-    DetailPrint " "
-
-    StrCpy $DriveScheduled "TaylorDo Yearly"
-    ${If} $EnableMyDefragSelected == ${BST_CHECKED}
-    ${AndIf} $TaskYearlySelected == ${BST_CHECKED}
-        DetailPrint "Yearly optimization activated"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableYearly.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${Else}
-        DetailPrint "No Yearly optimization"
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableYearly.bat"'
-        Pop $0
-        DetailPrint "exit code: $0"
-    ${EndIf}
-    DetailPrint "--------"
-    DetailPrint " "
-
-    StrCpy $DriveScheduled "WindowsDefrag"
-    ${If} $EnableMyDefragSelected != ${BST_CHECKED}
-        DetailPrint "MyDefrag disabled, re-enabling Windows standard defrag."
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "ENABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoEnableWindowsDefrag.bat"'
-    ${Else}
-        DetailPrint "MyDefrag enabled, disabling Windows standard defrag."
-        WriteINIStr "$INSTDIR\DriveRoles.ini" "DriveScheduled" "$DriveScheduled" "DISABLED"
-        nsExec::ExecToLog 'cmd /c "$INSTDIR\Commands\TaskScheduler\DoDisableWindowsDefrag.bat"'
-    ${EndIf}
-    DetailPrint "--------"
-    DetailPrint " "
-
-
-    ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 2" "State"
-    ;   DetailPrint "Install X=$0"
-    ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 3" "State"
-    ;   DetailPrint "Install Y=$0"
-    ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 4" "State"
-    ;   DetailPrint "Install Z=$0"
-    ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 5" "State"
-    ;   DetailPrint "File=$0"
-    ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 6" "State"
-    ;   DetailPrint "Dir=$0"
-    ;   ReadINIStr $0 "$PLUGINSDIR\io.ini" "Field 8" "State"
-    ;   DetailPrint "Info=$0"
-
+ConfigNotFound:
+    MessageBox MB_OK|MB_ICONEXCLAMATION         "TaylorDo was installed, but TaylorDoConfig.exe was not found in:$\r$\n$INSTDIR$\r$\n$\r$\nBuild TaylorDoConfig.exe before compiling the installer."
 FunctionEnd
 
 Function ExecutionLevelCheck
@@ -871,7 +591,14 @@ taylorDoInstall:
     SetOverwrite on
     DetailPrint "FILES"
     DetailPrint "-----"
-    File /r ..\..\*.* 
+    File /r ..\..\*.*
+
+    IfFileExists "$INSTDIR\TaylorDoConfig.exe" ConfigInstalled 0
+        DetailPrint "WARNING: TaylorDoConfig.exe was not included. Build it before compiling TaylorDoSetupFull.nsi."
+        Goto ConfigInstallCheckDone
+ConfigInstalled:
+        DetailPrint "TaylorDoConfig.exe installed"
+ConfigInstallCheckDone:
         ; /x '..\..\Download\TaylorDoSetup.exe' '..\Download\*.zip'
         ; /x '..\..\Commands\Install\TaylorDoSetup.exe' '..\..\Commands\Install\*.zip'
 
@@ -1032,10 +759,6 @@ SectionEnd
 Section "Update Startmenu" TaylorStartMenu
     SectionIn 1 2
 
-    ; SectionGetFlags ${TaylorTaskMgr} $0
-    SectionGetFlags 3 $0
-    IntOp $0 $0 & ${SF_SELECTED}
-
     ${If} $StateAllUsers == ${BST_CHECKED}
         SetShellVarContext all
     ${Else}
@@ -1071,6 +794,7 @@ Section "Update Startmenu" TaylorStartMenu
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptCommands.lnk" "$SYSDIR\explorer.exe" '-root, "$INSTDIR\src\Commands"'
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\ScriptsByDrive.lnk" "$SYSDIR\explorer.exe" '-root, "$ProductAppInstallDir\Scripts\ScriptsByDrive"'
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Configure TaylorDo.lnk" "$INSTDIR\TaylorDoConfig.exe"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
     !insertmacro MUI_STARTMENU_WRITE_END
 
@@ -1096,25 +820,6 @@ Section "Update Startmenu" TaylorStartMenu
     DetailPrint "--------------- end of shortcuts -----------------"
 
 NoShortcuts:
-
-SectionEnd
-
-; ///////////////////////////////////////////////////////
-; ////////////// Scheduler Task Scheduler //////////////
-Section "Enable in Task Scheduler" TaylorTaskMgr
-    SectionIn 1 2
-    ${If} $StateAllUsers == ${BST_CHECKED}
-        SetShellVarContext all
-    ${Else}
-        SetShellVarContext current
-    ${EndIf}
-
-    DetailPrint "Applying Task Scheduler detailed settings"
-    Call TaskSchedulerApply
-
-NoTaskSchedule:
-
-    DetailPrint "--------------- end of Task Scheduler -----------------"
 
 SectionEnd
 

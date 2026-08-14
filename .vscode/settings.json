@@ -36,5 +36,7 @@
     "search.useIgnoreFiles": true,
     "search.useGlobalIgnoreFiles": true,
     "search.useParentIgnoreFiles": true,
-    "function-explorer.hideFolders": false
+    "function-explorer.hideFolders": false,
+    "mydfrg.hoverEnabled": true,
+    "mydfrg.wordPredictionEnabled": true
 }

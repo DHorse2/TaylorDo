@@ -8,6 +8,7 @@
 # changes then make sure that your editor saves the file as a Unicode text file
 # (wide characters).
 
+// See the "Settings.MyD" file.
 
 # Debug setting. It is off by default (commented out). To activate it remove the
 # slashes.

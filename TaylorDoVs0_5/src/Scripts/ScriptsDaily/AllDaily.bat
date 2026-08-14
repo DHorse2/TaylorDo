@@ -14,6 +14,7 @@ cd /d "%~dp0"
 cd
 set /p VolumeName=<'..\..\VolumeType\VolumeTypeDev.txt'
 if not "!VolumeName!"=="SKIP"
+call "DevDaily.bat"
 cd /d "%~dp0"
 @cd ScriptsDaily
 @Echo ------------------------------------------------------

@@ -1,0 +1,33 @@
+# Script: DefragAnyComplexVolume
+/* Complex Volume */
+# MyDefrag v5.0 script Defrag Complex (Mixed or Any) Volume.
+Title('Display Settings')
+Description("Display settings for TaylorDo") 
+
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+
+SetVariable(MftZone, "!DevWordCaps!")
+
+!include "..\Volume\VolumeStatisticsDetailGet.MyDc"!
+SetStatisticsWindowText("!VolumeStatisticsSummary!")
+
+# RunProgram("..\Commands\WriteDateTime.bat LastVolume")
+SetVariable(ZoneStepDescription,"!VolumeLabel! !VolumeDescription! !!StartedWord!!ColonWord! !DateNow! !TimeNow! !StartingWord! after !RunTimeNow!.")
+
+# Xinclude "..\Display\DisplaySetZoneStep.MyDc"X
+
+SetVariable(ZoneStepDescription,'!ZoneStepDescription!
+Analyzing Volume.
+')
+!include "..\Display\DisplaySetZoneStep.MyDc"!
+/* ------------------------- */
+
+/* ------------------------- */
+#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+!include "..\Display\DisplaySetDateTimeCurrent.MyDc"!
+SetVariable(ZoneStepDescription,"!Description! !ComplexWordCaps! !VolumeWordCaps! !EndWord!!ColonWord! !DateNow! !TimeNow! !RunTimeNow!.")
+!include "..\Display\BannerDescriptionSet.MyDc"!
+#dgh@Z#  Appendlogfile("!LogFileName!", "!PeriodWord!")
+
+/* ------------------------- */
+# End. ;-) (Return to caller lovely nubes, only MyD's get executed.)
